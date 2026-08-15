@@ -1,0 +1,189 @@
+// ScholarAtlas data model.
+// Dev database: SQLite. Production target: PostgreSQL (swap provider + connection string).
+// NOTE: SQLite does not support Prisma enums, so enum-like fields are Strings backed by
+// TypeScript constants in src/lib/constants.ts.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Country {
+  code          String       @id // ISO 3166-1 alpha-2 (uppercase)
+  name          String       @unique
+  flag          String? // emoji flag
+  region        String? // e.g. "Europe", "Asia"
+  scholarships  Scholarship[]
+  universities  University[]
+}
+
+model University {
+  id            String        @id @default(cuid())
+  slug          String        @unique
+  name          String
+  countryCode   String
+  country       Country       @relation(fields: [countryCode], references: [code])
+  city          String?
+  about         String?
+  website       String?
+  logoText      String? // initials used for logo placeholder
+  color         String? // brand color used for logo placeholder
+  scholarships  Scholarship[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Scholarship {
+  id                    String    @id @default(cuid())
+  slug                  String    @unique
+  title                 String
+  description           String?
+
+  // Provider / host
+  provider              String
+  providerType          String    @default("UNIVERSITY") // ProviderType
+  universityId          String?
+  university            University? @relation(fields: [universityId], references: [id], onDelete: SetNull)
+  countryCode           String
+  country               Country   @relation(fields: [countryCode], references: [code])
+  city                  String?
+
+  // Academic profile (JSON arrays)
+  studyLevels           String    @default("[]") // StudyLevel[]
+  fields                String    @default("[]") // field slugs
+  degrees               String    @default("[]")
+
+  // Eligibility
+  eligibleNationalities String    @default("[]") // country codes; ["ALL"] = open to all
+
+  // Funding
+  fundingType           String    @default("PARTIAL") // FundingType
+  benefits              String    @default("[]") // BenefitKey[]
+  amount                String? // original amount text, e.g. "$1,500/month"
+  currency              String? // original currency code, e.g. "USD"
+  duration              String?
+
+  // Deadlines
+  deadline              DateTime?
+  deadlineTimezone      String? // e.g. "CET"
+
+  // Requirements
+  applicationFee        String? // "Free" or e.g. "USD 50"
+  languageRequirements  String    @default("[]") // JSON { ielts, toefl, noIelts, altProof, notRequired }
+  academicRequirements  String?
+  ageRequirements       String?
+  workExperience        String?
+  requiredDocuments     String    @default("[]") // DocumentKey[]
+  applicationSteps      String    @default("[]") // ordered steps
+
+  // Sources & links
+  officialUrl           String
+  sourceUrl             String?
+  featuredImage         String?
+
+  // Moderation & lifecycle
+  verificationStatus    String    @default("UNVERIFIED") // VerificationStatus
+  status                String    @default("ACTIVE") // ScholarshipStatus
+  lastVerifiedAt        DateTime?
+  isFeatured            Boolean   @default(false)
+  isTrending            Boolean   @default(false)
+  views                 Int       @default(0)
+
+  // Submission metadata (when created via the public submit form)
+  submittedByName       String?
+  submittedEmail        String?
+  submittedNote         String?
+
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  savedBy               SavedScholarship[]
+  reports               Report[]
+
+  @@index([countryCode])
+  @@index([fundingType])
+  @@index([status])
+  @@index([deadline])
+}
+
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  passwordHash      String
+  name              String?
+  role              String   @default("USER") // UserRole
+  emailVerified     Boolean  @default(false)
+
+  // Student profile (used for recommendations)
+  nationality        String?
+  countryOfResidence String?
+  degreeLevel        String?
+  fieldOfStudy       String?
+  gpa                String?
+  preferredDestination String?
+  ieltsStatus        String?
+  graduationYear     String?
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  saved             SavedScholarship[]
+  reports           Report[]
+  sessions          Session[]
+}
+
+model SavedScholarship {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scholarshipId String
+  scholarship   Scholarship @relation(fields: [scholarshipId], references: [id], onDelete: Cascade)
+  createdAt     DateTime    @default(now())
+
+  @@unique([userId, scholarshipId])
+  @@index([scholarshipId])
+}
+
+model Report {
+  id            String      @id @default(cuid())
+  scholarshipId String
+  scholarship   Scholarship @relation(fields: [scholarshipId], references: [id], onDelete: Cascade)
+  userId        String?
+  user          User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  reason        String
+  message       String?
+  status        String      @default("OPEN") // OPEN | RESOLVED
+  createdAt     DateTime    @default(now())
+
+  @@index([status])
+}
+
+model Article {
+  id                  String   @id @default(cuid())
+  slug                String   @unique
+  title               String
+  excerpt             String?
+  category            String
+  author              String
+  readingTime         Int
+  publishedAt         DateTime
+  image               String?
+  body                String // plain-text / lightweight markdown
+  relatedScholarships String   @default("[]") // JSON array of scholarship slugs
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([token])
+  @@index([userId])
+}
