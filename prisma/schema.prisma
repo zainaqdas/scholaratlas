@@ -1,14 +1,14 @@
 // ScholarAtlas data model.
-// Dev database: SQLite. Production target: PostgreSQL (swap provider + connection string).
-// NOTE: SQLite does not support Prisma enums, so enum-like fields are Strings backed by
-// TypeScript constants in src/lib/constants.ts.
+// Database: PostgreSQL (serverless — e.g. Neon on Vercel).
+// NOTE: enum-like fields are Strings backed by TypeScript constants in
+// src/lib/constants.ts.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

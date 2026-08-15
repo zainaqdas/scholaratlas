@@ -9,19 +9,20 @@ A modern, production-quality web application for discovering, searching, filteri
 - **Frontend:** Next.js (App Router) + React 19 + TypeScript
 - **Styling:** Tailwind CSS v4 + shadcn-style UI primitives (Radix)
 - **Backend:** Next.js Server Actions + API routes
-- **Database:** SQLite (dev) / PostgreSQL (production target) via Prisma ORM
+- **Database:** PostgreSQL (serverless, e.g. Neon) via Prisma ORM
 - **Auth:** Session-based (hashed passwords with bcryptjs, cookie sessions)
 - **Search:** PostgreSQL-ready filter abstraction over Prisma (in-memory ranking for the current dataset; move ranking to pg_trgm/full-text at scale)
 
 ## Getting Started
 
 ```bash
-npm install
-npx prisma generate
-npx prisma db push      # creates the SQLite dev database
+npm install             # runs prisma generate via postinstall
+npx prisma db push      # creates the schema on the DATABASE_URL database
 npm run seed            # loads demo data (72 scholarships, 52 countries, 42 universities, 8 articles)
 npm run dev             # http://localhost:3000
 ```
+
+`DATABASE_URL` is read from `.env` (PostgreSQL connection string — Neon, Vercel Postgres, etc.).
 
 ## Demo accounts
 
@@ -64,9 +65,14 @@ src/
 - Statistics on the homepage are computed from the database, not hardcoded.
 - Deadlines preserve the original date/time/timezone; countdowns are computed from actual timestamps.
 
-## Moving to production
+## Deploying to Vercel
 
-1. Swap the SQLite datasource for PostgreSQL in `prisma/schema.prisma` and `DATABASE_URL`.
-2. Run `npx prisma migrate deploy` and enable `pg_trgm` for fuzzy search.
-3. Move ranking/pagination into SQL (see notes in `src/lib/search.ts`).
-4. Wire real email (alerts/verification) and object storage for logos.
+1. Push the repo to GitHub (already done for this project).
+2. In Vercel: **Import Project** from the GitHub repo.
+3. Add env vars: `DATABASE_URL` (PostgreSQL connection string), `SESSION_SECRET`, `NEXT_PUBLIC_APP_URL`.
+4. Deploy. The `postinstall` script runs `prisma generate` during the Vercel build.
+
+## Scaling notes
+
+- Enable `pg_trgm` on PostgreSQL for fuzzy search, and move ranking/pagination into SQL (see notes in `src/lib/search.ts`).
+- Wire real email (alerts/verification) and object storage for logos.
