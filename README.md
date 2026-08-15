@@ -72,6 +72,18 @@ src/
 3. Add env vars: `DATABASE_URL` (PostgreSQL connection string), `SESSION_SECRET`, `NEXT_PUBLIC_APP_URL`.
 4. Deploy. The `postinstall` script runs `prisma generate` during the Vercel build.
 
+## Importing real data (EURAXESS)
+
+The repo ships an incremental importer for the public [EURAXESS](https://euraxess.ec.europa.eu/job-feed) job feed — the European Commission's researcher-mobility portal. It stays on the robots.txt-allowed path (the feed itself), normalizes each posting into the ScholarAtlas model, dedupes by source URL, and inserts new listings as **PENDING** for admin review.
+
+```bash
+npm run import:euraxess                # fetch latest postings, insert new ones as PENDING
+npm run import:euraxess -- --limit 10  # cap inserts (testing)
+npm run import:euraxess -- --dry-run   # fetch + report only, no writes
+```
+
+Run it on a schedule (e.g. daily) to grow the catalogue with new postings. Imported records appear in the admin dashboard under **Pending** — approve or enrich them there. Fields the feed doesn't provide (country, deadline, funding) stay "Not specified" rather than being invented.
+
 ## Scaling notes
 
 - Enable `pg_trgm` on PostgreSQL for fuzzy search, and move ranking/pagination into SQL (see notes in `src/lib/search.ts`).

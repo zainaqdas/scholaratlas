@@ -323,13 +323,15 @@ export const COUNTRIES: CountryDef[] = [
   { code: "UA", name: "Ukraine", flag: "🇺🇦", region: "Europe" },
 ];
 
-export const countryByCode = (code: string) =>
-  COUNTRIES.find((c) => c.code === code.toUpperCase());
+// Country helpers are null-safe: imported listings may not have a country yet,
+// in which case the UI renders "Not specified" rather than inventing one.
+export const countryByCode = (code: string | null | undefined) =>
+  code ? COUNTRIES.find((c) => c.code === code.toUpperCase()) : undefined;
 
-export const countryName = (code: string) =>
-  countryByCode(code)?.name ?? code;
+export const countryName = (code: string | null | undefined) =>
+  countryByCode(code)?.name ?? (code || "Not specified");
 
-export const countryFlag = (code: string) =>
+export const countryFlag = (code: string | null | undefined) =>
   countryByCode(code)?.flag ?? "🌍";
 
 export const DEFAULT_COUNTRIES = COUNTRIES;

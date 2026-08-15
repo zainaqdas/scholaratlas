@@ -82,7 +82,10 @@ async function getHomeData() {
       }),
     ]);
 
-  const countryStats = new Map(topCountries.map((c) => [c.countryCode, c._count._all]));
+  const countryStats = new Map<string, number>();
+  for (const c of topCountries) {
+    if (c.countryCode) countryStats.set(c.countryCode, c._count._all);
+  }
 
   return { stats, featured, trending, recent, deadlines, universities, resources, countryStats };
 }

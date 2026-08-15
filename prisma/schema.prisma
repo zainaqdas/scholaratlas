@@ -48,8 +48,8 @@ model Scholarship {
   providerType          String    @default("UNIVERSITY") // ProviderType
   universityId          String?
   university            University? @relation(fields: [universityId], references: [id], onDelete: SetNull)
-  countryCode           String
-  country               Country   @relation(fields: [countryCode], references: [code])
+  countryCode           String? // nullable: imported listings may lack a country
+  country               Country?  @relation(fields: [countryCode], references: [code])
   city                  String?
 
   // Academic profile (JSON arrays)
