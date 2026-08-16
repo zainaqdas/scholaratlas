@@ -84,6 +84,28 @@ npm run import:euraxess -- --dry-run   # fetch + report only, no writes
 
 Run it on a schedule (e.g. daily) to grow the catalogue with new postings. Imported records appear in the admin dashboard under **Pending** — approve or enrich them there. Fields the feed doesn't provide (country, deadline, funding) stay "Not specified" rather than being invented.
 
+## Importing real data (Campus China)
+
+[campuschina.org](https://www.campuschina.org) — the China Scholarship Council's official portal — is protected by a JavaScript anti-bot challenge (RiverSecurity-style WAF, returns HTTP 412 to plain requests). The repo ships a [Scrapling](https://github.com/D4Vinci/Scrapling)-based scraper that solves the challenge in a real (stealth-patched) browser and reuses the solved session across the crawl:
+
+```bash
+cd scrapers/campuschina
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt   # scrapling, patchright, curl_cffi
+playwright install chromium        # (or: patchright install chromium)
+python scrape.py                   # solves the challenge, crawls, writes output.json
+```
+
+Then import the crawled records into the database:
+
+```bash
+npm run import:campuschina                  # insert new listings as PENDING
+npm run import:campuschina -- --dry-run     # report only, no writes
+npm run import:campuschina -- --file path/to/output.json
+```
+
+The scraper is intentionally slow and polite (long cooldowns between requests — the WAF throttles by IP). The committed `scrapers/campuschina/output.json` contains the last successful crawl's records. As with EURAXESS, imported records land in the admin dashboard under **Pending** for review; nothing is published automatically.
+
 ## Scaling notes
 
 - Enable `pg_trgm` on PostgreSQL for fuzzy search, and move ranking/pagination into SQL (see notes in `src/lib/search.ts`).
