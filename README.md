@@ -152,6 +152,19 @@ How it works and what to know:
 - `officialUrl` stays `null` (UI shows "Check Official Provider") for schools CUCAS no longer lists programs for, and for programs not on CUCAS's current site — no fabricated links.
 - As of the 2026-08-16 crawl: **~984 of 2,581 records** carry a real CUCAS application URL + deadline (42 universities); the rest remain PENDING for admin review.
 
+### Other China sources (scholarship-level)
+
+Beyond CUCAS's program-level listings, two accessible aggregators add **scholarship-level** China opportunities (government/provincial/university programs with deadlines), all imported as PENDING/UNVERIFIED:
+
+```bash
+npm run import:wemakescholars    # ~15 China gov/provincial scholarships (Beijing, Chongqing, Guangdong, MOFCOM, CSC programs…) with official source links
+npm run import:cscouncil         # ~260 per-university CSC scholarship pages; UNVERIFIED, links to the official CSC portal where found
+```
+
+- **wemakescholars.com** — structured fields (deadline, provider, funding type) and a real official link when the page carries one (e.g. `english.beijing.gov.cn`, `sie.tju.edu.cn`, `mofcom.gov.cn`, `campuschina.org`).
+- **chinesescholarshipcouncil.com** — third-party per-university CSC pages. Deadlines are generic ("30 April Each Year") and content is SEO-style, so these are strictly UNVERIFIED with `sourceUrl` preserved; ~27 carry the official `studyinchina.csc.edu.cn` application portal as `officialUrl`.
+- Both importers dedupe by source URL (idempotent) and skip non-scholarship pages (results, guides, postdoc vacancies).
+
 ## Scaling notes
 
 - Enable `pg_trgm` on PostgreSQL for fuzzy search, and move ranking/pagination into SQL (see notes in `src/lib/search.ts`).
