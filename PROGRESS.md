@@ -16,6 +16,7 @@
 | 2026-08-16 | **CUCAS URL/deadline backfill + EURAXESS job separation** — per-school filtered crawl (984 records enriched); added `recordType` (SCHOLARSHIP vs JOB) so EURAXESS job postings never mix into the scholarship catalogue | `eb0f4ce` |
 | 2026-08-16 | **wemakescholars + chinesescholarshipcouncil importers** — 15 gov/provincial + 263 per-university CSC records | `838e5fd` |
 | 2026-08-16 | **Global CUCAS listing crawl + dedupe hardening** — completed the Chinese catalogue (see §3); zero duplicates | `32e142c` |
+| 2026-08-16 | **US/UK/EU importer (wemakescholars)** — 435 real scholarships across 14 destination countries with deadlines + official links; country re-assignment from detail pages; approved | — |
 | 2026-08-16 | **This progress report** | — |
 
 ---
@@ -25,8 +26,8 @@
 ### Totals
 | Metric | Count |
 |---|---|
-| Total scholarship records | 2,947 |
-| **Active (public) scholarships** | **2,945** |
+| Total scholarship records | 3,382 |
+| **Active (public) scholarships** | **3,380** |
 | Pending review | 0 |
 | Jobs (EURAXESS, admin-only by design) | 20 |
 | Universities | 111 |
@@ -37,22 +38,30 @@
 |---|---|---|
 | CUCAS (Kaggle snapshots, 2019–2023) | 2,581 | Program-level China listings |
 | chinesescholarshipcouncil.com | 262 | Per-university CSC pages, UNVERIFIED |
-| wemakescholars.com | 14 | China gov/provincial scholarships |
+| wemakescholars.com (US/UK/EU) | 435 | Real scholarships across 14 destination countries |
+| wemakescholars.com (China) | 14 | China gov/provincial scholarships |
 | CampusChina / CSC official | 10 | Real CSC programs from campuschina.org |
-| Seed demo data | ~78 | Original demo records (some counted above) |
+| Seed demo data | ~80 | Original demo records (some counted above) |
 
 ### By country (active scholarships)
 | Country | Count |
 |---|---|
 | 🇨🇳 China | 2,858 |
-| 🇺🇸 USA | 8 |
-| 🇩🇪 Germany | 7 |
-| 🇬🇧 UK | 6 |
-| 🇦🇺 Australia | 4 |
-| 🇨🇦 Canada | 3 |
-| 🇫🇷 France | 3 |
-| 🇳🇱 Netherlands | 3 |
-| Others (demo) | ~50 |
+| 🇨🇳 China | 2,858 |
+| 🇺🇸 USA | 220 |
+| 🇬🇧 UK | 71 |
+| 🇩🇪 Germany | 58 |
+| 🇦🇺 Australia | 38 |
+| 🇨🇦 Canada | 22 |
+| 🇫🇷 France | 18 |
+| 🇳🇴 Norway | 11 |
+| 🇳🇱 Netherlands | 8 |
+| 🇮🇹 Italy | 7 |
+| 🇫🇮 Finland | 6 |
+| 🇨🇭 Switzerland | 6 |
+| 🇮🇪 Ireland | 5 |
+| 🇯🇵 Japan | 5 |
+| Others | ~30 |
 
 ### By funding
 | Funding type | Count |
@@ -154,9 +163,9 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 | Programs that **left CUCAS's current catalog** (from 2019–2023 snapshots) | ~1,095 | CUCAS no longer lists these programs anywhere | University official sites only; no third-party aggregator mirrors them |
 | cscouncil records without a verifiable official portal link | ~235 | Their source pages don't reference the official CSC portal | Leave as "Check Official Provider" (honest) — do NOT fabricate |
 
-### Gap B — Non-China real data (biggest content gap)
-- **32 of 33 non-China countries are still seed demo data only** (US 8, DE 7, GB 6, AU 4… all tiny/demo).
-- No real USA/UK/EU scholarship importers yet. This is the largest gap for a "worldwide" platform.
+### Gap B — Non-China real data ✅ partially closed
+- **435 real US/UK/EU scholarships imported** (wemakescholars country pages): US 220, UK 71, DE 58, AU 38, CA 22, FR 18, NO 11, NL 8, IT 7, FI 6, CH 6, IE 5 + a few more — all with real deadlines and official source links where available.
+- Still missing: dedicated EU sources (DAAD was unreachable from this environment), UK government (Chevening/FCDO), and more US depth (EducationUSA detail pages 301-loop).
 
 ### Gap C — Verification depth
 - 2,857 records are `RECENTLY_UPDATED` (bulk-approval), only 68 deeply `VERIFIED`.
@@ -174,7 +183,7 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 ## 5. What's Next (recommended order)
 
 ### Short term
-1. **Non-China data** — build importers for real US/UK/DE/EU scholarship sources (e.g. ScholarshipPortal, DAAD, Chevening/FCDO, Government of Canada, AusStudy, aggregators with permissive robots). This is the single biggest content gap.
+1. **Non-China data** — extend beyond wemakescholars: DAAD (was unreachable from this environment — retry from a different host/VPN), EducationUSA (detail pages 301-loop — try a browser), UK FCDO/Chevening, and other aggregators. Also consider building a **second aggregator** (e.g. a scholarship-level source) to cross-check coverage.
 2. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + enrichment (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
 3. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
 

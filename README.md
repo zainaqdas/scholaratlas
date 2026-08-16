@@ -173,6 +173,22 @@ npm run import:cscouncil         # ~260 per-university CSC scholarship pages; UN
 - **chinesescholarshipcouncil.com** — third-party per-university CSC pages. Deadlines are generic ("30 April Each Year") and content is SEO-style, so these are strictly UNVERIFIED with `sourceUrl` preserved; ~27 carry the official `studyinchina.csc.edu.cn` application portal as `officialUrl`.
 - Both importers dedupe by source URL (idempotent) and skip non-scholarship pages (results, guides, postdoc vacancies).
 
+### US/UK/EU real data (wemakescholars)
+
+Beyond China, the catalogue now carries **435 real US/UK/EU scholarships** from wemakescholars' country landing pages (robots-permissive, static HTML, no WAF):
+
+```bash
+npm run import:wms-global            # crawl all 14 destination countries (~435 records)
+npm run import:wms-global -- --countries us,gb,de   # subset
+npm run import:wms-global -- --dry-run              # report only
+npm run fix:wms-countries            # re-assign countryCode from the detail page's "taken at" field
+```
+
+- Country pages: `/scholarships-to-study-in-{country}-for-international-students?page=N` (US 219, UK 138, DE 139, FR 119, CA 119, AU 119 + 9 more EU countries; sidebars duplicate entries across countries, deduped by source URL).
+- Detail pages carry structured fields: Deadline, Provider, Funding Type, Eligible Degrees, Eligible Nationalities, "Scholarship can be taken at" — plus the official source link where one exists.
+- Country re-assignment pass (`fix:wms-countries`) corrects records that were first seen on the wrong country page, using the "taken at" field with negation handling ("except Australia", "outside the US").
+- Imported as PENDING/UNVERIFIED, deduped by source URL (idempotent).
+
 ## Scaling notes
 
 - Enable `pg_trgm` on PostgreSQL for fuzzy search, and move ranking/pagination into SQL (see notes in `src/lib/search.ts`).
