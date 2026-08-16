@@ -106,6 +106,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
   const similar = await prisma.scholarship.findMany({
     where: {
       status: "ACTIVE",
+      recordType: "SCHOLARSHIP",
       id: { not: s.id },
       OR: [{ countryCode: s.countryCode }, { fundingType: s.fundingType }],
     },
@@ -145,6 +146,11 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
       <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
         <div>
           <div className="flex flex-wrap items-center gap-2">
+            {s.recordType === "JOB" && (
+              <Badge variant="outline" title="Research position / job vacancy, not a scholarship">
+                Job Listing
+              </Badge>
+            )}
             {s.verificationStatus === "VERIFIED" && <VerificationBadge status={s.verificationStatus} />}
             {hasNoIelts(s) && <Badge variant="info">No IELTS</Badge>}
             {isOpenToAll(s) && <Badge variant="accent">Open to all nationalities</Badge>}

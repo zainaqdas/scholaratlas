@@ -167,6 +167,10 @@ function normalize(item: FeedItem, importedAt: Date) {
     provider: provider || "EURAXESS",
     description,
     studyLevels: JSON.stringify(levels),
+    // EURAXESS is a jobs/research-positions feed (PhD vacancies, postdocs,
+    // professorships), not scholarship funding — keep it out of the
+    // scholarship catalogue and treat it as a separate "job" record type.
+    recordType: "JOB",
     status: "PENDING",
     verificationStatus: "UNVERIFIED",
     submittedNote: `Imported from EURAXESS RSS feed (job ${guid}) on ${importedAt.toISOString().slice(0, 10)}`,

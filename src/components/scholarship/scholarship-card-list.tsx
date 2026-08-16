@@ -46,6 +46,7 @@ export function ScholarshipCardList({ scholarship: s, saved = false }: CardProps
           </h3>
         </Link>
         <div className="mt-2 flex flex-wrap items-center gap-1.5">
+          {s.recordType === "JOB" && <Badge variant="outline">Job Listing</Badge>}
           {levels.map((level) => (
             <Badge key={level} variant="secondary">
               {level}

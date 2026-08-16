@@ -48,25 +48,25 @@ const FLOAT_CARDS = [
 async function getHomeData() {
   const [stats, featured, trending, recent, deadlines, universities, resources, topCountries] =
     await Promise.all([
-      prisma.scholarship.count({ where: { status: "ACTIVE" } }),
+      prisma.scholarship.count({ where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } }),
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE", isFeatured: true },
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", isFeatured: true },
         include: { university: true },
         take: 6,
       }),
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE", isTrending: true },
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", isTrending: true },
         include: { university: true },
         take: 6,
       }),
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE" },
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
         include: { university: true },
         orderBy: { createdAt: "desc" },
         take: 6,
       }),
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE", deadline: { gte: new Date() } },
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", deadline: { gte: new Date() } },
         orderBy: { deadline: "asc" },
         take: 8,
         include: { university: true },
@@ -75,7 +75,7 @@ async function getHomeData() {
       prisma.article.findMany({ orderBy: { publishedAt: "desc" }, take: 3 }),
       prisma.scholarship.groupBy({
         by: ["countryCode"],
-        where: { status: "ACTIVE" },
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
         _count: { _all: true },
         orderBy: { _count: { countryCode: "desc" } },
         take: 8,

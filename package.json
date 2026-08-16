@@ -11,6 +11,7 @@
     "import:euraxess": "tsx scripts/import-euraxess.ts",
     "import:campuschina": "tsx scripts/import-campuschina.ts",
     "import:cucas": "tsx scripts/import-cucas.ts",
+    "enrich:cucas": "tsx scripts/enrich-cucas.ts",
     "postinstall": "prisma generate"
   },
   "engines": {

@@ -30,7 +30,7 @@ export default async function CountryPage({ params }: PageProps) {
 
   const [scholarships, universities, user] = await Promise.all([
     prisma.scholarship.findMany({
-      where: { status: "ACTIVE", countryCode: country.code },
+      where: { status: "ACTIVE", recordType: "SCHOLARSHIP", countryCode: country.code },
       include: { university: true },
       orderBy: { views: "desc" },
       take: 12,

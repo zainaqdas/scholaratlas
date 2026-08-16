@@ -22,6 +22,7 @@ export interface SearchFilters {
   languages?: string[]; // language filter slugs
   fee?: string; // "free" | "required"
   featuredOnly?: boolean;
+  recordType?: "SCHOLARSHIP" | "JOB" | "ALL"; // default SCHOLARSHIP (jobs excluded from the catalogue)
   sort?: SortKey;
   page?: number;
   status?: string; // default ACTIVE
@@ -63,6 +64,9 @@ function deadlineWindowRange(deadline: string): { gte?: Date; lte?: Date } | nul
 export async function searchScholarships(filters: SearchFilters = {}): Promise<SearchResult> {
   const where: Prisma.ScholarshipWhereInput = {
     status: filters.status ?? "ACTIVE",
+    // The catalogue is scholarships only; research/PhD job listings (e.g.
+    // EURAXESS) are a separate record type and excluded by default.
+    recordType: filters.recordType === "ALL" ? undefined : (filters.recordType ?? "SCHOLARSHIP"),
   };
 
   if (filters.q?.trim()) {

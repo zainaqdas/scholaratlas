@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function FieldsPage() {
   const rows = await prisma.scholarship.findMany({
-    where: { status: "ACTIVE" },
+    where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
     select: { fields: true },
   });
 

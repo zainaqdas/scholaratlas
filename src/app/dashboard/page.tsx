@@ -23,7 +23,7 @@ export default async function DashboardPage() {
       take: 8,
     }),
     prisma.scholarship.findMany({
-      where: { status: "ACTIVE" },
+      where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
       include: { university: true },
       take: 60,
     }),

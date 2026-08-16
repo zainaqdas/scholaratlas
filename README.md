@@ -84,6 +84,8 @@ npm run import:euraxess -- --dry-run   # fetch + report only, no writes
 
 Run it on a schedule (e.g. daily) to grow the catalogue with new postings. Imported records appear in the admin dashboard under **Pending** — approve or enrich them there. Fields the feed doesn't provide (country, deadline, funding) stay "Not specified" rather than being invented.
 
+**EURAXESS is a jobs feed, not scholarships** (PhD positions, postdocs, professorships). Imported records are tagged `recordType: "JOB"` and are **kept out of the scholarship catalogue**: public pages (home, search, countries, fields, deadlines, recommendations) filter `recordType = "SCHOLARSHIP"` by default, and job records get a **"Job Listing"** badge if they ever surface. Admins still see them in `/admin`. This separation is deliberate — a research vacancy is a different product than a funding opportunity.
+
 ## Importing real data (Campus China)
 
 [campuschina.org](https://www.campuschina.org) — the China Scholarship Council's official portal — is protected by a JavaScript anti-bot challenge (RiverSecurity-style WAF, returns HTTP 412 to plain requests). The repo ships a [Scrapling](https://github.com/D4Vinci/Scrapling)-based scraper that solves the challenge in a real (stealth-patched) browser and reuses the solved session across the crawl:
@@ -129,6 +131,26 @@ The importer:
 - Inserts everything as **PENDING/UNVERIFIED** — nothing public until an admin approves it in `/admin`.
 
 These listings have no per-program application URL (the dataset doesn't include one), so `officialUrl` is `null` and the UI shows **"Check Official Provider"** instead of an apply link — the platform never invents application links. Kaggle sources: [May 2019](https://www.kaggle.com/datasets/mcmuralishclint96/china-scholarship-data-may-2019), [Aug 2023](https://www.kaggle.com/datasets/sakchaisaehoei/china-scholarship-data-2023).
+
+### Backfilling official URLs + deadlines from the live CUCAS site
+
+The Kaggle snapshots have no application URLs or deadlines. We backfill both from the live site:
+
+```bash
+# 1. crawl CUCAS (needs a browser; solves the Aliyun WAF via scrapling's stealth fetcher)
+scrapers/cucas/.venv/bin/python scrapers/cucas/enrich_cucas.py   # writes scrapers/cucas/enriched.json
+# 2. apply matches to the DB
+npm run enrich:cucas                  # set officialUrl + deadline where a program matches
+npm run enrich:cucas -- --dry-run     # report only
+```
+
+How it works and what to know:
+
+- The crawler fetches each school's program listing (paginated) and **one** program detail page per school — CUCAS deadlines are school-wide, so one detail fetch covers every program at that school.
+- CUCAS's school filter is flaky: for some schools the server ignores it and serves a fixed "featured programs" fallback (all URLs belong to *other* schools). The crawler detects this (URL school slug ≠ target school), retries with backoff, and aborts rather than emit contaminated data.
+- The matcher only assigns URLs whose school slug matches the record's university, and skips entries whose URL doesn't match their school name — a wrong application link is worse than none. **Zero school-mismatched URLs are ever applied.**
+- `officialUrl` stays `null` (UI shows "Check Official Provider") for schools CUCAS no longer lists programs for, and for programs not on CUCAS's current site — no fabricated links.
+- As of the 2026-08-16 crawl: **~984 of 2,581 records** carry a real CUCAS application URL + deadline (42 universities); the rest remain PENDING for admin review.
 
 ## Scaling notes
 

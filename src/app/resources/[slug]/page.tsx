@@ -40,7 +40,7 @@ export default async function ArticlePage({ params }: PageProps) {
   const [related, user] = await Promise.all([
     relatedSlugs.length
       ? prisma.scholarship.findMany({
-          where: { slug: { in: relatedSlugs }, status: "ACTIVE" },
+          where: { slug: { in: relatedSlugs }, status: "ACTIVE", recordType: "SCHOLARSHIP" },
           include: { university: true },
         })
       : Promise.resolve([]),

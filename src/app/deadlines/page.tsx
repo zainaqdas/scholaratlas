@@ -18,7 +18,7 @@ export default async function DeadlinesPage() {
   const addDays = (n: number) => new Date(now.getTime() + n * 24 * 60 * 60 * 1000);
 
   const upcoming = await prisma.scholarship.findMany({
-    where: { status: "ACTIVE", deadline: { gte: now } },
+    where: { status: "ACTIVE", recordType: "SCHOLARSHIP", deadline: { gte: now } },
     include: { university: true },
     orderBy: { deadline: "asc" },
     take: 60,

@@ -85,6 +85,11 @@ model Scholarship {
   sourceUrl             String?
   featuredImage         String?
 
+  // Record type: "SCHOLARSHIP" (funding/application opportunities) or "JOB"
+  // (research positions, PhD vacancies, postdocs, professorships — e.g. the
+  // EURAXESS RSS feed). Jobs are kept out of the scholarship catalogue UI.
+  recordType            String    @default("SCHOLARSHIP") // RecordType
+
   // Moderation & lifecycle
   verificationStatus    String    @default("UNVERIFIED") // VerificationStatus
   status                String    @default("ACTIVE") // ScholarshipStatus

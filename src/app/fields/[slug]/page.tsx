@@ -30,6 +30,7 @@ export default async function FieldPage({ params }: PageProps) {
     prisma.scholarship.findMany({
       where: {
         status: "ACTIVE",
+        recordType: "SCHOLARSHIP",
         fields: { contains: slug },
       },
       include: { university: true },
