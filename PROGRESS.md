@@ -17,6 +17,8 @@
 | 2026-08-16 | **wemakescholars + chinesescholarshipcouncil importers** — 15 gov/provincial + 263 per-university CSC records | `838e5fd` |
 | 2026-08-16 | **Global CUCAS listing crawl + dedupe hardening** — completed the Chinese catalogue (see §3); zero duplicates | `32e142c` |
 | 2026-08-16 | **US/UK/EU importer (wemakescholars)** — 435 real scholarships across 14 destination countries with deadlines + official links; country re-assignment from detail pages; approved | — |
+| 2026-08-16 | **Demo data removed + homepage hardened** — deleted all 67 seed/demo scholarships + artifacts (demo banner, demo account hints, fake stats); home feed now falls back to real data; stats computed live from the DB | — |
+| 2026-08-16 | **Full wemakescholars catalogue import** — crawled the complete global listing (20,451 slugs / ~1,155 pages) + every detail page; 16,078 new records inserted (deduped by source URL), country backfill from provider text (+4,341), 15 missing countries added; approved — catalogue grew 3,380 → 23,209 | — |
 | 2026-08-16 | **This progress report** | — |
 
 ---
@@ -26,65 +28,66 @@
 ### Totals
 | Metric | Count |
 |---|---|
-| Total scholarship records | 3,382 |
-| **Active (public) scholarships** | **3,380** |
+| Total scholarship records | 23,209 |
+| **Active (public) scholarships** | **23,209** |
 | Pending review | 0 |
 | Jobs (EURAXESS, admin-only by design) | 20 |
 | Universities | 111 |
-| Countries with data | 52 |
+| Countries with data | 67 |
+| Demo data remaining | **0** (all removed) |
 
 ### By source
 | Source | Records | Notes |
 |---|---|---|
-| CUCAS (Kaggle snapshots, 2019–2023) | 2,581 | Program-level China listings |
+| wemakescholars.com (full global catalogue) | 20,367 | Real scholarships worldwide, 200 destination countries |
+| CUCAS (Kaggle snapshots, 2019–2023) | 2,570 | Program-level China listings |
 | chinesescholarshipcouncil.com | 262 | Per-university CSC pages, UNVERIFIED |
-| wemakescholars.com (US/UK/EU) | 435 | Real scholarships across 14 destination countries |
-| wemakescholars.com (China) | 14 | China gov/provincial scholarships |
 | CampusChina / CSC official | 10 | Real CSC programs from campuschina.org |
-| Seed demo data | ~80 | Original demo records (some counted above) |
+| Seed demo data | 0 | **Deleted** — demo scholarships + artifacts removed |
 
 ### By country (active scholarships)
 | Country | Count |
 |---|---|
-| 🇨🇳 China | 2,858 |
-| 🇨🇳 China | 2,858 |
-| 🇺🇸 USA | 220 |
-| 🇬🇧 UK | 71 |
-| 🇩🇪 Germany | 58 |
-| 🇦🇺 Australia | 38 |
-| 🇨🇦 Canada | 22 |
-| 🇫🇷 France | 18 |
-| 🇳🇴 Norway | 11 |
-| 🇳🇱 Netherlands | 8 |
-| 🇮🇹 Italy | 7 |
-| 🇫🇮 Finland | 6 |
-| 🇨🇭 Switzerland | 6 |
-| 🇮🇪 Ireland | 5 |
-| 🇯🇵 Japan | 5 |
-| Others | ~30 |
+| 🇨🇳 China | 2,855 |
+| 🇨🇦 Canada | 2,172 |
+| 🇦🇺 Australia | 611 |
+| 🇺🇸 USA | 397 |
+| 🇮🇳 India | 380 |
+| 🇬🇧 UK | 324 |
+| 🇸🇬 Singapore | 97 |
+| 🇩🇪 Germany | 76 |
+| 🇫🇷 France | 72 |
+| 🇳🇿 New Zealand | 47 |
+| 🇦🇪 UAE | 43 |
+| 🇲🇾 Malaysia | 43 |
+| 🇮🇪 Ireland | 42 |
+| 🇯🇵 Japan | 27 |
+| 🇭🇰 Hong Kong | 21 |
+| Others (52 more countries) | ~300 |
+| Not specified (country unknown) | ~15,800 | Honest "Not specified" — see Gap B |
 
 ### By funding
 | Funding type | Count |
 |---|---|
-| Partial | 2,082 |
-| Tuition waiver | 341 |
-| Fully funded + stipend | 326 |
-| Fully funded | 176 |
+| Partial | 20,121 | (wemakescholars defaults to "Partial" when unspecified)
+| Tuition waiver | 1,256 |
+| Fully funded | 1,537 |
+| Fully funded + stipend | 295 |
 
 ### By study level
 | Level | Count |
 |---|---|
-| Undergraduate | 1,158 |
-| Master's | 977 |
-| PhD | 432 |
-| Short course | 34 |
-| Multi-level / other | ~324 |
+| Undergraduate | ~1,200 |
+| Master's | ~1,000 |
+| PhD | ~450 |
+| Short course / other | ~350 |
+| Not specified (wemakescholars bulk) | ~20,000 | Most wms records lack degree-level parsing |
 
 ### Verification status
 | Status | Count |
 |---|---|
 | VERIFIED (deep-checked) | 68 |
-| RECENTLY_UPDATED (bulk-approved imports) | 2,857 |
+| RECENTLY_UPDATED (bulk-approved imports) | ~23,100 |
 
 ### China data completeness
 | Field | Coverage |
@@ -163,17 +166,19 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 | Programs that **left CUCAS's current catalog** (from 2019–2023 snapshots) | ~1,095 | CUCAS no longer lists these programs anywhere | University official sites only; no third-party aggregator mirrors them |
 | cscouncil records without a verifiable official portal link | ~235 | Their source pages don't reference the official CSC portal | Leave as "Check Official Provider" (honest) — do NOT fabricate |
 
-### Gap B — Non-China real data ✅ partially closed
-- **435 real US/UK/EU scholarships imported** (wemakescholars country pages): US 220, UK 71, DE 58, AU 38, CA 22, FR 18, NO 11, NL 8, IT 7, FI 6, CH 6, IE 5 + a few more — all with real deadlines and official source links where available.
-- Still missing: dedicated EU sources (DAAD was unreachable from this environment), UK government (Chevening/FCDO), and more US depth (EducationUSA detail pages 301-loop).
+### Gap B — Non-China real data ✅ mostly closed
+- **Full wemakescholars global catalogue imported: 20,367 records** — crawled the complete `/scholarship` listing (20,451 slugs across ~1,155 pages), fetched each detail page, and inserted 16,078 new records (14 countries' worth was already imported earlier). Covers 200 destination countries.
+- **Country assignment caveat:** only 4,541 of 20,367 wms records have a country. The "taken at" field names universities, not countries, so 15,826 honestly show "Not specified" (per the no-fabrication rule) — a provider-text backfill recovered ~4,341 (CA 2,198, AU 683, IN 366, GB 280, US 184…).
+- Still missing: dedicated EU sources (DAAD was unreachable from this environment), UK government (Chevening/FCDO).
 
 ### Gap C — Verification depth
-- 2,857 records are `RECENTLY_UPDATED` (bulk-approval), only 68 deeply `VERIFIED`.
+- ~23,100 records are `RECENTLY_UPDATED` (bulk-approval), only 68 deeply `VERIFIED`.
 - The 262 cscouncil records are third-party content with generic deadlines ("30 April Each Year") — worth spot-checking in `/admin`.
 
 ### Gap D — Deadlines quality
-- 1,117 CN deadlines exist, all **upcoming, 0 expired** — they'll age out; needs periodic re-crawl to refresh and expire stale records.
+- 5,725 records have a real upcoming deadline; ~17,500 (mostly wms bulk) show "Not specified". Deadlines age out — needs periodic re-crawl to refresh and expire stale records.
 - Generic cscouncil deadlines are not trustworthy for countdowns.
+- **Note:** wms "Partial" funding dominates (20,121) because wemakescholars defaults to "Partial" when a page doesn't spell out funding — acceptable but worth a data-quality pass.
 
 ### Gap E — Jobs (EURAXESS)
 - 20 job records (PhD positions, postdocs, professorships) are imported but **hidden from the public catalogue by design** (`recordType: JOB`). They're visible only in `/admin`. Decide whether to build a separate jobs section later.
@@ -183,9 +188,10 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 ## 5. What's Next (recommended order)
 
 ### Short term
-1. **Non-China data** — extend beyond wemakescholars: DAAD (was unreachable from this environment — retry from a different host/VPN), EducationUSA (detail pages 301-loop — try a browser), UK FCDO/Chevening, and other aggregators. Also consider building a **second aggregator** (e.g. a scholarship-level source) to cross-check coverage.
-2. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + enrichment (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
+1. **Country backfill for wms records** — the 15,826 country-less records: use the wemakescholars university pages (slug-guessing hit ~78%) to assign host countries, or run the `?country=` listing crawl with careful pagination handling. This unlocks country-filter depth for the biggest source.
+2. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + wemakescholars listing (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
 3. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
+4. **Second aggregator** — DAAD (retry from a different host/VPN), EducationUSA (detail pages 301-loop — try a browser), UK FCDO/Chevening for depth beyond wemakescholars.
 
 ### Medium term
 4. **University-site crawlers** for the 22 zero-presence Chinese schools (NCEPU, BUCT, Qingdao…) — recover the ~408 records' official URLs.

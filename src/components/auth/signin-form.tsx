@@ -38,8 +38,7 @@ export function SignInForm({ next }: { next?: string }) {
         </Link>
       </p>
       <div className="rounded-lg bg-muted px-3 py-2.5 text-center text-xs text-muted-foreground">
-        Demo account: <code className="font-medium">student@scholaratlas.dev</code> /{" "}
-        <code className="font-medium">scholaratlas-demo</code>
+        Save scholarships, get deadline alerts, and see personalized recommendations when you sign in.
       </div>
     </form>
   );

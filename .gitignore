@@ -18,6 +18,10 @@
 /out/
 
 # production
+
+# import checkpoints (large, resumable artifacts)
+/data/wms-global-details.jsonl
+/data/wms-global-slugs.json
 /build
 
 # misc

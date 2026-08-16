@@ -46,7 +46,7 @@ const FLOAT_CARDS = [
 ];
 
 async function getHomeData() {
-  const [stats, featured, trending, recent, deadlines, universities, resources, topCountries] =
+  const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries] =
     await Promise.all([
       prisma.scholarship.count({ where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } }),
       prisma.scholarship.findMany({
@@ -73,6 +73,9 @@ async function getHomeData() {
       }),
       prisma.university.count(),
       prisma.article.findMany({ orderBy: { publishedAt: "desc" }, take: 3 }),
+      prisma.scholarship.count({
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", deadline: { gte: new Date() } },
+      }),
       prisma.scholarship.groupBy({
         by: ["countryCode"],
         where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
@@ -82,12 +85,43 @@ async function getHomeData() {
       }),
     ]);
 
+  // Featured/trending are admin-curated flags; fall back to real verified/recent
+  // data when none are set so the home feed never shows an empty section.
+  const featuredList =
+    featured.length > 0
+      ? featured
+      : await prisma.scholarship.findMany({
+          where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+          include: { university: true },
+          orderBy: { lastVerifiedAt: "desc" },
+          take: 6,
+        });
+  const trendingList =
+    trending.length > 0
+      ? trending
+      : await prisma.scholarship.findMany({
+          where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+          include: { university: true },
+          orderBy: [{ views: "desc" }, { createdAt: "desc" }],
+          take: 6,
+        });
+
   const countryStats = new Map<string, number>();
   for (const c of topCountries) {
     if (c.countryCode) countryStats.set(c.countryCode, c._count._all);
   }
 
-  return { stats, featured, trending, recent, deadlines, universities, resources, countryStats };
+  return {
+    stats,
+    featured: featuredList,
+    trending: trendingList,
+    recent,
+    deadlines,
+    universities,
+    resources,
+    activeDeadlines,
+    countryStats,
+  };
 }
 
 export const dynamic = "force-dynamic";
@@ -256,7 +290,7 @@ export default async function HomePage() {
             { value: formatCount(data.stats), label: "Scholarships" },
             { value: `${countryCount}+`, label: "Countries" },
             { value: `${universityCount}+`, label: "Universities" },
-            { value: "50K+", label: "Students Helped" },
+            { value: formatCount(data.activeDeadlines), label: "Active Deadlines" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="font-display text-3xl font-extrabold tracking-tight text-gradient sm:text-4xl">
@@ -267,7 +301,7 @@ export default async function HomePage() {
           ))}
         </div>
         <p className="pb-4 text-center text-xs text-muted-foreground">
-          Live counts from the ScholarAtlas database (demo data).
+          Live counts from the ScholarAtlas database.
         </p>
       </section>
 

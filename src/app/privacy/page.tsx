@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalShell title="Privacy Policy" updated="Demo environment — policy shown for illustration">
+    <LegalShell title="Privacy Policy" updated="Last updated: August 2026">
       <h2>What we collect</h2>
       <p>
         When you create an account we store your email address, a password hash, and any profile

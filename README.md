@@ -173,21 +173,24 @@ npm run import:cscouncil         # ~260 per-university CSC scholarship pages; UN
 - **chinesescholarshipcouncil.com** — third-party per-university CSC pages. Deadlines are generic ("30 April Each Year") and content is SEO-style, so these are strictly UNVERIFIED with `sourceUrl` preserved; ~27 carry the official `studyinchina.csc.edu.cn` application portal as `officialUrl`.
 - Both importers dedupe by source URL (idempotent) and skip non-scholarship pages (results, guides, postdoc vacancies).
 
-### US/UK/EU real data (wemakescholars)
+### Full global catalogue (wemakescholars.com)
 
-Beyond China, the catalogue now carries **435 real US/UK/EU scholarships** from wemakescholars' country landing pages (robots-permissive, static HTML, no WAF):
+The biggest non-China source: **20,367 real scholarships** worldwide, imported from wemakescholars' complete listing (robots-permissive, static HTML, no WAF):
 
 ```bash
-npm run import:wms-global            # crawl all 14 destination countries (~435 records)
-npm run import:wms-global -- --countries us,gb,de   # subset
-npm run import:wms-global -- --dry-run              # report only
+npm run import:wms-full              # Phase 1: crawl listing -> data/wms-global-slugs.json
+npm run import:wms-full -- --phase detail   # Phase 2: fetch all detail pages (resumable JSONL)
+npm run import:wms-full -- --insert-only    # Phase 3: insert JSONL records not already in DB (idempotent)
+npm run import:wms-full -- --dry-run        # report only, no writes
+npm run import:wms-global            # legacy: crawl the 14 country landing pages (~435 records)
 npm run fix:wms-countries            # re-assign countryCode from the detail page's "taken at" field
 ```
 
-- Country pages: `/scholarships-to-study-in-{country}-for-international-students?page=N` (US 219, UK 138, DE 139, FR 119, CA 119, AU 119 + 9 more EU countries; sidebars duplicate entries across countries, deduped by source URL).
-- Detail pages carry structured fields: Deadline, Provider, Funding Type, Eligible Degrees, Eligible Nationalities, "Scholarship can be taken at" — plus the official source link where one exists.
-- Country re-assignment pass (`fix:wms-countries`) corrects records that were first seen on the wrong country page, using the "taken at" field with negation handling ("except Australia", "outside the US").
-- Imported as PENDING/UNVERIFIED, deduped by source URL (idempotent).
+- **Phase 1** crawls `/scholarship?page=N` to completion (~20,451 slugs, checkpointed and resumable).
+- **Phase 2** fetches each detail page concurrently (checkpointed to `data/wms-global-details.jsonl`), extracting Deadline, Provider, Funding Type, Eligible Degrees, description, and the official source link.
+- **Phase 3** inserts as PENDING/UNVERIFIED, deduped by source URL (idempotent — re-runs skip existing).
+- **Country note:** the "taken at" field names universities, not countries, so ~15.8k records honestly show "Not specified" (no fabrication). A provider-text backfill recovered ~4,341 (CA 2,198, AU 683, IN 366, GB 280, US 184…). A university-page backfill is the next step for the rest.
+- All demo/seed records were deleted — the catalogue is 100% sourced data.
 
 ## Scaling notes
 

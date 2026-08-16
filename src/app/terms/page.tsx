@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalShell title="Terms of Service" updated="Demo environment — terms shown for illustration">
+    <LegalShell title="Terms of Service" updated="Last updated: August 2026">
       <h2>1. What ScholarAtlas is</h2>
       <p>
         ScholarAtlas is an information and discovery service that catalogues scholarships and links

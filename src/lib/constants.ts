@@ -410,6 +410,4 @@ export const SCHOLARSHIPS_PER_PAGE = 12;
 // --- Admin contact email ----------------------------------------------------
 export const CONTACT_EMAIL = "hello@scholaratlas.dev";
 
-// --- Demo notice ------------------------------------------------------------
-export const DEMO_NOTICE =
-  "Demo environment: scholarship records shown here are sample data for development.";
+

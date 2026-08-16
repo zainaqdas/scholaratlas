@@ -83,7 +83,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} ScholarAtlas. Demo application — scholarship data is sample data for development.
+            © {new Date().getFullYear()} ScholarAtlas. Helping students discover opportunities without borders.
           </p>
           <p className="text-xs text-muted-foreground">
             ScholarAtlas is an information &amp; discovery service. It does not process scholarship applications.
