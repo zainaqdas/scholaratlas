@@ -114,11 +114,15 @@ export default function ComparePage() {
               <td className="p-4" />
               {items.map((s) => (
                 <td key={s.id} className="p-4">
-                  <Button asChild size="sm" variant="outline">
-                    <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
-                      Official website
-                    </a>
-                  </Button>
+                  {s.officialUrl ? (
+                    <Button asChild size="sm" variant="outline">
+                      <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
+                        Official website
+                      </a>
+                    </Button>
+                  ) : (
+                    <span className="text-xs text-muted-foreground">Check provider</span>
+                  )}
                 </td>
               ))}
             </tr>

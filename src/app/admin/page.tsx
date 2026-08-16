@@ -56,7 +56,9 @@ export default async function AdminPage() {
     prisma.user.findMany({ orderBy: { createdAt: "desc" }, take: 20 }),
     Promise.all([
       prisma.scholarship.count({ where: { deadline: null, status: "ACTIVE" } }),
-      prisma.scholarship.count({ where: { officialUrl: { equals: "" } } }),
+      prisma.scholarship.count({
+        where: { OR: [{ officialUrl: null }, { officialUrl: "" }] },
+      }),
       prisma.scholarship.count({ where: { status: "ACTIVE", deadline: { lt: now } } }),
     ]),
   ]);

@@ -81,7 +81,7 @@ model Scholarship {
   applicationSteps      String    @default("[]") // ordered steps
 
   // Sources & links
-  officialUrl           String
+  officialUrl           String? // nullable: imported listings may lack a direct application URL
   sourceUrl             String?
   featuredImage         String?
 

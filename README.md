@@ -106,6 +106,30 @@ npm run import:campuschina -- --file path/to/output.json
 
 The scraper is intentionally slow and polite (long cooldowns between requests — the WAF throttles by IP). The committed `scrapers/campuschina/output.json` contains the last successful crawl's records. As with EURAXESS, imported records land in the admin dashboard under **Pending** for review; nothing is published automatically.
 
+## Importing real data (CUCAS China scholarships)
+
+The richest China dataset is actually already aggregated — [CUCAS](https://www.cucas.cn) (an official partner portal for international students applying to Chinese universities) publishes ~11k program/scholarship listings, and cleaned snapshots of its data are published on Kaggle. Rather than scraping campuschina.org directly, we import those snapshots (committed under `scrapers/cucas/`):
+
+- **Aug 2023 snapshot** — `cucas-china-scholarships-2023.csv` (640 rows, 29 universities)
+- **May 2019 snapshot** — `cucas-china-scholarships-2019.csv` (3,576 rows, 53 universities)
+
+```bash
+npm run import:cucas                  # create universities + insert ~2,500 listings as PENDING
+npm run import:cucas -- --dry-run     # report only, no writes
+npm run import:cucas -- --limit 50    # cap inserts (testing)
+```
+
+The importer:
+
+- Creates `University` records (country CN) for every host institution and links listings to them.
+- Maps each (university, program, level) row to a `Scholarship`, deriving funding type and benefits from the tuition/accommodation/living-coverage columns and inferring fields from the program name.
+- Skips self-funded program rows (zero coverage = not a scholarship).
+- Prefers the newer 2023 snapshot when the same listing appears in both.
+- Dedupes by source URL on re-runs (idempotent).
+- Inserts everything as **PENDING/UNVERIFIED** — nothing public until an admin approves it in `/admin`.
+
+These listings have no per-program application URL (the dataset doesn't include one), so `officialUrl` is `null` and the UI shows **"Check Official Provider"** instead of an apply link — the platform never invents application links. Kaggle sources: [May 2019](https://www.kaggle.com/datasets/mcmuralishclint96/china-scholarship-data-may-2019), [Aug 2023](https://www.kaggle.com/datasets/sakchaisaehoei/china-scholarship-data-2023).
+
 ## Scaling notes
 
 - Enable `pg_trgm` on PostgreSQL for fuzzy search, and move ranking/pagination into SQL (see notes in `src/lib/search.ts`).

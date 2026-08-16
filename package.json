@@ -10,6 +10,7 @@
     "seed": "tsx prisma/seed.ts",
     "import:euraxess": "tsx scripts/import-euraxess.ts",
     "import:campuschina": "tsx scripts/import-campuschina.ts",
+    "import:cucas": "tsx scripts/import-cucas.ts",
     "postinstall": "prisma generate"
   },
   "engines": {
@@ -30,6 +31,7 @@
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "csv-parse": "^7.0.2",
     "fast-xml-parser": "^5.10.1",
     "lucide-react": "^1.31.0",
     "next": "16.3.1",

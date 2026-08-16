@@ -183,12 +183,19 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
           )}
 
           <div className="mt-6 flex flex-wrap items-center gap-2">
-            <Button asChild size="lg" className="gap-2">
-              <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4" />
-                Visit Official Scholarship Website
-              </a>
-            </Button>
+            {s.officialUrl ? (
+              <Button asChild size="lg" className="gap-2">
+                <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4" />
+                  Visit Official Scholarship Website
+                </a>
+              </Button>
+            ) : (
+              <Button size="lg" variant="outline" className="gap-2" disabled>
+                <Globe2 className="h-4 w-4" />
+                Check Official Provider
+              </Button>
+            )}
             <SaveButton scholarshipId={s.id} initialSaved={saved} label className="h-12 px-5 text-sm" />
             <ShareButton title={s.title} />
           </div>
@@ -197,7 +204,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             <Globe2 className="mt-0.5 h-4 w-4 shrink-0" />
             <p>
               <strong>Apply Safely:</strong> Applications are processed on the official provider
-              website — not on ScholarAtlas. Only apply through the official source linked above.
+              website — not on ScholarAtlas. Only apply through the official source{s.officialUrl ? " linked above" : " — check the provider's own website for the application link"}.
             </p>
           </div>
         </div>
@@ -250,9 +257,13 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
               icon={<ExternalLink className="h-4 w-4" />}
               label="Official Website"
               value={
-                <a href={s.officialUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
-                  {new URL(s.officialUrl).hostname}
-                </a>
+                s.officialUrl ? (
+                  <a href={s.officialUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
+                    {new URL(s.officialUrl).hostname}
+                  </a>
+                ) : (
+                  "Check official provider"
+                )
               }
             />
           </CardContent>
