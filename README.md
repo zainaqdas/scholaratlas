@@ -137,20 +137,28 @@ These listings have no per-program application URL (the dataset doesn't include 
 The Kaggle snapshots have no application URLs or deadlines. We backfill both from the live site:
 
 ```bash
-# 1. crawl CUCAS (needs a browser; solves the Aliyun WAF via scrapling's stealth fetcher)
-scrapers/cucas/.venv/bin/python scrapers/cucas/enrich_cucas.py   # writes scrapers/cucas/enriched.json
-# 2. apply matches to the DB
+# 1. crawl the COMPLETE global listing (all schools; authoritative catalog)
+scrapers/cucas/.venv/bin/python scrapers/cucas/global_crawl.py 1 200
+scrapers/cucas/.venv/bin/python scrapers/cucas/global_crawl.py 201 400   # resumable, checkpointed every 20 pages
+scrapers/cucas/.venv/bin/python scrapers/cucas/global_crawl.py 401 800   # stops automatically at the end
+# 2. merge with school-wide deadlines into the matcher input
+python3 scrapers/cucas/build_enriched_global.py   # writes scrapers/cucas/enriched-global.json
+# 3. apply matches to the DB
 npm run enrich:cucas                  # set officialUrl + deadline where a program matches
 npm run enrich:cucas -- --dry-run     # report only
+# 4. strip any over-matched shared URLs (keeps only the exact-program record per URL)
+npm run dedupe -- --dry-run
+npm run dedupe
 ```
 
 How it works and what to know:
 
-- The crawler fetches each school's program listing (paginated) and **one** program detail page per school — CUCAS deadlines are school-wide, so one detail fetch covers every program at that school.
-- CUCAS's school filter is flaky: for some schools the server ignores it and serves a fixed "featured programs" fallback (all URLs belong to *other* schools). The crawler detects this (URL school slug ≠ target school), retries with backoff, and aborts rather than emit contaminated data.
-- The matcher only assigns URLs whose school slug matches the record's university, and skips entries whose URL doesn't match their school name — a wrong application link is worse than none. **Zero school-mismatched URLs are ever applied.**
-- `officialUrl` stays `null` (UI shows "Check Official Provider") for schools CUCAS no longer lists programs for, and for programs not on CUCAS's current site — no fabricated links.
-- As of the 2026-08-16 crawl: **~984 of 2,581 records** carry a real CUCAS application URL + deadline (42 universities); the rest remain PENDING for admin review.
+- **Use the global listing, not the school filter.** CUCAS's per-school filter is flaky: for ~22 schools the server ignores the filter and serves a fixed "featured programs" fallback (all URLs belong to *other* schools), and even for working schools the filtered pages under-report programs. The paginated global listing (`china_scholarships/.../all_universities/...`) is the authoritative catalog — ~11k programs across ~160 schools.
+- Deadlines are school-wide: one program detail fetch per school covers every program at that school (`scrapers/cucas/deadlines.json` is committed).
+- The matcher only assigns URLs whose school slug matches the record's university — a wrong application link is worse than none. **Zero school-mismatched URLs are ever applied.**
+- The dedupe pass then un-matches records that only hit a URL via substring containment in the wrong direction (e.g. "History" matched the "Chinese History" page) — only the record whose program is the same or more specific keeps the URL.
+- `officialUrl` stays `null` (UI shows "Check Official Provider") for the ~22 schools CUCAS no longer lists programs for (NCEPU, BUCT, Qingdao… verified empty via browser + jina + full global crawl) and for programs that left the current catalog — no fabricated links.
+- As of the 2026-08-16 crawl: **~1,120 of 2,859 CN records** carry a real CUCAS application URL + deadline; the rest show "Check Official Provider".
 
 ### Other China sources (scholarship-level)
 

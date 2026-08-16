@@ -29,7 +29,7 @@ const flagValue = (name: string) => {
   const i = args.indexOf(`--${name}`);
   return i >= 0 ? args[i + 1] : undefined;
 };
-const FILE = flagValue("file") ?? "scrapers/cucas/enriched.json";
+const FILE = flagValue("file") ?? "scrapers/cucas/enriched-global.json";
 const DRY_RUN = args.includes("--dry-run");
 const LIMIT = Number(flagValue("limit") ?? 0) || 0;
 
