@@ -1,0 +1,67 @@
+name: Scholarship data re-crawl
+
+# Keeps the catalogue fresh:
+#   - wms deadline refresh (marks records EXPIRED when the source says so)
+#   - new wemakescholars listings imported
+#   - CUCAS/CSC/DAAD records stay enriched
+#
+# The heavy Python crawlers (CUCAS detail pages, wms eligibility/nationality,
+# DAAD details) are intentionally not run here — they need a stealth browser
+# and several hours. Run them manually when a deep refresh is wanted
+# (see README "Importing real data").
+#
+# Required repository secret: DATABASE_URL (Neon/Postgres connection string).
+
+on:
+  schedule:
+    # Weekly: Monday 05:00 UTC
+    - cron: "0 5 * * 1"
+  workflow_dispatch: {} # allow manual trigger
+
+concurrency:
+  group: re-crawl
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate Prisma client
+        run: npx prisma generate
+
+      # 1. Refresh wms deadlines: capture new dates + mark records the source
+      #    now lists as "Deadline: Expired". Uses the committed slug list
+      #    (data/wms-global-slugs.json) so no listing crawl is needed.
+      - name: Refresh wms deadlines
+        run: npm run backfill:wms-deadlines || true
+
+      # 2. Import new wemakescholars listings (crawl + insert, idempotent).
+      - name: Import new wms listings
+        run: npm run import:wms-full || true
+
+      # 3. Keep China enrichment applied (idempotent backfills).
+      - name: Refresh CUCAS enrichment
+        run: npm run backfill:cucas-rich || true
+      - name: Refresh CSC enrichment
+        run: npm run backfill:csc-rich || true
+      - name: Refresh field classification
+        run: npm run backfill:fields || true
+
+      # 4. Report what changed (commit hash for traceability).
+      - name: Summary
+        run: |
+          echo "Re-crawl finished at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "Commit: ${{ github.sha }}"

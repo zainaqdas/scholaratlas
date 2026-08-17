@@ -26,6 +26,7 @@
 | 2026-08-17 | **Eligible nationalities via full wms re-crawl** — crawled all 20,451 wms detail pages (resumable, zero errors), extracted the "Eligible Nationalities" spec → 18,171 wms records updated (14,795 open-to-all, 3,376 restricted e.g. IN/AU+NZ); platform-wide eligibility coverage 0% → **87%**; exclusions ("non-Chinese") honestly left unset | `a88fdb3` |
 | 2026-08-17 | **Deadlines, expiry status, documents, steps & language** — re-crawl revealed the first import had dropped wms's own "Deadline: Expired" status: **15,710 records marked EXPIRED** (kept for history, shown "Closed", hidden from open search; visible catalogue 24,278 → 8,548 ACTIVE); 55 missed wms deadlines + 35 PTS deadlines recovered; crawled Eligibility Criteria + Application Process sections → **14,116 academicRequirements, 17,630 applicationSteps, 1,639 requiredDocuments, 576 languageRequirements** filled from source text | `4f62652` |
 | 2026-08-17 | **Closed-scholarship browsing + China enrichment** — `/scholarships?status=expired` (and `status=all`) toggle in the results toolbar; cards + detail pages show a "Closed" badge for EXPIRED records; crawled **all 813 live CUCAS program detail pages** (stealth browser, resumable, zero errors) → **1,124 CUCAS records enriched** (duration 0→1,124, applicationFee 0→945, eligibility 0→1,124, steps 0→1,124, documents 0→1,002, language 0→763, benefits/funding refreshed from live coverage); crawled **all 262 chinesescholarshipcouncil pages** (plain requests) → **263 CSC records enriched** (eligibility 215, documents 199, steps 218, benefits 126, IELTS 200, levels 257, deadline 64); platform-wide academicRequirements 36%→52%, steps 47%→62%, documents 4%→18% | — |
+| 2026-08-17 | **Fields for 2,384 records + PTS/campuschina benefits + DAAD source** — layered field classifier (title keywords → explicit phrases → strong subject patterns) filled fields for **2,384** field-less records (platform fields 36% → **64%**); PTS benefit parser (context-aware positive framing) tagged **532** US STEM programs + amounts; campuschina 9 records enriched from their guidebook text; **new source: DAAD scholarship database** (156 real Germany programs imported, all-subject programs → `["ALL"]`, fields 100%, amounts/duration/benefits from official detail pages) — platform ACTIVE 8,548 → **8,703**; scheduled **weekly re-crawl GitHub Action** added (`.github/workflows/re-crawl.yml`) | — |
 | 2026-08-17 | **This progress report** | — |
 
 ---
@@ -40,13 +41,14 @@
 | **pathwaystoscience.org** | **1,049** | US STEM research programs (REU/fellowship/summer) |
 | chinesescholarshipcouncil.com | 262 | Per-university CSC pages |
 | CampusChina / CSC official | 9 | Real CSC programs |
+| **DAAD (official)** | **156** | German scholarship programmes (DAAD + partner foundations), 2026-08-17 |
 | Seed demo data | 0 | Deleted |
 
 ### Totals
 | Metric | Count |
 |---|---|
-| Total scholarship records | 24,278 |
-| **Active (public) scholarships** | **8,548** |
+| Total scholarship records | 24,434 |
+| **Active (public) scholarships** | **8,703** |
 | **Expired (kept for history, shown "Closed")** | **15,710** |
 | Pending review | 0 |
 | Jobs (EURAXESS, admin-only by design) | 20 |
@@ -64,8 +66,9 @@
 | Eligible nationalities | **78%** (6,687) | wms 18,171 records (14,795 ALL + 3,376 restricted) + CUCAS ALL |
 | Academic requirements | **52%** (4,413) | wms + CUCAS + CSC eligibility text verbatim |
 | Application steps | **62%** (5,338) | wms + CUCAS + CSC process text → ordered steps |
-| Benefits (tuition/stipend/accom.) | 42% (3,575) | |
-| Language requirements | 13% (1,142 meaningful) | IELTS/TOEFL/alt-proof flags; 2,949 non-empty incl. `{}` placeholders |
+| Benefits (tuition/stipend/accom.) | **48%** (4,111) | + PTS 532 + DAAD 59 + campuschina |
+| Fields of study | **64%** (5,488) | + layered classifier on 2,384 records (title → phrases → strong patterns) |
+| Language requirements | 13% (1,148 meaningful) | IELTS/TOEFL/alt-proof flags — honest ceiling, sources don't publish more |
 | Required documents | **18%** (1,556) | CUCAS/CSC document lists + wms mentions |
 
 ### By source
@@ -289,9 +292,9 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 4. **✅ Deadlines/expiry/docs/steps/language — DONE (2026-08-17, `4f62652`)** — expired records now honest; requirements filled from source text.
 5. **✅ Expired-record browsing — DONE (2026-08-17)** — `status=expired`/`status=all` toggle on `/scholarships`; Closed badges on cards + detail pages.
 6. **✅ CUCAS detail enrichment — DONE (2026-08-17)** — all 813 live CUCAS program pages crawled: duration, fee, eligibility, steps, documents, language, benefits for 1,124 records. CSC (chinesescholarshipcouncil) pages also crawled: 263 records enriched.
-7. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + wemakescholars listing (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
+7. **✅ Scheduled re-crawl — DONE (2026-08-17)** — `.github/workflows/re-crawl.yml` refreshes wms deadlines (expire stale records), imports new wms listings, and re-applies CUCAS/CSC/field backfills weekly (needs `DATABASE_URL` secret).
 8. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
-9. **✅ Second aggregator — DONE (2026-08-17): PathwaysToScience** (1,049 US STEM programs). scholarshipdb.net + studyportals remain Cloudflare-blocked from this environment; future candidates: DAAD from a different host/VPN, EducationUSA via browser, UK FCDO/Chevening.
+9. **✅ Second aggregator — DONE (2026-08-17): PathwaysToScience** (1,049 US STEM programs). scholarshipdb.net + studyportals remain Cloudflare-blocked (403 even via stealth browser); **DAAD database imported (156 programs)** via its client-side JSON data files; EducationUSA is a guide (not a database) and Chevening is a single program already covered.
 
 ### Medium term
 10. **University-site crawlers** for the 22 zero-presence Chinese schools (NCEPU, BUCT, Qingdao…) — recover the ~408 records' official URLs.

@@ -223,7 +223,7 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `npm run backfill:wms-levels` — backfills study levels for records the parser missed ("Post Doc", "High/Secondary School", college diplomas…), resumable checkpoint in `data/wms-levels-backfill.jsonl`
   - `npm run import:pts` — [pathwaystoscience.org](https://www.pathwaystoscience.org) importer (1,049 US STEM research programs: REUs, fellowships, summer research). Phases: `--listing-only` → `--detail-only` → `--insert-only` (all checkpointed + idempotent)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
-- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 8,548 genuinely-open scholarships. Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
+- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 8,703 genuinely-open scholarships (including the 156 DAAD programmes). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
 - **Rich-field backfills (all derived from source text, never fabricated):**
   - `npm run backfill:universities` — 1,559 University rows created, 96% of scholarships linked
   - `npm run backfill:wms-benefits` — amounts/currency/benefits parsed from cached descriptions
@@ -231,6 +231,29 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `python3 scripts/crawl-wms-deadlines.py` + `npm run backfill:wms-deadlines` — real deadlines + expiry status
   - `python3 scripts/crawl-pts-deadlines.py` + `npm run backfill:pts-deadlines` — PTS program deadlines
   - `python3 scripts/crawl-wms-eligibility.py` + `npm run backfill:wms-eligibility` — academic requirements, application steps, required documents, language requirements from the Eligibility/Process sections
+  - `npm run backfill:fields` — fills fields of study for field-less records via a layered classifier (title keywords → explicit phrases → strong subject patterns); platform fields coverage 36% → 64%
+  - `npm run backfill:pts-benefits` — benefits/fundingType for PTS records from context-aware description parsing (532 programs)
+  - `npm run backfill:cucas-rich` + `npm run backfill:csc-rich` + `npm run backfill:campuschina-rich` — China rich-field enrichment from the detail-page crawls
+
+### DAAD scholarship database (Germany)
+
+[DAAD's official scholarship database](https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/) serves its entire catalogue as client-side JSON data files — **156 real programmes** (DAAD + partner foundations like Humboldt, Krupp, BAYHOST):
+
+```bash
+# 1. fetch the listing + details (stealth fetcher; details are server-rendered HTML)
+python3 scripts/crawl-daad-details.py   # -> data/daad-details.jsonl (156 records)
+# 2. import (deduped, idempotent)
+npm run import:daad                     # -> 156 records, countryCode DE
+```
+
+- Fields of study come from DAAD's subject groups (a program covering all 7 groups → `["ALL"]`, rendered "All fields").
+- Amounts, duration, benefits, academic requirements and target groups come from the official programme pages.
+- Concrete dates are parsed into deadlines; descriptive deadlines ("deadlines differ") are left unset honestly.
+- External provider weblinks become `officialUrl`; the DAAD database entry is kept as `sourceUrl`.
+
+### Scheduled re-crawl (GitHub Action)
+
+`.github/workflows/re-crawl.yml` refreshes the catalogue weekly (Monday 05:00 UTC) or on manual dispatch: refreshes wms deadlines (expiring stale records), imports new wms listings, and re-applies the CUCAS/CSC/field backfills. Set the `DATABASE_URL` repository secret to enable it.
 
 ## Scaling notes
 
