@@ -70,7 +70,7 @@
 | Application steps | **62%** (5,338) | wms + CUCAS + CSC process text → ordered steps |
 | Benefits (tuition/stipend/accom.) | **48%** (4,111) | + PTS 532 + DAAD 59 + campuschina |
 | Fields of study | **64%** (5,488) | + layered classifier on 2,384 records (title → phrases → strong patterns) |
-| Language requirements | 13% (1,148 meaningful) | IELTS/TOEFL/alt-proof flags — honest ceiling, sources don't publish more |
+| Language requirements | **34%** (2,958 meaningful, of which 2,120 filled 2026-08-17) | IELTS/TOEFL/alt-proof flags from official university pages |
 | Required documents | **18%** (1,556) | CUCAS/CSC document lists + wms mentions |
 
 ### By source
@@ -266,6 +266,7 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 - **Full wemakescholars global catalogue imported: 20,367 records** — crawled the complete `/scholarship` listing (20,451 slugs across ~1,155 pages), fetched each detail page, and inserted 16,078 new records (14 countries' worth was already imported earlier). Covers 200 destination countries.
 - **Country assignment — resolved (2026-08-17):** all but 9 wms records now have a destination country. Built an authoritative provider→country map by crawling `/university/{slug}/scholarships` pages (the country renders in an `<h4>` directly after the `<h1>` university name) for 1,430 unique providers → 1,177 mapped (87% of records), then verified the remainder via official URLs and provider-name country hints. Also **corrected nationality-based misassignments** from the earlier text backfill (e.g. "Duke Law India Masters" → US, not IN).
 - Still missing: dedicated UK sources (Chevening is a single program already covered; UK university scholarship pages), plus scholarshipdb.net / studyportals (Cloudflare-blocked). **DAAD imported (2026-08-17): 156 German programmes** via its client-side JSON data — see §2.
+- **Non-China language requirements backfilled (2026-08-17):** crawled the official English-language-requirements pages of 34 universities (Waterloo, Melbourne, Auckland, Indiana Tech, Tulane, Brock, RMIT, Kelley, Lakehead, Yukon, UQ, Lewis, ANU, Northeastern, Canterbury NZ, UCC, Mississippi State, Georgia State, SUNY Buffalo, George Brown, Hertfordshire, FSU, Swinburne, Southampton, SUTD, Michigan, Victoria Wellington, Sydney, UMass Dartmouth, SJSU, Red River, UNSW, Saskatchewan, Georgia Tech, Concordia) and set IELTS/TOEFL/alt-proof flags on **2,120 records** with the exact published scores and source URL in each description. Coverage on non-China active records: 157 → 2,132 (36%). Remaining honestly unset: schools that block crawling (Melbourne/Auckland were fetched via a JS browser), JS-rendered pages without embedded data (Lewis/ANU/Adelaide/Curtin), and the long tail of small universities.
 
 ### Gap C — Verification depth
 - ~23,100 records are `RECENTLY_UPDATED` (bulk-approval), only 68 deeply `VERIFIED`.
@@ -305,6 +306,7 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 10. **✅ University-site crawlers — DONE (2026-08-17, two rounds)** — 31 of the zero-presence Chinese schools now enriched from their official English scholarship pages (round 1: NCEPU, BUCT, NEFU, CUST, SDU, SHOU, SHUTCM, CQMU, ZJUT, SCUT, CZU, ZAFU, NEPU; round 2: CUMT, ZJNU, ZUST, CUP, CUG, SHNU, DGUT, SIAS, USST, DUFE, WZU, SYUCT, UJS, XISU, SEU, CPU, TJU, NHMU): language +~1,050, deadlines +~75, durations +172, real scholarship-page URLs + scholarship notes on ~1,450 records. **Remaining honestly unenriched:** ZZULI (publishes its scholarship policy only in Chinese), CCUT/NBU/ZUT (no reachable English international-student site from this environment), BFA (WAF 412), BJWLXY (English pages are empty shells).
 11. **Bulk-approve tooling** — the admin approval flow works; a batch-approve + audit-log shortcut would speed up future imports.
 12. **Duplicate detection for admin** — the admin "data quality" panel exists; wire the dedupe logic into it so new imports surface potential duplicates before publishing.
+13. **✅ Non-China university language backfill — DONE (2026-08-17)** — 34 universities' official English-requirements pages crawled; IELTS/TOEFL/alt-proof flags + scores set on 2,120 records (non-China coverage 157 → 2,132 of 5,845 active). Remaining honest gaps: JS-rendered pages without embedded data (Lewis/ANU/Adelaide/Curtin), WAF-blocked sites (Melbourne needed a real browser; Brock/Monash/Griffith/Deakin/Otago 403), and the long tail of small universities.
 
 ### Long term (from the original spec)
 7. AI scholarship assistant + personalized recommendations (Phase 3).

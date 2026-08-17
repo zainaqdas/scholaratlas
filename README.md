@@ -277,6 +277,20 @@ npm run import:daad                     # -> 156 records, countryCode DE
 - Concrete dates are parsed into deadlines; descriptive deadlines ("deadlines differ") are left unset honestly.
 - External provider weblinks become `officialUrl`; the DAAD database entry is kept as `sourceUrl`.
 
+### Non-China university language backfill (2026-08-17)
+
+The wms/PTS/DAAD sources rarely publish IELTS/TOEFL requirements, so for the highest-value non-China universities we crawl the **official English-language-requirements page** of each school and set the IELTS/TOEFL/alt-proof flags from what the university itself publishes:
+
+```bash
+python3 scripts/crawl-uni-language.py     # -> data/uni_language/*.html (34 universities)
+npm run backfill:uni-language             # -> 2,120 records: ielts/toefl/altProof flags + scores in description
+```
+
+- 34 universities covered: Waterloo, Melbourne, Auckland, Indiana Tech, Tulane, Brock, RMIT, Kelley, Lakehead, Yukon, UQ, Lewis, ANU, Northeastern, Canterbury NZ, UCC, Mississippi State, Georgia State, SUNY Buffalo, George Brown, Hertfordshire, FSU, Swinburne, Southampton, SUTD, Michigan, Victoria Wellington, Sydney, UMass Dartmouth, SJSU, Red River, UNSW, Saskatchewan, Georgia Tech, Concordia.
+- Exact published scores are recorded in each record's description with the source URL (e.g. Waterloo IELTS 6.5 overall with 6.5 writing/speaking, 6.0 reading/listening; TOEFL 90 with 25 writing/speaking).
+- Non-China active coverage: 157 → **2,132 of 5,845** (36%).
+- Honest gaps: JS-rendered pages with no embedded data (Lewis/ANU/Adelaide/Curtin), WAF-blocked sites (Melbourne needed a real browser; Brock/Monash/Griffith/Deakin/Otago 403), and the long tail of small universities.
+
 ### Scheduled re-crawl (GitHub Action)
 
 `.github/workflows/re-crawl.yml` refreshes the catalogue weekly (Monday 05:00 UTC) or on manual dispatch: refreshes wms deadlines (expiring stale records), imports new wms listings, and re-applies the CUCAS/CSC/field backfills. Set the `DATABASE_URL` repository secret to enable it.
