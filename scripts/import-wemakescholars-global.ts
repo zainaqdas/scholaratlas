@@ -129,17 +129,19 @@ function mapFunding(raw: string): string {
   return "PARTIAL";
 }
 
-function mapLevels(raw: string): string[] {
+function mapLevels(raw: string, title = ""): string[] {
   const s = raw.toLowerCase();
+  const guard = (raw + " " + title).toLowerCase();
   const out: string[] = [];
-  if (s.includes("high school") || s.includes("highschool")) out.push("high-school");
-  if (s.includes("bachelor") || s.includes("undergraduate") || s.includes("bachelors")) out.push("undergraduate");
-  if (s.includes("master") || s.includes("masters") || s.includes("graduate")) out.push("masters");
-  if (s.includes("mba")) out.push("mba");
-  if (s.includes("phd") || s.includes("doctoral") || s.includes("doctorate")) out.push("phd");
-  if (s.includes("postdoc")) out.push("postdoctoral");
-  if (s.includes("research")) out.push("research");
-  if (s.includes("short course") || s.includes("short-course")) out.push("short-course");
+  if (/high school|highschool|secondary/.test(s)) out.push("high-school");
+  if (/bachelor|undergraduate|associate/.test(s)) out.push("undergraduate");
+  if (/diploma/.test(s) && !/higher diploma|executive diploma/.test(guard)) out.push("undergraduate");
+  if (/master|graduate|postgraduate/.test(s)) out.push("masters");
+  if (/\bmba\b/.test(s)) out.push("mba");
+  if (/ph\.?d|doctoral|doctorate/.test(s)) out.push("phd");
+  if (/post\s?doc|postdoctoral/.test(s)) out.push("postdoctoral");
+  if (/\bresearch\b/.test(s)) out.push("research");
+  if (/short[-\s]?course/.test(s)) out.push("short-course");
   if (s.includes("exchange")) out.push("exchange-program");
   return out;
 }
@@ -219,7 +221,7 @@ async function parseDetail(url: string, countryCode: string): Promise<WmsRecord 
     officialUrl: officialUrl(html),
     sourceUrl: url,
     countryCode,
-    levels: mapLevels(degrees),
+    levels: mapLevels(degrees, title),
   };
 }
 

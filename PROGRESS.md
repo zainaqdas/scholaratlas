@@ -20,6 +20,7 @@
 | 2026-08-16 | **Demo data removed + homepage hardened** — deleted all 67 seed/demo scholarships + artifacts (demo banner, demo account hints, fake stats); home feed now falls back to real data; stats computed live from the DB | — |
 | 2026-08-16 | **Full wemakescholars catalogue import** — crawled the complete global listing (20,451 slugs / ~1,155 pages) + every detail page; 16,078 new records inserted (deduped by source URL), country backfill from provider text (+4,341), 15 missing countries added; approved — catalogue grew 3,380 → 23,209 | — |
 | 2026-08-17 | **Country backfill for wemakescholars records** — crawled 1,430 provider/university pages (slug-guessing + the `<h1>→<h4>` country signal on `/university/{slug}/scholarships`) building an authoritative provider→country map (1,177 providers, 87% of records); corrected nationality-based misassignments (e.g. Duke→US); verified remaining providers via official URLs; 38 country rows added to the Country table — "Not specified" fell from ~15,800 to **9** (only genuinely global orgs like FAO/UNESCO/TWAS) | — |
+| 2026-08-17 | **Study-level backfill for wemakescholars records** — the level data was already stored for 20k records (the old "~20k Not specified" claim was outdated); fixed the parser's blind spots ("Post Doc" → postdoctoral, "High/Secondary School" → high-school, college "Diploma" → undergraduate except Higher/Executive Diploma) and re-parsed the 343 genuinely-missing records (168 via degrees field, 69 diplomas, 2 title-guard corrections) — wms records without a level fell from 343 to 108 (only travel grants, medical professional prizes, competitions, "Other") | — |
 | 2026-08-17 | **This progress report** | — |
 
 ---
@@ -80,14 +81,19 @@
 | Fully funded | 1,537 |
 | Fully funded + stipend | 295 |
 
-### By study level
+### By study level (active, a record can carry several)
 | Level | Count |
 |---|---|
-| Undergraduate | ~1,200 |
-| Master's | ~1,000 |
-| PhD | ~450 |
-| Short course / other | ~350 |
-| Not specified (wemakescholars bulk) | ~20,000 | Most wms records lack degree-level parsing |
+| Undergraduate | 15,986 |
+| Master's | 9,455 |
+| PhD | 2,493 |
+| MBA | 414 |
+| Short Course | 160 |
+| Research | 140 |
+| Postdoctoral | 104 |
+| High School | 35 |
+| Exchange Program | 1 |
+| Not specified | ~382 | 108 wms (travel grants, medical prizes, competitions) + ~274 China CUCAS listings |
 
 ### Verification status
 | Status | Count |
