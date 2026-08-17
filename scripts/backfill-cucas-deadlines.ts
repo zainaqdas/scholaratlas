@@ -8,8 +8,11 @@
 // backfill but no deadline — this script applies the school-wide deadline
 // captured from the live CUCAS site (deadlines.json + enriched-global.json).
 //
-// Schools with zero CUCAS presence (no deadline data anywhere) are left as-is
-// — "Not specified" is honest; we never fabricate deadlines.
+// Schools with zero CUCAS presence get a deadline only where the school's
+// OFFICIAL website publishes one (see UNI_PUBLISHED_DEADLINES — each entry
+// was verified against the live site before being added, and carries its
+// source URL). Everything else is left as-is: "Not specified" is honest; we
+// never fabricate deadlines.
 //
 // Only records that STILL lack a deadline are touched.
 //
@@ -23,6 +26,21 @@ import { prisma } from "../src/lib/prisma";
 
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
+
+// Deadlines published on the school's OWN website (recurring annual cycles).
+// Verified live before being added — see the per-entry source URL.
+// Month is 0-indexed (matches Date.UTC). Day is the calendar day.
+// Level keys match the app's studyLevel slugs.
+const UNI_PUBLISHED_DEADLINES: Record<string, { level: string; month: number; day: number; source: string }[]> = {
+  // https://english.ncepu.edu.cn (International Education Institute) —
+  //   "Application deadline is 30 th March" (CSC-CUP, master/PhD)
+  //   "Application deadline is 30th April"  (BGS + IEIS, bachelor)
+  "north china electric power university": [
+    { level: "masters", month: 2, day: 30, source: "english.ncepu.edu.cn/Admissions" },
+    { level: "phd", month: 2, day: 30, source: "english.ncepu.edu.cn/Admissions" },
+    { level: "undergraduate", month: 3, day: 30, source: "english.ncepu.edu.cn/Admissions" },
+  ],
+};
 
 function normSchool(name: string): string {
   return name
@@ -47,7 +65,7 @@ function parseDeadline(raw: string): Date | null {
   return new Date(Date.UTC(year, month, day, 23, 59, 0));
 }
 
-// Build the school -> deadline map from both crawl artifacts.
+// Build school -> deadline map from the CUCAS crawl artifacts.
 // Where a school has multiple deadlines (different intake rounds), pick the
 // most common one (mode) — that is the deadline the majority of programs use.
 function buildSchoolDeadlines(): Map<string, Date> {
@@ -95,31 +113,76 @@ function buildSchoolDeadlines(): Map<string, Date> {
   return out;
 }
 
+// Build school -> level -> deadline from UNI_PUBLISHED_DEADLINES.
+// Recurring annual deadlines get the NEXT occurrence from today so the date
+// stays in the future (a past date would wrongly mark the record expired
+// even though the cycle repeats every year).
+function buildUniPublishedDeadlines(): Map<string, Map<string, Date>> {
+  const out = new Map<string, Map<string, Date>>();
+  const today = new Date();
+  for (const [school, entries] of Object.entries(UNI_PUBLISHED_DEADLINES)) {
+    const byLevel = new Map<string, Date>();
+    for (const e of entries) {
+      let year = today.getUTCFullYear();
+      const candidate = new Date(Date.UTC(year, e.month, e.day));
+      if (candidate.getTime() < today.getTime()) year += 1;
+      byLevel.set(e.level, new Date(Date.UTC(year, e.month, e.day, 23, 59, 0)));
+    }
+    out.set(normSchool(school), byLevel);
+  }
+  return out;
+}
+
 async function main() {
   const schoolDeadlines = buildSchoolDeadlines();
-  console.log(`School-wide deadlines available for ${schoolDeadlines.size} schools.`);
+  const uniDeadlines = buildUniPublishedDeadlines();
+  console.log(
+    `Deadlines available: ${schoolDeadlines.size} schools (CUCAS crawl) + ` +
+      `${uniDeadlines.size} schools (official university sites).`,
+  );
 
   const records = await prisma.scholarship.findMany({
     where: { sourceUrl: { contains: "kaggle" }, deadline: null },
-    select: { id: true, provider: true, title: true },
+    select: { id: true, provider: true, title: true, studyLevels: true },
   });
   console.log(`Records without deadline: ${records.length}`);
 
   const updates: { id: string; deadline: Date }[] = [];
   const noDeadlineSchools = new Set<string>();
   const matchedProviders = new Set<string>();
+  const uniMatched = new Set<string>();
 
   for (const r of records) {
-    const dl = schoolDeadlines.get(normSchool(r.provider));
-    if (!dl) {
-      noDeadlineSchools.add(r.provider);
+    const school = normSchool(r.provider);
+    // 1. Level-specific deadline published by the school itself (most precise).
+    const uniByLevel = uniDeadlines.get(school);
+    if (uniByLevel) {
+      const raw = r.studyLevels;
+      const levels = Array.isArray(raw)
+        ? raw
+        : typeof raw === "string"
+          ? (JSON.parse(raw) as string[])
+          : [];
+      const dl = levels.map((l) => uniByLevel.get(l)).find((d) => d);
+      if (dl) {
+        uniMatched.add(r.provider);
+        matchedProviders.add(r.provider);
+        updates.push({ id: r.id, deadline: dl });
+        continue;
+      }
+    }
+    // 2. School-wide deadline from the CUCAS crawl.
+    const dl = schoolDeadlines.get(school);
+    if (dl) {
+      matchedProviders.add(r.provider);
+      updates.push({ id: r.id, deadline: dl });
       continue;
     }
-    matchedProviders.add(r.provider);
-    updates.push({ id: r.id, deadline: dl });
+    noDeadlineSchools.add(r.provider);
   }
 
   console.log(`Will set deadline on ${updates.length} records across ${matchedProviders.size} providers.`);
+  if (uniMatched.size) console.log(`  (${uniMatched.size} providers from official university websites: ${[...uniMatched].join(", ")})`);
   console.log(`Providers with NO deadline data (left as-is): ${noDeadlineSchools.size}`);
   for (const s of [...noDeadlineSchools].sort()) console.log(`  - ${s}`);
 

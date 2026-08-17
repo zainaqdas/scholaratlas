@@ -154,7 +154,7 @@ npm run dedupe
 npm run backfill:cucas-urls          # every CUCAS record ends up with an apply link
 # 6. apply the school-wide CUCAS deadlines to those records (deadlines are
 #    school-wide on CUCAS — one per school, verified during the crawl):
-npm run backfill:cucas-deadlines     # ~84% of CUCAS records end up with a real deadline
+npm run backfill:cucas-deadlines     # ~91% of CUCAS records end up with a real deadline
 ```
 
 **Every CUCAS record now has an `officialUrl`.** Programs still listed on CUCAS point to their real CUCAS program page (step 3); programs CUCAS has since dropped point to the host university's official website (step 5 — e.g. `ncepu.edu.cn`, `czu.cn`; verified via HTTP-200/title-match or DNS). `backfill:cucas-urls` is idempotent and also fills `University.website` for the host universities.
