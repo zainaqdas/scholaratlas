@@ -24,6 +24,9 @@
 /data/wms-global-slugs.json
 /data/wms-country-map.json
 /data/wms-university-countries.json
+/data/wms-levels-backfill.jsonl
+/data/pts-programs.json
+/data/pts-details.jsonl
 __pycache__/
 /build
 

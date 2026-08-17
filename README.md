@@ -193,6 +193,7 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `npm run backfill:wms-countries` — re-runs the DB backfill from `data/wms-university-countries.json` (idempotent)
   - `python3 scripts/backfill-wms-university-countries.py` — (re)builds the provider→country map by crawling university pages (resumable)
   - `npm run backfill:wms-levels` — backfills study levels for records the parser missed ("Post Doc", "High/Secondary School", college diplomas…), resumable checkpoint in `data/wms-levels-backfill.jsonl`
+  - `npm run import:pts` — [pathwaystoscience.org](https://www.pathwaystoscience.org) importer (1,049 US STEM research programs: REUs, fellowships, summer research). Phases: `--listing-only` → `--detail-only` → `--insert-only` (all checkpointed + idempotent)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
 
 ## Scaling notes

@@ -21,17 +21,28 @@
 | 2026-08-16 | **Full wemakescholars catalogue import** — crawled the complete global listing (20,451 slugs / ~1,155 pages) + every detail page; 16,078 new records inserted (deduped by source URL), country backfill from provider text (+4,341), 15 missing countries added; approved — catalogue grew 3,380 → 23,209 | — |
 | 2026-08-17 | **Country backfill for wemakescholars records** — crawled 1,430 provider/university pages (slug-guessing + the `<h1>→<h4>` country signal on `/university/{slug}/scholarships`) building an authoritative provider→country map (1,177 providers, 87% of records); corrected nationality-based misassignments (e.g. Duke→US); verified remaining providers via official URLs; 38 country rows added to the Country table — "Not specified" fell from ~15,800 to **9** (only genuinely global orgs like FAO/UNESCO/TWAS) | — |
 | 2026-08-17 | **Study-level backfill for wemakescholars records** — the level data was already stored for 20k records (the old "~20k Not specified" claim was outdated); fixed the parser's blind spots ("Post Doc" → postdoctoral, "High/Secondary School" → high-school, college "Diploma" → undergraduate except Higher/Executive Diploma) and re-parsed the 343 genuinely-missing records (168 via degrees field, 69 diplomas, 2 title-guard corrections) — wms records without a level fell from 343 to 108 (only travel grants, medical professional prizes, competitions, "Other") | — |
+| 2026-08-17 | **Second US source: PathwaysToScience importer** — scholarshipdb.net + studyportals are Cloudflare-blocked from this environment; pivoted to pathwaystoscience.org (Institute for Broadening Participation): 1,049 curated US STEM research programs (REUs, fellowships, summer research) with academic levels, disciplines, host institutions and official apply URLs; inserted as PENDING, slug-collision handling, approved — catalogue grew 23,229 → 24,278 | — |
 | 2026-08-17 | **This progress report** | — |
 
 ---
 
 ## 2. Current Catalogue (live Neon DB, 2026-08-16)
 
+### Sources
+| Source | Records | Notes |
+|---|---|---|
+| wemakescholars.com | 20,367 | Global catalogue (US/UK/EU/AU/NZ/IN…), full detail pages |
+| CUCAS (Kaggle) | ~2,850 | Chinese university programs |
+| **pathwaystoscience.org** | **1,049** | US STEM research programs (REU/fellowship/summer) — NEW 2026-08-17 |
+| chinesescholarshipcouncil.com | 262 | Per-university CSC pages |
+| CampusChina / CSC official | 10 | Real CSC programs |
+| Seed demo data | 0 | Deleted |
+
 ### Totals
 | Metric | Count |
 |---|---|
-| Total scholarship records | 23,209 |
-| **Active (public) scholarships** | **23,209** |
+| Total scholarship records | 24,278 |
+| **Active (public) scholarships** | **24,278** |
 | Pending review | 0 |
 | Jobs (EURAXESS, admin-only by design) | 20 |
 | Universities | 111 |
@@ -203,7 +214,7 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 1. **✅ Country backfill for wms records — DONE (2026-08-17)** — 99.87% of active records now have a destination country (see §3); the 9 remaining are genuinely global organizations.
 2. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + wemakescholars listing (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
 3. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
-4. **Second aggregator** — DAAD (retry from a different host/VPN), EducationUSA (detail pages 301-loop — try a browser), UK FCDO/Chevening for depth beyond wemakescholars.
+4. **✅ Second aggregator — DONE (2026-08-17): PathwaysToScience** (1,049 US STEM programs). scholarshipdb.net + studyportals remain Cloudflare-blocked from this environment; future candidates: DAAD from a different host/VPN, EducationUSA via browser, UK FCDO/Chevening.
 
 ### Medium term
 4. **University-site crawlers** for the 22 zero-presence Chinese schools (NCEPU, BUCT, Qingdao…) — recover the ~408 records' official URLs.
