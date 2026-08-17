@@ -12,6 +12,7 @@
     "import:campuschina": "tsx scripts/import-campuschina.ts",
     "import:cucas": "tsx scripts/import-cucas.ts",
     "backfill:cucas-urls": "tsx scripts/backfill-cucas-officialurls.ts",
+    "backfill:cscouncil-urls": "tsx scripts/backfill-cscouncil-officialurls.ts",
     "enrich:cucas": "tsx scripts/enrich-cucas.ts",
     "dedupe": "tsx scripts/dedupe.ts",
     "import:wemakescholars": "tsx scripts/import-wemakescholars.ts",

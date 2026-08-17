@@ -156,6 +156,10 @@ npm run backfill:cucas-urls          # every CUCAS record ends up with an apply 
 
 **Every CUCAS record now has an `officialUrl`.** Programs still listed on CUCAS point to their real CUCAS program page (step 3); programs CUCAS has since dropped point to the host university's official website (step 5 — e.g. `ncepu.edu.cn`, `czu.cn`; verified via HTTP-200/title-match or DNS). `backfill:cucas-urls` is idempotent and also fills `University.website` for the host universities.
 
+### CSC (chinesescholarshipcouncil.com) application URLs
+
+The 262 CSC/Chinese-Government scholarship records got their application links too (`npm run backfill:cscouncil-urls`): CSC-titled records point to the official CSC online application system (`studyinchina.csc.edu.cn` — the real application channel), records whose source page links a live university portal use that portal (e.g. `tju.at0086.cn/student`, `apply.sdu.edu.cn`), and the rest point to the host university's verified official website. Every URL was verified live before assignment.
+
 How it works and what to know:
 
 - **Use the global listing, not the school filter.** CUCAS's per-school filter is flaky: for ~22 schools the server ignores the filter and serves a fixed "featured programs" fallback (all URLs belong to *other* schools), and even for working schools the filtered pages under-report programs. The paginated global listing (`china_scholarships/.../all_universities/...`) is the authoritative catalog — ~11k programs across ~160 schools.
