@@ -26,6 +26,7 @@
     "backfill:cucas-rich": "tsx scripts/backfill-cucas-rich.ts",
     "backfill:csc-rich": "tsx scripts/backfill-csc-rich.ts",
     "backfill:campuschina-rich": "tsx scripts/backfill-campuschina-rich.ts",
+    "backfill:uni-scholarships": "tsx scripts/backfill-uni-scholarships.ts",
     "import:daad": "tsx scripts/import-daad.ts",
     "enrich:cucas": "tsx scripts/enrich-cucas.ts",
     "dedupe": "tsx scripts/dedupe.ts",

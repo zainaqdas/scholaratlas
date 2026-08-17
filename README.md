@@ -188,6 +188,21 @@ npx tsx scripts/backfill-csc-rich.ts      # -> 263 CSC records: eligibility 215,
 - Teaching language (Chinese → `noIelts/notRequired`) is honest signal: Chinese-medium programs genuinely don't require English tests.
 - Everything is derived from the source's own text — nothing fabricated; fields the page doesn't publish stay "Not specified".
 
+### University-site enrichment (2026-08-17)
+
+The "zero-presence" Chinese universities (Kaggle-era CUCAS programs whose detail pages CUCAS removed) still had homepage-root URLs and no language/duration/deadline data. Each university's official **English** website publishes its scholarship policy, so we locate and crawl those pages directly:
+
+```bash
+python3 scripts/crawl-uni-scholarships.py     # 28 pages across 13 universities -> data/uni_scholarships/
+npx tsx scripts/backfill-uni-scholarships.ts  # -> 1,035 records: language +781, deadlines +74, durations +167, real scholarship-page URLs + scholarship notes
+```
+
+- **Language:** Chinese-medium programs → `noIelts/notRequired` (genuinely no English test); English-medium programs get the university's **published** IELTS/TOEFL scores only where stated (SDU 6.0/80, SHOU 6.0/80, CUST 5.5/80, NEFU 6.0–6.5/80–95).
+- **Deadlines:** next occurrence of the university's annual scholarship deadline (BUCT 30 Jun, CUST 31 May, SDU 1 Mar) only where a record had none and the university publishes one.
+- **Durations:** standard per-level durations only where the university publishes them (NEPU 4 / 2–3 / 3 yrs, SHUTCM 4–5 / 3 / 3+1, SHOU 3 / 4).
+- **officialUrl:** homepage root → the university's real scholarship/admission page.
+- Every record gets a source-backed "Campus scholarships" note (coverage + deadlines + HSK/IELTS policy) appended to its description, with the source named. Nothing fabricated — universities that don't publish a policy (ZZULI) or a deadline (CZU) honestly stay "Not specified".
+
 ### Other China sources (scholarship-level)
 
 Beyond CUCAS's program-level listings, two accessible aggregators add **scholarship-level** China opportunities (government/provincial/university programs with deadlines), all imported as PENDING/UNVERIFIED:
