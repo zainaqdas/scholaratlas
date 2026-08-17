@@ -172,6 +172,22 @@ How it works and what to know:
 - `officialUrl` stays `null` (UI shows "Check Official Provider") for the ~22 schools CUCAS no longer lists programs for (NCEPU, BUCT, Qingdao… verified empty via browser + jina + full global crawl) and for programs that left the current catalog — no fabricated links.
 - As of the 2026-08-16 crawl: **~1,120 of 2,859 CN records** carry a real CUCAS application URL + deadline; the rest show "Check Official Provider".
 
+### China rich-field enrichment (2026-08-17)
+
+The live CUCAS program pages and the CSC aggregator pages both publish rich detail that the Kaggle snapshots lack (duration, application fee, eligibility, application steps, required documents, teaching language, scholarship coverage). Two crawls now fill them:
+
+```bash
+python3 scripts/crawl-cucas-details.py    # all 813 live CUCAS program pages (stealth browser, resumable -> data/cucas-details.jsonl)
+npx tsx scripts/backfill-cucas-rich.ts    # -> 1,124 CUCAS records: duration 1,124, fee 945, eligibility 1,124, steps 1,124, docs 1,002, language 763
+python3 scripts/crawl-csc-details.py      # all 262 chinesescholarshipcouncil pages (plain requests -> data/csc-details.jsonl)
+npx tsx scripts/backfill-csc-rich.ts      # -> 263 CSC records: eligibility 215, docs 199, steps 218, benefits 126, IELTS 200, levels 257
+```
+
+- CUCAS detail pages are WAF-protected per request, so the crawler uses a fresh stealth browser per URL (proven approach, ~6s/page, resumable, zero errors).
+- Benefits/funding types are refreshed from the live coverage lists (e.g. Tuition+Accommodation+Living Allowance → FULLY_FUNDED_STIPEND).
+- Teaching language (Chinese → `noIelts/notRequired`) is honest signal: Chinese-medium programs genuinely don't require English tests.
+- Everything is derived from the source's own text — nothing fabricated; fields the page doesn't publish stay "Not specified".
+
 ### Other China sources (scholarship-level)
 
 Beyond CUCAS's program-level listings, two accessible aggregators add **scholarship-level** China opportunities (government/provincial/university programs with deadlines), all imported as PENDING/UNVERIFIED:
@@ -207,6 +223,14 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `npm run backfill:wms-levels` — backfills study levels for records the parser missed ("Post Doc", "High/Secondary School", college diplomas…), resumable checkpoint in `data/wms-levels-backfill.jsonl`
   - `npm run import:pts` — [pathwaystoscience.org](https://www.pathwaystoscience.org) importer (1,049 US STEM research programs: REUs, fellowships, summer research). Phases: `--listing-only` → `--detail-only` → `--insert-only` (all checkpointed + idempotent)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
+- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 8,548 genuinely-open scholarships. Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
+- **Rich-field backfills (all derived from source text, never fabricated):**
+  - `npm run backfill:universities` — 1,559 University rows created, 96% of scholarships linked
+  - `npm run backfill:wms-benefits` — amounts/currency/benefits parsed from cached descriptions
+  - `python3 scripts/crawl-wms-nationalities.py` + `npm run backfill:wms-nationalities` — eligible nationalities from a full 20,451-page re-crawl (87% coverage)
+  - `python3 scripts/crawl-wms-deadlines.py` + `npm run backfill:wms-deadlines` — real deadlines + expiry status
+  - `python3 scripts/crawl-pts-deadlines.py` + `npm run backfill:pts-deadlines` — PTS program deadlines
+  - `python3 scripts/crawl-wms-eligibility.py` + `npm run backfill:wms-eligibility` — academic requirements, application steps, required documents, language requirements from the Eligibility/Process sections
 
 ## Scaling notes
 

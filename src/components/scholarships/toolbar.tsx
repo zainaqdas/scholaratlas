@@ -1,9 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { LayoutGrid, List, Sparkles } from "lucide-react";
+import { History, LayoutGrid, List, Sparkles } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+
+const STATUS_OPTIONS = [
+  { value: "ACTIVE", label: "Open" },
+  { value: "EXPIRED", label: "Closed / Historical" },
+  { value: "ALL", label: "All" },
+];
 
 const SORTS = [
   { value: "relevance", label: "Relevance" },
@@ -26,6 +32,7 @@ export function ResultsToolbar({
   const params = new URLSearchParams(searchParams);
   const sort = params.get("sort") ?? "relevance";
   const featured = params.get("featured") === "1";
+  const status = (params.get("status") ?? "ACTIVE").toUpperCase();
 
   function setParam(key: string, value: string | null) {
     const p = new URLSearchParams(params);
@@ -36,10 +43,31 @@ export function ResultsToolbar({
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-3">
-      <p className="text-sm font-medium text-muted-foreground" aria-live="polite">
-        <span className="font-bold text-foreground">{total.toLocaleString()}</span>{" "}
-        {total === 1 ? "Scholarship" : "Scholarships"} Found
-      </p>
+      <div className="flex flex-wrap items-center gap-3">
+        <p className="text-sm font-medium text-muted-foreground" aria-live="polite">
+          <span className="font-bold text-foreground">{total.toLocaleString()}</span>{" "}
+          {total === 1 ? "Scholarship" : "Scholarships"}{" "}
+          {status === "EXPIRED" ? "Closed" : status === "ALL" ? "Listed" : "Found"}
+        </p>
+
+        <div className="flex items-center rounded-lg border bg-card p-0.5" role="group" aria-label="Scholarship status">
+          {STATUS_OPTIONS.map((o) => (
+            <button
+              key={o.value}
+              type="button"
+              onClick={() => setParam("status", o.value === "ACTIVE" ? null : o.value)}
+              aria-pressed={status === o.value}
+              className={cn(
+                "rounded-md px-2.5 py-1 text-xs font-medium transition-colors",
+                status === o.value ? "bg-muted text-foreground" : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {o.value === "EXPIRED" && <History className="mr-1 inline h-3 w-3" />}
+              {o.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="flex flex-wrap items-center gap-2">
         <button

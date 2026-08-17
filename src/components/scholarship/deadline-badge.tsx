@@ -4,7 +4,7 @@ import type { Scholarship } from "@prisma/client";
 import { cn } from "@/lib/utils";
 
 export function DeadlineBadge({ scholarship, className }: { scholarship: Scholarship; className?: string }) {
-  const state = deadlineState(scholarship);
+  const state = scholarship.status === "EXPIRED" ? "closed" : deadlineState(scholarship);
   return (
     <span
       className={cn(

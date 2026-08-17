@@ -22,32 +22,51 @@
 | 2026-08-17 | **Country backfill for wemakescholars records** — crawled 1,430 provider/university pages (slug-guessing + the `<h1>→<h4>` country signal on `/university/{slug}/scholarships`) building an authoritative provider→country map (1,177 providers, 87% of records); corrected nationality-based misassignments (e.g. Duke→US); verified remaining providers via official URLs; 38 country rows added to the Country table — "Not specified" fell from ~15,800 to **9** (only genuinely global orgs like FAO/UNESCO/TWAS) | — |
 | 2026-08-17 | **Study-level backfill for wemakescholars records** — the level data was already stored for 20k records (the old "~20k Not specified" claim was outdated); fixed the parser's blind spots ("Post Doc" → postdoctoral, "High/Secondary School" → high-school, college "Diploma" → undergraduate except Higher/Executive Diploma) and re-parsed the 343 genuinely-missing records (168 via degrees field, 69 diplomas, 2 title-guard corrections) — wms records without a level fell from 343 to 108 (only travel grants, medical professional prizes, competitions, "Other") | — |
 | 2026-08-17 | **Second US source: PathwaysToScience importer** — scholarshipdb.net + studyportals are Cloudflare-blocked from this environment; pivoted to pathwaystoscience.org (Institute for Broadening Participation): 1,049 curated US STEM research programs (REUs, fellowships, summer research) with academic levels, disciplines, host institutions and official apply URLs; inserted as PENDING, slug-collision handling, approved — catalogue grew 23,229 → 24,278 | — |
+| 2026-08-17 | **University records + funding details** — `npm run backfill:universities` created **1,559 University rows** from the verified provider→country map (23,306/24,278 scholarships linked, 96%; Universities explorer 111 → 1,670); `npm run backfill:wms-benefits` parsed amounts/benefits from cached wms descriptions (amounts 11% → 85%); caught + fixed data bugs (Royal Holloway→GB, Pittsburg State→US, Edith Cowan→AU, ESCP→FR, and a pre-existing Indiana→India bug on 136 records) | `06039b4` |
+| 2026-08-17 | **Eligible nationalities via full wms re-crawl** — crawled all 20,451 wms detail pages (resumable, zero errors), extracted the "Eligible Nationalities" spec → 18,171 wms records updated (14,795 open-to-all, 3,376 restricted e.g. IN/AU+NZ); platform-wide eligibility coverage 0% → **87%**; exclusions ("non-Chinese") honestly left unset | `a88fdb3` |
+| 2026-08-17 | **Deadlines, expiry status, documents, steps & language** — re-crawl revealed the first import had dropped wms's own "Deadline: Expired" status: **15,710 records marked EXPIRED** (kept for history, shown "Closed", hidden from open search; visible catalogue 24,278 → 8,548 ACTIVE); 55 missed wms deadlines + 35 PTS deadlines recovered; crawled Eligibility Criteria + Application Process sections → **14,116 academicRequirements, 17,630 applicationSteps, 1,639 requiredDocuments, 576 languageRequirements** filled from source text | `4f62652` |
+| 2026-08-17 | **Closed-scholarship browsing + China enrichment** — `/scholarships?status=expired` (and `status=all`) toggle in the results toolbar; cards + detail pages show a "Closed" badge for EXPIRED records; crawled **all 813 live CUCAS program detail pages** (stealth browser, resumable, zero errors) → **1,124 CUCAS records enriched** (duration 0→1,124, applicationFee 0→945, eligibility 0→1,124, steps 0→1,124, documents 0→1,002, language 0→763, benefits/funding refreshed from live coverage); crawled **all 262 chinesescholarshipcouncil pages** (plain requests) → **263 CSC records enriched** (eligibility 215, documents 199, steps 218, benefits 126, IELTS 200, levels 257, deadline 64); platform-wide academicRequirements 36%→52%, steps 47%→62%, documents 4%→18% | — |
 | 2026-08-17 | **This progress report** | — |
 
 ---
 
-## 2. Current Catalogue (live Neon DB, 2026-08-16)
+## 2. Current Catalogue (live Neon DB, 2026-08-17)
 
 ### Sources
 | Source | Records | Notes |
 |---|---|---|
-| wemakescholars.com | 20,367 | Global catalogue (US/UK/EU/AU/NZ/IN…), full detail pages |
-| CUCAS (Kaggle) | ~2,850 | Chinese university programs |
-| **pathwaystoscience.org** | **1,049** | US STEM research programs (REU/fellowship/summer) — NEW 2026-08-17 |
+| wemakescholars.com | 20,367 | Global catalogue (US/UK/EU/AU/NZ/IN…), full detail pages — 15,710 of these are **EXPIRED** per the source's own status |
+| CUCAS (Kaggle) | 2,570 | Chinese university programs |
+| **pathwaystoscience.org** | **1,049** | US STEM research programs (REU/fellowship/summer) |
 | chinesescholarshipcouncil.com | 262 | Per-university CSC pages |
-| CampusChina / CSC official | 10 | Real CSC programs |
+| CampusChina / CSC official | 9 | Real CSC programs |
 | Seed demo data | 0 | Deleted |
 
 ### Totals
 | Metric | Count |
 |---|---|
 | Total scholarship records | 24,278 |
-| **Active (public) scholarships** | **24,278** |
+| **Active (public) scholarships** | **8,548** |
+| **Expired (kept for history, shown "Closed")** | **15,710** |
 | Pending review | 0 |
 | Jobs (EURAXESS, admin-only by design) | 20 |
-| Universities | 111 |
-| Countries with data | 67 |
+| Universities | 1,670 |
+| Countries with active data | 55 |
 | Demo data remaining | **0** (all removed) |
+
+### Active-scholarship coverage (8,548 ACTIVE)
+| Field | Coverage | Notes |
+|---|---|---|
+| Application URL (`officialUrl`) | **99.7%** (8,522) | |
+| Deadline | **83%** (7,097) | CUCAS 84% + wms real-date records + PTS 43 + CSC 70 + CampusChina |
+| Amount/value | **75%** (6,409) | incl. honest "Varies" |
+| Currency | 63% (5,349) | |
+| Eligible nationalities | **78%** (6,687) | wms 18,171 records (14,795 ALL + 3,376 restricted) + CUCAS ALL |
+| Academic requirements | **52%** (4,413) | wms + CUCAS + CSC eligibility text verbatim |
+| Application steps | **62%** (5,338) | wms + CUCAS + CSC process text → ordered steps |
+| Benefits (tuition/stipend/accom.) | 42% (3,575) | |
+| Language requirements | 13% (1,142 meaningful) | IELTS/TOEFL/alt-proof flags; 2,949 non-empty incl. `{}` placeholders |
+| Required documents | **18%** (1,556) | CUCAS/CSC document lists + wms mentions |
 
 ### By source
 | Source | Records | Notes |
@@ -112,14 +131,24 @@
 | VERIFIED (deep-checked) | 68 |
 | RECENTLY_UPDATED (bulk-approved imports) | ~23,100 |
 
-### China data completeness
+### China data completeness (2,856 ACTIVE CN records)
 | Field | Coverage |
 |---|---|
 | Description | 100% |
-| Fields of study | 100% |
-| Amount/value | 92% |
-| **Application URL** | **1,120 / 2,858 (39%)** |
-| **Deadline** | **1,117 / 2,858 (39%)** |
+| Fields of study | 72% (2,073) |
+| Amount/value | 92% (2,625) |
+| Eligible nationalities | 99.6% (2,850, mostly ALL) |
+| **Application URL** | **100%** (every CUCAS record; university-site fallbacks verified) |
+| **Deadline** | **84%** (2,420; CUCAS + CSC 70 + wms dates) |
+| **Study levels** | 99% (2,872) |
+| **Academic requirements** | **47%** (1,363) | CUCAS eligibility text + CSC criteria + wms |
+| **Application steps** | **47%** (1,369) | CUCAS/CSC process steps |
+| **Required documents** | **42%** (1,209) | CUCAS/CSC document lists |
+| **Duration** | **40%** (1,145) | CUCAS program duration |
+| **Language requirements** | 34% (992) | teaching language → noIelts flags |
+| **Benefits** | **94%** (2,712) | tuition/accommodation/stipend from coverage |
+
+> 2026-08-17: crawled **all 813 live CUCAS program detail pages** (stealth browser, resumable) + **all 262 chinesescholarshipcouncil pages**; the 1,124 CUCAS records + 263 CSC records now carry the rich fields above.
 
 ---
 
@@ -236,12 +265,18 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 - The 262 cscouncil records are third-party content with generic deadlines ("30 April Each Year") — worth spot-checking in `/admin`.
 
 ### Gap D — Deadlines quality
-- 5,725 records have a real upcoming deadline; ~17,500 (mostly wms bulk) show "Not specified". Deadlines age out — needs periodic re-crawl to refresh and expire stale records.
-- Generic cscouncil deadlines are not trustworthy for countdowns.
-- **Note:** wms "Partial" funding dominates (20,121) because wemakescholars defaults to "Partial" when a page doesn't spell out funding — acceptable but worth a data-quality pass.
+- **7,074 of 8,548 ACTIVE records (83%) now have a real deadline** — the big wms "Expired" deadweight was moved to EXPIRED status, so what remains is genuinely open.
+- Remaining honest gaps: PTS programs that publish no deadline (1,006 of 1,049), 234 CUCAS records at 21 schools that publish none, and a handful of wms records.
+- Generic cscouncil deadlines ("30 April Each Year") are not trustworthy for countdowns.
+- Deadlines age out — needs periodic re-crawl to refresh and expire stale records.
 
 ### Gap E — Jobs (EURAXESS)
 - 20 job records (PhD positions, postdocs, professorships) are imported but **hidden from the public catalogue by design** (`recordType: JOB`). They're visible only in `/admin`. Decide whether to build a separate jobs section later.
+
+### Gap H — Rich-field depth
+- Required documents (18%) and language requirements (13% meaningful) remain the thinnest fields — most sources simply don't publish them.
+- Chinese (CUCAS) records: now **rich** (docs 42%, steps 47%, eligibility 47%, duration 40%, language 34%) via the detail-page crawl — see §2.
+- The 15,710 EXPIRED records are kept in the DB (SEO/history) and now browsable publicly via `/scholarships?status=expired` (or `status=all`).
 
 ---
 
@@ -249,14 +284,19 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 
 ### Short term
 1. **✅ Country backfill for wms records — DONE (2026-08-17)** — 99.87% of active records now have a destination country (see §3); the 9 remaining are genuinely global organizations.
-2. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + wemakescholars listing (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
-3. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
-4. **✅ Second aggregator — DONE (2026-08-17): PathwaysToScience** (1,049 US STEM programs). scholarshipdb.net + studyportals remain Cloudflare-blocked from this environment; future candidates: DAAD from a different host/VPN, EducationUSA via browser, UK FCDO/Chevening.
+2. **✅ University records + funding details — DONE (2026-08-17, `06039b4`)** — 1,559 universities created, 96% of scholarships linked, amounts 85%.
+3. **✅ Eligible nationalities — DONE (2026-08-17, `a88fdb3`)** — 87% coverage via wms re-crawl.
+4. **✅ Deadlines/expiry/docs/steps/language — DONE (2026-08-17, `4f62652`)** — expired records now honest; requirements filled from source text.
+5. **✅ Expired-record browsing — DONE (2026-08-17)** — `status=expired`/`status=all` toggle on `/scholarships`; Closed badges on cards + detail pages.
+6. **✅ CUCAS detail enrichment — DONE (2026-08-17)** — all 813 live CUCAS program pages crawled: duration, fee, eligibility, steps, documents, language, benefits for 1,124 records. CSC (chinesescholarshipcouncil) pages also crawled: 263 records enriched.
+7. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + wemakescholars listing (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
+8. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
+9. **✅ Second aggregator — DONE (2026-08-17): PathwaysToScience** (1,049 US STEM programs). scholarshipdb.net + studyportals remain Cloudflare-blocked from this environment; future candidates: DAAD from a different host/VPN, EducationUSA via browser, UK FCDO/Chevening.
 
 ### Medium term
-4. **University-site crawlers** for the 22 zero-presence Chinese schools (NCEPU, BUCT, Qingdao…) — recover the ~408 records' official URLs.
-5. **Bulk-approve tooling** — the admin approval flow works; a batch-approve + audit-log shortcut would speed up future imports.
-6. **Duplicate detection for admin** — the admin "data quality" panel exists; wire the dedupe logic into it so new imports surface potential duplicates before publishing.
+10. **University-site crawlers** for the 22 zero-presence Chinese schools (NCEPU, BUCT, Qingdao…) — recover the ~408 records' official URLs.
+11. **Bulk-approve tooling** — the admin approval flow works; a batch-approve + audit-log shortcut would speed up future imports.
+12. **Duplicate detection for admin** — the admin "data quality" panel exists; wire the dedupe logic into it so new imports surface potential duplicates before publishing.
 
 ### Long term (from the original spec)
 7. AI scholarship assistant + personalized recommendations (Phase 3).

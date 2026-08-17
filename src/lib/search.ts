@@ -63,7 +63,12 @@ function deadlineWindowRange(deadline: string): { gte?: Date; lte?: Date } | nul
 
 export async function searchScholarships(filters: SearchFilters = {}): Promise<SearchResult> {
   const where: Prisma.ScholarshipWhereInput = {
-    status: filters.status ?? "ACTIVE",
+    // status defaults to ACTIVE (open opportunities); "ALL" includes expired
+    // records kept for history/SEO. PENDING/ARCHIVED are never shown publicly.
+    status:
+      filters.status === "ALL"
+        ? { in: ["ACTIVE", "EXPIRED"] }
+        : (filters.status ?? "ACTIVE"),
     // The catalogue is scholarships only; research/PhD job listings (e.g.
     // EURAXESS) are a separate record type and excluded by default.
     recordType: filters.recordType === "ALL" ? undefined : (filters.recordType ?? "SCHOLARSHIP"),
@@ -275,6 +280,7 @@ export function buildSearchUrl(filters: SearchFilters): string {
   if (filters.providers?.length) params.set("provider", filters.providers.join(","));
   if (filters.languages?.length) params.set("language", filters.languages.join(","));
   if (filters.fee) params.set("fee", filters.fee);
+  if (filters.status && filters.status !== "ACTIVE") params.set("status", filters.status);
   if (filters.sort && filters.sort !== "relevance") params.set("sort", filters.sort);
   if (filters.page && filters.page > 1) params.set("page", String(filters.page));
   const s = params.toString();
@@ -295,6 +301,7 @@ export function parseFiltersFromUrl(searchParams: URLSearchParams): SearchFilter
     providers: toArray(searchParams.get("provider")),
     languages: toArray(searchParams.get("language")),
     fee: searchParams.get("fee") ?? undefined,
+    status: searchParams.get("status") ?? undefined,
     sort: (searchParams.get("sort") as SortKey) ?? undefined,
     page: Number(searchParams.get("page")) || undefined,
   };

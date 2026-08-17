@@ -58,6 +58,7 @@ export function ScholarshipCard({ scholarship: s, saved = false }: CardProps) {
             {level}
           </Badge>
         ))}
+        {s.status === "EXPIRED" && <Badge variant="danger">Closed</Badge>}
         {isFullyFunded && (
           <Badge variant="success">
             <Wallet className="h-3 w-3" />
@@ -79,7 +80,7 @@ export function ScholarshipCard({ scholarship: s, saved = false }: CardProps) {
       <div className="mt-4 flex items-center justify-between border-t pt-4">
         <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
           <CalendarDays className="h-3.5 w-3.5" />
-          {s.deadline ? formatShortDate(s.deadline) : "Open / rolling"}
+          {s.status === "EXPIRED" ? "Closed" : s.deadline ? formatShortDate(s.deadline) : "Open / rolling"}
         </div>
         <DeadlineBadge scholarship={s} />
       </div>

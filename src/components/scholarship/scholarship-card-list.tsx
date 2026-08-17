@@ -58,6 +58,7 @@ export function ScholarshipCardList({ scholarship: s, saved = false }: CardProps
               Fully Funded
             </Badge>
           )}
+          {s.status === "EXPIRED" && <Badge variant="danger">Closed</Badge>}
           {s.verificationStatus === "VERIFIED" && <VerificationBadge status={s.verificationStatus} />}
         </div>
         {fieldsOf(s).length > 0 && (
@@ -70,7 +71,7 @@ export function ScholarshipCardList({ scholarship: s, saved = false }: CardProps
       <div className="flex items-center gap-4 sm:flex-col sm:items-end">
         <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
           <CalendarDays className="h-3.5 w-3.5" />
-          {s.deadline ? formatShortDate(s.deadline) : "Open / rolling"}
+          {s.status === "EXPIRED" ? "Closed" : s.deadline ? formatShortDate(s.deadline) : "Open / rolling"}
         </span>
         <DeadlineBadge scholarship={s} />
         <div className="flex items-center gap-2">

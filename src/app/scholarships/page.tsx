@@ -51,10 +51,12 @@ export default async function ScholarshipsPage({ searchParams }: PageProps) {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-8">
         <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-          Find Your Scholarship
+          {filters.status === "EXPIRED" ? "Closed Scholarships" : "Find Your Scholarship"}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Search by country, degree level, field, funding and more.
+          {filters.status === "EXPIRED"
+            ? "Previously listed scholarships that are now closed — kept for reference and research."
+            : "Search by country, degree level, field, funding and more."}
         </p>
         <div className="mt-5 max-w-2xl">
           <SearchBar variant="compact" defaultValue={filters.q ?? ""} />
