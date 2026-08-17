@@ -209,6 +209,15 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 
 `npm run backfill:cscouncil-urls` (idempotent — only touches URL-less records). **Platform-wide: 24,278 records, only 52 lack an officialUrl** (50 wms + 2 PTS — 99.8% coverage).
 
+### Gap F — University linkage + funding details (2026-08-17) ✅ mostly closed
+
+**University records — created + linked.** `npm run backfill:universities` built **1,559 new University rows** (from the authoritative provider→country map `data/wms-university-countries.json`; fallback to the majority countryCode of the provider's own scholarships only for clearly university-named providers, e.g. Michigan, Columbia, Berkeley). **23,306/24,278 scholarships (96%) now link to a University** — the Universities explorer grew 111 → **1,670 real institutions**. 496 providers left unlinked are non-university orgs (foundations, governments, NGOs) — correctly not in the Universities explorer.
+
+- **Country corrections caught:** the fallback's DISTINCT-counting bug mis-assigned a handful of universities (Royal Holloway→IN, Pittsburg State→FR, Edith Cowan→LK, ESCP→GB); all fixed via `npm run fix:uni-countries` with verified values. Also fixed a **pre-existing data bug**: 136 Indiana Institute of Technology records had `countryCode=IN` (India) because "Indiana" collides with India's ISO code — all are actually Fort Wayne, USA.
+- Remaining 13 uni-vs-scholarship country mismatches are all single records where the destination genuinely differs (UCL→Japan, Queen's Belfast→Malaysia…) — correct.
+
+**Amount / currency / benefits — filled from cached descriptions.** `npm run backfill:wms-benefits` parsed the wms detail-page descriptions ("provides USD 20,000" / "provides Full tuition fee + stipend") in `data/wms-global-details.jsonl`: **18,082 wms records got an amount** (8,430 honestly say "Varies"), 9,363 got a currency code, 2,384 got benefit tags. Platform-wide: **20,695/24,278 (85%) now have an amount** (was 11%), 11,934 have currency, 4,955 have benefits. Never fabricated — every value came from the source's own text.
+
 ### Gap B — Non-China real data ✅ mostly closed
 - **Full wemakescholars global catalogue imported: 20,367 records** — crawled the complete `/scholarship` listing (20,451 slugs across ~1,155 pages), fetched each detail page, and inserted 16,078 new records (14 countries' worth was already imported earlier). Covers 200 destination countries.
 - **Country assignment — resolved (2026-08-17):** all but 9 wms records now have a destination country. Built an authoritative provider→country map by crawling `/university/{slug}/scholarships` pages (the country renders in an `<h4>` directly after the `<h1>` university name) for 1,430 unique providers → 1,177 mapped (87% of records), then verified the remainder via official URLs and provider-name country hints. Also **corrected nationality-based misassignments** from the earlier text backfill (e.g. "Duke Law India Masters" → US, not IN).
