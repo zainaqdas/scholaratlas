@@ -195,6 +195,8 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 
 Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches records still missing a URL). Also filled `University.website` for 58 host universities so the Universities explorer benefits. **No fabricated URLs:** every domain was verified before assignment; several bad guesses caught by the title check (e.g. `sdpc.edu.cn` is Shandong *Police* College — the real Shandong Polytechnic College is `sdpu.edu.cn`).
 
+**CUCAS deadlines — backfilled (2026-08-17).** `npm run backfill:cucas-deadlines` applied the verified **school-wide** CUCAS deadlines (deadlines are school-wide on CUCAS — every program at a school shares one) to the 1,038 records that only got university-website URLs. Coverage: **2,162/2,570 CUCAS records (84%)** have a real deadline. The remaining **408** are the 22 schools with zero CUCAS presence — no deadline data exists anywhere (not on CUCAS, not machine-readable on the university sites), so they honestly stay "Not specified" rather than getting a fabricated date.
+
 **cscouncil application URLs — closed (2026-08-17).** All 262 chinesescholarshipcouncil records now have an officialUrl (235 backfilled):
 
 | Record type | Count | officialUrl source |
