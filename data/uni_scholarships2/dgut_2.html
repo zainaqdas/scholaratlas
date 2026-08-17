@@ -1,0 +1,410 @@
+ï»¿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Freshmen-å½éå­¦é¢</title><meta name="pageType" content="2">
+<meta name="pageTitle" content="Freshmen">
+<META Name="keywords" Content="å½éå­¦é¢,Freshmen Scholarship" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/css/style.css">
+   
+<!--Announced by Visual SiteBuilder 9-->
+<link rel="stylesheet" type="text/css" href="../../_sitegray/_sitegray_d.css" />
+<script language="javascript" src="../../_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232307c78475350555742000200004156 -->
+<link rel="stylesheet" type="text/css" href="../../english/list.vsb.css" />
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(1088,'/english/list.jsp',-1,1554305204)</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="dc_mobileMenuWrap">
+
+    <div class="dc_mobileMenu">
+        <div class="dc_menuTop">
+            
+<a class="dc_logo" href="../../index.htm" style="height:80px;margin:0"><img src="../../images/gjlogo.jpg" style="height:100%" /></a>
+            <button class="dc_menuBtn">
+                <div class="dc_menuBtnT"></div>
+                <div class="dc_menuBtnT"></div>
+                <div class="dc_menuBtnT"></div>
+            </button>
+            <div class="dc_transF hidden-xs">
+            
+                <a href="../../englishinternation">English</a>
+
+                <div class="dc_inline  hidden-md  hidden-sm hidden-xs">
+                <!-- 3.1.3çæ¬ -->
+
+
+
+<script language="javascript" src="/system/resource/js/base64.js"></script><script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script><script language="javascript" src="/system/resource/vue/vue.js"></script><script language="javascript" src="/system/resource/vue/bluebird.min.js"></script><script language="javascript" src="/system/resource/vue/axios.js"></script><script language="javascript" src="/system/resource/vue/polyfill.js"></script><script language="javascript" src="/system/resource/vue/token.js"></script><LINK href="/system/resource/vue/static/element/index.css" type="text/css" rel="stylesheet"><script language="javascript" src="/system/resource/vue/static/element/index.js"></script><script language="javascript" src="/system/resource/vue/static/public.js"></script><script language="javascript" src="/system/resource/openapp/search/js/containsHtmlTags.js"></script><script language="javascript" src="/system/resource/openapp/search/layui/layui.js"></script><style>
+    #appu1 .qwss{
+        height: 31px;
+        font-size: 12px;
+        min-width: 190px;
+        max-width: 600px;
+        width: 60%;
+        margin-top: -15px;
+        outline: none;
+        padding-left: 10px;
+        border-radius: 2px;
+        border: 1px solid #e4e7ed;}
+    #appu1 .tj{
+        padding-left: 6px;
+        letter-spacing: 5px;
+        color: white;
+        min-width: 53px;
+        max-width: 150px;
+        height: 32px;
+        border: 0;
+        border-radius: 2px;
+        background-color: #1890FF;
+        position: relative;
+        top: 1px;
+        width: 20%;
+        margin-top: -15px;}
+</style>
+<div id="divu1"></div>
+<script type="text/html" id="htmlu1">
+    <div id="appu1">
+        <div v-if="!isError">
+        <div class="searchWrap">
+<input type="text"  placeholder="search" autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+
+<span> <button type="submit">search</button></span>
+</div>
+        
+                   </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            åºç¨ç»´æ¤ä¸­ï¼
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu1").html($("#htmlu1").text());
+</script>
+<script>
+    var appOwner = "1554305204";
+    var token = 'tourist';
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu1",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//æç´¢å³é®è¯
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_en_US"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/aop_views/search/modules/resultpc/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("è¯·å¡«åæç´¢åå®¹")
+                }
+            },
+        }
+    })
+</script>
+
+<script>
+   var appElementu1 = document.querySelector("#appu1");
+   if (appElementu1 && appElementu1.__vue__) {
+
+   } else {
+      $("#divu1").html($("#htmlu1").text());
+      var appOwner = "1554305204";   
+      var urlPrefix = "/aop_component/";
+      var ifLogin="";
+      var token = ifLogin=='true'?gettoken(10, true).trim():'tourist';
+      if (containsHtmlTags(token) || !token) { 
+         token = 'tourist';
+      }
+      jQuery.support.cors = true;
+      $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+      });
+      var queryInfou1 = {
+        query: {
+            keyWord: "",//æç´¢å³é®è¯
+            owner: appOwner,
+            token: token,
+            urlPrefix: urlPrefix,
+            lang:"i18n_en_US"
+        },
+        isError: false
+      };
+      function keyUpFunu1(e){
+        var theEvent = e || window.event;
+        var keyCode = theEvent.keyCode || theEvent.which || theEvent.charCode;
+        if(keyCode == 13){
+          onSubmitu1();
+        }
+      };
+
+      function onSubmitu1(e) {
+        queryInfou1.query.keyWord= $("#appu1  .qwss").val();
+        
+        var url = "/aop_views/search/modules/resultpc/soso.html";      
+        if ("10" == "1" || "10" == "2") {
+           url = "" + url;
+        }
+        var query = queryInfou1.query;
+        if (url.indexOf("?") > -1) {
+            url = url.split("?")[0];
+        }
+        if (query.keyWord) {
+            var query = new Base64().encode(JSON.stringify(query));
+            window.open(url + "?query=" + query);
+        } else {
+            alert("è¯·å¡«åæç´¢åå®¹")
+        }
+      };
+   }
+</script>
+                </div>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div class="dc_menu">
+            <div class="visible-sm visible-xs" style="display: none;">
+            <form action="../../search" method="get" name="searchForm">
+                <div class="searchWrap"><input type="text" placeholder="è¯·è¾å¥æç« æ é¢" name="query" value="" />
+                    <span><button>æç´¢</button></span>
+                </div>
+            </form>
+            </div>
+            
+
+
+
+
+
+    
+    
+<ul>    <li class="firstM"><a href="../Home.htm">Home</a>
+    </li>
+    <li class="firstM"><a href="../About_Us.htm">About Us</a>
+         <ul>
+            <li><a href="../About_Us/College_Overview.htm">College Overview</a></li>
+            <li><a href="../About_Us/Faculty.htm">Faculty</a></li>
+            <li><a href="../About_Us/Staff.htm">Staff</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="../News.htm">News</a>
+    </li>
+    <li class="firstM"><a href="../Notic.htm">Notice</a>
+    </li>
+    <li class="firstM"><a href="../Admissions.htm">Admissions</a>
+         <ul>
+            <li><a href="../Admissions/Language_Student.htm">Language Student</a></li>
+            <li><a href="../Admissions/Undergraduate.htm">Undergraduate</a></li>
+            <li><a href="../Admissions/Application_Procedure.htm">Application Procedure</a></li>
+            <li><a href="../Admissions/Tuition_and_Fees.htm">Tuition and Fees</a></li>
+            <li><a href="">Online Registration</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="../Teaching.htm">Teaching</a>
+         <ul>
+            <li><a href="../Teaching/Educational_Administration_Notice.htm">Educational Administration Notice</a></li>
+            <li><a href="../Teaching/Course_Introduction.htm">Course Introduction</a></li>
+            <li><a href="../Teaching/Training_Plan.htm">Training Plan</a></li>
+            <li><a href="../Teaching/Academic_Calender.htm">Academic Calender</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="../Scholarship1.htm">Scholarship</a>
+         <ul>
+            <li><a href="Freshmen.htm">Freshmen</a></li>
+            <li><a href="Academic.htm">Academic</a></li>
+            <li><a href="Guangdong_Provincial_Government.htm">Guangdong Provincial Government</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="../HSK.htm">HSK</a>
+         <ul>
+            <li><a href="../HSK/About_HSK.htm">About HSK</a></li>
+            <li><a href="../HSK/Test_And_Registration.htm">Test And Registration</a></li>
+            <li><a href="../HSK/Test_In_Dongguan.htm">Test In Dongguan</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="../Documents.htm">Documents</a>
+         <ul>
+            <li><a href="../Documents/Admission_Application_and_Registration.htm">Admission Application and Registration</a></li>
+            <li><a href="../Documents/Documents_Related_to_Scholarship.htm">Documents Related to Scholarship</a></li>
+            <li><a href="../Documents/College_Calendar_and_Timetable.htm">College Calendar and Timetable</a></li>
+            <li><a href="../Documents/Campus_Life.htm">Campus Life</a></li>
+            <li><a href="../Documents/Graduation.htm">Graduation</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="../Contact_Us.htm">Contact Us</a>
+    </li>
+    
+</ul>
+            <div class="cb"></div>
+        </div>
+        <div class="cb"></div>
+    </div>
+</div>
+<div class="wrapper">
+    <img class="innerBG" src="../../dfiles/12871/export/sites/default/internation/lunbo/resource/img1.jpg" alt="" />
+    <div class="inWrap">
+        <div class="center">
+            <div class="centerInner">
+                <div class="breadCrumb">        
+                <a href="../../index.htm">é¦é¡µ</a>
+
+                >
+                <a href="../Scholarship1.htm">Scholarship</a>
+
+                >
+                <a href="Freshmen.htm">Freshmen</a>
+</div>
+                <h3 class="inTitle">
+Freshmen</h3>
+                <div class="contentWrap list">
+            <script language="javascript" src="/system/resource/js/centerCutImg.js"></script><script language="javascript" src="/system/resource/js/dynclicks.js"></script><script language="javascript" src="/system/resource/js/ajax.js"></script><div id="pageregion"> 
+   <div id="paging">
+    <UL>
+    	<li><span class="date">2020-04-07</span><a href="../../info/1088/1452.htm" title="Freshman" target="_blank">Freshman</a></li>
+        
+        
+    </UL>
+    <link rel="stylesheet" Content-type="text/css" href="/system/resource/css/pagedown/sys.css"><div class="pb_sys_common pb_sys_normal pb_sys_style1" style="margin-top:10px;text-align:center;"><span class="p_t">å±1æ¡</span> <span class="p_pages"><span class="p_first_d p_fun_d">é¦é¡µ</span><span class="p_prev_d p_fun_d">ä¸é¡µ</span><span class="p_no_d">1</span><span class="p_next_d p_fun_d">ä¸é¡µ</span><span class="p_last_d p_fun_d">å°¾é¡µ</span></span></div>
+</div>
+</div><script>_showDynClickBatch(['dynclicks_u6_1452'],[1452],"wbnews", 1554305204)</script>                
+
+                </div>
+            </div>
+        </div>
+
+        <div class="inLeft hidden-md  hidden-sm hidden-xs">
+            <div class="subMenu"><ul>
+                <div class="subMenuHead">
+                <h3>Scholarship</h3>
+            </div>
+                        <li class="selected"><a href="Freshmen.htm">Freshmen</a></li>
+                        <li><a href="Academic.htm" style="background-color: #cebdbd;">Academic</a></li>
+                        <li><a href="Guangdong_Provincial_Government.htm" style="background-color: #cebdbd;">Guangdong Provincial Government</a></li>
+</ul>
+</div>
+            <!-- end subMenu -->
+        </div>
+
+        <div class="cb"></div>
+
+        <div class="subMenuDown visible-md-block visible-xs-block visible-sm-block">
+            
+
+
+
+
+
+    
+    
+<div class="subMenuHead">
+     <h3>å­¦é¢å¨æ</h3>
+</div>
+<ul>
+<li class="selected"><a href="../../xydt/xxxw">å­¦é¢æ°é»</a></li><li><a href="../../xydt/tzgg">éç¥å¬å</a></li></ul>
+        </div>
+    </div>
+</div>
+
+
+  <div class="footer">
+    <div class="footContent row">
+        <!-- çæåå®¹è¯·å¨æ¬ç»ä»¶"åå®¹éç½®-çæ"å¤å¡«å -->
+<div style="margin-left:5%;float:left;width:25%;"><p style="text-align: left;"><strong><span style="font-size: 14px;"><span style="font-size:16px;font-family: &#39;Times New Roman&#39;,&#39;serif&#39;">ç¸å³é¾æ¥</span>ï¼</span></strong></p><p style="text-align: left;"><span style="font-size: 16px; text-decoration: underline; float: left; width: 100%; font-family: å®ä½, SimSun;"><span style="text-decoration: underline; font-size: 16px; float: left; width: 100%; font-family: å®ä½, SimSun;"><a href="https://www.dgut.edu.cn/" style="text-decoration: underline; font-size: 14px;"> ä¸èçå·¥å­¦é¢</a></span> 
+		<a href="https://gjc.dgut.edu.cn/" target="_self" textvalue="å½éäº¤æµä¸åä½é¨ï¼æ¸¯æ¾³å°åå¤äºå·¥ä½é¨ï¼"><span style="font-size: 16px; width: 100%;">å½éäº¤æµä¸åä½é¨ï¼æ¸¯æ¾³å°åå¤äºå·¥ä½é¨ï¼</span></a> 
+		<span style="text-decoration: underline; float: left; width: 100%; font-family: å®ä½, SimSun;"><a href="http://www.chinesetest.cn/index.do" style="font-size: 14px; text-decoration: underline;">æ±è¯­èè¯æå¡ç½</a></span><br /></span></p></div><div style="margin-left:5%;float:left;width:25%;"><p style="white-space: normal;"><strong><span style="font-size: 14px;">ä¸èçå·¥å­¦é¢å½éå­¦é¢</span></strong><span style="font-size: 14px;">&nbsp;</span></p><p style="white-space: normal;"><span style="font-size: 14px;"><span style="font-family: å®ä½, SimSun; font-size: 14px;">å°åï¼</span><span style="font-family: å®ä½, SimSun; font-size: 14px;">ä¸­å½ä¸èå¸èååºå­¦é¢è·¯251å·ä¸èçå·¥å­¦é¢å½éå­¦é¢7111</span></span></p><p style="white-space: normal;"><span style="font-size: 14px;">çµè¯ï¼</span><span style="font-size: 14px; font-family: å®ä½, SimSun;">0769-22261545&nbsp;</span></p><p style="white-space: normal;"><span style="font-size: 14px;"><a href="https://beian.miit.gov.cn" target="_blank" title="ç²¤ICPå¤05008829å·" style="font-size: 14px;">ç²¤ICPå¤05008829å·</a></span></p><p style="white-space: normal;"><span style="font-size: 14px; font-family: å®ä½, SimSun;">&nbsp;&nbsp;</span></p><p style="white-space: normal;"><br /></p><br /><p style="white-space: normal; text-align: center;"><br /></p></div><div style="margin-left:5%;float:left;width:25%;"><p><strong><span style="font-size: 14px;">å¾®ä¿¡wechatï¼</span></strong><span style="font-size: 14px;">ä¸èçå·¥å­¦é¢å½éå­¦é¢</span></p><p style="text-align: center;"><img src="/__local/7/50/37/D05B2B16D0181CCBC0F69E94158_E8C2267D_38294.jpg?e=.jpg" width="200" height="100" /></p></div>
+        <div class="col-lg-3 col-md-12 col-sm-12 footRight clearMinHeight">
+        <!-- PR{links}S -->
+        
+            <select name="friendLinks" onchange="if(this.value!='javascript:void(0);'){window.open(this.options[this.options.selectedIndex].value);}">
+                  <option value="javascript:void(0);">åæé¾æ¥</option>
+                  
+                         <option value="http://www.chinesetest.cn/index.do">æ±è¯­èè¯æå¡ç½</option>
+                  
+                         <option value="http://www.hanban.edu.cn/">å½å®¶æ±å</option>
+                  
+            </select>
+        <!-- PR{links}E -->        
+    </div>
+        <div class="cb"></div>
+    </div>
+</div>
+
+<script src="../../english/dfiles/12871/export/sites/default/internation/-themes-/internation/resources/libs/jquery/1.11.1/bdtxk.js" type="text/javascript"></script>
+<script src="../../english/dfiles/12871/export/sites/default/internation/-themes-/internation/resources/libs/fastclick/fastclick.js"></script>
+<script src="../../english/dfiles/12871/export/sites/default/internation/-themes-/internation/resources/js/common.js" type="text/javascript"></script>
+<script src="../../english/dfiles/12871/export/sites/default/internation/-themes-/internation/resources/js/layout.js" type="text/javascript"></script>
+<script src="../../english/dfiles/12871/export/sites/default/internation/-themes-/internation/resources/js/menu.js" type="text/javascript"></script>
+</body>
+
+</html>

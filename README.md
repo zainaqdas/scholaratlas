@@ -203,6 +203,17 @@ npx tsx scripts/backfill-uni-scholarships.ts  # -> 1,035 records: language +781,
 - **officialUrl:** homepage root → the university's real scholarship/admission page.
 - Every record gets a source-backed "Campus scholarships" note (coverage + deadlines + HSK/IELTS policy) appended to its description, with the source named. Nothing fabricated — universities that don't publish a policy (ZZULI) or a deadline (CZU) honestly stay "Not specified".
 
+**Round 2 (same day, 2026-08-17)** — the remaining zero-presence schools:
+
+```bash
+python3 scripts/crawl-uni-scholarships2.py     # 36 pages across 18 universities -> data/uni_scholarships2/
+npx tsx scripts/backfill-uni-scholarships2.ts  # ~410 records: language +~270, deadlines +6, TJU durations, real URLs + notes
+```
+
+- **Language:** CUMT IELTS 5.5/TOEFL 70, CUP 6.5/80, CUG 6.0/80, CPU 6.5/90, DUFE 6.5, ZJNU IELTS/TOEFL/GRE for English-taught programs; Chinese-medium → No IELTS. Universities that don't publish test scores (USST, WZU, ZUST, DGUT, NHMU, UJS, SHNU) honestly stay unset.
+- **Deadlines:** next occurrence where the university publishes an annual deadline (CUP 30 May, TJU 31 May, WZU 10 May).
+- **Honestly skipped:** ZZULI (policy only in Chinese), CCUT/NBU/ZUT (no reachable English site), BFA (WAF 412), BJWLXY (English pages empty).
+
 ### Other China sources (scholarship-level)
 
 Beyond CUCAS's program-level listings, two accessible aggregators add **scholarship-level** China opportunities (government/provincial/university programs with deadlines), all imported as PENDING/UNVERIFIED:

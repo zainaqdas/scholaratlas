@@ -1,0 +1,535 @@
+ï»¿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Home-å½éå­¦é¢</title><meta name="pageType" content="2">
+<meta name="pageTitle" content="Home">
+<META Name="keywords" Content="å½éå­¦é¢" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/css/style.css">
+<!--Announced by Visual SiteBuilder 9-->
+<link rel="stylesheet" type="text/css" href="../_sitegray/_sitegray_d.css" />
+<script language="javascript" src="../_sitegray/_sitegray.js"></script>
+<!-- CustomerNO:77656262657232307c78475350555742000200004156 -->
+<link rel="stylesheet" type="text/css" href="../english/index.vsb.css" />
+<script type="text/javascript" src="/system/resource/js/counter.js"></script>
+<script type="text/javascript">_jsq_(1061,'/english/index.jsp',-1,1554305204)</script>
+</head>
+
+<body>
+  <div class="dc_mobileMenuWrap">
+
+    <div class="dc_mobileMenu">
+        <div class="dc_menuTop" style="padding: 10px 0;background: #fff;">
+            
+<a class="dc_logo" href="../index.htm" style="height:80px;margin:0"><img src="../images/gjlogo.jpg" style="height:100%" /></a>
+            <button class="dc_menuBtn">
+                <div class="dc_menuBtnT"></div>
+                <div class="dc_menuBtnT"></div>
+                <div class="dc_menuBtnT"></div>
+            </button>
+            <div class="dc_transF hidden-xs">
+                <a href="../index.htm" target="">Chinese</a>
+
+                <div class="dc_inline  hidden-md  hidden-sm hidden-xs">
+                <!-- 3.1.3çæ¬ -->
+
+
+
+<script language="javascript" src="/system/resource/js/base64.js"></script><script language="javascript" src="/system/resource/js/jquery/jquery-latest.min.js"></script><script language="javascript" src="/system/resource/vue/vue.js"></script><script language="javascript" src="/system/resource/vue/bluebird.min.js"></script><script language="javascript" src="/system/resource/vue/axios.js"></script><script language="javascript" src="/system/resource/vue/polyfill.js"></script><script language="javascript" src="/system/resource/vue/token.js"></script><LINK href="/system/resource/vue/static/element/index.css" type="text/css" rel="stylesheet"><script language="javascript" src="/system/resource/vue/static/element/index.js"></script><script language="javascript" src="/system/resource/vue/static/public.js"></script><script language="javascript" src="/system/resource/openapp/search/js/containsHtmlTags.js"></script><script language="javascript" src="/system/resource/openapp/search/layui/layui.js"></script><style>
+    #appu1 .qwss{
+        height: 31px;
+        font-size: 12px;
+        min-width: 190px;
+        max-width: 600px;
+        width: 60%;
+        margin-top: -15px;
+        outline: none;
+        padding-left: 10px;
+        border-radius: 2px;
+        border: 1px solid #e4e7ed;}
+    #appu1 .tj{
+        padding-left: 6px;
+        letter-spacing: 5px;
+        color: white;
+        min-width: 53px;
+        max-width: 150px;
+        height: 32px;
+        border: 0;
+        border-radius: 2px;
+        background-color: #1890FF;
+        position: relative;
+        top: 1px;
+        width: 20%;
+        margin-top: -15px;}
+</style>
+<div id="divu1"></div>
+<script type="text/html" id="htmlu1">
+    <div id="appu1">
+        <div v-if="!isError">
+        <div class="searchWrap">
+<input type="text"  placeholder="search" autocomplete=off v-model=query.keyWord @keyup.enter="onSubmit">
+
+<span> <button type="submit">search</button></span>
+</div>
+        
+                   </div>
+        <div v-if="isError" style="color: #b30216; font-size:18px;text-align: center;padding:20px;">
+            åºç¨ç»´æ¤ä¸­ï¼
+        </div>
+    </div>
+</script>
+<script>
+    $("#divu1").html($("#htmlu1").text());
+</script>
+<script>
+    var appOwner = "1554305204";
+    var token = 'tourist';
+    var urlPrefix = "/aop_component/";
+
+    jQuery.support.cors = true;
+    $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+    });
+
+    new Vue({
+        el: "#appu1",
+        data: function () {
+            return {
+                query: {
+                    keyWord: "",//æç´¢å³é®è¯
+                    owner: appOwner,
+                    token: token,
+                    urlPrefix: urlPrefix,
+                    lang:"i18n_en_US"
+                },
+                isError: false
+            }
+        },
+        mounted: function () {
+            var _this = this;
+            // _this.init();
+        },
+        methods: {
+            init: function(){
+                $.ajax({
+                    url: "/aop_component//webber/search/test",
+                    type: "get",
+                    success: function (response) {
+                        if (response.code == "0000") {
+                        } else if (response.code == "220") {
+                            _this.isError = true;
+                            console.log(response);
+                        } else if (!response.code) {
+                            _this.isError = true;
+                            console.log(response);
+                        }
+                    },
+                    error: function (response) {
+                        _this.isError = true;
+                    }
+                });
+            },
+            onSubmit: function (e) {
+                var url = "/aop_views/search/modules/resultpc/soso.html";
+                if ("10" == "1" || "10" == "2") {
+                    url = "" + url;
+                }
+                var _this = this;
+                var query = _this.query;
+                if (url.indexOf("?") > -1) {
+                    url = url.split("?")[0];
+                }
+                if (query.keyWord) {
+                    var query = new Base64().encode(JSON.stringify(query));
+                    window.open(url + "?query=" + query);
+                } else {
+                    alert("è¯·å¡«åæç´¢åå®¹")
+                }
+            },
+        }
+    })
+</script>
+
+<script>
+   var appElementu1 = document.querySelector("#appu1");
+   if (appElementu1 && appElementu1.__vue__) {
+
+   } else {
+      $("#divu1").html($("#htmlu1").text());
+      var appOwner = "1554305204";   
+      var urlPrefix = "/aop_component/";
+      var ifLogin="";
+      var token = ifLogin=='true'?gettoken(10, true).trim():'tourist';
+      if (containsHtmlTags(token) || !token) { 
+         token = 'tourist';
+      }
+      jQuery.support.cors = true;
+      $.ajaxSetup({
+        beforeSend: function (request, settings) {
+            request.setRequestHeader("Authorization", token);
+            request.setRequestHeader("owner", appOwner);
+        }
+      });
+      var queryInfou1 = {
+        query: {
+            keyWord: "",//æç´¢å³é®è¯
+            owner: appOwner,
+            token: token,
+            urlPrefix: urlPrefix,
+            lang:"i18n_en_US"
+        },
+        isError: false
+      };
+      function keyUpFunu1(e){
+        var theEvent = e || window.event;
+        var keyCode = theEvent.keyCode || theEvent.which || theEvent.charCode;
+        if(keyCode == 13){
+          onSubmitu1();
+        }
+      };
+
+      function onSubmitu1(e) {
+        queryInfou1.query.keyWord= $("#appu1  .qwss").val();
+        
+        var url = "/aop_views/search/modules/resultpc/soso.html";      
+        if ("10" == "1" || "10" == "2") {
+           url = "" + url;
+        }
+        var query = queryInfou1.query;
+        if (url.indexOf("?") > -1) {
+            url = url.split("?")[0];
+        }
+        if (query.keyWord) {
+            var query = new Base64().encode(JSON.stringify(query));
+            window.open(url + "?query=" + query);
+        } else {
+            alert("è¯·å¡«åæç´¢åå®¹")
+        }
+      };
+   }
+</script>
+
+                
+                </div>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div class="dc_menu">
+            <div class="visible-sm visible-xs" style="display: none;">
+            <form action="../englishinternation/search" method="get" name="searchForm">
+                <div class="searchWrap"><input type="text" placeholder="è¯·è¾å¥æç« æ é¢" name="query" value="" />
+                    <span><button>æç´¢</button></span>
+                </div>
+            </form>
+            </div>
+            
+
+
+
+
+
+    
+    
+<ul>    <li class="firstM"><a href="Home.htm">Home</a>
+    </li>
+    <li class="firstM"><a href="About_Us.htm">About Us</a>
+         <ul>
+            <li><a href="About_Us/College_Overview.htm">College Overview</a></li>
+            <li><a href="About_Us/Faculty.htm">Faculty</a></li>
+            <li><a href="About_Us/Staff.htm">Staff</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="News.htm">News</a>
+    </li>
+    <li class="firstM"><a href="Notic.htm">Notice</a>
+    </li>
+    <li class="firstM"><a href="Admissions.htm">Admissions</a>
+         <ul>
+            <li><a href="Admissions/Language_Student.htm">Language Student</a></li>
+            <li><a href="Admissions/Undergraduate.htm">Undergraduate</a></li>
+            <li><a href="Admissions/Application_Procedure.htm">Application Procedure</a></li>
+            <li><a href="Admissions/Tuition_and_Fees.htm">Tuition and Fees</a></li>
+            <li><a href="">Online Registration</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="Teaching.htm">Teaching</a>
+         <ul>
+            <li><a href="Teaching/Educational_Administration_Notice.htm">Educational Administration Notice</a></li>
+            <li><a href="Teaching/Course_Introduction.htm">Course Introduction</a></li>
+            <li><a href="Teaching/Training_Plan.htm">Training Plan</a></li>
+            <li><a href="Teaching/Academic_Calender.htm">Academic Calender</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="Scholarship1.htm">Scholarship</a>
+         <ul>
+            <li><a href="Scholarship1/Freshmen.htm">Freshmen</a></li>
+            <li><a href="Scholarship1/Academic.htm">Academic</a></li>
+            <li><a href="Scholarship1/Guangdong_Provincial_Government.htm">Guangdong Provincial Government</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="HSK.htm">HSK</a>
+         <ul>
+            <li><a href="HSK/About_HSK.htm">About HSK</a></li>
+            <li><a href="HSK/Test_And_Registration.htm">Test And Registration</a></li>
+            <li><a href="HSK/Test_In_Dongguan.htm">Test In Dongguan</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="Documents.htm">Documents</a>
+         <ul>
+            <li><a href="Documents/Admission_Application_and_Registration.htm">Admission Application and Registration</a></li>
+            <li><a href="Documents/Documents_Related_to_Scholarship.htm">Documents Related to Scholarship</a></li>
+            <li><a href="Documents/College_Calendar_and_Timetable.htm">College Calendar and Timetable</a></li>
+            <li><a href="Documents/Campus_Life.htm">Campus Life</a></li>
+            <li><a href="Documents/Graduation.htm">Graduation</a></li>
+        </ul>
+    </li>
+    <li class="firstM"><a href="Contact_Us.htm">Contact Us</a>
+    </li>
+    
+</ul>
+            <div class="cb"></div>
+        </div>
+        <div class="cb"></div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="inWrap index">
+        <div class="pic-Carousel">
+       <div id="pageregion0"><!-- PR{pageregion0}S -->
+                    
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">    <script language="javascript" src="/system/resource/js/dynclicks.js"></script><div class="swiper-slide" onclick="window.open('')"><img src="../images/tupian2.png" style="width:100%;height:auto;" /></div>                         
+<div class="swiper-slide" onclick="window.open('')"><img src="../images/tupian1.png" style="width:100%;height:auto;" /></div>                         
+<div class="swiper-slide" onclick="window.open('')"><img src="../images/tupian3.png" style="width:100%;height:auto;" /></div>                         
+<div class="swiper-slide" onclick="window.open('')"><img src="../images/tupian4.png" style="width:100%;height:auto;" /></div>                         
+<div class="swiper-slide" onclick="window.open('')"><img src="../images/shouyelunbotupianxiugai.png" style="width:100%;height:auto;" /></div>                         
+</div>
+            </div>
+            <div class="pagination pagination1"></div>            
+        <!-- PR{pageregion0}E --></div>
+        </div>
+        <div class="index-content">  
+             <div class="item"><div id="xyxw"><!-- PR{xyxw}S -->  
+                  <div class="swiper-container swiper-container3" style="height:288px;">
+                        <div class="swiper-wrapper"><script language="javascript" src="/system/resource/js/centerCutImg.js"></script><script language="javascript" src="/system/resource/js/ajax.js"></script>    <div class="swiper-slide">
+        <div class="newsImg">
+            <img src="/__local/4/61/68/1F54C4E057EE020E4D3FA9572DE_CC366854_54846.jpg" onclick="window.open('../info/1001/2012.htm')">
+            <a class="title" href="../info/1001/2012.htm" target="_blank" title="ç§å­£è¿å¨ä¼" style="margin-top:-2rem;background-position:0 -2rem;">ç§å­£è¿å¨ä¼</a>
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="newsImg">
+            <img src="/__local/D/BB/C3/0F9EDB7984483F8BF9CDCBBFE78_1F7919B5_2246F.jpg" onclick="window.open('../info/1001/2002.htm')">
+            <a class="title" href="../info/1001/2002.htm" target="_blank" title="æåæ´»å¨" style="margin-top:-2rem;background-position:0 -2rem;">æåæ´»å¨</a>
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="newsImg">
+            <img src="/__local/0/47/DC/16400FF89AC577D0A10B3627E4C_8DC2E7CB_507F0.jpg" onclick="window.open('../info/1001/3122.htm')">
+            <a class="title" href="../info/1001/3122.htm" target="_blank" title="æåæ´»å¨" style="margin-top:-2rem;background-position:0 -2rem;">æåæ´»å¨</a>
+        </div>
+    </div>
+    <div class="swiper-slide">
+        <div class="newsImg">
+            <img src="/__local/E/9E/AF/41AB741155FB765D0E32541A295_4A9A20C7_139A2.jpg" onclick="window.open('../info/1001/3112.htm')">
+            <a class="title" href="../info/1001/3112.htm" target="_blank" title="å½éé³ä¹ç¾é£åå¹´å" style="margin-top:-2rem;background-position:0 -2rem;">å½éé³ä¹ç¾é£åå¹´å</a>
+        </div>
+    </div>
+<script>_showDynClickBatch(['dynclicks_u4_2012','dynclicks_u4_2002','dynclicks_u4_3122','dynclicks_u4_3112'],[2012,2002,3122,3112],"wbnews", 1554305204)</script>
+</div>
+                         <div class="pagination pagination3"></div>   
+                    </div> 
+             <!-- PR{xyxw}E --></div></div>
+            <div class="item" style="width:62%"><h2 class="item2-title">
+    <a href="News.htm" class="more">More</a>
+    <a href="News.htm">News</a>
+</h2>
+<div class="item2-content">
+    <div id="xyxw">
+        <ul>
+            <li>
+                <a class="date" href="../info/1182/3902.htm" target="_blank" title="Hundreds of young people from home and abroad visited Dongguan University of Technology for exchange and learning">07/10</a><input type="hidden" value="2026-07-10 16:46:38">
+                <a class="title" href="../info/1182/3902.htm" target="_blank" title="Hundreds of young people from home and abroad visited Dongguan University of Technology for exchange and learning">Hundreds of young people from home and abroad visited Dongguan University of Technology for exchange and learning</a>
+                <!--p>Crossing mountains and seas to fulfill the promise of our ancestral roots, young people gathered to jointly create a new chapter in communication. On the afternoon of July 9, over 100 overseas Chinese youth from countries and regionsï¼such as Australia, the United States, France, and Malaysia, as well as Hong Kong, Macao, and local youth from Dongguan, gathered at Dongguan University of Technol...</p-->
+            </li>
+            <li>
+                <a class="date" href="../info/1182/3862.htm" target="_blank" title="A Review of Cultural Courses | From Sichuan Opera Masks to Danjia Water Town: International Students Discover the Rich Culture of China in Dongguan">05/11</a><input type="hidden" value="2026-05-11 09:15:51">
+                <a class="title" href="../info/1182/3862.htm" target="_blank" title="A Review of Cultural Courses | From Sichuan Opera Masks to Danjia Water Town: International Students Discover the Rich Culture of China in Dongguan">A Review of Cultural Courses | From Sichuan Opera Masks to Danjia Water Town: International Students Discover the Rich Culture of China in Dongguan</a>
+                <!--p>This spring, cultural classes offered by the International College of DGUT stepped out of classrooms and into the water town. The series consisted of four sessions: three indoor cultural workshops and one immersive outdoor study tour. Through hands-on creation and field trips, international students gained a vivid understanding of traditional Chinese and Lingnan culture.I. Sichuan Opera and Mas...</p-->
+            </li>
+            <li>
+                <a class="date" href="../info/1182/3782.htm" target="_blank" title="A Warm Start: Spring 2026 Language Program Opening Ceremony at International College, DGUT">03/13</a><input type="hidden" value="2026-03-13 09:22:55">
+                <a class="title" href="../info/1182/3782.htm" target="_blank" title="A Warm Start: Spring 2026 Language Program Opening Ceremony at International College, DGUT">A Warm Start: Spring 2026 Language Program Opening Ceremony at International College, DGUT</a>
+                <!--p>In the warm spring breeze, the Opening Ceremony for the Spring 2026 Language Students at the International College, DGUT, was held on March 11 at Songshan Lake Campus. Students from around the world gathered here, eager to learn Chinese and explore Chinese culture. Attendees included representatives from the International Cooperation and Exchange Office, officers from the Songshan Lake Public S...</p-->
+            </li>
+            <li>
+                <a class="date" href="../info/1182/3682.htm" target="_blank" title="Vitality in Harmony, Elegance Passed Down: International College's Participation in the Sports Meeting and &quot;Dongguan Agarwood&quot; Cultural Experience Activity">11/07</a><input type="hidden" value="2025-11-07 09:26:36">
+                <a class="title" href="../info/1182/3682.htm" target="_blank" title="Vitality in Harmony, Elegance Passed Down: International College's Participation in the Sports Meeting and &quot;Dongguan Agarwood&quot; Cultural Experience Activity">Vitality in Harmony, Elegance Passed Down: International College's Participation in the Sports Meeting and "Dongguan Agarwood" Cultural Experience Activity</a>
+                <!--p>On the morning of November 5th, Dongguan University of Technology's 2025 Sports Meeting officially kicked off. The phalanx formed by teachers and students of the International College displayed vigorous vitality and cross-cultural charm, becoming a bright highlight at the opening ceremony.At the front of the phalanx, the distinctive "DGUT" logo symbolizes international students' recognition and...</p-->
+            </li>
+            <li>
+                <a class="date" href="../info/1182/3652.htm" target="_blank" title="The Mid-Autumn Festival is filled with laughter in DGUT, and teachers and students celebrate together">09/30</a><input type="hidden" value="2025-09-30 15:48:24">
+                <a class="title" href="../info/1182/3652.htm" target="_blank" title="The Mid-Autumn Festival is filled with laughter in DGUT, and teachers and students celebrate together">The Mid-Autumn Festival is filled with laughter in DGUT, and teachers and students celebrate together</a>
+                <!--p>A bright full moon illuminates traditions spanning a thousand years; a glowing lantern kindles friendship across the four seas. The Mid-Autumn Festival, a traditional Chinese festival symbolizing reunion and longing, not only carries profound cultural connotations but also serves as a bridge connecting hearts.To enable international students to deeply experience the charm of traditional Chinese...</p-->
+            </li>
+            <li>
+                <a class="date" href="../info/1182/3572.htm" target="_blank" title="The Opening Ceremony of Language Students in the Fall Semester of 2025, International College, DGUT">09/16</a><input type="hidden" value="2025-09-16 15:41:09">
+                <a class="title" href="../info/1182/3572.htm" target="_blank" title="The Opening Ceremony of Language Students in the Fall Semester of 2025, International College, DGUT">The Opening Ceremony of Language Students in the Fall Semester of 2025, International College, DGUT</a>
+                <!--p>On the morning of September 12, the Opening Ceremony of Language Students in the Fall Semester of 2025, International College, DGUT was held in Classroom 6C204, Songshanlake Campus. Â Attendees included the Representative of the International Cooperation and Exchanges Office, Officer of Songshanlake Public Security Subbureau, Teachers of the International College, and all the language students f...</p-->
+            </li>
+        </ul>
+    </div>
+</div><script>_showDynClickBatch(['dynclicks_u5_3902','dynclicks_u5_3862','dynclicks_u5_3782','dynclicks_u5_3682','dynclicks_u5_3652','dynclicks_u5_3572'],[3902,3862,3782,3682,3652,3572],"wbnews", 1554305204)</script>
+</div>
+            <div class="item">
+                <div class="course course1"><h2><a href="Admissions/Language_Student.htm">Admissions</a></h2>
+<div class="course-list">
+    <div id="pageregion0">
+            <a href="../info/1079/3912.htm" target="_blank" title="2026 Fall Semester Chinese Programmeï¼Non-degree Coursesï¼for International Students in International College of DGUT">2026 Fall Semester Chinese Programmeï¼Non-degree Coursesï¼for International Students in International College of DGUT</a>
+            <a href="../info/1079/3812.htm" target="_blank" title="2026 Spring Semester Chinese Programmeï¼Non-degree Coursesï¼for International Student in International College of DGUT">2026 Spring Semester Chinese Programmeï¼Non-degree Coursesï¼for International Student in International College of DGUT</a>
+            <a href="../info/1084/1470.htm" target="_blank" title="Tuition">Tuition</a>
+    </div>
+    <div class="cb"></div>
+</div>
+<script>_showDynClickBatch(['dynclicks_u6_3912','dynclicks_u6_3812','dynclicks_u6_1470'],[3912,3812,1470],"wbnews", 1554305204)</script>
+</div>
+                <div class="course course2"><h2><a href="Scholarship1/Guangdong_Provincial_Government.htm">Scholarship</a></h2>
+<div class="course-list">
+    <div id="pageregion0">
+            <a href="../info/1092/1454.htm" target="_blank" title="Guangdong">Guangdong</a>
+            <a href="../info/1089/1453.htm" target="_blank" title="Academic">Academic</a>
+            <a href="../info/1088/1452.htm" target="_blank" title="Freshman">Freshman</a>
+    </div>
+    <div class="cb"></div>
+</div>
+<script>_showDynClickBatch(['dynclicks_u7_1454','dynclicks_u7_1453','dynclicks_u7_1452'],[1454,1453,1452],"wbnews", 1554305204)</script>
+</div>
+                <div class="course course2"><h2><a href="Teaching/Course_Introduction.htm">Teaching</a></h2>
+<div class="course-list">
+    <div id="pageregion0">
+            <a href="../info/1087/1535.htm" target="_blank" title="Chinese C...">Chinese C...</a>
+            <a href="../info/1085/1468.htm" target="_blank" title="Notice on...">Notice on...</a>
+            <a href="../info/1185/1537.htm" target="_blank" title="2020-2021...">2020-2021...</a>
+    </div>
+    <div class="cb"></div>
+</div>
+<script>_showDynClickBatch(['dynclicks_u8_1535','dynclicks_u8_1468','dynclicks_u8_1537'],[1535,1468,1537],"wbnews", 1554305204)</script>
+</div>
+            </div>
+            <div class="item"><h2 class="item1-title">
+    <a href="Media_visual.htm" class="more"></a>
+    <a href="Media_visual.htm">Media visual</a>
+</h2>
+<div class="item-video">
+            <div class="title">Media visual</div>
+            <img src="/__local/4/B9/60/5124FA0C664CB203AC6161B8A89_499ED2CA_13A91.jpg" width="337" height="223">
+            <a class="videoBG" href="../info/1099/1130.htm" target="_blank" title="Compus Video"></a>
+            <a class="videoOn" href="../info/1099/1130.htm" target="_blank" title="Compus Video"></a>
+</div> 
+<script>_showDynClickBatch(['dynclicks_u9_1130'],[1130],"wbnews", 1554305204)</script>
+</div>
+            <div class="item"><h2 class="item1-title">
+    <a href="Activities.htm" class="more">More</a>
+    <a href="Activities.htm">Activities</a>
+</h2>
+<div class="item6-content">
+    <div id="hang1">
+        <div class="hang">
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="../info/1177/1451.htm" target="_blank" title="å­¦é¢é£é">
+                                <img src="/__local/2/9E/46/F41D814F64D49731CC938289289_A02D8CA8_E0BB.png"></a>
+                        </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>_showDynClickBatch(['dynclicks_u10_1451'],[1451],"wbnews", 1554305204)</script>
+</div>
+            <div class="cb"></div>
+        </div>
+    </div>
+</div>
+
+
+  <div class="footer">
+    <div class="footContent row">
+    <div style="margin-left:5%;float:left;width:25%;"><p style="text-align: left;"><strong><span style="font-size: 14px;"><span style="font-size:16px;font-family: 'Times New Roman','serif'">Related Links</span>ï¼</span></strong></p><p style="text-align: left;"><span style="font-size: 16px; text-decoration: underline; float: left; width: 100%; font-family: å®ä½, SimSun;"><span style="text-decoration: underline; font-size: 16px; float: left; width: 100%; font-family: å®ä½, SimSun;"><a href="https://www.dgut.edu.cn/" style="text-decoration: underline; font-size: 14px;"> Dongguan University of Technology</a></span> 
+        <span style="font-size: 16px; width: 100%;"><a href="https://gjc.dgut.edu.cn/" style="font-size: 14px;">Office of International Cooperation and Exchanges Dongguan University of Technology</a></span> 
+        <span style="text-decoration: underline; float: left; width: 100%; font-family: å®ä½, SimSun;"><a href="http://www.chinesetest.cn/index.do" style="font-size: 14px; text-decoration: underline;">Chinese test service website</a></span>
+        <span style="text-decoration: underline; float: left; width: 100%; font-family: å®ä½, SimSun;"><a href="#" style="font-size: 14px; text-decoration: underline;">International Academy Teaching Video</a></span>
+        </span></p></div><div style="margin-left:5%;float:left;width:25%;"><p style="white-space: normal;"><strong><span style="font-size: 14px;">International College of Dongguan University of Technology</span></strong>
+        <span style="font-size: 14px;">&nbsp;</span></p><p style="white-space: normal;"><span style="font-size: 14px;">Websiteï¼<a href="https://gjxy.dgut.edu.cn/" _src="https://gjxy.dgut.edu.cn/" style="text-decoration: underline; font-size: 14px;"><span style="font-size: 14px;">https://gjxy.dgut.edu.cn/</span></a></span></p><p style="white-space: normal;"><span style="font-size: 14px;">Phoneï¼</span><span style="font-size: 14px; font-family: å®ä½, SimSun;">0769-22261545&nbsp; &nbsp; 0769-22262584</span></p>
+        <p style="white-space: normal;"><span style="font-size: 14px;">E-mail:&nbsp;</span><span style="font-size: 14px; font-family: å®ä½, SimSun;">gjxy@dgut.edu.cn</span></p><p style="white-space: normal;"><span style="font-family: å®ä½, SimSun; font-size: 14px;">Addressï¼</span><span style="font-family: å®ä½, SimSun; font-size: 14px;">7111, International College, Dongguan University of Technology, 251 Xueyuan Road, Guancheng District, Dongguan, China</span>
+        <span style="font-size: 14px;"></span></p><p style="white-space: normal; text-align: center;"><br></p></div><div style="margin-left:5%;float:left;width:25%;"><p><strong>
+        <span style="font-size: 14px;">wechatï¼</span></strong><span style="font-size: 14px;">International College of Dongguan University of Technology</span></p> 
+        <p style="text-align: center;"><img src="/__local/C/D7/C1/662F511D5EF58145E49C46BDFFA_D9B23B25_24666.png" width="97" height="86" style="width: 97px; height: 86px;"></p>
+        </div> 
+    </div>
+</div>
+
+<script src="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/libs/jquery/1.11.1/bdtxk.js" type="text/javascript"></script>
+<script src="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/js/idangerous.swiper.min.js" type="text/javascript"></script>
+<script src="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/libs/fastclick/fastclick.js"></script>
+<script src="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/js/common.js" type="text/javascript"></script>
+<script src="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/js/layout.js" type="text/javascript"></script>
+<script src="../english/dfiles/12871/export/sites/default/englishinternation/-themes-/internation/resources/js/menu.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var mySwiper1 = new Swiper('.swiper-container1',{
+        loop: true,
+        autoplay: 3000,
+        calculateHeight:true,
+        pagination: '.pagination1',
+        grabCursor: true,
+        paginationClickable: true
+    });
+
+ var mySwiper2 = new Swiper('.swiper-container2',{
+     loop: true,
+ nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        calculateHeight:true,
+        grabCursor: true,
+    });
+     $(' .swiper-button-next').click(function () {
+            mySwiper2.swipeNext();
+        });
+ $('.swiper-button-prev').click(function () {
+            mySwiper2.swipePrev();
+        });
+    var mySwiper3 = new Swiper('.swiper-container3',{
+        loop: true,
+         pagination: '.pagination3',
+        autoplay: 3000,
+        grabCursor: true,
+        paginationClickable: true
+    });
+        $(document).ready(function(){
+            $(".item2-content ul li,.item3-content ul li").each(function()
+            {   var date=$(this).children("input").val();
+                var year=date.substr(0,4);
+                var month=date.substr(5,2);
+                var day=date.substr(8,2);
+                $(this).find(".date").html(month+"/"+day);
+            });
+
+        });    
+</script>
+</body>
+
+</html>
