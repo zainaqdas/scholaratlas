@@ -11,6 +11,7 @@
     "import:euraxess": "tsx scripts/import-euraxess.ts",
     "import:campuschina": "tsx scripts/import-campuschina.ts",
     "import:cucas": "tsx scripts/import-cucas.ts",
+    "backfill:cucas-urls": "tsx scripts/backfill-cucas-officialurls.ts",
     "enrich:cucas": "tsx scripts/enrich-cucas.ts",
     "dedupe": "tsx scripts/dedupe.ts",
     "import:wemakescholars": "tsx scripts/import-wemakescholars.ts",

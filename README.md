@@ -130,7 +130,7 @@ The importer:
 - Dedupes by source URL on re-runs (idempotent).
 - Inserts everything as **PENDING/UNVERIFIED** — nothing public until an admin approves it in `/admin`.
 
-These listings have no per-program application URL (the dataset doesn't include one), so `officialUrl` is `null` and the UI shows **"Check Official Provider"** instead of an apply link — the platform never invents application links. Kaggle sources: [May 2019](https://www.kaggle.com/datasets/mcmuralishclint96/china-scholarship-data-may-2019), [Aug 2023](https://www.kaggle.com/datasets/sakchaisaehoei/china-scholarship-data-2023).
+Kaggle sources: [May 2019](https://www.kaggle.com/datasets/mcmuralishclint96/china-scholarship-data-may-2019), [Aug 2023](https://www.kaggle.com/datasets/sakchaisaehoei/china-scholarship-data-2023).
 
 ### Backfilling official URLs + deadlines from the live CUCAS site
 
@@ -149,7 +149,12 @@ npm run enrich:cucas -- --dry-run     # report only
 # 4. strip any over-matched shared URLs (keeps only the exact-program record per URL)
 npm run dedupe -- --dry-run
 npm run dedupe
+# 5. programs CUCAS no longer carries get their host university's official
+#    website (verified live before assignment — never fabricated):
+npm run backfill:cucas-urls          # every CUCAS record ends up with an apply link
 ```
+
+**Every CUCAS record now has an `officialUrl`.** Programs still listed on CUCAS point to their real CUCAS program page (step 3); programs CUCAS has since dropped point to the host university's official website (step 5 — e.g. `ncepu.edu.cn`, `czu.cn`; verified via HTTP-200/title-match or DNS). `backfill:cucas-urls` is idempotent and also fills `University.website` for the host universities.
 
 How it works and what to know:
 

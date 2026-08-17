@@ -182,12 +182,22 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 
 ## 4. Remaining Gaps
 
-### Gap A — China: 1,738 records show "Check Official Provider" (61% of CN)
-| Sub-gap | Count | Why | Fix path |
-|---|---|---|---|
-| 22 schools with **zero CUCAS presence** (NCEPU 174, BUCT 71, Qingdao, Capital Medical, Beijing Film Academy…) | ~408 | Confirmed empty via full global crawl + browser + jina. CUCAS no longer lists them at all | University official websites (manual/curated or per-university crawlers) |
-| Programs that **left CUCAS's current catalog** (from 2019–2023 snapshots) | ~1,095 | CUCAS no longer lists these programs anywhere | University official sites only; no third-party aggregator mirrors them |
-| cscouncil records without a verifiable official portal link | ~235 | Their source pages don't reference the official CSC portal | Leave as "Check Official Provider" (honest) — do NOT fabricate |
+### Gap A — China: CUCAS application URLs ✅ closed (2026-08-17)
+
+**Every CUCAS (Kaggle) record now has an officialUrl — 2,570/2,570.**
+
+| Sub-gap | Count | Resolution |
+|---|---|---|
+| Programs still on CUCAS but missed by the matcher | 57 | Re-ran `npm run enrich:cucas` against the rebuilt `enriched-global.json` — real CUCAS program URLs + deadlines applied |
+| Programs that left CUCAS's catalog (2019–2023 snapshots) | 1,038 | Host **university's official website** assigned (verified live: HTTP 200 + title match, or DNS-resolves for IP-blocked `.edu.cn`) |
+| Schools with zero CUCAS presence (NCEPU, BUCT, Qingdao, Capital Medical, BFA…) | 408 | Same university-website fallback — e.g. NCEPU → `ncepu.edu.cn`, CIT → `czu.cn` (site moved domains) |
+| Tianjin International Chinese College (no standalone website exists) | 1 | Its CUCAS school page (`ticc.cucas.cn`) is the real application channel |
+
+Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches records still missing a URL). Also filled `University.website` for 58 host universities so the Universities explorer benefits. **No fabricated URLs:** every domain was verified before assignment; several bad guesses caught by the title check (e.g. `sdpc.edu.cn` is Shandong *Police* College — the real Shandong Polytechnic College is `sdpu.edu.cn`).
+
+| Remaining China sub-gap | Count | Status |
+|---|---|---|
+| cscouncil records without a verifiable official portal link | ~235 | Still "Check Official Provider" — their source pages don't reference an official portal; left honest |
 
 ### Gap B — Non-China real data ✅ mostly closed
 - **Full wemakescholars global catalogue imported: 20,367 records** — crawled the complete `/scholarship` listing (20,451 slugs across ~1,155 pages), fetched each detail page, and inserted 16,078 new records (14 countries' worth was already imported earlier). Covers 200 destination countries.
