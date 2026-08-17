@@ -301,7 +301,7 @@ export function parseFiltersFromUrl(searchParams: URLSearchParams): SearchFilter
     providers: toArray(searchParams.get("provider")),
     languages: toArray(searchParams.get("language")),
     fee: searchParams.get("fee") ?? undefined,
-    status: searchParams.get("status") ?? undefined,
+    status: (searchParams.get("status") ?? undefined)?.toUpperCase(),
     sort: (searchParams.get("sort") as SortKey) ?? undefined,
     page: Number(searchParams.get("page")) || undefined,
   };
