@@ -189,7 +189,9 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
 - **Phase 1** crawls `/scholarship?page=N` to completion (~20,451 slugs, checkpointed and resumable).
 - **Phase 2** fetches each detail page concurrently (checkpointed to `data/wms-global-details.jsonl`), extracting Deadline, Provider, Funding Type, Eligible Degrees, description, and the official source link.
 - **Phase 3** inserts as PENDING/UNVERIFIED, deduped by source URL (idempotent — re-runs skip existing).
-- **Country note:** the "taken at" field names universities, not countries, so ~15.8k records honestly show "Not specified" (no fabrication). A provider-text backfill recovered ~4,341 (CA 2,198, AU 683, IN 366, GB 280, US 184…). A university-page backfill is the next step for the rest.
+- **Country note (resolved):** every wms record now has a destination country except 9 records from genuinely global organizations. The country was derived from each provider's `/university/{slug}/scholarships` page (the country renders in an `<h4>` right after the `<h1>` university name), verified via official URLs for the rest. Nationality-based misassignments from the earlier text backfill were corrected.
+  - `npm run backfill:wms-countries` — re-runs the DB backfill from `data/wms-university-countries.json` (idempotent)
+  - `python3 scripts/backfill-wms-university-countries.py` — (re)builds the provider→country map by crawling university pages (resumable)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
 
 ## Scaling notes

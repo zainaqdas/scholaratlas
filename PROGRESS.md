@@ -19,7 +19,8 @@
 | 2026-08-16 | **US/UK/EU importer (wemakescholars)** — 435 real scholarships across 14 destination countries with deadlines + official links; country re-assignment from detail pages; approved | — |
 | 2026-08-16 | **Demo data removed + homepage hardened** — deleted all 67 seed/demo scholarships + artifacts (demo banner, demo account hints, fake stats); home feed now falls back to real data; stats computed live from the DB | — |
 | 2026-08-16 | **Full wemakescholars catalogue import** — crawled the complete global listing (20,451 slugs / ~1,155 pages) + every detail page; 16,078 new records inserted (deduped by source URL), country backfill from provider text (+4,341), 15 missing countries added; approved — catalogue grew 3,380 → 23,209 | — |
-| 2026-08-16 | **This progress report** | — |
+| 2026-08-17 | **Country backfill for wemakescholars records** — crawled 1,430 provider/university pages (slug-guessing + the `<h1>→<h4>` country signal on `/university/{slug}/scholarships`) building an authoritative provider→country map (1,177 providers, 87% of records); corrected nationality-based misassignments (e.g. Duke→US); verified remaining providers via official URLs; 38 country rows added to the Country table — "Not specified" fell from ~15,800 to **9** (only genuinely global orgs like FAO/UNESCO/TWAS) | — |
+| 2026-08-17 | **This progress report** | — |
 
 ---
 
@@ -48,23 +49,28 @@
 ### By country (active scholarships)
 | Country | Count |
 |---|---|
-| 🇨🇳 China | 2,855 |
-| 🇨🇦 Canada | 2,172 |
-| 🇦🇺 Australia | 611 |
-| 🇺🇸 USA | 397 |
-| 🇮🇳 India | 380 |
-| 🇬🇧 UK | 324 |
-| 🇸🇬 Singapore | 97 |
-| 🇩🇪 Germany | 76 |
-| 🇫🇷 France | 72 |
-| 🇳🇿 New Zealand | 47 |
-| 🇦🇪 UAE | 43 |
-| 🇲🇾 Malaysia | 43 |
-| 🇮🇪 Ireland | 42 |
-| 🇯🇵 Japan | 27 |
-| 🇭🇰 Hong Kong | 21 |
-| Others (52 more countries) | ~300 |
-| Not specified (country unknown) | ~15,800 | Honest "Not specified" — see Gap B |
+| 🇺🇸 USA | 9,128 |
+| 🇨🇦 Canada | 3,970 |
+| 🇨🇳 China | 2,888 |
+| 🇬🇧 UK | 2,303 |
+| 🇦🇺 Australia | 2,173 |
+| 🇳🇿 New Zealand | 822 |
+| 🇮🇪 Ireland | 455 |
+| 🇮🇳 India | 334 |
+| 🇩🇪 Germany | 173 |
+| 🇸🇬 Singapore | 124 |
+| 🇫🇷 France | 104 |
+| 🇳🇱 Netherlands | 75 |
+| 🇲🇾 Malaysia | 65 |
+| 🇸🇪 Sweden | 53 |
+| 🇦🇪 UAE | 46 |
+| 🇧🇪 Belgium | 46 |
+| 🇰🇷 South Korea | 44 |
+| 🇯🇵 Japan | 42 |
+| 🇮🇹 Italy | 42 |
+| 🇿🇦 South Africa | 34 |
+| Others (59 more countries) | ~400 |
+| Not specified (country unknown) | 9 | Only genuinely global orgs (FAO, UNESCO, TWAS, WCO, Hinrich) |
 
 ### By funding
 | Funding type | Count |
@@ -168,7 +174,7 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 
 ### Gap B — Non-China real data ✅ mostly closed
 - **Full wemakescholars global catalogue imported: 20,367 records** — crawled the complete `/scholarship` listing (20,451 slugs across ~1,155 pages), fetched each detail page, and inserted 16,078 new records (14 countries' worth was already imported earlier). Covers 200 destination countries.
-- **Country assignment caveat:** only 4,541 of 20,367 wms records have a country. The "taken at" field names universities, not countries, so 15,826 honestly show "Not specified" (per the no-fabrication rule) — a provider-text backfill recovered ~4,341 (CA 2,198, AU 683, IN 366, GB 280, US 184…).
+- **Country assignment — resolved (2026-08-17):** all but 9 wms records now have a destination country. Built an authoritative provider→country map by crawling `/university/{slug}/scholarships` pages (the country renders in an `<h4>` directly after the `<h1>` university name) for 1,430 unique providers → 1,177 mapped (87% of records), then verified the remainder via official URLs and provider-name country hints. Also **corrected nationality-based misassignments** from the earlier text backfill (e.g. "Duke Law India Masters" → US, not IN).
 - Still missing: dedicated EU sources (DAAD was unreachable from this environment), UK government (Chevening/FCDO).
 
 ### Gap C — Verification depth
@@ -188,7 +194,7 @@ Committed artifacts: `global-listing.json` (1.2 MB), `enriched-global.json` (3.0
 ## 5. What's Next (recommended order)
 
 ### Short term
-1. **Country backfill for wms records** — the 15,826 country-less records: use the wemakescholars university pages (slug-guessing hit ~78%) to assign host countries, or run the `?country=` listing crawl with careful pagination handling. This unlocks country-filter depth for the biggest source.
+1. **✅ Country backfill for wms records — DONE (2026-08-17)** — 99.87% of active records now have a destination country (see §3); the 9 remaining are genuinely global organizations.
 2. **Scheduled re-crawl** — GitHub Action to re-run the CUCAS global crawl + wemakescholars listing (weekly/monthly), keeping deadlines fresh and expiring stale records automatically.
 3. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
 4. **Second aggregator** — DAAD (retry from a different host/VPN), EducationUSA (detail pages 301-loop — try a browser), UK FCDO/Chevening for depth beyond wemakescholars.

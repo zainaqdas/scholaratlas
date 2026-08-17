@@ -16,6 +16,7 @@
     "import:wemakescholars": "tsx scripts/import-wemakescholars.ts",
     "import:wms-global": "tsx scripts/import-wemakescholars-global.ts",
     "import:wms-full": "tsx scripts/import-wemakescholars-full.ts",
+    "backfill:wms-countries": "tsx scripts/backfill-wms-countries-university.ts",
     "fix:wms-countries": "tsx scripts/fix-wms-countries.ts",
     "import:cscouncil": "tsx scripts/import-cscouncil.ts",
     "postinstall": "prisma generate"

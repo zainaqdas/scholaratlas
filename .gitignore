@@ -22,6 +22,9 @@
 # import checkpoints (large, resumable artifacts)
 /data/wms-global-details.jsonl
 /data/wms-global-slugs.json
+/data/wms-country-map.json
+/data/wms-university-countries.json
+__pycache__/
 /build
 
 # misc
