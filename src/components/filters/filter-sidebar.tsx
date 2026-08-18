@@ -48,8 +48,8 @@ function Chip({
       className={cn(
         "inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
         active
-          ? "border-brand-blue/50 bg-brand-blue/10 text-brand-blue"
-          : "border-border bg-card text-muted-foreground hover:border-brand-blue/30 hover:text-foreground"
+          ? "border-brand-blue/50 bg-brand-blue/10 text-brand-blue dark:border-blue-400/50 dark:bg-blue-400/15 dark:text-blue-300"
+          : "border-border bg-card text-muted-foreground hover:border-brand-blue/30 hover:text-foreground dark:hover:border-blue-400/40"
       )}
     >
       {children}

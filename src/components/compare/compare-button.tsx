@@ -39,8 +39,8 @@ export function CompareButton({ scholarshipId, className }: { scholarshipId: str
       className={cn(
         "inline-flex h-7 w-7 items-center justify-center rounded-full border transition-colors",
         active
-          ? "border-brand-indigo/50 bg-brand-indigo/10 text-brand-indigo"
-          : "border-border bg-card text-muted-foreground hover:border-brand-indigo/40 hover:text-brand-indigo",
+          ? "border-brand-indigo/50 bg-brand-indigo/10 text-brand-indigo dark:border-indigo-400/50 dark:bg-indigo-400/15 dark:text-indigo-300"
+          : "border-border bg-card text-muted-foreground hover:border-brand-indigo/40 hover:text-brand-indigo dark:hover:border-indigo-400/40 dark:hover:text-indigo-300",
         className
       )}
     >

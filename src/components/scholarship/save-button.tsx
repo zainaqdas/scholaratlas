@@ -33,8 +33,8 @@ export function SaveButton({ scholarshipId, initialSaved = false, className, lab
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-all",
         saved
-          ? "border-brand-blue/40 bg-brand-blue/10 text-brand-blue"
-          : "border-border bg-card text-muted-foreground hover:border-brand-blue/40 hover:text-brand-blue",
+          ? "border-brand-blue/40 bg-brand-blue/10 text-brand-blue dark:border-blue-400/50 dark:bg-blue-400/15 dark:text-blue-300"
+          : "border-border bg-card text-muted-foreground hover:border-brand-blue/40 hover:text-brand-blue dark:hover:border-blue-400/40 dark:hover:text-blue-300",
         className
       )}
     >

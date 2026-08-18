@@ -107,7 +107,7 @@ export function SubmitForm() {
                   aria-pressed={active}
                   className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                     active
-                      ? "border-brand-blue/50 bg-brand-blue/10 text-brand-blue"
+                      ? "border-brand-blue/50 bg-brand-blue/10 text-brand-blue dark:border-blue-400/50 dark:bg-blue-400/15 dark:text-blue-300"
                       : "border-border bg-card text-muted-foreground"
                   }`}
                 >
@@ -130,7 +130,9 @@ export function SubmitForm() {
                   onClick={() => setFields(active ? fields.filter((x) => x !== f.slug) : [...fields, f.slug])}
                   aria-pressed={active}
                   className={`block w-full rounded-lg px-2.5 py-1.5 text-left text-sm transition-colors ${
-                    active ? "bg-brand-blue/10 text-brand-blue" : "text-foreground/80 hover:bg-muted"
+                    active
+                      ? "bg-brand-blue/10 text-brand-blue dark:bg-blue-400/15 dark:text-blue-300"
+                      : "text-foreground/80 hover:bg-muted"
                   }`}
                 >
                   {f.icon} {f.name}
