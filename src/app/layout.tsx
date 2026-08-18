@@ -19,7 +19,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
+  // NEXT_PUBLIC_APP_URL is not set in the deployment env; fall back to the
+  // live production origin so canonical/OG URLs never point at localhost.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app"),
   title: {
     default: `${APP_NAME} — ${TAGLINE}`,
     template: `%s · ${APP_NAME}`,
