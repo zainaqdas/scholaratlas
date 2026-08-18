@@ -313,7 +313,7 @@ npm run import:campusbourses                 # -> 368 records (12 without offici
 
 ### Non-China university language backfill (2026-08-17)
 
-The wms/PTS/DAAD sources rarely publish IELTS/TOEFL requirements, so for the highest-value non-China universities we crawl the **official English-language-requirements page** of each school and set the IELTS/TOEFL/alt-proof flags from what the university itself publishes:
+The wms/PTS/DAAD sources rarely publish IELTS/TOEFL requirements, so for the highest-value non-China universities we crawl the **official English-language-requirements page** of each school and set the IELTS/TOEFL/alt-proof flags from what the university itself publishes (two rounds: 34 schools on 2026-08-17, 20 more on 2026-08-18 — `scripts/backfill-uni-language.ts` / `scripts/backfill-uni-language2.ts`):
 
 ```bash
 python3 scripts/crawl-uni-language.py     # -> data/uni_language/*.html (34 universities)

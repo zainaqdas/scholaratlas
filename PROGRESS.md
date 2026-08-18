@@ -72,7 +72,7 @@
 | Application steps | **62%** (5,338) | wms + CUCAS + CSC process text → ordered steps |
 | Benefits (tuition/stipend/accom.) | **48%** (4,111) | + PTS 532 + DAAD 59 + campuschina |
 | Fields of study | **64%** (5,682) | + layered classifier on 2,384 records (title → phrases → strong patterns) |
-| Language requirements | **47%** (4,159 meaningful) | IELTS/TOEFL/alt-proof flags from official university pages + university-published policies |
+| Language requirements | **50%** (4,600 meaningful) | IELTS/TOEFL/alt-proof flags from official university pages + university-published policies (2 rounds) |
 | Required documents | **18%** (1,556) | CUCAS/CSC document lists + wms mentions |
 
 ### By source
@@ -313,6 +313,7 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 11. **Bulk-approve tooling** — the admin approval flow works; a batch-approve + audit-log shortcut would speed up future imports.
 12. **Duplicate detection for admin** — the admin "data quality" panel exists; wire the dedupe logic into it so new imports surface potential duplicates before publishing.
 13. **✅ Non-China university language backfill — DONE (2026-08-17)** — 34 universities' official English-requirements pages crawled; IELTS/TOEFL/alt-proof flags + scores set on 2,120 records (non-China coverage 157 → 2,132 of 5,845 active). Remaining honest gaps: JS-rendered pages without embedded data (Lewis/ANU/Adelaide/Curtin), WAF-blocked sites (Melbourne needed a real browser; Brock/Monash/Griffith/Deakin/Otago 403), and the long tail of small universities.
+13b. **✅ Non-China language backfill round 2 — DONE (2026-08-18)** — next tier of 20 universities verified from their official sites (NYIT, Monash, UPenn, Nottingham Trent, UTS, Lancaster, UW–Madison, CMU, Macquarie, MSU, Central Missouri, Ottawa, Algoma, Sheffield, Calgary, Lethbridge, Windsor, NJIT, WSU, Essex): +441 records → language coverage 4,159 → **4,600 (49.9% of ACTIVE)**. Scores recorded in description notes with source URLs (`scripts/backfill-uni-language2.ts`).
 
 ### Long term (from the original spec)
 7. AI scholarship assistant + personalized recommendations (Phase 3).

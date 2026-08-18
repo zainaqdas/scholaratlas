@@ -29,6 +29,7 @@
     "backfill:uni-scholarships": "tsx scripts/backfill-uni-scholarships.ts",
     "backfill:uni-scholarships2": "tsx scripts/backfill-uni-scholarships2.ts",
     "backfill:uni-language": "tsx scripts/backfill-uni-language.ts",
+    "backfill:uni-language2": "tsx scripts/backfill-uni-language2.ts",
     "import:daad": "tsx scripts/import-daad.ts",
     "import:scholars4dev": "tsx scripts/import-scholars4dev.ts",
     "import:campusbourses": "tsx scripts/import-campusbourses.ts",
