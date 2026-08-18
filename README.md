@@ -249,7 +249,7 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `npm run backfill:wms-levels` — backfills study levels for records the parser missed ("Post Doc", "High/Secondary School", college diplomas…), resumable checkpoint in `data/wms-levels-backfill.jsonl`
   - `npm run import:pts` — [pathwaystoscience.org](https://www.pathwaystoscience.org) importer (1,049 US STEM research programs: REUs, fellowships, summer research). Phases: `--listing-only` → `--detail-only` → `--insert-only` (all checkpointed + idempotent)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
-- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 8,858 genuinely-open scholarships (including the 156 DAAD programmes and 135 scholars4dev listings). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
+- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 9,226 genuinely-open scholarships (including the 156 DAAD programmes, 135 scholars4dev listings and 368 Campus Bourses grants). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
 - **Rich-field backfills (all derived from source text, never fabricated):**
   - `npm run backfill:universities` — 1,559 University rows created, 96% of scholarships linked
   - `npm run backfill:wms-benefits` — amounts/currency/benefits parsed from cached descriptions
@@ -293,6 +293,23 @@ npm run import:scholars4dev                # -> 520 records
 - Country mapped only when a single country is named ("London, UK" → GB); multi-country / "any country" stays unset rather than guessing.
 - Study levels, fields of study, benefits, amounts/currencies and concrete deadlines are parsed from the post text; official provider URLs preserved as `officialUrl`, the s4d post as `sourceUrl`.
 - Cross-source dedupe: 6 listings already present from wemakescholars (same title+provider) were skipped.
+
+### Campus Bourses — Campus France official database (2026-08-18)
+
+[Campus Bourses](https://campusbourses.campusfrance.org/) is the French government's official scholarship database. It's an Angular SPA backed by a public JSON API — no scraping needed:
+
+```bash
+# 1. fetch the full catalogue (380 programs) + each program's detail
+python3 scripts/crawl-campusbourses.py      # -> data/campusbourses/campusbourses.jsonl (380 records)
+# 2. import (deduped, dry-run supported)
+npm run import:campusbourses -- --dry-run    # preview
+npm run import:campusbourses                 # -> 368 records (12 without official URLs skipped)
+```
+
+- API endpoints: `bourses-api.campusfrance.org/sgetgrants/{lang}` (full list) and `/sgetgrant/{id}/{lang}` (detail). Category IDs are decoded from the reference lists embedded in the app bundle (`ilangular.js`): study levels, 21 fields, **181 eligible nationalities with ISO codes**, and funder types.
+- Grants are mostly to study in France (`countryCode FR`); a small explicit override handles mobility programs (Mitacs→CA, Marietta Blau→AT, Erwin-Schrödinger→AT, BEPE→BR).
+- `montant` → amount/benefits/funding type; `dateEnd` → deadline; `pieces` → required documents; `inscriptionUrl`/`url1`/`url2` → officialUrl; the Campus Bourses program page is kept as `sourceUrl`.
+- Records are inserted PENDING then activated; kept ACTIVE even where `dateEnd` shows a past cycle date because these are annual recurring programs (e.g. Eiffel) — the site's "Closed" badge keeps staleness honest.
 
 ### Non-China university language backfill (2026-08-17)
 

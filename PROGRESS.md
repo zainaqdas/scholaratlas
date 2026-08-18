@@ -45,13 +45,14 @@
 | CampusChina / CSC official | 9 | Real CSC programs |
 | **DAAD (official)** | **156** | German scholarship programmes (DAAD + partner foundations), 2026-08-17 |
 | **scholars4dev.com** | **520** | Real scholarship listings (UK/EU/AU/NZ/CA…), human-curated, 2026-08-18 — 135 ACTIVE + 385 EXPIRED (past deadlines kept for history) |
+| **Campus Bourses (Campus France official)** | **368** | French government's official scholarship database via its public JSON API — grants to study in France (Eiffel, embassy programs, university scholarships), 2026-08-18 |
 | Seed demo data | 0 | Deleted |
 
 ### Totals
 | Metric | Count |
 |---|---|
-| Total scholarship records | 24,953 |
-| **Active (public) scholarships** | **8,858** |
+| Total scholarship records | 25,321 |
+| **Active (public) scholarships** | **9,226** |
 | **Expired (kept for history, shown "Closed")** | **16,095** |
 | Pending review | 0 |
 | Jobs (EURAXESS, admin-only by design) | 20 |
@@ -59,7 +60,7 @@
 | Countries with active data | 55 |
 | Demo data remaining | **0** (all removed) |
 
-### Active-scholarship coverage (8,858 ACTIVE)
+### Active-scholarship coverage (9,226 ACTIVE)
 | Field | Coverage | Notes |
 |---|---|---|
 | Application URL (`officialUrl`) | **99.7%** (8,829) | |
@@ -82,6 +83,7 @@
 | chinesescholarshipcouncil.com | 262 | Per-university CSC pages, UNVERIFIED |
 | CampusChina / CSC official | 10 | Real CSC programs from campuschina.org |
 | scholars4dev.com | 520 | Human-curated listings (UK/EU/AU/NZ/CA/US…), official URLs preserved, 2026-08-18 |
+| Campus Bourses (Campus France) | 368 | Official French government scholarship database (API), 2026-08-18 |
 | Seed demo data | 0 | **Deleted** — demo scholarships + artifacts removed |
 
 ### By country (active scholarships)
@@ -304,6 +306,7 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 8. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
 9. **✅ Second aggregator — DONE (2026-08-17): PathwaysToScience** (1,049 US STEM programs). scholarshipdb.net + studyportals remain Cloudflare-blocked (403 even via stealth browser); **DAAD database imported (156 programs)** via its client-side JSON data files; EducationUSA is a guide (not a database) and Chevening is a single program already covered.
 9b. **✅ scholars4dev.com — DONE (2026-08-18)** — full post sitemap crawled (581 posts → 528 real single-scholarship listings; 43 roundup articles + tips excluded), imported with country/level/field/funding/deadline mapping + cross-source dedupe (6 title+provider matches already in DB from wemakescholars skipped). 520 records added: **135 ACTIVE** + **385 EXPIRED** (past-deadline posts kept for history). Importer: `scripts/import-scholars4dev.ts` (dry-run supported), crawler: `scripts/crawl-scholars4dev.py`, raw pages in `data/s4d/`.
+9c. **✅ Campus Bourses (Campus France official) — DONE (2026-08-18)** — the French government's official scholarship database (`campusbourses.campusfrance.org`) is an Angular SPA backed by a public JSON API (`bourses-api.campusfrance.org/sgetgrants/en` + `/sgetgrant/{id}/en`). Crawled all **380 programs** (368 with official URLs → 368 imported, 12 without URLs skipped; cross-source dedupe 0): levels (Bachelor/Master/PhD/Postdoctoral), 21 fields, 181 eligible nationalities with ISO codes, funder→providerType, amounts/benefits/funding parsed from `montant`, `dateEnd` deadlines, documents from `pieces`, official URLs. Destination defaults to **FR** with a small explicit override for mobility programs (Mitacs→CA, Marietta Blau→AT, Erwin-Schrödinger→AT, BEPE→BR). Kept **ACTIVE** even where `dateEnd` shows a past cycle date (annual recurring programs like Eiffel — the source just doesn't refresh `dateEnd` every cycle; the site's "Closed" badge keeps it honest). Importer: `scripts/import-campusbourses.ts` (dry-run), crawler: `scripts/crawl-campusbourses.py`, data in `data/campusbourses/`. Platform ACTIVE 8,858 → **9,226**.
 
 ### Medium term
 10. **✅ University-site crawlers — DONE (2026-08-17, two rounds)** — 31 of the zero-presence Chinese schools now enriched from their official English scholarship pages (round 1: NCEPU, BUCT, NEFU, CUST, SDU, SHOU, SHUTCM, CQMU, ZJUT, SCUT, CZU, ZAFU, NEPU; round 2: CUMT, ZJNU, ZUST, CUP, CUG, SHNU, DGUT, SIAS, USST, DUFE, WZU, SYUCT, UJS, XISU, SEU, CPU, TJU, NHMU): language +~1,050, deadlines +~75, durations +172, real scholarship-page URLs + scholarship notes on ~1,450 records. **Remaining honestly unenriched:** ZZULI (publishes its scholarship policy only in Chinese), CCUT/NBU/ZUT (no reachable English international-student site from this environment), BFA (WAF 412), BJWLXY (English pages are empty shells).
