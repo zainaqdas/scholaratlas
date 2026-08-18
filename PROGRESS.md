@@ -1,6 +1,6 @@
 # ScholarAtlas — Progress Report
 
-> Living document tracking what has been built, what is live in the database, what gaps remain, and what comes next. Last updated: **2026-08-17**.
+> Living document tracking what has been built, what is live in the database, what gaps remain, and what comes next. Last updated: **2026-08-18**.
 
 ---
 
@@ -8,6 +8,7 @@
 
 | Date | Checkpoint | Commit |
 |---|---|---|
+| 2026-08-18 | **Medical-subspecialty tagging + case-insensitive keyword search** — `backfill-medicine-fields.ts` tagged **32 ACTIVE records** whose titles name a medical program (oncology, surgery, anesthesiology, pediatrics, radiology, psychiatry, epidemiology, midwifery, veterinary, biomedical, …) with the `medicine` field — Medicine filter 969 → **1,001 tagged** (1,091 incl. `ALL` records). False positives guarded: only the program part before the em-dash is matched (excludes "China Pharmaceutical University" university-name hits), "pharmaceutical" must be in the program part (excludes company names), "Plant Pathology" excluded, healthcare-policy/leadership fellowships (CMU Heinz, Imperial Business School) deliberately not tagged. Also fixed a real search bug found along the way: **PostgreSQL `contains` is case-sensitive** so lowercase "gynecology" (8 records) and other user-typed queries missed capitalized titles — added `mode: "insensitive"` to keyword search + suggestions (gynecology 0 → 8, oncology 9 → 17) | — |
 | 2026-08-15 | **Platform built** — full ScholarAtlas MVP: homepage, search, filters, detail pages, countries/universities/fields explorers, saved scholarships, dashboard, admin, submission + verification system, auth scaffolding, PWA-ready Next.js + TypeScript + Tailwind + shadcn/ui app | `3a4b374` |
 | 2026-08-15 | **PostgreSQL (Neon) + Vercel deployment** — migrated from SQLite, deployed, fixed invisible hero/CTA text in both themes | `9403b9e`, `a4c31a2` |
 | 2026-08-15 | **EURAXESS RSS importer** — script, dedupe, pending-review flow for EU research opportunities | `63c3867` |
