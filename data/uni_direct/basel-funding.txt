@@ -6,7 +6,7 @@
         <![endif]-->
         <link  rel="shortcut icon" type="image/x-icon" href="/.resources/unibas-main/webresources/img/unibas.ico" />
 <link rel="preconnect" href="https://matomo-unibas.hosting.stucki.io" />
-<!--<link rel="preconnect" href="https://maps.googleapis.com/maps/api/js?key=AIzaSyB62-K4dJ1ErUShZVqSKr7cLURN-3gE_gY&callback=initMapModule&v=beta" async defer />-->
+<!--<link rel="preconnect" href="https://maps.googleapis.com/maps/api/js?key=AIzaSyB62-REDACTED-KEY&callback=initMapModule&v=beta" async defer />-->
 <link rel="preconnect" href="https://consent.cookiebot.com/uc.js" />
 
 <script type="text/javascript" async defer src="https://cdn.storifyme.xyz/static/web-components/storifyme-elements.min.js"></script>
