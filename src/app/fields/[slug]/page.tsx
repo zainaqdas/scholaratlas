@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, fieldBySlug } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
@@ -26,19 +27,21 @@ export default async function FieldPage({ params }: PageProps) {
   const field = fieldBySlug(slug);
   if (!field) notFound();
 
-  const [scholarships, user] = await Promise.all([
+  const where: Prisma.ScholarshipWhereInput = {
+    status: "ACTIVE",
+    recordType: "SCHOLARSHIP",
+    // Match the field slug OR the "ALL" marker (open to all fields), same
+    // as the search page's field filter.
+    OR: [{ fields: { contains: slug } }, { fields: { contains: '"ALL"' } }],
+  };
+  const [scholarships, total, user] = await Promise.all([
     prisma.scholarship.findMany({
-      where: {
-        status: "ACTIVE",
-        recordType: "SCHOLARSHIP",
-        // Match the field slug OR the "ALL" marker (open to all fields), same
-        // as the search page's field filter.
-        OR: [{ fields: { contains: slug } }, { fields: { contains: '"ALL"' } }],
-      },
+      where,
       include: { university: true },
       orderBy: { views: "desc" },
       take: 24,
     }),
+    prisma.scholarship.count({ where }),
     getCurrentUser(),
   ]);
 
@@ -66,7 +69,7 @@ export default async function FieldPage({ params }: PageProps) {
         <div>
           <h1 className="font-display text-4xl font-extrabold tracking-tight">{field.name} Scholarships</h1>
           <p className="mt-1 text-muted-foreground">
-            {scholarships.length} matching opportunities currently listed.
+            {total} matching opportunities currently listed.
           </p>
         </div>
       </div>

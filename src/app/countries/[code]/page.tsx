@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Globe2 } from "lucide-react";
+import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, countryByCode, countryFlag, countryName, studyLevelFromSlug } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
@@ -28,13 +29,19 @@ export default async function CountryPage({ params }: PageProps) {
   const country = countryByCode(code);
   if (!country) notFound();
 
-  const [scholarships, universities, user] = await Promise.all([
+  const scholarshipWhere: Prisma.ScholarshipWhereInput = {
+    status: "ACTIVE",
+    recordType: "SCHOLARSHIP",
+    countryCode: country.code,
+  };
+  const [scholarships, total, universities, user] = await Promise.all([
     prisma.scholarship.findMany({
-      where: { status: "ACTIVE", recordType: "SCHOLARSHIP", countryCode: country.code },
+      where: scholarshipWhere,
       include: { university: true },
       orderBy: { views: "desc" },
       take: 12,
     }),
+    prisma.scholarship.count({ where: scholarshipWhere }),
     prisma.university.findMany({
       where: { countryCode: country.code },
       orderBy: { name: "asc" },
@@ -78,7 +85,7 @@ export default async function CountryPage({ params }: PageProps) {
             Scholarships in {country.name}
           </h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            {scholarships.length} active opportunities currently listed. Explore universities,
+            {total} active opportunities currently listed. Explore universities,
             funding programmes and popular fields of study in {country.name}.
           </p>
         </div>
