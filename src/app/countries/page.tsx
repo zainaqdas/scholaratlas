@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 // Heavy read: three aggregate scans over the ACTIVE scholarship table per view.
 // Counts only change on the weekly re-crawl, so they're cached across requests.
 const getCountryCounts = cachedData(
-  ["country-counts"],
+  ["country-counts-v2"],
   async () => {
     const [rows, fullyFunded, unis, globalCount, globalFF] = await Promise.all([
       prisma.scholarship.groupBy({
