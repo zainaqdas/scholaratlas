@@ -1,17 +1,14 @@
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 import { COUNTRIES, FIELDS, FIELD_GROUPS, QUICK_CATEGORIES } from "@/lib/constants";
-
-// Production origin — same fallback as layout.tsx so the sitemap never points
-// at localhost in the deployment env.
-const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app";
-const url = (path: string) => `${BASE}${path}`;
-
-// Scholarship data refreshes on a weekly re-crawl — daily regeneration is more
-// than enough for a sitemap.
-export const revalidate = 86400;
+import { getBaseUrl } from "@/lib/app-url";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Resolved per-request so the sitemap always advertises the domain that
+  // serves it: NEXT_PUBLIC_APP_URL overrides, otherwise the request host.
+  const baseUrl = await getBaseUrl();
+  const url = (path: string) => `${baseUrl}${path}`;
+
   // --- Static pages ---------------------------------------------------------
   const staticPages: MetadataRoute.Sitemap = [
     { url: url("/"), changeFrequency: "daily", priority: 1 },

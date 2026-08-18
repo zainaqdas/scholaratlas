@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
+import { getBaseUrl } from "@/lib/app-url";
 
-const BASE = process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app";
-
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const baseUrl = await getBaseUrl();
   return {
     rules: [
       {
@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: `${BASE}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

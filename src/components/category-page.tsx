@@ -6,11 +6,11 @@ import type { CategoryPageDef } from "@/lib/categories";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { SearchBar } from "@/components/search-bar";
 import { Badge } from "@/components/ui/badge";
+import { getBaseUrl } from "@/lib/app-url";
 import { getCurrentUser } from "@/lib/auth";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app";
-
 export async function CategoryPage({ category }: { category: CategoryPageDef }) {
+  const appUrl = await getBaseUrl();
   const [result, user] = await Promise.all([
     searchScholarships({ ...category.filters, sort: "recent" }),
     getCurrentUser(),
@@ -111,8 +111,8 @@ export async function CategoryPage({ category }: { category: CategoryPageDef }) 
               {
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Home", item: `${APP_URL}/` },
-                  { "@type": "ListItem", position: 2, name: "Scholarships", item: `${APP_URL}/scholarships` },
+                  { "@type": "ListItem", position: 1, name: "Home", item: `${appUrl}/` },
+                  { "@type": "ListItem", position: 2, name: "Scholarships", item: `${appUrl}/scholarships` },
                   { "@type": "ListItem", position: 3, name: category.title },
                 ],
               },
@@ -120,7 +120,7 @@ export async function CategoryPage({ category }: { category: CategoryPageDef }) 
                 "@type": "CollectionPage",
                 name: category.headline,
                 description: category.intro,
-                url: `${APP_URL}/scholarships/${category.slug}`,
+                url: `${appUrl}/scholarships/${category.slug}`,
               },
             ],
           }),

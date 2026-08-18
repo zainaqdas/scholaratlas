@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AiAssistant } from "@/components/ai-assistant";
+import { getBaseUrl } from "@/lib/app-url";
 import { APP_NAME, TAGLINE } from "@/lib/constants";
 
 const inter = Inter({
@@ -18,30 +19,35 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  // NEXT_PUBLIC_APP_URL is not set in the deployment env; fall back to the
-  // live production origin so canonical/OG URLs never point at localhost.
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app"),
-  title: {
-    default: `${APP_NAME} — ${TAGLINE}`,
-    template: `%s · ${APP_NAME}`,
-  },
-  description:
-    "Discover scholarships, fellowships and fully funded opportunities from universities, governments and organizations around the world.",
-  keywords: ["scholarships", "study abroad", "fully funded", "masters scholarships", "phd funding", "international students"],
-  openGraph: {
-    type: "website",
-    siteName: APP_NAME,
-    title: `${APP_NAME} — ${TAGLINE}`,
-    description: "Your world of scholarships, in one place.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${APP_NAME} — ${TAGLINE}`,
-    description: "Your world of scholarships, in one place.",
-  },
-  robots: { index: true, follow: true },
-};
+// metadataBase must be absolute and is used to resolve the relative canonical/
+// OG URLs each page emits. getBaseUrl() resolves it from the request host so
+// the site works on any domain/server; NEXT_PUBLIC_APP_URL pins a canonical
+// origin when one is desired.
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = await getBaseUrl();
+  return {
+    metadataBase: new URL(baseUrl),
+    title: {
+      default: `${APP_NAME} — ${TAGLINE}`,
+      template: `%s · ${APP_NAME}`,
+    },
+    description:
+      "Discover scholarships, fellowships and fully funded opportunities from universities, governments and organizations around the world.",
+    keywords: ["scholarships", "study abroad", "fully funded", "masters scholarships", "phd funding", "international students"],
+    openGraph: {
+      type: "website",
+      siteName: APP_NAME,
+      title: `${APP_NAME} — ${TAGLINE}`,
+      description: "Your world of scholarships, in one place.",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${APP_NAME} — ${TAGLINE}`,
+      description: "Your world of scholarships, in one place.",
+    },
+    robots: { index: true, follow: true },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",

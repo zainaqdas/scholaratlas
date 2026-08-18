@@ -23,6 +23,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { getBaseUrl } from "@/lib/app-url";
 import { fieldGroupBySlug } from "@/lib/constants";
 import { fieldGroupCategory } from "@/lib/categories";
 import { CategoryPage } from "@/components/category-page";
@@ -451,7 +452,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             "@type": "EducationalOccupationalProgram",
             name: s.title,
             description: s.description,
-            url: `${process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app"}/scholarships/${s.slug}`,
+            url: `${await getBaseUrl()}/scholarships/${s.slug}`,
             provider: {
               "@type": "EducationalOrganization",
               name: s.provider,
