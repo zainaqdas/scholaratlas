@@ -54,6 +54,7 @@ import {
   eligibleOf,
   fieldsOf,
   hasNoIelts,
+  hostCountriesOf,
   isOpenToAll,
   languageOf,
   stepsOf,
@@ -151,6 +152,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
   const steps = stepsOf(s) ?? DEFAULT_APPLICATION_STEPS;
   const lang = languageOf(s);
   const eligible = eligibleOf(s);
+  const hostCountries = hostCountriesOf(s);
   const expired = s.status === "EXPIRED" || (s.deadline && s.deadline < new Date());
 
   return (
@@ -205,7 +207,16 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             </span>
             <span className="flex items-center gap-1.5">
               <MapPin className="h-4 w-4" />
-              {countryFlag(s.countryCode)} {countryName(s.countryCode)}
+              {hostCountries.length ? (
+                <>
+                  🪐 <span aria-hidden="true">{hostCountries.map((c) => countryFlag(c)).join("")}</span>{" "}
+                  Multiple countries
+                </>
+              ) : (
+                <>
+                  {countryFlag(s.countryCode)} {countryName(s.countryCode)}
+                </>
+              )}
               {s.city ? `, ${s.city}` : ""}
             </span>
             <span className="flex items-center gap-1.5">
@@ -271,7 +282,15 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
                 }
               />
             )}
-            <OverviewRow icon={<MapPin className="h-4 w-4" />} label="Host Country" value={`${countryFlag(s.countryCode)} ${countryName(s.countryCode)}`} />
+            <OverviewRow
+              icon={<MapPin className="h-4 w-4" />}
+              label={hostCountries.length ? "Host Countries" : "Host Country"}
+              value={
+                hostCountries.length
+                  ? hostCountries.map((c) => `${countryFlag(c)} ${countryName(c)}`).join(", ")
+                  : `${countryFlag(s.countryCode)} ${countryName(s.countryCode)}`
+              }
+            />
             <OverviewRow icon={<Layers className="h-4 w-4" />} label="Study Level" value={levels.join(", ") || "Not specified"} />
             <OverviewRow icon={<GraduationCap className="h-4 w-4" />} label="Field of Study" value={fields.includes("ALL") ? "All fields" : fields.slice(0, 4).map((f) => f.replace(/-/g, " ")).join(", ") || "Not specified"} />
             <OverviewRow icon={<Wallet className="h-4 w-4" />} label="Funding Type" value={FUNDING_TYPES.find((f) => f.value === s.fundingType)?.label ?? s.fundingType} />

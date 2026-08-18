@@ -514,6 +514,7 @@ export const COUNTRIES: CountryDef[] = [
   { code: "SY", name: "Syria", flag: "🇸🇾", region: "Middle East" },
   { code: "TM", name: "Turkmenistan", flag: "🇹🇲", region: "Asia" },
   { code: "TW", name: "Taiwan", flag: "🇹🇼", region: "Asia" },
+  { code: "GD", name: "Grenada", flag: "🇬🇩", region: "Caribbean" },
   { code: "UZ", name: "Uzbekistan", flag: "🇺🇿", region: "Asia" },
   { code: "ZW", name: "Zimbabwe", flag: "🇿🇼", region: "Africa" },
 ];

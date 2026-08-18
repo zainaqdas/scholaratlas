@@ -7,7 +7,7 @@ import { DeadlineBadge } from "./deadline-badge";
 import { VerificationBadge } from "./verification-badge";
 import { SaveButton } from "./save-button";
 import { countryFlag, countryName, studyLevelFromSlug } from "@/lib/constants";
-import { fieldsOf, studyLevelsOf } from "@/lib/scholarship";
+import { fieldsOf, hostCountriesOf, studyLevelsOf } from "@/lib/scholarship";
 import { formatShortDate } from "@/lib/format";
 
 interface CardProps {
@@ -35,6 +35,11 @@ export function ScholarshipCardList({ scholarship: s, saved = false }: CardProps
           <p className="flex items-center gap-1 text-xs text-muted-foreground">
             <span aria-hidden="true">{countryFlag(s.countryCode)}</span>
             {countryName(s.countryCode)}
+            {hostCountriesOf(s).length > 0 && (
+              <span aria-hidden="true" className="ml-1">
+                {hostCountriesOf(s).map((c) => countryFlag(c)).join("")}
+              </span>
+            )}
           </p>
         </div>
       </div>

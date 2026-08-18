@@ -52,6 +52,7 @@ model Scholarship {
   countryCode           String? // nullable: imported listings may lack a country
   country               Country?  @relation(fields: [countryCode], references: [code])
   city                  String?
+  hostCountries         String    @default("[]") // JSON country-code array for multi-country programmes (Erasmus Mundus, SEARCA…); countryCode stays null since there is no single host
 
   // Academic profile (JSON arrays)
   studyLevels           String    @default("[]") // StudyLevel[]

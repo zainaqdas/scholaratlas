@@ -7,7 +7,7 @@ import { DeadlineBadge } from "./deadline-badge";
 import { VerificationBadge } from "./verification-badge";
 import { SaveButton } from "./save-button";
 import { countryFlag, countryName, fundingLabel, studyLevelFromSlug } from "@/lib/constants";
-import { fieldsOf, hasNoIelts, studyLevelsOf } from "@/lib/scholarship";
+import { fieldsOf, hasNoIelts, hostCountriesOf, studyLevelsOf } from "@/lib/scholarship";
 import { formatShortDate } from "@/lib/format";
 
 interface CardProps {
@@ -18,6 +18,7 @@ interface CardProps {
 export function ScholarshipCard({ scholarship: s, saved = false }: CardProps) {
   const levels = studyLevelsOf(s).slice(0, 2).map((slug) => studyLevelFromSlug(slug)).filter(Boolean);
   const fields = fieldsOf(s);
+  const hostCountries = hostCountriesOf(s);
   const isFullyFunded = s.fundingType === "FULLY_FUNDED" || s.fundingType === "FULLY_FUNDED_STIPEND";
   // "International" = open to applicants of any nationality (["ALL"]), which is
   // what the "Scholarships for International Students" category page filters on.
@@ -40,8 +41,10 @@ export function ScholarshipCard({ scholarship: s, saved = false }: CardProps) {
               {s.university?.name ?? s.provider}
             </p>
             <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
-              <span aria-hidden="true">{countryFlag(s.countryCode)}</span>
-              {countryName(s.countryCode)}
+              <span aria-hidden="true">
+                {hostCountries.length ? hostCountries.map((c) => countryFlag(c)).join("") : countryFlag(s.countryCode)}
+              </span>
+              {hostCountries.length ? `Multiple countries (${hostCountries.length})` : countryName(s.countryCode)}
             </p>
           </div>
         </div>

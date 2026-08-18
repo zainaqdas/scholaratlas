@@ -25,6 +25,9 @@ export const stepsOf = (s: Scholarship): string[] | null => {
   const steps = parseJSON<string[]>(s.applicationSteps, []);
   return steps.length ? steps : null;
 };
+export const hostCountriesOf = (s: Scholarship): string[] =>
+  parseJSON<string[]>(s.hostCountries, []);
+
 export const eligibleOf = (s: Scholarship): string[] => {
   // Guard against legacy/malformed values (e.g. prose stored instead of a
   // JSON array) — never let a non-array reach UI code that calls .map().
