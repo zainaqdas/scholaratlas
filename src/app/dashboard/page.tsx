@@ -94,7 +94,7 @@ export default async function DashboardPage() {
         />
       </div>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
+      <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_360px]">
         <div className="space-y-10">
           {/* Recommendations */}
           <section id="recommended">

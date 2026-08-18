@@ -87,7 +87,7 @@ export default async function ArticlePage({ params }: PageProps) {
       {related.length > 0 && (
         <section className="mt-12">
           <h2 className="font-display text-2xl font-extrabold tracking-tight">Related Scholarships</h2>
-          <div className="mt-5 grid gap-5 sm:grid-cols-2">
+          <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {related.map((s) => (
               <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
             ))}

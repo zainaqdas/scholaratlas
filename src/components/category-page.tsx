@@ -60,7 +60,7 @@ export async function CategoryPage({ category }: { category: CategoryPageDef }) 
         </Link>
       </div>
 
-      <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {result.items.map((s) => (
           <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
         ))}

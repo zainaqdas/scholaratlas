@@ -83,7 +83,7 @@ export default async function UniversityPage({ params }: PageProps) {
             No scholarships listed for this university yet.
           </p>
         ) : (
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {university.scholarships.map((s) => (
               <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
             ))}

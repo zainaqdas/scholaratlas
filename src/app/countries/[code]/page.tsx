@@ -98,7 +98,7 @@ export default async function CountryPage({ params }: PageProps) {
         </Link>
       </div>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_320px]">
+      <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_320px]">
         <div>
           <h2 className="font-display text-xl font-bold">Scholarships in {country.name}</h2>
           {scholarships.length === 0 ? (
@@ -109,7 +109,7 @@ export default async function CountryPage({ params }: PageProps) {
               </Link>
             </p>
           ) : (
-            <div className="mt-5 grid gap-5 sm:grid-cols-2">
+            <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
               {scholarships.map((s) => (
                 <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
               ))}

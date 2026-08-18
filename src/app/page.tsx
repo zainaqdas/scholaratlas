@@ -140,7 +140,7 @@ export default async function HomePage() {
         <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl" />
         <div className="pointer-events-none absolute -left-24 top-40 h-80 w-80 rounded-full bg-brand-indigo/10 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
+        <div className="relative mx-auto grid grid-cols-1 max-w-7xl gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
           <div>
             <Badge variant="secondary" className="mb-5 gap-1.5 px-3 py-1">
               <Globe2 className="h-3.5 w-3.5 text-primary" />
@@ -314,7 +314,7 @@ export default async function HomePage() {
         subtitle="Hand-picked, verified scholarships from trusted providers."
         action={{ href: "/scholarships?featured=1", label: "View all featured" }}
       >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {data.featured.map((s) => (
             <ScholarshipCard key={s.id} scholarship={s} />
           ))}
@@ -335,7 +335,7 @@ export default async function HomePage() {
           action={{ href: "/scholarships?sort=popular", label: "Most popular" }}
           inset={false}
         >
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {data.trending.map((s) => (
               <ScholarshipCard key={s.id} scholarship={s} />
             ))}
@@ -405,7 +405,7 @@ export default async function HomePage() {
         subtitle="Don't miss a deadline — these opportunities close first."
         action={{ href: "/deadlines", label: "All deadlines" }}
       >
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {data.deadlines.map((s) => (
             <Link
               key={s.id}
@@ -522,8 +522,8 @@ export default async function HomePage() {
       {/* ------------------------------------------------------ Recent + resources */}
       <section className="border-t bg-card/60">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+            <div className="min-w-0">
               <h2 className="font-display text-2xl font-extrabold tracking-tight">Recently Added</h2>
               <p className="mt-1 text-sm text-muted-foreground">The latest opportunities in the catalogue.</p>
               <div className="mt-6 space-y-3">

@@ -143,7 +143,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
       </nav>
 
       {/* Header */}
-      <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_360px]">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             {s.recordType === "JOB" && (
@@ -405,7 +405,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
       {similar.length > 0 && (
         <section className="mt-14">
           <h2 className="font-display text-2xl font-extrabold tracking-tight">You May Also Like</h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {similar.map((item) => (
               <ScholarshipCard key={item.id} scholarship={item} />
             ))}

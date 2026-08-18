@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { SlidersHorizontal } from "lucide-react";
 import { searchScholarships, parseFiltersFromUrl } from "@/lib/search";
 import { FilterSidebar } from "@/components/filters/filter-sidebar";
+import { MobileFilterSheet } from "@/components/filters/mobile-filter-sheet";
 import { SearchBar } from "@/components/search-bar";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { ScholarshipCardList } from "@/components/scholarship/scholarship-card-list";
@@ -9,8 +9,6 @@ import { ResultsToolbar } from "@/components/scholarships/toolbar";
 import { Pagination } from "@/components/pagination";
 import { EmptyState } from "@/components/empty-state";
 import { CompareTray } from "@/components/compare/compare-tray";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
@@ -63,7 +61,7 @@ export default async function ScholarshipsPage({ searchParams }: PageProps) {
         </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr]">
         {/* Desktop filter sidebar */}
         <aside className="hidden lg:block">
           <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-2xl border bg-card p-5">
@@ -73,22 +71,7 @@ export default async function ScholarshipsPage({ searchParams }: PageProps) {
 
         <div className="min-w-0">
           <div className="flex items-center justify-between gap-3 lg:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" className="gap-2">
-                  <SlidersHorizontal className="h-4 w-4" />
-                  Filters
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="bottom" className="max-h-[85vh] overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>Filters</SheetTitle>
-                </SheetHeader>
-                <div className="mt-4">
-                  <FilterSidebar searchParams={usp} />
-                </div>
-              </SheetContent>
-            </Sheet>
+            <MobileFilterSheet searchParams={usp} />
           </div>
 
           <div className="mt-4 lg:mt-0">
@@ -104,9 +87,9 @@ export default async function ScholarshipsPage({ searchParams }: PageProps) {
               />
             </div>
           ) : view === "grid" ? (
-            <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {result.items.map((s) => (
-                <div key={s.id} className="relative">
+                <div key={s.id} className="relative min-w-0">
                   <ScholarshipCard scholarship={s} saved={savedIds.has(s.id)} />
                 </div>
               ))}

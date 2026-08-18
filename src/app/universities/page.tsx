@@ -32,7 +32,7 @@ export default async function UniversitiesPage() {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {universities.map((u) => (
           <Link
             key={u.id}
