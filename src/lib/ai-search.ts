@@ -3,7 +3,7 @@
 // converts free text into structured search criteria. The architecture allows a
 // real LLM call to replace this function later without changing the UI.
 
-import { COUNTRIES, FIELDS, studyLevelSlug, FUNDING_TYPES } from "./constants";
+import { COUNTRIES, FIELDS, FIELD_GROUPS, studyLevelSlug, FUNDING_TYPES, fieldDisplayName } from "./constants";
 
 export interface AiSearchCriteria {
   q?: string;
@@ -259,12 +259,22 @@ export function parseAiQuery(raw: string): AiSearchCriteria {
     }
   }
 
-  // Field of study
+  // Field of study — specific leaf fields win over broad group names so
+  // "computer science" maps to computer-science, not the CS & IT umbrella.
   for (const f of FIELDS) {
     const name = f.name.toLowerCase();
     if (text.includes(name) || text.includes(f.slug.replace(/-/g, " "))) {
       criteria.field = f.slug;
       break;
+    }
+  }
+  if (!criteria.field) {
+    for (const g of FIELD_GROUPS) {
+      const name = g.name.toLowerCase();
+      if (text.includes(name) || text.includes(g.slug.replace(/-/g, " "))) {
+        criteria.field = g.slug;
+        break;
+      }
     }
   }
   // common alias: "cs" / "computer science" handled by FIELDS name; "comp sci"
@@ -298,7 +308,7 @@ export function criteriaSummary(c: AiSearchCriteria): string[] {
   if (c.levels?.length) parts.push(c.levels.map((l) => l.replace(/-/g, " ")).join(", "));
   if (c.funding?.length) parts.push(FUNDING_TYPES.find((f) => f.value === c.funding?.[0])?.label ?? "funded");
   if (c.countries?.length) parts.push(`in ${COUNTRIES.find((x) => x.code === c.countries?.[0])?.name ?? c.countries[0]}`);
-  if (c.field) parts.push(FIELDS.find((f) => f.slug === c.field)?.name ?? c.field);
+  if (c.field) parts.push(fieldDisplayName(c.field));
   if (c.noIelts) parts.push("no IELTS");
   if (c.nationality) parts.push(`nationality: ${COUNTRIES.find((x) => x.code === c.nationality)?.name ?? c.nationality}`);
   return parts;

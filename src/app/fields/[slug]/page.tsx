@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { FIELDS, fieldBySlug } from "@/lib/constants";
+import { FIELDS, FIELD_GROUPS, fieldBySlug, fieldGroupBySlug, fieldSlugsForFilter } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { getCurrentUser } from "@/lib/auth";
 
@@ -13,26 +13,32 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const field = fieldBySlug(slug);
+  const field = fieldBySlug(slug) ?? fieldGroupBySlug(slug);
   if (!field) return { title: "Field not found" };
   return {
     title: `${field.name} Scholarships`,
     description: `Scholarships and funding opportunities for ${field.name} students — from governments, universities and foundations worldwide.`,
-    alternates: { canonical: `/fields/${field.slug}` },
+    alternates: { canonical: `/fields/${slug}` },
   };
 }
 
 export default async function FieldPage({ params }: PageProps) {
   const { slug } = await params;
-  const field = fieldBySlug(slug);
+  const field = fieldBySlug(slug) ?? fieldGroupBySlug(slug);
   if (!field) notFound();
+
+  const filterSlugs = fieldSlugsForFilter(slug);
+  const isGroup = !!fieldGroupBySlug(slug);
 
   const where: Prisma.ScholarshipWhereInput = {
     status: "ACTIVE",
     recordType: "SCHOLARSHIP",
-    // Match the field slug OR the "ALL" marker (open to all fields), same
-    // as the search page's field filter.
-    OR: [{ fields: { contains: slug } }, { fields: { contains: '"ALL"' } }],
+    // Match every leaf slug in the group (or the leaf itself) plus the "ALL"
+    // marker (open to all fields), same as the search page's field filter.
+    OR: [
+      ...(filterSlugs ?? []).map((s) => ({ fields: { contains: `"${s}"` } })),
+      { fields: { contains: '"ALL"' } },
+    ],
   };
   const [scholarships, total, user] = await Promise.all([
     prisma.scholarship.findMany({
@@ -54,7 +60,14 @@ export default async function FieldPage({ params }: PageProps) {
     savedIds = new Set(saved.map((s) => s.scholarshipId));
   }
 
-  const related = FIELDS.filter((f) => f.slug !== slug).slice(0, 10);
+  // Sub-fields for group pages (with their own counts); other categories for
+  // group pages' bottom section; related fields for leaf pages.
+  const subFields = isGroup
+    ? FIELDS.filter((f) => fieldGroupBySlug(slug)?.children.includes(f.slug))
+    : [];
+  const related = isGroup
+    ? FIELD_GROUPS.filter((g) => g.slug !== slug).slice(0, 12)
+    : FIELDS.filter((f) => f.slug !== slug).slice(0, 10);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -74,6 +87,24 @@ export default async function FieldPage({ params }: PageProps) {
         </div>
       </div>
 
+      {isGroup && subFields.length > 0 && (
+        <section className="mt-6">
+          <h2 className="text-sm font-semibold text-muted-foreground">Sub-fields</h2>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {subFields.map((f) => (
+              <Link
+                key={f.slug}
+                href={`/fields/${f.slug}`}
+                className="inline-flex items-center gap-1.5 rounded-full border bg-card px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
+              >
+                <span aria-hidden="true">{f.icon}</span>
+                {f.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       {scholarships.length === 0 ? (
         <div className="mt-10 rounded-xl border border-dashed bg-card p-12 text-center">
           <p className="text-muted-foreground">
@@ -92,7 +123,7 @@ export default async function FieldPage({ params }: PageProps) {
       )}
 
       <section className="mt-14">
-        <h2 className="font-display text-xl font-bold">Related Fields</h2>
+        <h2 className="font-display text-xl font-bold">{isGroup ? "Other Categories" : "Related Fields"}</h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {related.map((f) => (
             <Link

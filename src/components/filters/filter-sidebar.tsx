@@ -11,11 +11,13 @@ import {
   COUNTRIES,
   DEADLINE_OPTIONS,
   FIELDS,
+  FIELD_GROUPS,
   FIELD_OPTIONS,
   FUNDING_TYPES,
   LANGUAGE_OPTIONS,
   PROVIDER_TYPES,
   STUDY_LEVELS,
+  fieldName,
   studyLevelSlug,
 } from "./filter-options";
 
@@ -103,8 +105,18 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
       (k) => params.get(k)
     ).length;
 
-  const visibleFields = FIELDS.filter((f) =>
-    f.name.toLowerCase().includes(fieldQuery.toLowerCase())
+  const fieldQ = fieldQuery.toLowerCase();
+  const visibleGroups = FIELD_GROUPS.map((g) => {
+    const groupMatch = g.name.toLowerCase().includes(fieldQ);
+    const children = groupMatch
+      ? g.children
+      : g.children.filter((slug) => fieldName(slug).toLowerCase().includes(fieldQ));
+    return { ...g, children };
+  }).filter((g) => g.name.toLowerCase().includes(fieldQ) || g.children.length > 0);
+  const ungroupedFields = FIELDS.filter(
+    (f) =>
+      !FIELD_GROUPS.some((g) => g.children.includes(f.slug)) &&
+      f.name.toLowerCase().includes(fieldQ)
   );
   const visibleCountries = COUNTRIES.filter((c) =>
     `${c.name} ${c.flag}`.toLowerCase().includes(countryQuery.toLowerCase())
@@ -214,17 +226,49 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
             aria-label="Search fields of study"
           />
         </div>
-        <div className="max-h-48 space-y-1 overflow-y-auto pr-1">
-          {visibleFields.map((f) => (
-            <Chip
-              key={f.slug}
-              active={params.get("field") === f.slug}
-              onClick={() => update({ field: params.get("field") === f.slug ? null : f.slug })}
-            >
-              {f.icon} {f.name}
-            </Chip>
+        <div className="max-h-72 space-y-3 overflow-y-auto pr-1">
+          {visibleGroups.map((g) => (
+            <div key={g.slug} className="space-y-1.5">
+              <Chip
+                active={params.get("field") === g.slug}
+                onClick={() => update({ field: params.get("field") === g.slug ? null : g.slug })}
+              >
+                {g.icon} {g.name}
+              </Chip>
+              <div className="flex flex-wrap gap-1.5 pl-1">
+                {g.children.map((slug) => {
+                  const f = FIELDS.find((x) => x.slug === slug);
+                  if (!f) return null;
+                  return (
+                    <Chip
+                      key={slug}
+                      active={params.get("field") === slug}
+                      onClick={() => update({ field: params.get("field") === slug ? null : slug })}
+                    >
+                      {f.name}
+                    </Chip>
+                  );
+                })}
+              </div>
+            </div>
           ))}
-          {visibleFields.length === 0 && (
+          {ungroupedFields.length > 0 && (
+            <div className="space-y-1.5">
+              <p className="text-xs font-semibold text-muted-foreground">Other fields</p>
+              <div className="flex flex-wrap gap-1.5 pl-1">
+                {ungroupedFields.map((f) => (
+                  <Chip
+                    key={f.slug}
+                    active={params.get("field") === f.slug}
+                    onClick={() => update({ field: params.get("field") === f.slug ? null : f.slug })}
+                  >
+                    {f.name}
+                  </Chip>
+                ))}
+              </div>
+            </div>
+          )}
+          {visibleGroups.length === 0 && ungroupedFields.length === 0 && (
             <p className="text-xs text-muted-foreground">No fields match.</p>
           )}
         </div>

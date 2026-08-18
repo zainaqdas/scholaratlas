@@ -5,7 +5,7 @@
 
 import { Prisma, type Scholarship } from "@prisma/client";
 import { prisma } from "./prisma";
-import { SCHOLARSHIPS_PER_PAGE, studyLevelFromSlug } from "./constants";
+import { SCHOLARSHIPS_PER_PAGE, fieldSlugsForFilter, studyLevelFromSlug } from "./constants";
 import { daysUntil } from "./format";
 
 export type SortKey = "relevance" | "deadline" | "recent" | "funding" | "popular";
@@ -105,15 +105,24 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
   }
 
   if (filters.field) {
-    // Fields is a JSON array string; match the slug or the "ALL" marker.
-    // Both branches must sit inside a single OR (a top-level `fields` filter
-    // would be ANDed with it and cancel the match).
-    where.AND = [
-      ...(Array.isArray(where.AND) ? where.AND : []),
-      {
-        OR: [{ fields: { contains: filters.field } }, { fields: { contains: '"ALL"' } }],
-      },
-    ];
+    // Fields is a JSON array string. A group slug (e.g. "medicine-health")
+    // matches every child field slug; a leaf slug matches only itself.
+    // Open-to-all records ("ALL" marker) match any field. Slugs are matched in
+    // quoted form so "media" never matches "multimedia" and "sciences" never
+    // matches "natural-sciences". All branches sit inside a single OR (a
+    // top-level `fields` filter would be ANDed with it and cancel the match).
+    const slugs = fieldSlugsForFilter(filters.field);
+    if (slugs) {
+      where.AND = [
+        ...(Array.isArray(where.AND) ? where.AND : []),
+        {
+          OR: [
+            ...slugs.map((s) => ({ fields: { contains: `"${s}"` } })),
+            { fields: { contains: '"ALL"' } },
+          ],
+        },
+      ];
+    }
   }
 
   if (filters.nationality) {
@@ -277,9 +286,14 @@ export async function searchSuggestions(q: string, limit = 5) {
     }),
   ]);
 
-  // Fields are static — filter client-side data
-  const { FIELDS } = await import("./constants");
-  const fields = FIELDS.filter((f) => f.name.toLowerCase().includes(query.toLowerCase())).slice(0, limit);
+  // Fields are static — filter client-side data (groups + leaves, so typing
+  // "health" surfaces the Medicine & Health category too)
+  const { FIELDS, FIELD_GROUPS } = await import("./constants");
+  const lq = query.toLowerCase();
+  const fields = [...FIELD_GROUPS, ...FIELDS]
+    .map((f) => ({ slug: f.slug, name: f.name, icon: f.icon }))
+    .filter((f) => f.name.toLowerCase().includes(lq))
+    .slice(0, limit);
 
   return { scholarships, universities, countries, fields, articles };
 }

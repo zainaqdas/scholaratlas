@@ -17,7 +17,7 @@ import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { DeadlineBadge } from "@/components/scholarship/deadline-badge";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FIELDS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
+import { FIELD_GROUPS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
 import { formatCount, relativeTime } from "@/lib/format";
 
 const HERO_QUICK_FILTERS = [
@@ -379,7 +379,7 @@ export default async function HomePage() {
           inset={false}
         >
           <div className="flex flex-wrap gap-2.5">
-            {FIELDS.slice(0, 18).map((f) => (
+            {FIELD_GROUPS.map((f) => (
               <Link
                 key={f.slug}
                 href={`/fields/${f.slug}`}

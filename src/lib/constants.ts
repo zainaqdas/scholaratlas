@@ -229,11 +229,14 @@ export const FIELDS: FieldDef[] = [
   { slug: "nursing", name: "Nursing", icon: "🏥" },
   { slug: "biotechnology", name: "Biotechnology", icon: "🧬" },
   { slug: "biology", name: "Biology", icon: "🧫" },
+  { slug: "dentistry", name: "Dentistry", icon: "🦷" },
   { slug: "chemistry", name: "Chemistry", icon: "🧪" },
   { slug: "physics", name: "Physics", icon: "⚛️" },
   { slug: "mathematics", name: "Mathematics", icon: "📐" },
+  { slug: "statistics", name: "Statistics", icon: "🧮" },
   { slug: "natural-sciences", name: "Natural Sciences", icon: "🔭" },
   { slug: "environmental-science", name: "Environmental Science", icon: "🌱" },
+  { slug: "energy", name: "Energy", icon: "⚡" },
   { slug: "business", name: "Business", icon: "💼" },
   { slug: "finance", name: "Finance", icon: "💰" },
   { slug: "economics", name: "Economics", icon: "📈" },
@@ -245,21 +248,107 @@ export const FIELDS: FieldDef[] = [
   { slug: "social-sciences", name: "Social Sciences", icon: "👥" },
   { slug: "psychology", name: "Psychology", icon: "🧠" },
   { slug: "education", name: "Education", icon: "📚" },
+  { slug: "history", name: "History", icon: "📜" },
+  { slug: "philosophy", name: "Philosophy", icon: "🧿" },
+  { slug: "linguistics", name: "Linguistics", icon: "🗣️" },
+  { slug: "classics", name: "Classics", icon: "🏺" },
+  { slug: "humanities", name: "Humanities", icon: "📖" },
   { slug: "agriculture", name: "Agriculture", icon: "🌾" },
   { slug: "architecture", name: "Architecture", icon: "🏗️" },
   { slug: "arts", name: "Arts", icon: "🎨" },
   { slug: "design", name: "Design", icon: "🖌️" },
   { slug: "media", name: "Media", icon: "🎬" },
   { slug: "music", name: "Music", icon: "🎵" },
-  { slug: "history", name: "History", icon: "📜" },
-  { slug: "philosophy", name: "Philosophy", icon: "🧿" },
-  { slug: "linguistics", name: "Linguistics", icon: "🗣️" },
   { slug: "tourism", name: "Tourism & Hospitality", icon: "✈️" },
   { slug: "sports-science", name: "Sports Science", icon: "🏅" },
 ];
 
 export const fieldBySlug = (slug: string) => FIELDS.find((f) => f.slug === slug);
 export const fieldName = (slug: string) => fieldBySlug(slug)?.name ?? slug;
+
+// --- Broad field groups (umbrella categories) -------------------------------
+// Parent categories that group related leaf fields. Filtering by a group slug
+// matches every child field (plus open-to-all "ALL" records), while filtering
+// by a leaf slug stays narrow. Leaf slugs may belong to several groups
+// (biology is both a life science and a natural science) and a group's slug may
+// also exist as a leaf tag (natural-sciences, social-sciences) — in that case
+// the leaf tag is included in its own children so nothing is lost.
+export interface FieldGroupDef {
+  slug: string;
+  name: string;
+  icon: string;
+  description: string;
+  children: string[]; // leaf field slugs (including the group's own leaf slug when it exists)
+}
+
+export const FIELD_GROUPS: FieldGroupDef[] = [
+  {
+    slug: "medicine-health",
+    name: "Medicine & Health",
+    icon: "🩺",
+    description: "Clinical programs, nursing, public health, biomedical sciences and more.",
+    children: ["medicine", "public-health", "nursing", "biotechnology", "biology", "dentistry", "psychology"],
+  },
+  {
+    slug: "computer-science-it",
+    name: "Computer Science & IT",
+    icon: "💻",
+    description: "Software, artificial intelligence, data science and cybersecurity.",
+    children: ["computer-science", "artificial-intelligence", "data-science", "cybersecurity"],
+  },
+  {
+    slug: "business-economics",
+    name: "Business & Economics",
+    icon: "💼",
+    description: "Management, finance, economics, marketing and accounting.",
+    children: ["business", "finance", "economics", "marketing", "accounting"],
+  },
+  {
+    slug: "natural-sciences",
+    name: "Natural Sciences",
+    icon: "🔭",
+    description: "Physics, chemistry, mathematics, biology and environmental science.",
+    children: ["natural-sciences", "physics", "chemistry", "mathematics", "statistics", "biology", "environmental-science", "energy"],
+  },
+  {
+    slug: "social-sciences",
+    name: "Social Sciences & Humanities",
+    icon: "👥",
+    description: "Law, politics, education, history, philosophy, languages and more.",
+    children: ["social-sciences", "law", "political-science", "international-relations", "psychology", "education", "history", "philosophy", "linguistics", "classics", "humanities"],
+  },
+  {
+    slug: "arts-design-media",
+    name: "Arts, Design & Media",
+    icon: "🎨",
+    description: "Fine arts, design, media, music and architecture.",
+    children: ["arts", "design", "media", "music", "architecture"],
+  },
+  {
+    slug: "agriculture-environment",
+    name: "Agriculture & Environment",
+    icon: "🌾",
+    description: "Agriculture, environmental science and related disciplines.",
+    children: ["agriculture", "environmental-science"],
+  },
+];
+
+export const fieldGroupBySlug = (slug: string) => FIELD_GROUPS.find((g) => g.slug === slug);
+
+export const isFieldGroup = (slug: string) => FIELD_GROUPS.some((g) => g.slug === slug);
+
+// Leaf slugs a filter on `slug` should match, or null if the slug is unknown.
+// Groups expand to their children; leaves match only themselves.
+export function fieldSlugsForFilter(slug: string): string[] | null {
+  const group = fieldGroupBySlug(slug);
+  if (group) return group.children;
+  return fieldBySlug(slug) ? [slug] : null;
+}
+
+// Display name for either a leaf field or a group slug.
+export function fieldDisplayName(slug: string): string {
+  return fieldGroupBySlug(slug)?.name ?? fieldBySlug(slug)?.name ?? slug;
+}
 
 // --- Countries --------------------------------------------------------------
 export interface CountryDef {
