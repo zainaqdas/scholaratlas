@@ -15,7 +15,9 @@ export default async function UniversitiesPage() {
   const universities = await prisma.university.findMany({
     include: {
       country: true,
-      _count: { select: { scholarships: { where: { status: "ACTIVE" } } } },
+      // Scholarships only — job listings (EURAXESS research positions) are a
+      // separate record type and must not inflate "N scholarships" counts.
+      _count: { select: { scholarships: { where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } } } },
     },
     orderBy: { name: "asc" },
   });

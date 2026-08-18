@@ -31,7 +31,9 @@ export default async function FieldPage({ params }: PageProps) {
       where: {
         status: "ACTIVE",
         recordType: "SCHOLARSHIP",
-        fields: { contains: slug },
+        // Match the field slug OR the "ALL" marker (open to all fields), same
+        // as the search page's field filter.
+        OR: [{ fields: { contains: slug } }, { fields: { contains: '"ALL"' } }],
       },
       include: { university: true },
       orderBy: { views: "desc" },

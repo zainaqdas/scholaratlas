@@ -149,9 +149,15 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
   }
 
   if (filters.fee === "free") {
-    where.applicationFee = { in: ["Free", "free"] };
-    // also matches null application fees (free by default)
-    where.OR = [...(Array.isArray(where.OR) ? where.OR : where.OR ? [where.OR] : []), { applicationFee: null }];
+    // Free = explicitly "Free"/"free" OR unspecified (null, free by default).
+    // Both branches must sit inside a single OR (a top-level applicationFee
+    // filter would be ANDed with it and cancel the null branch).
+    where.AND = [
+      ...(Array.isArray(where.AND) ? where.AND : []),
+      {
+        OR: [{ applicationFee: null }, { applicationFee: { in: ["Free", "free"] } }],
+      },
+    ];
   } else if (filters.fee === "required") {
     where.applicationFee = { notIn: ["Free", "free"], not: null };
   }

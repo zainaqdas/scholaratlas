@@ -17,13 +17,7 @@ import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { DeadlineBadge } from "@/components/scholarship/deadline-badge";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  COUNTRIES,
-  FIELDS,
-  QUICK_CATEGORIES,
-  countryFlag,
-  countryName,
-} from "@/lib/constants";
+import { FIELDS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
 import { formatCount, relativeTime } from "@/lib/format";
 
 const HERO_QUICK_FILTERS = [
@@ -46,7 +40,7 @@ const FLOAT_CARDS = [
 ];
 
 async function getHomeData() {
-  const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries] =
+  const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows] =
     await Promise.all([
       prisma.scholarship.count({ where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } }),
       prisma.scholarship.findMany({
@@ -83,6 +77,11 @@ async function getHomeData() {
         orderBy: { _count: { countryCode: "desc" } },
         take: 8,
       }),
+      prisma.scholarship.groupBy({
+        by: ["countryCode"],
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+        _count: { _all: true },
+      }),
     ]);
 
   // Featured/trending are admin-curated flags; fall back to real verified/recent
@@ -110,6 +109,8 @@ async function getHomeData() {
   for (const c of topCountries) {
     if (c.countryCode) countryStats.set(c.countryCode, c._count._all);
   }
+  // Distinct destination countries with at least one active scholarship
+  const countryCount = allCountryRows.filter((r) => r.countryCode).length;
 
   return {
     stats,
@@ -121,6 +122,7 @@ async function getHomeData() {
     resources,
     activeDeadlines,
     countryStats,
+    countryCount,
   };
 }
 
@@ -129,7 +131,7 @@ export const dynamic = "force-dynamic";
 export default async function HomePage() {
   const data = await getHomeData();
   const universityCount = data.universities;
-  const countryCount = COUNTRIES.filter((c) => data.countryStats.has(c.code)).length;
+  const countryCount = data.countryCount;
 
   return (
     <>

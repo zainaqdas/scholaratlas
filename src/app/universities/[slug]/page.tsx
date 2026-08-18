@@ -28,7 +28,12 @@ export default async function UniversityPage({ params }: PageProps) {
   const { slug } = await params;
   const university = await prisma.university.findUnique({
     where: { slug },
-    include: { country: true, scholarships: { where: { status: "ACTIVE" } } },
+    include: {
+      country: true,
+      // Scholarships only — EURAXESS-style job listings are a separate record
+      // type and are not shown under "Scholarships at …".
+      scholarships: { where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } },
+    },
   });
   if (!university) notFound();
 

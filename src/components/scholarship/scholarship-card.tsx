@@ -19,7 +19,11 @@ export function ScholarshipCard({ scholarship: s, saved = false }: CardProps) {
   const levels = studyLevelsOf(s).slice(0, 2).map((slug) => studyLevelFromSlug(slug)).filter(Boolean);
   const fields = fieldsOf(s);
   const isFullyFunded = s.fundingType === "FULLY_FUNDED" || s.fundingType === "FULLY_FUNDED_STIPEND";
-  const international = !s.eligibleNationalities.includes('["ALL"]');
+  // "International" = open to applicants of any nationality (["ALL"]), which is
+  // what the "Scholarships for International Students" category page filters on.
+  // Records restricted to specific nationalities (e.g. ["US"]) are NOT labelled
+  // "International" — that would be misleading.
+  const international = s.eligibleNationalities.includes('["ALL"]');
 
   return (
     <article className="lift group flex flex-col rounded-2xl border bg-card p-5 shadow-sm">
