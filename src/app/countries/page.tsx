@@ -54,10 +54,13 @@ const getCountryCounts = cachedData(
       }
     }
 
+    // Plain arrays only — unstable_cache JSON-serializes the return value, so
+    // Map objects would silently become {} and crash the page. Maps are rebuilt
+    // at the call site.
     return {
-      counts,
-      ffCounts,
-      uniCounts: new Map(unis.map((r) => [r.countryCode, r._count._all] as const)),
+      countRows: [...counts.entries()],
+      ffRows: [...ffCounts.entries()],
+      uniRows: unis.map((r) => [r.countryCode, r._count._all] as const),
       globalCount,
       globalFF,
     };
@@ -66,7 +69,10 @@ const getCountryCounts = cachedData(
 );
 
 export default async function CountriesPage() {
-  const { counts, ffCounts, uniCounts, globalCount, globalFF } = await getCountryCounts();
+  const { countRows, ffRows, uniRows, globalCount, globalFF } = await getCountryCounts();
+  const counts = new Map(countRows);
+  const ffCounts = new Map(ffRows);
+  const uniCounts = new Map(uniRows);
 
   const countries = COUNTRIES.filter((c) => counts.has(c.code) || uniCounts.has(c.code))
     .map((c) => ({
