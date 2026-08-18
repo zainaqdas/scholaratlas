@@ -249,7 +249,7 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `npm run backfill:wms-levels` — backfills study levels for records the parser missed ("Post Doc", "High/Secondary School", college diplomas…), resumable checkpoint in `data/wms-levels-backfill.jsonl`
   - `npm run import:pts` — [pathwaystoscience.org](https://www.pathwaystoscience.org) importer (1,049 US STEM research programs: REUs, fellowships, summer research). Phases: `--listing-only` → `--detail-only` → `--insert-only` (all checkpointed + idempotent)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
-- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 8,703 genuinely-open scholarships (including the 156 DAAD programmes). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
+- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 8,858 genuinely-open scholarships (including the 156 DAAD programmes and 135 scholars4dev listings). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
 - **Rich-field backfills (all derived from source text, never fabricated):**
   - `npm run backfill:universities` — 1,559 University rows created, 96% of scholarships linked
   - `npm run backfill:wms-benefits` — amounts/currency/benefits parsed from cached descriptions
@@ -276,6 +276,23 @@ npm run import:daad                     # -> 156 records, countryCode DE
 - Amounts, duration, benefits, academic requirements and target groups come from the official programme pages.
 - Concrete dates are parsed into deadlines; descriptive deadlines ("deadlines differ") are left unset honestly.
 - External provider weblinks become `officialUrl`; the DAAD database entry is kept as `sourceUrl`.
+
+### scholars4dev.com (UK/EU/AU/NZ/CA…, 2026-08-18)
+
+[scholars4dev.com](https://www.scholars4dev.com/) is a human-curated scholarship blog with a full WordPress sitemap (581 posts → 528 real single-scholarship listings; roundup articles and tips are excluded):
+
+```bash
+# 1. crawl the full database (idempotent; resumes where it left off)
+python3 scripts/crawl-scholars4dev.py     # -> data/s4d/scholarships.jsonl (581 records)
+# 2. import (deduped by sourceUrl + title/provider fingerprint; dry-run supported)
+npm run import:scholars4dev -- --dry-run   # preview
+npm run import:scholars4dev                # -> 520 records
+```
+
+- Records are inserted **PENDING** (pending-review flow), then activated/expired by deadline: 135 ACTIVE + 385 EXPIRED (past-deadline posts kept for history, shown "Closed").
+- Country mapped only when a single country is named ("London, UK" → GB); multi-country / "any country" stays unset rather than guessing.
+- Study levels, fields of study, benefits, amounts/currencies and concrete deadlines are parsed from the post text; official provider URLs preserved as `officialUrl`, the s4d post as `sourceUrl`.
+- Cross-source dedupe: 6 listings already present from wemakescholars (same title+provider) were skipped.
 
 ### Non-China university language backfill (2026-08-17)
 

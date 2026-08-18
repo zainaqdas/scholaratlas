@@ -33,7 +33,7 @@
 
 ---
 
-## 2. Current Catalogue (live Neon DB, 2026-08-17)
+## 2. Current Catalogue (live Neon DB, 2026-08-18)
 
 ### Sources
 | Source | Records | Notes |
@@ -44,33 +44,34 @@
 | chinesescholarshipcouncil.com | 262 | Per-university CSC pages |
 | CampusChina / CSC official | 9 | Real CSC programs |
 | **DAAD (official)** | **156** | German scholarship programmes (DAAD + partner foundations), 2026-08-17 |
+| **scholars4dev.com** | **520** | Real scholarship listings (UK/EU/AU/NZ/CA…), human-curated, 2026-08-18 — 135 ACTIVE + 385 EXPIRED (past deadlines kept for history) |
 | Seed demo data | 0 | Deleted |
 
 ### Totals
 | Metric | Count |
 |---|---|
-| Total scholarship records | 24,434 |
-| **Active (public) scholarships** | **8,703** |
-| **Expired (kept for history, shown "Closed")** | **15,710** |
+| Total scholarship records | 24,953 |
+| **Active (public) scholarships** | **8,858** |
+| **Expired (kept for history, shown "Closed")** | **16,095** |
 | Pending review | 0 |
 | Jobs (EURAXESS, admin-only by design) | 20 |
 | Universities | 1,670 |
 | Countries with active data | 55 |
 | Demo data remaining | **0** (all removed) |
 
-### Active-scholarship coverage (8,548 ACTIVE)
+### Active-scholarship coverage (8,858 ACTIVE)
 | Field | Coverage | Notes |
 |---|---|---|
-| Application URL (`officialUrl`) | **99.7%** (8,522) | |
-| Deadline | **83%** (7,097) | CUCAS 84% + wms real-date records + PTS 43 + CSC 70 + CampusChina |
+| Application URL (`officialUrl`) | **99.7%** (8,829) | |
+| Deadline | **81%** (7,184) | CUCAS 84% + wms real-date records + PTS 43 + CSC 70 + CampusChina |
 | Amount/value | **75%** (6,409) | incl. honest "Varies" |
 | Currency | 63% (5,349) | |
 | Eligible nationalities | **78%** (6,687) | wms 18,171 records (14,795 ALL + 3,376 restricted) + CUCAS ALL |
 | Academic requirements | **52%** (4,413) | wms + CUCAS + CSC eligibility text verbatim |
 | Application steps | **62%** (5,338) | wms + CUCAS + CSC process text → ordered steps |
 | Benefits (tuition/stipend/accom.) | **48%** (4,111) | + PTS 532 + DAAD 59 + campuschina |
-| Fields of study | **64%** (5,488) | + layered classifier on 2,384 records (title → phrases → strong patterns) |
-| Language requirements | **34%** (2,958 meaningful, of which 2,120 filled 2026-08-17) | IELTS/TOEFL/alt-proof flags from official university pages |
+| Fields of study | **64%** (5,682) | + layered classifier on 2,384 records (title → phrases → strong patterns) |
+| Language requirements | **47%** (4,159 meaningful) | IELTS/TOEFL/alt-proof flags from official university pages + university-published policies |
 | Required documents | **18%** (1,556) | CUCAS/CSC document lists + wms mentions |
 
 ### By source
@@ -80,6 +81,7 @@
 | CUCAS (Kaggle snapshots, 2019–2023) | 2,570 | Program-level China listings |
 | chinesescholarshipcouncil.com | 262 | Per-university CSC pages, UNVERIFIED |
 | CampusChina / CSC official | 10 | Real CSC programs from campuschina.org |
+| scholars4dev.com | 520 | Human-curated listings (UK/EU/AU/NZ/CA/US…), official URLs preserved, 2026-08-18 |
 | Seed demo data | 0 | **Deleted** — demo scholarships + artifacts removed |
 
 ### By country (active scholarships)
@@ -301,6 +303,7 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 7. **✅ Scheduled re-crawl — DONE (2026-08-17)** — `.github/workflows/re-crawl.yml` refreshes wms deadlines (expire stale records), imports new wms listings, and re-applies CUCAS/CSC/field backfills weekly (needs `DATABASE_URL` secret).
 8. **Spot-check cscouncil records** in `/admin` — sample-verify the third-party data; flag anything wrong via the report system.
 9. **✅ Second aggregator — DONE (2026-08-17): PathwaysToScience** (1,049 US STEM programs). scholarshipdb.net + studyportals remain Cloudflare-blocked (403 even via stealth browser); **DAAD database imported (156 programs)** via its client-side JSON data files; EducationUSA is a guide (not a database) and Chevening is a single program already covered.
+9b. **✅ scholars4dev.com — DONE (2026-08-18)** — full post sitemap crawled (581 posts → 528 real single-scholarship listings; 43 roundup articles + tips excluded), imported with country/level/field/funding/deadline mapping + cross-source dedupe (6 title+provider matches already in DB from wemakescholars skipped). 520 records added: **135 ACTIVE** + **385 EXPIRED** (past-deadline posts kept for history). Importer: `scripts/import-scholars4dev.ts` (dry-run supported), crawler: `scripts/crawl-scholars4dev.py`, raw pages in `data/s4d/`.
 
 ### Medium term
 10. **✅ University-site crawlers — DONE (2026-08-17, two rounds)** — 31 of the zero-presence Chinese schools now enriched from their official English scholarship pages (round 1: NCEPU, BUCT, NEFU, CUST, SDU, SHOU, SHUTCM, CQMU, ZJUT, SCUT, CZU, ZAFU, NEPU; round 2: CUMT, ZJNU, ZUST, CUP, CUG, SHNU, DGUT, SIAS, USST, DUFE, WZU, SYUCT, UJS, XISU, SEU, CPU, TJU, NHMU): language +~1,050, deadlines +~75, durations +172, real scholarship-page URLs + scholarship notes on ~1,450 records. **Remaining honestly unenriched:** ZZULI (publishes its scholarship policy only in Chinese), CCUT/NBU/ZUT (no reachable English international-student site from this environment), BFA (WAF 412), BJWLXY (English pages are empty shells).
