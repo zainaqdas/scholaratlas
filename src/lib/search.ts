@@ -101,7 +101,22 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
   }
 
   if (filters.countries?.length) {
-    where.countryCode = { in: filters.countries.map((c) => c.toUpperCase()) };
+    const codes = filters.countries.map((c) => c.toUpperCase());
+    const hasGlobal = codes.includes("GLOBAL");
+    const specific = codes.filter((c) => c !== "GLOBAL");
+    if (hasGlobal && specific.length === 0) {
+      // "Global / Multiple Countries" — no single host country (Erasmus Mundus,
+      // VLIR-UOS, online programmes…). Pinning one country would be wrong.
+      where.countryCode = null;
+    } else if (hasGlobal) {
+      // Global OR any of the selected countries
+      where.AND = [
+        ...(Array.isArray(where.AND) ? where.AND : []),
+        { OR: [{ countryCode: null }, { countryCode: { in: specific } }] },
+      ];
+    } else {
+      where.countryCode = { in: specific };
+    }
   }
 
   if (filters.field) {

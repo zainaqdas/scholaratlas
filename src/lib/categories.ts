@@ -117,6 +117,25 @@ export const CATEGORY_PAGES: CategoryPageDef[] = [
       { label: "No IELTS Scholarships", href: "/scholarships/no-ielts" },
     ],
   },
+  {
+    slug: "global",
+    title: "Global & Multi-Country Scholarships",
+    headline: "Global & Multi-Country Scholarships",
+    intro:
+      "Programmes that don't belong to a single country — joint and multi-country programmes like Erasmus Mundus, international fellowships (Rotary, IDB, Fulbright), regional awards and online/distance opportunities open to students worldwide. When a scholarship spans many destinations, we list it here rather than pinning it to one country.",
+    filters: { countries: ["GLOBAL"] },
+    faqs: [
+      { q: "What makes a scholarship 'global'?", a: "A scholarship is listed here when it has no single host country: multi-country programmes (e.g. Erasmus Mundus joint degrees), international fellowships with rotating or multiple locations, regional awards covering several countries, and online/distance programmes with no physical campus." },
+      { q: "Can I apply to these from any country?", a: "Not necessarily — many global programmes still restrict applicants by nationality or residence. Always check the eligible nationalities and requirements on the official provider page." },
+      { q: "Why aren't these on country pages?", a: "Because they span multiple destinations, no single country page would represent them accurately. Listing them here keeps country pages honest while still making these opportunities easy to find." },
+    ],
+    related: [
+      { label: "Scholarships for International Students", href: "/scholarships/international-students" },
+      { label: "Fully Funded", href: "/scholarships/fully-funded" },
+      { label: "Master's Scholarships", href: "/scholarships/masters" },
+      { label: "Explore by Country", href: "/countries" },
+    ],
+  },
 ];
 
 export const categoryBySlug = (slug: string) => CATEGORY_PAGES.find((c) => c.slug === slug);

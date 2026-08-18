@@ -524,7 +524,7 @@ export const countryByCode = (code: string | null | undefined) =>
   code ? COUNTRIES.find((c) => c.code === code.toUpperCase()) : undefined;
 
 export const countryName = (code: string | null | undefined) =>
-  countryByCode(code)?.name ?? (code || "Not specified");
+  countryByCode(code)?.name ?? (code || "Multiple countries");
 
 export const countryFlag = (code: string | null | undefined) =>
   countryByCode(code)?.flag ?? "🌍";
@@ -583,6 +583,13 @@ export const QUICK_CATEGORIES: CategoryDef[] = [
     description: "Study abroad with financial support.",
     icon: "🌍",
     href: "/scholarships?nationality=international",
+  },
+  {
+    slug: "global",
+    title: "Global & Multi-Country",
+    description: "Erasmus Mundus, international fellowships and online programmes.",
+    icon: "🪐",
+    href: "/scholarships/global",
   },
 ];
 

@@ -175,6 +175,16 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
           />
         </div>
         <div className="grid max-h-44 grid-cols-1 gap-1 overflow-y-auto pr-1 sm:grid-cols-2">
+          {("global multiple countries multi-country worldwide".includes(countryQuery.toLowerCase()) ||
+            countryQuery === "") && (
+            <Chip
+              key="GLOBAL"
+              active={selectedCountries.includes("GLOBAL")}
+              onClick={() => toggleList("country", "GLOBAL")}
+            >
+              🪐 Global / Multiple countries
+            </Chip>
+          )}
           {visibleCountries.map((c) => (
             <Chip
               key={c.code}
@@ -184,7 +194,7 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
               {c.flag} {c.name}
             </Chip>
           ))}
-          {visibleCountries.length === 0 && (
+          {visibleCountries.length === 0 && !("global multiple countries multi-country worldwide".includes(countryQuery.toLowerCase()) || countryQuery === "") && (
             <p className="col-span-full text-xs text-muted-foreground">No countries match.</p>
           )}
         </div>
