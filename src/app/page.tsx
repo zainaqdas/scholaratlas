@@ -382,7 +382,10 @@ export default async function HomePage() {
             {FIELD_GROUPS.map((f) => (
               <Link
                 key={f.slug}
-                href={`/fields/${f.slug}`}
+                // The 8 broad categories each have a dedicated landing page under
+                // /scholarships/[slug] (full SEO: title, description, canonical,
+                // FAQs, latest scholarships) — link the chips straight there.
+                href={`/scholarships/${f.slug}`}
                 className="inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm font-medium transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
               >
                 <span aria-hidden="true">{f.icon}</span>
