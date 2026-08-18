@@ -245,6 +245,7 @@ export async function searchSuggestions(q: string, limit = 5) {
     prisma.scholarship.findMany({
       where: {
         status: "ACTIVE",
+        recordType: "SCHOLARSHIP", // never suggest JOB listings (EURAXESS positions)
         OR: [{ title: { contains: query } }, { provider: { contains: query } }],
       },
       include: { country: true },

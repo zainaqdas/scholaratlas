@@ -269,9 +269,11 @@ export async function rejectSubmissionAction(id: string): Promise<void> {
 
 export async function setScholarshipStatusAction(id: string, status: string): Promise<void> {
   await requireAdminUser();
-  await prisma.scholarship.update({ where: { id }, data: { status } });
+  const updated = await prisma.scholarship.update({ where: { id }, data: { status } });
   revalidatePath("/admin");
-  revalidatePath(`/scholarships/${id}`);
+  // The detail page URL uses the slug, not the internal id.
+  revalidatePath(`/scholarships/${updated.slug}`);
+  revalidatePath("/scholarships");
 }
 
 export async function verifyScholarshipAction(id: string): Promise<void> {

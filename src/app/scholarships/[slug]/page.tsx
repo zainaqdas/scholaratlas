@@ -422,7 +422,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             "@type": "EducationalOccupationalProgram",
             name: s.title,
             description: s.description,
-            url: `https://scholaratlas.dev/scholarships/${s.slug}`,
+            url: `${process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app"}/scholarships/${s.slug}`,
             provider: {
               "@type": "EducationalOrganization",
               name: s.provider,
