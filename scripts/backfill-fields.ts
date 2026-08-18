@@ -51,9 +51,14 @@ const TITLE_KEYWORDS: [string, string][] = [
   ["agriculture", "agriculture"], ["agronomy", "agriculture"], ["food science", "agriculture"],
   ["forestry", "agriculture"], ["horticulture", "agriculture"],
   ["architecture", "architecture"], ["urban planning", "architecture"], ["landscape", "architecture"],
-  ["fine arts", "arts"], ["art", "arts"], ["design", "design"], ["fashion", "design"],
+  ["fine arts", "arts"], ["art", "arts"], ["arts", "arts"], ["design", "design"], ["fashion", "design"],
   ["media", "media"], ["journalism", "media"], ["communication", "media"], ["film", "media"],
   ["tourism", "tourism"], ["hotel", "tourism"], ["hospitality", "tourism"],
+  ["geology", "natural-sciences"], ["geography", "natural-sciences"], ["earth science", "natural-sciences"],
+  ["astronomy", "physics"], ["botany", "biology"], ["zoology", "biology"],
+  ["social sciences", "social-sciences"], ["humanities", "social-sciences"],
+  ["sociology", "social-sciences"], ["anthropology", "social-sciences"], ["criminology", "law"],
+  ["aviation", "engineering"], ["instrumentation", "engineering"], ["tea science", "agriculture"], ["plant science", "biology"],
   ["english", "linguistics"], ["japanese", "linguistics"], ["chinese language", "linguistics"],
   ["linguistics", "linguistics"], ["translation", "linguistics"],
   ["history", "history"], ["philosophy", "philosophy"], ["music", "music"],
@@ -159,10 +164,18 @@ function strongFields(text: string): string[] {
 }
 
 function classify(title: string, text: string): string[] {
+  // 1. Title keywords (exact terms, word-boundary).
   const fromTitle = titleFields(title);
   if (fromTitle.length) return fromTitle;
+  // 2. Strong subject regexes against the TITLE too — titles like
+  //    "Geology — China University…" or "Humanities/Social Sciences" only
+  //    appear in the STRONG tier today, so they were never classified.
+  const fromTitleStrong = strongFields(title);
+  if (fromTitleStrong.length) return fromTitleStrong;
+  // 3. Explicit subject phrases in the body ("major in X", "degree in X"…).
   const fromPhrase = phraseFields(text);
   if (fromPhrase.length) return fromPhrase;
+  // 4. Strong subject keywords in the body (word boundaries, boilerplate-safe).
   return strongFields(text);
 }
 
@@ -186,7 +199,7 @@ async function main() {
       recordType: "SCHOLARSHIP",
       fields: "[]",
     },
-    select: { id: true, title: true, sourceUrl: true, fields: true },
+    select: { id: true, title: true, description: true, sourceUrl: true, fields: true },
   });
   console.log(`records with no fields: ${records.length}`);
 
@@ -194,8 +207,8 @@ async function main() {
   let covered = 0;
   for (const rec of records) {
     const slug = rec.sourceUrl?.split("/").pop();
-    const text = slug ? (eligBySlug.get(slug)?.eligibility || "") + " " + (eligBySlug.get(slug)?.process || "") : "";
-    const fields = classify(rec.title || "", text);
+    const body = [rec.description, slug ? eligBySlug.get(slug)?.eligibility : "", slug ? eligBySlug.get(slug)?.process : ""].filter(Boolean).join(" ");
+    const fields = classify(rec.title || "", body);
     if (fields.length) {
       updates.push({ id: rec.id, fields });
       covered++;
