@@ -21,6 +21,7 @@ export interface SearchFilters {
   providers?: string[]; // ProviderType values
   languages?: string[]; // language filter slugs
   fee?: string; // "free" | "required"
+  verifiedOnly?: boolean; // only records checked against an official source
   featuredOnly?: boolean;
   recordType?: "SCHOLARSHIP" | "JOB" | "ALL"; // default SCHOLARSHIP (jobs excluded from the catalogue)
   sort?: SortKey;
@@ -221,6 +222,12 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
     }
   }
 
+  if (filters.verifiedOnly) {
+    // Only records whose data was checked against an official source
+    // (Campus Bourses, DAAD, Study in Sweden, uni-direct, CampusChina).
+    where.verificationStatus = "VERIFIED";
+  }
+
   if (filters.featuredOnly) {
     where.isFeatured = true;
   }
@@ -355,6 +362,7 @@ export function parseFiltersFromUrl(searchParams: URLSearchParams): SearchFilter
     providers: toArray(searchParams.get("provider")),
     languages: toArray(searchParams.get("language")),
     fee: searchParams.get("fee") ?? undefined,
+    verifiedOnly: searchParams.get("verified") === "true",
     status: (searchParams.get("status") ?? undefined)?.toUpperCase(),
     sort: (searchParams.get("sort") as SortKey) ?? undefined,
     page: Number(searchParams.get("page")) || undefined,

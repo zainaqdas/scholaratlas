@@ -101,7 +101,7 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
   }
 
   const activeCount =
-    ["level", "funding", "country", "nationality", "field", "deadline", "provider", "language", "fee"].filter(
+    ["level", "funding", "country", "nationality", "field", "deadline", "provider", "language", "fee", "verified"].filter(
       (k) => params.get(k)
     ).length;
 
@@ -323,6 +323,21 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
             Application fee required
           </Chip>
         </div>
+      </Section>
+
+      <Section title="Trust & Verification">
+        <div className="flex flex-wrap gap-1.5">
+          <Chip
+            active={params.get("verified") === "true"}
+            onClick={() => update({ verified: params.get("verified") === "true" ? null : "true" })}
+          >
+            ✓ Verified only
+          </Chip>
+        </div>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Only scholarships checked against the official provider source (Campus Bourses, DAAD,
+          Study in Sweden, university pages…).
+        </p>
       </Section>
     </div>
   );
