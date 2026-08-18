@@ -1,0 +1,998 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
+	<head><script type="text/javascript">
+	
+			if (false){ //Si hay //redireccionar
+				var url = window.location.href;
+				var esCorta = false;
+				if (url != null)
+				{
+					if (url.indexOf("/ca") < 0 && url.indexOf("/es") < 0 && url.indexOf("/en") < 0)
+					{
+						esCorta = true;
+					}
+				}
+
+				if (!esCorta)
+				{
+					window.location.replace("");
+				}
+			}
+	
+	</script>
+        
+    <link rel="alternate" hreflang="es" href="https://www.uv.es/uvcooperacion/es/becas-ayudas-premios/estudiantes-paises-cooperacion/becas-uv-auip/2026-2027.html"/><link rel="alternate" hreflang="ca" href="https://www.uv.es/uvcooperacio/ca/beques-ajudes-premis/estudiantat-pa-sos-cooperacio/beques-uv-auip/2026-2027.html"/><meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <meta name="keywords" content=""/><link rel="canonical" href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html"/><meta name="robots" content="all"/><title>2026-2027</title><meta content="width=device-width, initial-scale=1.0" name="viewport"/><!-- non-retina iPhone pre iOS 7 -->
+		<link rel="apple-touch-icon" href="/recursos/fatwirepub/img/logoapp_57.png" sizes="57x57"/>
+		<!-- non-retina iPad pre iOS 7 -->
+		<link rel="apple-touch-icon" href="/recursos/fatwirepub/img/logoapp_72.png" sizes="72x72"/>
+		<!-- non-retina iPad iOS 7 -->
+		<link rel="apple-touch-icon" href="/recursos/fatwirepub/img/logoapp_76.png" sizes="76x76"/>
+		<!-- retina iPhone pre iOS 7 -->
+		<link rel="apple-touch-icon" href="/recursos/fatwirepub/img/logoapp_114.png" sizes="114x114"/>
+		<!-- retina iPhone iOS 7 -->
+		<link rel="apple-touch-icon" href="/recursos/fatwirepub/img/logoapp_120.png" sizes="120x120"/>
+		<!-- retina iPad pre iOS 7 -->
+		<link rel="apple-touch-icon" href="/recursos/fatwirepub/img/logoapp_144.png" sizes="144x144"/>
+		<!-- retina iPad iOS 7 -->
+		<link rel="apple-touch-icon" href="/recursos/fatwirepub/img/logoapp_152.png" sizes="152x152"/>
+	
+		<link rel="stylesheet" type="text/css" href='/recursos/fatwirepub/css/estilo.css' />
+		<link rel="stylesheet" type="text/css" href='/recursos/fatwirepub/css/estilo-arena.css?p1=7' /><link rel="stylesheet" type="text/css" href='/recursos/fatwirepub/css/uv.css' />
+		<link rel="stylesheet" type="text/css" href='/recursos/fatwirepub/css/humanity/jquery-ui-1.8.16.custom.css' />
+		 <!-- Add the v6 core styles and then select the individual styles you need, like Solid and Brands -->
+		  <link href="/recursos/fatwirepub/fontawesome-6.7.1/css/fontawesome.css" rel="stylesheet" />
+		  <link href="/recursos/fatwirepub/fontawesome-6.7.1/css/brands.css" rel="stylesheet" />
+		  <link href="/recursos/fatwirepub/fontawesome-6.7.1/css/solid.css" rel="stylesheet" />
+		
+		  <!-- support v4 icon references/syntax -->
+		  <link href="/recursos/fatwirepub/fontawesome-6.7.1/css/v4-font-face.css" rel="stylesheet" />
+		  <link href="/recursos/fatwirepub/fontawesome-6.7.1/css/v4-shims.css" rel="stylesheet" />
+
+	
+		<script type="text/javascript" src="/recursos/fatwirepub/js/paracepas.js"></script> 
+		<script type="text/javascript" src="/recursos/fatwirepub/js/jquery-1.7.2.min.js"></script>
+
+		<script type="text/javascript" src="/recursos/fatwirepub/js/html5lightbox.js"></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/jquery-ui-1.8.16.custom.min.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/jquery.tinycarousel.js'></script>
+		<script type="text/javascript" src="/recursos/fatwirepub/js/slider.js" ></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/jquery.ui.datepicker-ca.js'></script> 
+		<script type="text/javascript" src='/recursos/fatwirepub/js/jquery.ui.datepicker-es.js'></script> 
+		<script type="text/javascript" src='/recursos/fatwirepub/js/jquery-ui-timepicker-addon.js'></script> 
+		<script type="text/javascript" src='/recursos/fatwirepub/js/jquery.imgCrossfade.min.js'></script> 
+		<script type="text/javascript" src='/recursos/fatwirepub/js/jquery.ihavecookies.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/website.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/flexcroll.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/tab.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/dropdown.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/collapse.js'></script>
+		
+		<script type="text/javascript" src='/recursos/fatwirepub/js/FileSaver.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/Blob.js'></script>
+		<script type="text/javascript" src='/recursos/fatwirepub/js/ics.js'></script>
+	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+		
+		<script type="text/javascript">
+	
+	function CookiesOk(){
+		
+			if($.fn.ihavecookies.preference("analytics") === true){
+			
+				
+				         (function() {
+				            var cx = '011592280532160877737:lvwovbgpebm';
+				            var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+				            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+				                '//www.google.es/cse/cse.js?cx=' + cx;
+				            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+				          })();
+				        
+				
+			}
+		
+		
+
+		if($.fn.ihavecookies.preference("preferences") === true){
+		
+				if (false)
+					document.cookie =  "c_locale=en_GB;expires=" + myDate + ";Secure;domain=uv.es;path=/";
+					
+				if (true){//Sino hay
+					var myDate = new Date();
+					myDate.setMonth(myDate.getMonth() + 12);
+					console.log(myDate);
+					document.cookie = "c_locale=en_GB;expires=" + myDate + ";Secure;domain=uv.es;path=/";
+				}
+		
+		}
+
+	}
+	
+	CookiesOk();
+	
+	</script></head><body><div id="wrap"  class="wrap-negro"  ><div id="containerCab">
+
+
+<div id="pre-cabecera">	
+	
+	
+		
+		
+			
+			
+			
+		
+
+				
+				
+			<div class="menu-servicios-nou">
+			<ul><li class="idiomes-nou"><a lang="es" xml:lang="es" href="https://www.uv.es/uvcooperacion/es/becas-ayudas-premios/estudiantes-paises-cooperacion/becas-uv-auip/2026-2027.html" title="Enlace a la página de inicio de la UV, versión Castellano">Castellano</a></li><li class="idiomes-nou"><a lang="ca" xml:lang="ca" href="https://www.uv.es/uvcooperacio/ca/beques-ajudes-premis/estudiantat-pa-sos-cooperacio/beques-uv-auip/2026-2027.html" title="Enllaç a la pàgina d'inici de la UV, versió Valencià">Valencià</a></li>
+
+
+<li class="directori-nou  enlace-cab-51"  ><a href='javascript:mostrarLista(51);' style="padding: 0;"><span>Directory</span></a><ul class="lista-perfiles-nou-seg enlace-icono"><li ><a href="https://www.uv.es/uvweb/college/en/directory/faculties-schools-1285846794920.html" title = "Faculties and Schools" >Faculties and Schools</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/departments-1285846794927.html" title = "Departments" >Departments</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/services-1285846794934.html" title = "link to Services" >Services</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/research-departments-interdepartamental-research-1285846795127.html" title = "Link to Research Institutes" >Research Institutes and Structures of Interdisciplinary Research</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/research-teams-1285956741406.html" title = "Link to Research Groups" >Research Groups</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/other-structures/signature-centres-1285847103169.html" title = "Link to Other structures" >Other structures</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/government-team/government-team-1286041453118.html" title = "Link to Government team" >Government team</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/other-university-bodies/other-university-bodies-1285854394935.html" title = "Link to Other University bodies" >Other University bodies</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/associated-institutions/university-valencia-general-foundation-1285847103191.html" title = "Enllaç a Related entities and foundations" >Associated institutions</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/institutional-chairs-1285846794956.html" title = "Link to Institutional Chairs" >Institution Chairs</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/person-finder-1285866527763.html" title = "Link to Person Finder" >Person Finder</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/maps-1285973759558.html" title = "Link to Maps" >Maps</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/telephone-directory/telephone-browser-1285924545938.html" title = "Link to Phone Directory" >Telephone Directory</a></li><li ><a href="https://www.uv.es/uvweb/college/en/directory/emergency-security-contact-information/emergencies-working-hours-1285949714693.html" title = "Link to Emergencies and Security" >Emergencies and Security Contact Information</a></li></ul></li><li class="directori-nou enlace-icono enlace-cab-52">
+									<a  href='javascript:mostrarLista(52);' style="padding: 0;"><span><span class="fa fa-user"><span class="sr-only">User</span></span></span></a><ul class="lista-perfiles-nou-seg"><li ><a href="http://correo.uv.es/" title = "Enllaç entorno" >PERSONAL AREA UV</a></li><li ><a href="https://www.uv.es/virtual-office/en/online-office-uv.html" title = "Link to Online Office UV" >Online Office UV</a></li><li ><a href="https://www.uv.es/uvweb/registry-office/en/registry-office-1285868559166.html" title = "Link to Registry Office" >Registry Office</a></li><li ><a href="http://tauler.uv.es/" title = "Enllaç tablon oficial" >UV Official Bulletin Board</a></li><li ><a href="https://aulavirtual.uv.es/" title = "Enllaç aula virtual" >Virtual Classroom</a></li><li ><a href="https://contrataciondelestado.es/wps/portal/!ut/p/b1/jY5JDoJAFETPwgHI_83sslUmIyq0tNAbQhRJG1GjxiinF9mL1q6SVwMIyA3NJrrpOCZkIE7lQ9blXZ5P5RFyEMIuKHdjGo509JOVi9o4sS3DW3YWgTflUzayrXawhgyNgh2cS7Rl1_jQxq9Fm5JouiEYjQj3YpfO6jtRb8pnR1hfe1HrgLwD8Iso_pc39YnBZ3xlsdBHDANvOk-Jib5m_cpvQPTIUEMPDF0cHkFYBOemAlbdoBFSFcmehSpV3g7NAUc!/dl4/d5/L0lHSkovd0RNQURrQUVnQSEhLzRKVUUvZW4!/" title = "Link to Contractor Profile" >Contractor Profile</a></li></ul></li><li class="directori-nou enlace-icono enlace-cab-53"><a  href='javascript:mostrarLista(53);' style="padding: 0;"><span><span><span class="fa fa-share-alt"><span class="sr-only">Share</span></span></span></span></a><ul class="lista-perfiles-nou-seg"><li >
+					
+					
+					
+				<a href="https://www.facebook.com/pg/Cooperaci%C3%B3-Universitat-de-Valencia-107783964134552/posts/" title = "This opens a new window Enllaç Facebook"  target="_blank"><span><span style="font-size:1.5em" class="fa fa-facebook fa-2x" aria-hidden="true" ><span class="sr-only">Facebook</span></span></span></a></li><li >
+					
+					
+					
+				<a href="https://twitter.com/cooperaciou" title = "This opens a new window Enllaç X"  target="_blank"><span><span style="font-size:1.5em" class="fa-brands fa-x-twitter fa-2x" aria-hidden="true" ><span class="sr-only">X</span></span></span></a></li><li ><a href="https://www.instagram.com/coopuv/" title = "Instagram" ><span style="font-size:1.5em" class="fa fa-instagram fa-2x" aria-hidden="true" >&nbsp;</span><span class="sr-only">Instagram</span></a></li><li ><a href="https://www.youtube.com/channel/UC8jhpX7d5icYQUn04c7As4Q/featured" title = "Youtube" ><span style="font-size:1.5em" class="fa fa-youtube fa-2x" aria-hidden="true">&nbsp;</span><span class="sr-only">Youtube</span></a></li></ul></li><li class="directori-nou enlace-icono"><a href="https://www.uv.es/uvcooperation/en/uvcooperation/location-contact.html" title = "Contact" ><span><span class="fa fa-envelope"><span class="sr-only">Contact</span></span></span></a></li><script type="text/javascript">				
+						function mostrarLista (n) {
+							var visibility = $('.enlace-cab-'+n+' ul').css( "visibility" ); 
+
+							if(visibility != 'visible') {
+								$('.enlace-cab-'+n+' ul').css( "opacity","1" ); 
+								$('.enlace-cab-'+n+' ul').css( "visibility","visible" ); 
+							 	for(var i=1;i<4;i++){
+									 if(i!=n){
+										 $('.enlace-cab-'+i+' ul').css( "opacity","" ); 
+										 $('.enlace-cab-'+i+' ul').css( "visibility","" );	
+									 }
+							 	}
+							}
+							if(visibility == 'visible') {
+								 $('.enlace-cab-'+n+' ul').css( "opacity","" ); 
+								 $('.enlace-cab-'+n+' ul').css( "visibility","hidden" );
+							}
+						}
+					
+					</script>
+					
+					<li class="buscador-nou">
+						<form action="https://www.uv.es:443/sites/Satellite" method="get" name="formBuscador" >
+							<input type="hidden" name="pagename" value="FG_Area_Cooperacio/Page/TPGListat"/>
+							<input type="hidden" name="cid" value="1286081616438"/>
+							<input type="hidden" name="site" value="FG_Area_Cooperacio"/>
+							<input type="hidden" name="locale" value="en_GB"/>
+							<input type="hidden" name="p1" value="Cercador"/>
+						    <!-- label for="p3"  style="display:none">< %=litBuscador %></label--><input title="Search Engine" value="Search" name="g3" id="g3" class="form-text" type="text" size="20" onfocus="javascript:this.value='';" 
+						    		onblur="javascript:if(this.value==''){this.value='';}" 
+						    		accesskey="i"/>
+							<input type="submit" class="form-submit" value="&nbsp;"/>
+						</form>				
+					</li>
+									
+			</ul>
+		</div>
+		</div>
+		<div id="cabecera"    class="cabecera-negro" ><h1 id="logo"><map name="mapa1" id="mapa1" >	
+					<area  shape="rect" title="UVcooperation" alt="UVcooperation" coords="215,0,600,135" href="https://www.uv.es/uvcooperation/en/uvcooperation.html"/><area  shape="rect" title="University of Valencia" alt="University of Valencia" coords="0,0,210,135" href="https://www.uv.es/uvweb/college/en/university-valencia-1285845048380.html"/></map>
+					<img src="/recursos/fatwirepub/ccurl/698/398/Cap_cooperacio_en.png" alt="Logo del portal" usemap="#mapa1" /> 
+					</h1>	
+					</div><script type="text/javascript">				
+		function mostrarLista (n) {
+			var visibility = $('.enlace-cab-'+n+' ul').css( "visibility" ); 
+			console.log('primero: ');
+			console.log();
+			if(visibility != 'visible') {
+
+				console.log('tercero: ');
+				console.log();
+				$('.enlace-cab-'+n+' ul').css( "opacity","1" ); 
+				$('.enlace-cab-'+n+' ul').css( "visibility","visible" ); 
+			 	for(var i=1;i<4;i++){
+					 if(i!=n){
+						 $('.enlace-cab-'+i+' ul').css( "opacity","" ); 
+						 $('.enlace-cab-'+i+' ul').css( "visibility","" );	
+					 }
+			 	}
+			}
+			if(visibility == 'visible') {
+				 $('.enlace-cab-'+n+' ul').css( "opacity","" ); 
+				 $('.enlace-cab-'+n+' ul').css( "visibility","hidden" );
+			}
+		}
+	
+	</script>
+	
+
+
+
+
+        
+		
+		
+		
+    
+
+
+<!-- CSEMenuPrincipal para que se cachee aunque sea vacio -->
+
+		
+			<div id="menu-segundos" class="menu-negro">
+			<div id="menu-principal" class="div6 menu-principal-negro" >
+			<button type='button' class='boton-menu' style='display:none'><span class='barra-menu'></span><span class='barra-menu'></span><span class='barra-menu'></span><span class="menu-text">Menu</span></button>
+			
+<ul class="menu-prim-nuevo  menu-prim-nuevo-negro"><li class='menu1'>
+						<script type="text/javascript">
+						// <![CDATA[ 
+							document.write("<a class='pagenum menu2nivel' rel='1' href='javascript:menu(1);' title='UVcooperation'>UVcooperation</a>");
+						// ]]>
+						</script>
+						<noscript>
+							<a class="pagenum menu2nivel" rel="1" href="https://www.uv.es/uvcooperation/en/uvcooperation/presentation.html" title="UVcooperation">UVcooperation</a>
+						</noscript>
+						
+						 
+							<ul class="menu-seg-nuevo"><li><a href="https://www.uv.es/uvcooperation/en/uvcooperation/presentation.html" title="Presentation"  > Presentation</a></li><li><a href="https://www.uv.es/uvcooperation/en/uvcooperation/university-development-cooperation-cud.html" title="University Development Cooperation (CUD)"  > University Development Cooperation (CUD)</a></li><li><a href="https://www.uv.es/uvcooperation/en/uvcooperation/activity-reports.html" title="Activity reports"  > Activity reports</a></li><li><a href="https://www.uv.es/uvcooperation/en/uvcooperation/directory.html" title="Directory"  > Directory</a></li><li><a href="https://www.uv.es/uvcooperation/en/uvcooperation/location-contact.html" title="Location and contact"  > Location and contact</a></li></ul>	</li><li class='menu2'>
+						<script type="text/javascript">
+						// <![CDATA[ 
+							document.write("<a class='pagenum menu2nivel active' rel='2' href='javascript:menu(2);' title='Scholarships, grants and awards'>Scholarships, grants and awards</a>");
+						// ]]>
+						</script>
+						<noscript>
+							<a class="pagenum menu2nivel active" rel="2" href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html" title="Scholarships, grants and awards">Scholarships, grants and awards</a>
+						</noscript>
+						
+						 
+							<ul class="menu-seg-nuevo"><li><a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html" title="For students from cooperation countries"  class='active' > For students from cooperation countries</a></li><li><a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/uv-students/international-volunteering-scholarships/2026-2027.html" title="For UV students"  > For UV students</a></li><li><a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/staff/grants-uv-staff-mobility/2026.html" title="For staff"  > For staff</a></li><li><a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/scholarship-network/la-xarxa.html" title="Scholarship network"  > Scholarship network</a></li></ul>	</li><li class='menu3'>
+						<script type="text/javascript">
+						// <![CDATA[ 
+							document.write("<a class='pagenum menu2nivel' rel='3' href='javascript:menu(3);' title='Cooperation projects'>Cooperation projects</a>");
+						// ]]>
+						</script>
+						<noscript>
+							<a class="pagenum menu2nivel" rel="3" href="https://www.uv.es/uvcooperation/en/cooperation-projects/calls/universitat-de-valencia/2026.html" title="Cooperation projects">Cooperation projects</a>
+						</noscript>
+						
+						 
+							<ul class="menu-seg-nuevo"><li><a href="https://www.uv.es/uvcooperation/en/cooperation-projects/calls/universitat-de-valencia/2026.html" title="Calls"  > Calls</a></li><li><a href="https://www.uv.es/uvcooperation/en/cooperation-projects/0-7-uv/collaborate.html" title="0,7 in the UV"  > 0,7 in the UV</a></li></ul>	</li><li class='menu4'>
+						<script type="text/javascript">
+						// <![CDATA[ 
+							document.write("<a class='pagenum menu2nivel' rel='4' href='javascript:menu(4);' title='Sensitization'>Sensitization</a>");
+						// ]]>
+						</script>
+						<noscript>
+							<a class="pagenum menu2nivel" rel="4" href="https://www.uv.es/uvcooperation/en/sensitization/manuel-castillo-awards/editions/item-5.html" title="Sensitization">Sensitization</a>
+						</noscript>
+						
+						 
+							<ul class="menu-seg-nuevo"><li><a href="https://www.uv.es/uvcooperation/en/sensitization/manuel-castillo-awards/editions/item-5.html" title="Manuel Castillo Awards"  > Manuel Castillo Awards</a></li><li><a href="https://www.uv.es/uvcooperation/en/sensitization/accions-de-recuperacio-post-dana.html" title="Accions de recuperació post DANA"  > Accions de recuperació post DANA</a></li><li><a href="https://www.uv.es/uvcooperation/en/sensitization/conferences-courses-workshops.html" title="Conferences, courses and workshops"  > Conferences, courses and workshops</a></li><li><a href="https://www.uv.es/uvcooperation/en/sensibilitzacio/voluntariat.html" title="Volunteering"  > Volunteering</a></li></ul>	</li><li class='menu5'>
+						<script type="text/javascript">
+						// <![CDATA[ 
+							document.write("<a class='pagenum menu2nivel' rel='5' href='javascript:menu(5);' title='Chairs'>Chairs</a>");
+						// ]]>
+						</script>
+						<noscript>
+							<a class="pagenum menu2nivel" rel="5" href="https://www.uv.es/uvcooperation/en/chairs/unesco-chair-development-studies/call-projects/2026-2027.html" title="Chairs">Chairs</a>
+						</noscript>
+						
+						 
+							<ul class="menu-seg-nuevo"><li><a href="https://www.uv.es/uvcooperation/en/chairs/unesco-chair-development-studies/call-projects/2026-2027.html" title="UNESCO Chair in Development Studies"  > UNESCO Chair in Development Studies</a></li><li><a href="https://www.uv.es/cooperation-sustainable-development-chair/en/chair-cooperation-sustainable-development.html" title="This opens a new windowChair for Cooperation and Sustainable Development <i class=&apos;fa fa-external-link&apos;></i>"   target='_blank'> Chair for Cooperation and Sustainable Development <i class='fa fa-external-link'></i></a></li></ul>	</li><li class='menu6'>
+						<script type="text/javascript">
+						// <![CDATA[ 
+							document.write("<a class='pagenum menu2nivel' rel='6' href='javascript:menu(6);' title='InfoSud'>InfoSud</a>");
+						// ]]>
+						</script>
+						<noscript>
+							<a class="pagenum menu2nivel" rel="6" href="https://www.uv.es/uvcooperation/en/infosud/us/us.html" title="InfoSud">InfoSud</a>
+						</noscript>
+						
+						 
+							<ul class="menu-seg-nuevo"><li><a href="https://www.uv.es/uvcooperation/en/infosud/us/us.html" title="About us"  > About us</a></li><li><a href="https://www.uv.es/uvcooperation/en/infosud/atencio-a-usuaris.html" title="Atenció a usuaris"  > Atenció a usuaris</a></li><li><a href="https://www.uv.es/uvcooperation/en/infosud/fons-bibliografic/fons-bibliografic.html" title="Fons bibliogràfic"  > Fons bibliogràfic</a></li><li><a href="https://www.uv.es/uvcooperation/en/infosud/bibliografies/bibliografies.html" title="Bibliografies"  > Bibliografies</a></li><li><a href="https://www.uv.es/uvcooperation/en/e-dhc-quaderns-electronics-sobre-el-desenvolupament-huma-i-la-cooperacio.html" title="E-DHC, Quaderns Electrònics sobre el Desenvolupament Humà i la Cooperació"  > E-DHC, Quaderns Electrònics sobre el Desenvolupament Humà i la Cooperació</a></li><li><a href="https://www.uv.es/uvcooperation/en/que-es-i-com-funciona-bibmigra.html" title="BibMigra"  > BibMigra</a></li><li><a href="https://www.uv.es/uvcooperation/en/infosud/general-foundation/what-is-general-foundation-/foundation.html" title="The General Foundation"  > The General Foundation</a></li></ul>	</li>
+				</ul>
+			</div>
+			
+								<script type="text/javascript">
+					// <![CDATA[ 
+					document.write("<ul class='menu-prim-movil-nou'><li class='menu-movil-1'><a class='pagenum menu2nivel' rel='1' href='javascript:menuMovil(1);' title='UVcooperation'>UVcooperation <span class='ar1'><i class='fa fa-angle-right'></i></span><span style='display:none' class='ad1'><i class='fa fa-angle-down'></i></span></a><ul class='menu-seg-movil ms1' style='display:none'><li><a href='https://www.uv.es/uvcooperation/en/uvcooperation/presentation.html' title='Presentation'  >Presentation</a></li><li><a href='https://www.uv.es/uvcooperation/en/uvcooperation/university-development-cooperation-cud.html' title='University Development Cooperation (CUD)'  >University Development Cooperation (CUD)</a></li><li><a href='https://www.uv.es/uvcooperation/en/uvcooperation/activity-reports.html' title='Activity reports'  >Activity reports</a></li><li><a href='https://www.uv.es/uvcooperation/en/uvcooperation/directory.html' title='Directory'  >Directory</a></li><li><a href='https://www.uv.es/uvcooperation/en/uvcooperation/location-contact.html' title='Location and contact'  >Location and contact</a></li></ul></li><li class='menu-movil-2'><a class='pagenum menu2nivel active' rel='2' href='javascript:menuMovil(2);' title='Scholarships, grants and awards'>Scholarships, grants and awards <span class='ar2'><i class='fa fa-angle-right'></i></span><span style='display:none' class='ad2'><i class='fa fa-angle-down'></i></span></a><ul class='menu-seg-movil ms2' style='display:none'><li><a href='https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html' title='For students from cooperation countries'  class='active' >For students from cooperation countries</a></li><li><a href='https://www.uv.es/uvcooperation/en/scholarships-grants-awards/uv-students/international-volunteering-scholarships/2026-2027.html' title='For UV students'  >For UV students</a></li><li><a href='https://www.uv.es/uvcooperation/en/scholarships-grants-awards/staff/grants-uv-staff-mobility/2026.html' title='For staff'  >For staff</a></li><li><a href='https://www.uv.es/uvcooperation/en/scholarships-grants-awards/scholarship-network/la-xarxa.html' title='Scholarship network'  >Scholarship network</a></li></ul></li><li class='menu-movil-3'><a class='pagenum menu2nivel' rel='3' href='javascript:menuMovil(3);' title='Cooperation projects'>Cooperation projects <span class='ar3'><i class='fa fa-angle-right'></i></span><span style='display:none' class='ad3'><i class='fa fa-angle-down'></i></span></a><ul class='menu-seg-movil ms3' style='display:none'><li><a href='https://www.uv.es/uvcooperation/en/cooperation-projects/calls/universitat-de-valencia/2026.html' title='Calls'  >Calls</a></li><li><a href='https://www.uv.es/uvcooperation/en/cooperation-projects/0-7-uv/collaborate.html' title='0,7 in the UV'  >0,7 in the UV</a></li></ul></li><li class='menu-movil-4'><a class='pagenum menu2nivel' rel='4' href='javascript:menuMovil(4);' title='Sensitization'>Sensitization <span class='ar4'><i class='fa fa-angle-right'></i></span><span style='display:none' class='ad4'><i class='fa fa-angle-down'></i></span></a><ul class='menu-seg-movil ms4' style='display:none'><li><a href='https://www.uv.es/uvcooperation/en/sensitization/manuel-castillo-awards/editions/item-5.html' title='Manuel Castillo Awards'  >Manuel Castillo Awards</a></li><li><a href='https://www.uv.es/uvcooperation/en/sensitization/accions-de-recuperacio-post-dana.html' title='Accions de recuperació post DANA'  >Accions de recuperació post DANA</a></li><li><a href='https://www.uv.es/uvcooperation/en/sensitization/conferences-courses-workshops.html' title='Conferences, courses and workshops'  >Conferences, courses and workshops</a></li><li><a href='https://www.uv.es/uvcooperation/en/sensibilitzacio/voluntariat.html' title='Volunteering'  >Volunteering</a></li></ul></li><li class='menu-movil-5'><a class='pagenum menu2nivel' rel='5' href='javascript:menuMovil(5);' title='Chairs'>Chairs <span class='ar5'><i class='fa fa-angle-right'></i></span><span style='display:none' class='ad5'><i class='fa fa-angle-down'></i></span></a><ul class='menu-seg-movil ms5' style='display:none'><li><a href='https://www.uv.es/uvcooperation/en/chairs/unesco-chair-development-studies/call-projects/2026-2027.html' title='UNESCO Chair in Development Studies'  >UNESCO Chair in Development Studies</a></li><li><a href='https://www.uv.es/cooperation-sustainable-development-chair/en/chair-cooperation-sustainable-development.html' title='This opens a new windowChair for Cooperation and Sustainable Development <i class=&apos;fa fa-external-link&apos;></i>'   target='_blank'>Chair for Cooperation and Sustainable Development <i class='fa fa-external-link'></i></a></li></ul></li><li class='menu-movil-6'><a class='pagenum menu2nivel' rel='6' href='javascript:menuMovil(6);' title='InfoSud'>InfoSud <span class='ar6'><i class='fa fa-angle-right'></i></span><span style='display:none' class='ad6'><i class='fa fa-angle-down'></i></span></a><ul class='menu-seg-movil ms6' style='display:none'><li><a href='https://www.uv.es/uvcooperation/en/infosud/us/us.html' title='About us'  >About us</a></li><li><a href='https://www.uv.es/uvcooperation/en/infosud/atencio-a-usuaris.html' title='Atenció a usuaris'  >Atenció a usuaris</a></li><li><a href='https://www.uv.es/uvcooperation/en/infosud/fons-bibliografic/fons-bibliografic.html' title='Fons bibliogràfic'  >Fons bibliogràfic</a></li><li><a href='https://www.uv.es/uvcooperation/en/infosud/bibliografies/bibliografies.html' title='Bibliografies'  >Bibliografies</a></li><li><a href='https://www.uv.es/uvcooperation/en/e-dhc-quaderns-electronics-sobre-el-desenvolupament-huma-i-la-cooperacio.html' title='E-DHC, Quaderns Electrònics sobre el Desenvolupament Humà i la Cooperació'  >E-DHC, Quaderns Electrònics sobre el Desenvolupament Humà i la Cooperació</a></li><li><a href='https://www.uv.es/uvcooperation/en/que-es-i-com-funciona-bibmigra.html' title='BibMigra'  >BibMigra</a></li><li><a href='https://www.uv.es/uvcooperation/en/infosud/general-foundation/what-is-general-foundation-/foundation.html' title='The General Foundation'  >The General Foundation</a></li></ul></li></ul>");
+					// ]]>
+					</script>	
+				
+				
+												<script type="text/javascript">
+								// <![CDATA[ 
+									
+									function menu (n) {
+										
+									//	var element = document.getElementsByClassName('menu'+n);
+							       //      if(element.style.visibility == 'hidden'){
+							        //    alert(element.style.width);
+							        //    }
+										 
+										 var index = $('.menu'+n+' ul').css( "z-index" ); 
+										 if(index == '99999'){
+											 $('.menu'+n+' ul').css( "opacity","1" ); 
+											 $('.menu'+n+' ul').css( "visibility","visible" );  
+											 $('.menu'+n+' ul').css( "z-index","9999" );
+											 for(var i=1;i<8;i++){
+												 if(i!=n){
+													 $('.menu'+i+' ul').css( "opacity","" ); 
+													 $('.menu'+i+' ul').css( "visibility","" );
+													 $('.menu'+i+' ul').css( "z-index","99999" );													 
+												 }
+											 }
+										 }
+										 if(index == '9999'){
+											 $('.menu'+n+' ul').css( "opacity","" ); 
+											 $('.menu'+n+' ul').css( "visibility","hidden" );
+											 $('.menu'+n+' ul').css( "z-index","99999" );
+											 
+							//				 $('.menu'+n).mouseleave( function() { $('.menu'+n+' ul').css( "visibility","" ); });
+										 }
+										 
+			 
+			   						}
+									
+									
+									
+									function menuMovil (n) {
+										 $( ".ms"+n ).toggle();
+										 $( ".ar"+n ).toggle();
+										 $( ".ad"+n ).toggle();
+									}
+									
+									$( ".boton-menu" ).click(function() {
+										
+										  	$( ".menu-prim-movil-nou" ).toggle();
+										  	$( ".menu-servicios-nou" ).toggle();
+											$( ".menu-perfiles-nou" ).toggle();
+										 
+										  
+										  $( ".menu-slider-segons" ).toggle();
+										});
+									
+			//						$( ".menu-prim-movil li" ).click(function() {
+				//						  $( ".menu-prim-movil li ul" ).toggle();
+				//						});
+									
+									
+								// ]]>
+								
+								
+								
+								</script>		
+
+			<script type="text/javascript">
+			// <![CDATA[ 
+				document.write("<div class='nou-submenu'><span class='div61'><a class='active' href='https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html' title='For students from cooperation countries'>For students from cooperation countries</a></span></div>");
+			// ]]>
+			</script>
+		</div>
+
+		
+		
+		
+		
+		
+		
+	
+
+
+<div id="slider-segons-largo">
+
+
+
+				
+				
+				
+			
+			
+			
+			
+		
+		<div class="viewportLong">
+			<ul class="overview"> 
+		<!-- satellite:normalizeurl url='< %=srcImagen%>' outstring="enlacePaginaNormalized" /-->
+		<li>
+			<div class="panel-foto">
+			
+				
+					
+						<img  src="/recursos/fatwirepub/ccurl/900/448/hands_friendship_day_horizontal,0.jpg" alt="" />
+									
+				
+				
+				
+				
+			</div>
+		</li>
+		
+			</ul>
+		</div>	
+		</div>
+
+
+
+
+		
+		
+		
+	
+			
+			
+			
+		
+			<div class="grid_16" id="menu-navegacion">
+				<span class="miga-pan">
+		
+						
+						
+						
+						
+					<a href='https://www.uv.es/uvcooperation/en/uvcooperation.html' title='Home'>Home</a> &gt; 
+						
+						
+						
+						
+					<a href='#' title='Scholarships, grants and awards'>Scholarships, grants and awards</a> &gt; 
+						
+						
+						
+						
+					<a href='https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html' title='For students from cooperation countries'>For students from cooperation countries</a> &gt; 
+						
+						
+						
+						
+					<a href='https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html' title='UV-AUIP Scholarships'>UV-AUIP Scholarships</a> &gt; 
+						
+						
+						
+				2026-2027
+			</span>
+		</div>
+		
+
+
+		
+		
+		
+	
+
+
+
+
+
+		
+		
+		
+	
+		
+		
+		
+		
+	
+		
+		
+		
+	
+
+			<div id="sidebar-left">
+			<button style="display:none" class="boton-menu-izquierda" type="button"><span class="barra-menu"></span><span class="barra-menu"></span><span class="barra-menu"></span><span class="menu-text">Submenu</span></button>
+		  	
+		  	<div class="menu-sidebar">
+				<ul>
+			
+				
+						<li  class='active'>
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html" title="UV-AUIP Scholarships" class='active'>UV-AUIP Scholarships</a>
+						</li>
+		
+						<li >
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/international-refuge-plan-scholarships/2026-2027.html" title="International Refuge Plan Scholarships">International Refuge Plan Scholarships</a>
+						</li>
+		
+						<li >
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/2026-2027.html" title="Tuition Scholarships for the Master's Degree in Development Aid">Tuition Scholarships for the Master's Degree in Development Aid</a>
+						</li>
+		
+						<li >
+							<a href="https://www.uv.es/uvweb/colegi-major-rector-peset/ca/estudiantat/nou-ingres-beques/beques/convocatories-1286268975423.html" title="This opens a new window Residence Scholarships" target="_blank">Residence Scholarships</a>
+						</li>
+		
+						<li >
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-financial-aid/scholarships-students-cooperation-countries/fundacion-carolina-scholarships.html" title="Fundación Carolina Scholarships">Fundación Carolina Scholarships</a>
+						</li>
+		
+						<li >
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-financial-aid/scholarships-students-cooperation-countries/maec-aecid-scholarships.html" title="MAEC-AECID Scholarships">MAEC-AECID Scholarships</a>
+						</li>
+		</ul></div></div><div id="menu-cuatro-nivel">
+			  					
+				<h2 class="titulo-alternatiu">
+				
+					
+						Beques UV-AUIP
+					
+				</h2>					
+					<div class="entry-menu-cuatro">
+					
+				
+				
+				
+				
+	    	
+	
+						<ul class="menu-segundos clearfix">
+					
+						<li class="first">
+			
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2026-2027.html" title="2026-2027" class='active'>2026-2027</a>
+						</li>
+			
+						<li class="last">
+			
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2025-2026.html" title="2025-2026">2025-2026</a>
+						</li>
+			
+						<li class="last">
+			
+							<a href="https://www.uv.es/uvcooperation/en/scholarships-grants-awards/students-cooperation-countries/uv-auip-scholarships/2024-2025.html" title="2024-2025">2024-2025</a>
+						</li>
+			</ul>
+							
+							
+							
+							
+			    		</div></div><script type="text/javascript">
+	$( ".boton-menu-izquierda" ).click(function() {
+	  $( ".menu-sidebar" ).toggle();
+	});
+	</script><div id="content">
+	
+	
+ 
+  
+	
+		
+		
+		
+	
+	
+		
+		
+		
+			
+			
+			
+		
+		
+		
+			
+			
+		
+		
+			
+			
+			
+		
+			<div class="entry-content">
+		
+		<h4><strong>Universitat de Val&egrave;ncia - AUIP Scholarships 2026-2027</strong></h4>
+
+<h6><strong>Call</strong></h6>
+
+<ul>
+	<li><a href="https://www.uv.es/coopweb24/2026/AUIP/2026_06_10_-resolucion-provisional-becas-master-uv-auip-2026-2027_val_esp%20c%c3%b2pia.pdf">Final Results&nbsp;</a>(<a href="https://webges.uv.es/uvTaeWeb/CambiarLenguajeDoAction.do?idioma=en&amp;servicioNavegacion=-1&amp;grupoNavegacion=-1">UV Notice Board 15/06/2026</a>)</li>
+	<li><a href="https://www.uv.es/coopweb24/2025/AUIP/Convocatoria-ayudas-master-uv-auip-2025-26-cas%20c%c3%b2pia.pdf" target="_blank">Call for applications and&nbsp;</a><a href="https://www.uv.es/coopweb24/2026/AUIP/2026-02-10-convocatoria-ayudas-master-uv--auip-2026-2027_1VRA%20c%c3%b2pia.pdf">list of available Master&#39;s&nbsp;degrees</a></li>
+	<li><a href="https://webges.uv.es/uvTaeWeb/MuestraInformacionEdictoPublicoFrontAction.do?accion=inicio&amp;idEdictoSeleccionado=97786">Publication on the Notice board of the UV</a> (31/03/2026)</li>
+	<li><a href="https://dogv.gva.es/es/resultat-dogv?signatura=2026/9437">Publication on&nbsp;the DOGV</a> (31/03/2026)</li>
+</ul>
+
+<p>Application deadline:<strong>&nbsp;from 1 April 2026 to 24 April 2026</strong></p>
+
+<h6><strong>Object</strong></h6>
+
+<p>The University of Valencia (UV), in collaboration with the <a href="https://www.auip.org/es/">Association of Ibero-American Postgraduate Universities (AUIP)</a>, offers 12 scholarships for students from Latin American universities that are AUIP member institutions to pursue an official Master&rsquo;s degree program at the University of Valencia.</p>
+
+<p>There are two types of these scholarships:&nbsp;</p>
+
+<ul>
+	<li>
+	<p><strong>8 new awards</strong> for pursuing one of the official master&rsquo;s degrees at the University of Valencia (UV), as listed in Annex II of the call.</p>
+	</li>
+	<li>
+	<p><strong>4 renewal awards</strong> for the continuation and completion of studies in the official master&rsquo;s programs at the UV during the 2026&ndash;27 academic year, for programs lasting more than 60 ECTS credits.</p>
+	</li>
+</ul>
+
+<h6><strong>Requirements</strong></h6>
+
+<p><strong>For new grants:</strong></p>
+
+<ul>
+	<li>Be a graduate of a university in a Latin American country that is a member of the AUIP.</li>
+	<li>Be a new student at the University of Valencia (UV).</li>
+	<li>Not have resided in Spain for more than twelve months within the three years before the date of the call for applications.</li>
+	<li>Meet the general requirements for admission to official master&rsquo;s degree programs in Spain, as well as the specific academic requirements of the master&rsquo;s program for which the grant is requested.</li>
+	<li>Have a minimum grade point average of 8 (on a 10-point scale), certified in a document showing the equivalence in accordance with the Spanish grading equivalency procedure.</li>
+	<li>Not have received this grant in the 2025&ndash;2026 academic year. For this purpose, both students who actually received the grant and those who formally declined it will be considered beneficiaries.</li>
+</ul>
+
+<p><strong>For renewal grants:</strong></p>
+
+<ul>
+	<li>Have been enrolled in one of the following official master&rsquo;s programs at the University of Valencia (UV):
+	<ul>
+		<li>Master&rsquo;s Degree in International Economic Management: Management of International Trade</li>
+		<li>Master&rsquo;s Degree in Planning and Management of Business Processes</li>
+		<li>Master&rsquo;s Degree in Psychological Intervention in Social Settings</li>
+	</ul>
+	</li>
+	<li>Have been a beneficiary of one of the AUIP scholarships offered by the University of Valencia&rsquo;s Vice-Rector&rsquo;s Office for Sustainability, Cooperation, and Healthy Living during the 2025&ndash;2026 academic year.</li>
+</ul>
+
+<h6><strong>Financial endowment</strong></h6>
+
+<p>The grants for both modalities will be as follows:</p>
+
+<ol>
+	<li>
+	<p><strong>Tuition fees:</strong> the amount of ECTS credits for the Master&#39;s subjects, up to a maximum of 60 ECTS. This does not include administrative fees for pre-registration, diploma issuance fees, or other fees or insurance.</p>
+	</li>
+	<li>
+	<p><strong>Global financial aid of 2.500 euros:</strong>&nbsp;it will be paid in two installments to the student by AUIP into the bank account opened by the beneficiary in Spain.</p>
+	</li>
+	<li>
+	<p><strong>Full-board accommodation and meals</strong> at the College of Residence are provided by the University of Valencia during the 2025-2026 academic year.</p>
+	</li>
+</ol>
+
+<h3 aria-label="Texto traducido: Must be a graduate of a university in a Latin American country associated with the AUIP.
+Must be a new student at UV.
+Must not have resided in Spain for more than twelve months during the last three years from the date of the call for applications.
+Must meet the requirements and conditions for admission to official master's programs in Spain and the specific academic requirements for the master's program for which the grant is being awarded.
+Must have a minimum grade point average of 8 points, certified in the document with the average grade calculated on a scale of 10, in accordance with the qualification equivalency procedure established in Spanish regulations.
+Must not have been a beneficiary of the grant in the 2024-2025 academic year. For these purposes, a beneficiary will be considered both a student who actually received the grant and a student who renounced it." data-placeholder="Traducción" data-ved="2ahUKEwiWooSXz4aMAxVTTKQEHbrWGx8Q3ewLegQICBAV" dir="ltr"><strong>Applications and documentation</strong></h6>
+
+<p>More information and how to apply:&nbsp;<a href="https://www.auip.org/es/becas-auip/2920-becas-auip305" target="_blank">https://www.auip.org/es/becas-auip/2920-becas-auip305</a></p>
+
+<p>It is necessary to previously register as a user.</p>
+
+<p>The system will send a confirmation email to the interested person&#39;s email account with a link to continue the registration process. Then you must follow the steps indicated by the same application. You must consult the documentation and other procedures in the call.&nbsp;</p>
+
+<p>Students applying for renovation are not required to submit additional documentation, but they do have to submit an application. Students applying for new places have to submit the documents as indicated in the Rules and Regulations. The documents subject to oficial format will be available at the AUIP website.</p>
+
+<p>For more information, write to&nbsp;<a href="mailto:becas.master@auip.org?subject=Beca%20Universitat%20de%20Val%C3%A8ncia%20-%20AUIP">becas.master@auip.org</a>.</p>
+
+<p>&nbsp;</p>
+
+		</div>
+		
+
+								<div class="entry-content">
+									<div class="addthis-derecha">	
+											
+											
+												
+											
+											
+										
+
+	<div class="comparte" style="width:156px; position:relative; right:-1em; float:none; height: 24px">
+		<div class="links" style="position:absolute; right:12px; width:145px">
+		</div>
+		<div class="blocRedes" style="display: none;">
+		</div>
+		<span class="iconPlus">
+			<span id="iconPlus" class="fa fa-plus" aria-hidden="true" style="position:absolute; top:0.4em; cursor:pointer; right:0.5px">
+			</span>
+		</span>
+	</div><script type="text/javascript">    
+	    //Variable necesarias para eliminar el error en las URL por culpa de los espacios en blanco en textos, titulos, alt, etc. 
+	    var patron = / /g;
+		var nuevoValorTexto = "%20";
+		var nuevoValor = "_";
+		
+		//Texto que acompaÃ±a a la URL de la pÃ¡gina actual para todas las redes sociales sin espacios
+		var texto = 'Beques UV-AUIP';
+	    var textoSin = texto.replace(patron, nuevoValorTexto);
+			
+	    //Titulo de las distintas redes sociales sin espacios
+	    var titleFace = 'Shared on Facebook';																																										//FACEBOOK
+	    var titleFaceSin = titleFace.replace(patron, nuevoValor);																																								//FACEBOOK
+	    var titleTwitter = 'Shared on Twitter';																																											//TWITTER
+	    var titleTwitterSin = titleTwitter.replace(patron, nuevoValor);																																									//TWITTER
+	    var titleLinkedin = 'Shared on LinkedIn';																																													//LINKEDIN
+	    var titleLinkedinSin = titleLinkedin.replace(patron, nuevoValor);																																										//LINKEDIN
+	    var titlePinterest = 'Shared on Pinterest';																																														//PINTEREST
+	    var titlePinterestSin = titlePinterest.replace(patron, nuevoValor);																																												//PINTEREST
+	    var titleWhatsapp = 'Shared on Whatsapp';																																																	//WHATSAPP
+	    var titleWhatsappSin = titleWhatsapp.replace(patron, nuevoValor);																																														//WHATSAPP
+	    var titleTelegram = 'Shared on Telegram';																																																			//TELEGRAM
+	    var titleTelegramSin = titleTelegram.replace(patron, nuevoValor);																																																//TELEGRAM
+	    var titleTumblr = 'Shared on Tumblr';																																																						//TUMBLR
+	    var titleTumblrSin = titleTumblr.replace(patron, nuevoValor);																																																			//TUMBLR
+	    var titleReddit = 'Shared on Reddit';																																																								//REDDIT
+	    var titleRedditSin = titleReddit.replace(patron, nuevoValor);																																																					//REDDIT																																																									//VK
+	   	var titleGmail = 'Shared on Gmail';																																																										//GMAIL
+	    var titleGmailSin = titleGmail.replace(patron, nuevoValor);																																																								//GMAIL
+	    var titleEmail = 'Shared on Email';																																																												//EMAIL
+	    var titleEmailSin = titleEmail.replace(patron, nuevoValor);																																																										//EMAIL
+	    var titleBluesky = 'Shared on Bluesky';																																																												//BLUESKY
+	    var titleBlueskylSin = titleBluesky.replace(patron, nuevoValor);																																																										//BLUESKY	    
+	    
+	    
+	    //Texto alternativo de las distintas redes sociales sin espacios
+	    var altFace = titleFaceSin;																																																//FACEBOOK
+	    var altTwitter = titleTwitterSin;																																																//TWITTER
+	    var altLinkedin = titleLinkedinSin;																																																		//LINKEDIN
+	    var altPinterest = titlePinterestSin;																																																			//PINTEREST
+	    var altWhatsapp = titleWhatsappSin;																																																						//WHATSAPP
+	    var altTelegram = titleTelegramSin;																																																								//TELEGRAM
+	    var altTumblr = titleTumblrSin;																																																											//TUMBLR
+	    var altReddit = titleRedditSin;																																																													//REDDIT
+	    var altGmail = titleGmailSin;																																																															//GMAIL
+	    var altEmail = titleEmailSin;																																																																	//EMAIL
+	    var altBluesky = titleBlueskylSin; // BLUESKY
+	    
+
+	    //Fuente imagenes de iconos de las distintas redes sociales
+	    var srcFace = "https://www.uv.es/uwm/xarxes_socials/facebook_activo.png";																																				//FACEBOOK
+	    var srcTwitter = "https://www.uv.es/uwm/xarxes_socials/twitter_activo.png";																																						//TWITTER
+	    var srcLinkedin = "https://www.uv.es/uwm/xarxes_socials/linkedin_activo.png";																																							//LINKEDIN
+	    var srcPinterest = "https://www.uv.es/uwm/xarxes_socials/Nuevos/pinterest_color.png";																																							//PINTEREST	    
+	    var srcWhatsapp = "https://www.uv.es/uwm/xarxes_socials/Nuevos/whatsapp_20x20.png";																																										//WHATSAPP
+	    var srcTelegram = "https://www.uv.es/uwm/xarxes_socials/Nuevos/telegram_20x20.png";																																												//TELEGRAM
+	    var srcTumblr = "https://www.uv.es/uwm/xarxes_socials/Nuevos/tumblr_20x20.png";																																															//TUMBLR
+	    var srcReddit = "https://www.uv.es/uwm/xarxes_socials/Nuevos/reddit_20x20.png";																																																	//REDDIT
+	    var srcGmail = "https://www.uv.es/uwm/xarxes_socials/Nuevos/gmail_20x20.png";																																																			//GMAIL
+	    var srcEmail = "https://www.uv.es/uwm/xarxes_socials/Nuevos/email_gris_20x20.png";																																																					//EMAIL
+	    var srcGmail = "https://www.uv.es/uwm/xarxes_socials/Nuevos/gmail_20x20.png";																																																			//GMAIL
+	    var srcBluesky = "https://www.uv.es/uwm/xarxes_socials/bluesky_20x20-on.png";	
+	    
+	    //URL de referencia de las redes sociales mÃ¡s la URL de la pÃ¡gina actual
+	    	
+	    	//FILTRO PARA ELIMINAR LOS ELEMENTOS HTML(div, p, span) DEL TITULO DE LA URL LOCAL
+	    	var urlLocal = location.href;
+	    	urlLocal = urlLocal.replace("-div-","-").replace("-/div-","-");
+	    	urlLocal = urlLocal.replace("-p-","-").replace("-/p-","-");
+	    	urlLocal = urlLocal.replace("-span-","-").replace("-/span-","-");
+	    	urlLocal = urlLocal.replace("&", "%26");
+	    	
+// 	    	textoSin = textoSin.replace("<i>","").replace("</i>","");
+// 	    	textoSin = textoSin.replace("<strong>","").replace("</strong>","");
+// 	    	textoSin = textoSin.replace("<b>","").replace("</b>","");
+// 	    	textoSin = textoSin.replace("<div>","").replace("</div>","");
+// 	    	textoSin = textoSin.replace("<br/>","").replace("</br>","");
+// 	    	textoSin = textoSin.replace("<em>","").replace("</em>","");
+			textoSin = textoSin.replace(/<.*?>/g, "");
+			
+	    
+		var hrefFace ="https://www.facebook.com/share.php?u="+urlLocal+"&amp;t=";																																				//FACEBOOK
+		//var hrefTwitter ="https://twitter.com/share?url="+urlLocal+"&amp;text=";																																						//TWITTER		
+		var hrefTwitter ="https://twitter.com/intent/tweet?text="+textoSin+"&url="+urlLocal;
+		var hrefLinkedin ="https://www.linkedin.com/shareArticle?mini=true&url="+urlLocal+"&summary=";																																			//LINKEDIN
+		var hrefPinterest ="https://www.pinterest.com/pin/create/button/?url="+urlLocal+"&description=";																																				//PINTEREST
+		var hrefWhatsapp ="https://wa.me/?text="+urlLocal;																																																		//WHATSAPP
+		var hrefTelegram ="https://t.me/share/url?url="+urlLocal+"&text=";																																																//TELEGRAM
+		var hrefTumblr ="https://tumblr.com/widgets/share/tool?canonicalUrl="+urlLocal+"&caption=";																																												//TUMBLR
+		var hrefReddit ="https://www.reddit.com/submit?url="+urlLocal+"&title=";																																																		//REDDIT
+		var hrefGmail ="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su="+textoSin+"&body="+urlLocal+"&ui=2&tf=1&pli=1";																																									//GMAIL
+		var hrefEmail ="mailto:?subject="+textoSin+"&amp;body="+urlLocal;																																																								//EMAIL
+		
+		// 2022
+		var urlLinkedin = "https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(urlLocal);
+		// Bluesky
+		var urlBluesky = "https://bsky.app/intent/compose?text="+encodeURIComponent(urlLocal);
+		
+		
+		//JQuery para aÃ±adir al cÃ³digo html de enlaces de las redes sociales
+		var cid = '';
+		
+		$('.links'+cid).prepend("<a href="+urlBluesky+" target='_blank' title="+titleBlueskylSin+"><img alt="+altBluesky+" src="+srcBluesky+" style='max-width:100%; margin:2px;' width='20px;'/></a>");													//BLUESKY
+		$('.links'+cid).prepend("<a href="+hrefTelegram+textoSin+" target='_blank' title="+titleTelegramSin+"><img alt="+altTelegram+" src="+srcTelegram+" style='max-width:100%; margin:2px;' width='20px;'/></a>");													//TELEGRAM
+		$('.links'+cid).prepend("<a href="+hrefWhatsapp+" target='_blank' title="+titleWhatsappSin+"><img alt="+altWhatsapp+" src="+srcWhatsapp+" style='max-width:100%; margin:2px;' width='20px;'/></a>");														//WHATSAPP
+		//$('.links'+cid).prepend("<a data-pin-do='buttonBookmark' href="+hrefPinterest+textoSin+" data-pin-custom='true' title="+titlePinterestSin+"><img alt="+altPinterest+" src="+srcPinterest+" style='margin:2px; cursor:pointer;'/></a>");			//PINTEREST
+		//$('.links'+cid).prepend("<a href="+hrefLinkedin+textoSin+" target='_blank' title="+titleLinkedinSin+"><img alt="+altLinkedin+" src="+srcLinkedin+" style='margin:2px;'/></a>");															//LINKEDIN
+		$('.links'+cid).prepend("<a href="+urlLinkedin+" target='_blank' title="+titleLinkedinSin+"><img alt="+altLinkedin+" src="+srcLinkedin+" style='margin:2px;'/></a>");															//LINKEDIN
+		$('.links'+cid).prepend("<a href="+hrefTwitter+" target='_blank' title="+titleTwitterSin+"><img alt="+altTwitter+" src="+srcTwitter+" style='margin:2px;'/></a>");														//TWITTER
+		$('.links'+cid).prepend("<a href="+hrefFace+textoSin+" target='_blank' title="+titleFaceSin+"><img alt="+altFace+" src="+srcFace+" style='margin:2px;'/></a>");															//FACEBOOK
+	
+		$('.blocRedes'+cid).append("<a href="+hrefTumblr+textoSin+" target='_blank' title="+titleTumblrSin+"><img alt="+altTumblr+" src="+srcTumblr+" style='max-width:100%; margin:2px;' width='20px;'/></a>");																	//TUMBLR
+		$('.blocRedes'+cid).append("<a href="+hrefReddit+textoSin+" target='_blank' title="+titleRedditSin+"><img alt="+altReddit+" src="+srcReddit+" style='max-width:100%; margin:2px;' width='20px;'/></a>");																			//REDDIT
+		$('.blocRedes'+cid).append("<a href="+hrefGmail+" target='_blank' title="+titleGmailSin+"><img alt="+altGmail+" src="+srcGmail+" style='max-width:100%; margin:2px;' width='20px;'/></a>");																								//GMAIL
+		$('.blocRedes'+cid).append("<a href="+hrefEmail+" target='_blank' title="+titleEmailSin+"><img alt="+altEmail+" src="+srcEmail+" style='max-width:100%; margin:2px;' width='20px;'/></a>");																										//EMAIL
+		
+	</script>
+	
+	<script>
+	$(function () {  
+		
+		var cid = '';
+		var control = 'null'; 
+		
+	    $('.iconPlus'+cid).on('click', function () {
+	  	
+	        $('.blocRedes'+cid).slideToggle(100);
+	        var hasClase = $('.iconPlus'+cid).find($(".fa")).hasClass('fa-minus');
+	        if(hasClase){
+	        	$('.iconPlus'+cid).find($(".fa")).removeClass('fa-minus').addClass('fa-plus');
+	        	if(control != "true"){
+	        		//APLICAR ESTILOS AL CONTRAER LOS ELEMENTOS
+		        	$('.links'+cid).css({'right':'12px'});
+		        	$('.comparte'+cid).css({'width':'156px'});
+	        	}else{
+	        		
+		        }
+	        	
+	        }
+	        else{
+	        	$('.iconPlus'+cid).find($(".fa")).removeClass('fa-plus').addClass('fa-minus');
+	        	if(control != "true"){
+	        		//APLICAR ESTILOS AL EXPANDIR LOS ELEMENTOS
+		        	$('.links'+cid).css({'right':'106px'});
+		       		$('.blocRedes'+cid).css({'position':'absolute','width':'9em','right':'0em'});
+		       		$('.comparte'+cid).css({'width':'250px'});
+	        	}else{
+	        		$('.blocRedes'+cid).css({'display':'flex','position':'relative','bottom':'102px','left':'118px','background-color':'white','flex-direction':'column'});
+	        		$('.blocRedes'+cid).css({'padding-left':'2px','padding-right':'2px','box-shadow':'rgba(0, 0, 0, 0.35) 0px 1px 5px','width':'24px','border-radius':'3px'});
+	        	}
+	        }
+		});
+	});
+	</script>
+	</div>
+								</div></div>
+					<div class="clear">&nbsp;</div>
+				</div>
+				
+
+
+	
+	
+	
+	<div id="footer">
+	
+		<div class="pie-pagina">
+		 <div class="logo-pie"><img src="/recursos/fatwirepub/css/logoPeu.png" alt="Logo del portal"/><span >UVcooperation</span><div class="iconos-pie  mt25  ">
+							
+							
+							
+						
+									
+									
+									
+								<script type="text/javascript">
+										$(document).ready(function() { 
+											$( "img.FacebookPeu" ).hover(
+													function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/facebook_activo.png" );
+													}, function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/facebook_inactivo.png");
+													}
+											);
+										});
+										</script><a title="Facebook" href="https://www.facebook.com/cooperacio.uv.3" target="_blank"><img class="FacebookPeu" alt="Facebook" src="https://www.uv.es/uwm/xarxes_socials/facebook_inactivo.png" /></a>
+							
+							
+							
+						
+									
+									
+									
+								<script type="text/javascript">
+										$(document).ready(function() { 
+											$( "img.TwitterPeu" ).hover(
+													function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/twitter_activo.png" );
+													}, function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/twitter_inactivo.png");
+													}
+											);
+										});
+										</script><a title="Twitter" href="https://twitter.com/cooperaciou" target="_blank"><img class="TwitterPeu" alt="Twitter" src="https://www.uv.es/uwm/xarxes_socials/twitter_inactivo.png" /></a>
+							
+							
+							
+						
+									
+									
+									
+								<script type="text/javascript">
+										$(document).ready(function() { 
+											$( "img.Instagrampeu" ).hover(
+													function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/instagram_activo.png" );
+													}, function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/instagram_inactivo.png");
+													}
+											);
+										});
+										</script><a title="Instagram" href="https://www.instagram.com/uvcooperacio/" target="_blank"><img class="Instagrampeu" alt="Instagram" src="https://www.uv.es/uwm/xarxes_socials/instagram_inactivo.png" /></a>
+							
+							
+							
+						
+									
+									
+									
+								<script type="text/javascript">
+										$(document).ready(function() { 
+											$( "img.Youtubepeu" ).hover(
+													function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/youtube_activo.png" );
+													}, function() {
+													$( this ).attr("src","https://www.uv.es/uwm/xarxes_socials/youtube_inactivo.png");
+													}
+											);
+										});
+										</script><a title="Youtube" href="https://www.youtube.com/channel/UC8jhpX7d5icYQUn04c7As4Q/featured" target="_blank"><img class="Youtubepeu" alt="Youtube" src="https://www.uv.es/uwm/xarxes_socials/youtube_inactivo.png" /></a></div><div class="clear"></div>
+		</div></div>
+			<div class="clear m2"></div><div class="servicios-pie2"></div><div class="pie-pagina">	
+		 <div class="pie-dire">&copy; 2026 UV. - EspaiVives Avda. Blasco Ibañez, 23, 46010 València. Tel: (+34) 963 983 935</div>
+		<div class="pie-enlace"><a href="https://www.uv.es/uvweb/college/en/terms-conditions-use/terms-conditions-use-1285919088090.html" title = "Link to Legal Disclaimer" >Legal Disclaimer</a>	 | <a href="https://www.uv.es/uvweb/college/en/what-is-accessibility-/what-is-accessibility-1285917448966.html" title = "Accessibility link" >Accessibility</a>	 | <a href="https://www.uv.es/uvweb/college/en/privacy-policy/data-protection-officer-delegate-1285919116693.html" title = "Link to Privacy Policy" >Privacy Policy</a>	 | <a href="https://www.uv.es/uvweb/college/en/privacy-policy/cookies-policy/what-are-cookies-1285919089226.html" title = "Link to Cookies Policy" >Cookies</a>	 | <a href="http://www.uv.es/uvweb/transparencia-uv/en/portal-transparencia-1285924287697.html" title = "Link to transparency portal" >Transparency</a>	 | <a href="https://www.uv.es/uvcooperation/en/uvcooperation/location-contact.html" title = "Contact mailbox" >Contact mailbox</a>
+		
+		
+
+
+
+		</div><div class="clear"></div>
+		</div>
+			
+	</div>	
+	
+		</div>
+				
+				
+				
+			<script type="text/javascript">
+			$('body').ihavecookies({
+				
+				onAccept:function(){
+					CookiesOk()
+				},
+				
+				title:"Cookies and privacy policy",
+
+				message:"Your privacy is important for us. Therefore, we inform you that we use our own and third-party cookies to perform analysis of the use and measurement of our website in order to personalize content,as well as provide functionalities to social networks or analyze our traffic. To continue accept or modify the configuration of our cookies. Get more information",
+				link:"https://www.uv.es/uvweb/college/en/privacy-policy/cookies-policy/what-are-cookies-1285919089226.html",
+				moreInfoLabel: "More information",
+				acceptBtnLabel: "Accept all",
+				advancedBtnLabel: "Customise Cookies",
+				cookieTypesTitle: "Select cookies to accept",
+				acceptBtnLabel2: "Confirm settings",
+				rejectallBtnLabel: "Reject all",
+				
+
+				
+		
+				cookieTypes: [
+
+			        {
+			            type: 'Web Analytics',
+			            value: 'analytics',
+			            description: "These cookies allow us to analyze traffic on the website (visits, average time, browser, etc.) in order to increase performance and improve performance. By accepting these cookies you help us improve our website."
+			        },
+	                {
+	                    type: 'Site preferences',
+	                    value: 'preferences',
+	                    description: "This cookie is used to save the language chosen in the top menu of the page, if none has been chosen, the language of the first visit is saved. This avoids having to change languages ​​each time the website is visited."
+	                }
+
+			    ],
+			});
+		</script>
+
+	</body>
+</html>

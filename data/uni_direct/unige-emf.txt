@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="robots" content="noimageindex, noarchive" />
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+    <meta name="dcterms.issued" content="2010-03-02T18:03:00Z" />
+    <meta name="dcterms.modified" content="2026-04-14T08:58:57Z" />
+    <!--[if !IE]>-->
+    <link rel="stylesheet" href="https://www.unige.ch/cdn/themes/unige2016/css/styles.min.css">
+    <!--<![endif]-->
+    <!--[if gte IE 8]>
+    <link rel="stylesheet" href="https://www.unige.ch/cdn/themes/unige2016/css/styles-ie.css">
+    <![endif]-->
+        
+    <!-- OneTrust Cookies Consent Notice start for unige.ch -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="6e6328bb-32c3-459e-b449-d5a0746df3a2"></script>
+    <script type="text/javascript"> function OptanonWrapper() { } </script>
+    <!-- OneTrust Cookies Consent Notice end for unige.ch -->
+        <script src="https://www.unige.ch/cdn/themes/unige2016/js/vendor/modernizr.min.js"></script>
+
+<title>Excellence Master Fellowships</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<link rel="canonical" href="https://www.unige.ch/sciences/en/enseignements/formations/masters/excellencemasterfellowships">
+<script type="text/javascript">
+    var CCM_DISPATCHER_FILENAME = "/sciences/index.php";
+    var CCM_CID = 3510;
+    var CCM_EDIT_MODE = false;
+    var CCM_ARRANGE_MODE = false;
+    var CCM_IMAGE_PATH = "/sciences/concrete/images";
+    var CCM_TOOLS_PATH = "/sciences/index.php/tools/required";
+    var CCM_APPLICATION_URL = "https://www.unige.ch/sciences";
+    var CCM_REL = "/sciences";
+    var CCM_ACTIVE_LOCALE = "en_GB";
+</script>
+
+<link rel='stylesheet' type='text/css' href='https://www.unige.ch/cdn/themes/unige2016/css/colors/sciences.css'>
+<link rel='stylesheet' type='text/css' href='/sciences/packages/unige/blocks/search/view.css'>
+<script type="text/javascript" src="/sciences/concrete/js/jquery.js?ccm_nocache=3ddb32e8f6b94a9a918c10c38de1c1a44acd98ea"></script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo-com-unige.ch/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2G259GTH0J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2G259GTH0J');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJJ7CH6C');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJJ7CH6C"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KE65L266Y6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE65L266Y6');
+</script>    </head>
+    <body>
+    <div class="ccm-page ccm-page-id-3510 page-type-3colonnes page-template-3colonnes">
+    <div id="unige-wrapper" class="t-sciences t-fac">
+        <!--[if lt IE 9]> 
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+<header class="c-HeaderSite u-fw js-headerSite hidden-print" role="banner">
+    <!-- nav secondary -->
+    <div class="o-NavSecondary u-fw">
+        <div class="o-Layout">
+            <div class="o-Grid">
+                <nav class="c-NavSecondary hidden-print" role="navigation">
+<div class="c-NavSecondary-section c-NavSecondary--university"><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/en/university/presentation/" target="_self" class="c-NavSecondary-item">About the University</a></li><li class=""><a href="https://www.unige.ch/en/university/politique-generale/" target="_self" class="c-NavSecondary-item">General Policy</a></li><li class=""><a href="https://www.unige.ch/en/university/teaching/" target="_self" class="c-NavSecondary-item">Teaching</a></li><li class=""><a href="https://www.unige.ch/en/university/excellence-research/" target="_self" class="c-NavSecondary-item">Excellence in research</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/en/university/community-services/" target="_self" class="c-NavSecondary-item">Community Services</a></li><li class=""><a href="https://www.unige.ch/en/university/international/" target="_self" class="c-NavSecondary-item">International</a></li><li class=""><a href="https://www.unige.ch/en/university/university-structure/" target="_self" class="c-NavSecondary-item">University structure</a></li><li class=""><a href="https://www.unige.ch/rectorat/en" target="_self" class="c-NavSecondary-item">Rectorate</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/stat/welcome" target="_self" class="c-NavSecondary-item">Statistics</a></li><li class=""><a href="https://www.unige.ch/en/university/history/" target="_self" class="c-NavSecondary-item">History</a></li></ul></div><div class="c-NavSecondary-section c-NavSecondary--faculties"><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/sciences/en/" target="_self" class="c-NavSecondary-item">Sciences</a></li><li class=""><a href="https://www.unige.ch/medecine/en/" target="_self" class="c-NavSecondary-item">Medicine</a></li><li class=""><a href="https://www.unige.ch/lettres/en/" target="_self" class="c-NavSecondary-item">Humanities</a></li><li class=""><a href="https://www.unige.ch/sciences-societe/en/" target="_self" class="c-NavSecondary-item">Social Sciences</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/gsem/en/" target="_self" class="c-NavSecondary-item">Economics and Management</a></li><li class=""><a href="https://www.unige.ch/droit/en/" target="_self" class="c-NavSecondary-item">Law</a></li><li class=""><a href="https://www.unige.ch/theologie/" target="_self" class="c-NavSecondary-item">Theology</a></li><li class=""><a href="https://www.unige.ch/fapse/" target="_self" class="c-NavSecondary-item">Psychology and Educational Sciences</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/fti/en/" target="_self" class="c-NavSecondary-item">Translation and Interpreting</a></li><li class=""><a href="https://www.unige.ch/en/faculties/centres-institutes/" target="_self" class="c-NavSecondary-item">Centres and Institutes</a></li></ul></div><div class="c-NavSecondary-section c-NavSecondary--students"><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/admissions/en" target="_self" class="c-NavSecondary-item">Admission</a></li><li class=""><a href="https://www.unige.ch/exchange/en/propos" target="_self" class="c-NavSecondary-item">Student Exchange</a></li><li class=""><a href="https://www.unige.ch/etudiants/bachelor/" target="_self" class="c-NavSecondary-item">Bachelor Programs (in French)</a></li><li class=""><a href="https://masters.unige.ch/eng/" target="_self" class="c-NavSecondary-item">Master Programs</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/biblio/en/" target="_self" class="c-NavSecondary-item">Library</a></li><li class=""><a href="https://vie-de-campus.unige.ch/campus-life" target="_self" class="c-NavSecondary-item">Campus Life</a></li><li class=""><a href="https://www.unige.ch/help/en" target="_self" class="c-NavSecondary-item">Help UNIGE</a></li><li class=""><a href="https://www.unige.ch/formcont/en/" target="_self" class="c-NavSecondary-item">Continuing & distance education</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/genevasummerschools/" target="_self" class="c-NavSecondary-item">Geneva Summer Schools</a></li><li class=""><a href="https://www.unige.ch/batiment/service-batiments/logements/en/" target="_self" class="c-NavSecondary-item">Accommodation Office</a></li></ul></div><div class="c-NavSecondary-section c-NavSecondary--services"><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/cite/en" target="_self" class="c-NavSecondary-item">Community Services</a></li><li class=""><a href="https://www.unige.ch/presse/plans/en" target="_self" class="c-NavSecondary-item">Campus Accessibility</a></li><li class=""><a href="https://www.unige.ch/biblio/en/" target="_self" class="c-NavSecondary-item">Library</a></li><li class=""><a href="https://archive-ouverte.unige.ch/" target="_self" class="c-NavSecondary-item">Archive ouverte</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/medias/en/" target="_self" class="c-NavSecondary-item">Media and Communication</a></li><li class=""><a href="https://www.unige.ch/en/services/teaching/" target="_self" class="c-NavSecondary-item">Teaching services</a></li><li class=""><a href="https://www.unige.ch/en/services/university-structure/" target="_self" class="c-NavSecondary-item">University structure</a></li><li class=""><a href="https://www.welc.ch/en/" target="_self" class="c-NavSecondary-item">Welcome center</a></li></ul><ul class="c-NavSecondary-col"><li class=""><a href="https://www.unige.ch/help/en" target="_self" class="c-NavSecondary-item">Help UNIGE</a></li><li class=""><a href="https://www.unige.ch/steps/home" target="_self" class="c-NavSecondary-item">Health and Safety</a></li></ul></div></nav>            </div>
+        </div>
+    </div>
+    <!-- nav primary -->
+    <div class="o-NavPrimary u-fw">
+        <div class="o-Layout">
+            <div class="o-Grid o-Navbar">
+                <div class="o-Navbar-colTitle">
+                    <a href="https://www.unige.ch/" class="c-CorporateLogo">
+    <img src="https://www.unige.ch/cdn/themes/unige2016/img/unige-logo.svg" alt="University of Geneva" class="c-CorporateLogo-img">
+</a>                </div>
+                <div class="o-Navbar-colNav">
+                    <nav class="c-NavPrimary hidden-print" role="navigation">
+<ul><li class=" has-subnav"><a href="https://www.unige.ch/en/university/" target="_self" class="c-NavPrimary-item js-navPrimaryItem" data-toggle="c-NavSecondary--university">University</a></li><li class=" has-subnav"><a href="https://www.unige.ch/en/faculties/" target="_self" class="c-NavPrimary-item js-navPrimaryItem" data-toggle="c-NavSecondary--faculties">Faculties</a></li><li class=" has-subnav"><a href="https://www.unige.ch/en/students/" target="_self" class="c-NavPrimary-item js-navPrimaryItem" data-toggle="c-NavSecondary--students">Students</a></li><li class=" has-subnav"><a href="https://www.unige.ch/en/services/" target="_self" class="c-NavPrimary-item is-last js-navPrimaryItem" data-toggle="c-NavSecondary--services">Services</a></li></ul></nav>                    <button type="button" class="c-NavMobile-searchTrigger o-Btn js-navMobileSearchTrigger" title="Search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <button type="button" class="c-NavMobile-langTrigger o-Btn js-navMobileLangTrigger" title="Choose language"></button>                    <a href="#" class="c-NavMobile-trigger js-navMobileTrigger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="c-NavMobileLang js-navMobileLang js-navMobileModule">
+    <ul>
+<li><a href="https://www.unige.ch/sciences/enseignements/formations/masters/excellencemasterfellowships" class="c-NavMobileLang-item">FR</a></li><li><a href="https://www.unige.ch/sciences/en/enseignements/formations/masters/excellencemasterfellowships" class="c-NavMobileLang-item is-active">EN</a></li>    </ul>
+</nav>
+<div class="c-NavMobileSearch js-navMobileSearch js-navMobileModule hidden-print">
+    <form action="https://search.unige.ch/" method="get" onsubmit="search_form(this)" id="unige_search">
+        <div class="o-Form-search input-group" role="search">
+            <input class="form-control" placeholder="What are you looking for ?" name="text" type="search">
+            <span class="input-group-addon">
+                <button type="submit" aria-label="Start a research">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </form>
+</div><div class="o-LayoutWrapper js-layoutWrapper"><!-- nav tools -->
+<div class="o-NavTools hidden-print">
+    <div class="o-Layout">
+        <div class="o-Grid">
+            <nav class="c-NavTools o-Col" role="navigation">
+               <ul>
+                    <li class="c-NavTools-section">
+                        <a href="https://portail.unige.ch/" class="c-NavTools-item" target="_blank" title="UNIGE Portal">
+                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Portal                        </a>
+                    </li>
+                    <li class="c-NavTools-section">
+                        <a href="https://search.unige.ch/" class="c-NavTools-item" title="Search" target="_blank">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li class="c-NavTools-section c-NavTools-section--lang">
+    <h4 class="hidden">Choose language</h4>
+    <ul>
+<li><a href="https://www.unige.ch/sciences/enseignements/formations/masters/excellencemasterfellowships" class="c-NavTools-item">FR</a></li><li class="is-active"><a href="https://www.unige.ch/sciences/en/enseignements/formations/masters/excellencemasterfellowships" class="c-NavTools-item">EN</a></li>    </ul>
+</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div> 
+<header class="c-HeaderFac u-fw js-headerFac" role="banner">
+    <!-- nav tertiary -->
+    <div class="o-NavTertiary u-fw">
+        <div class="o-Layout">
+            <div class="o-Grid">
+                <div class="c-HeaderFac-title">
+                                    <a href="https://www.unige.ch/sciences/en" class="c-HeaderFac-link">Faculty of Science</a>
+                    <a href="https://www.unige.ch/sciences/en" class="c-HeaderFac-link c-HeaderFac-link--alt">
+                        Faculty of Science                    </a>
+                    <button 
+                        class="c-NavMobileSecondary-trigger js-navMobileSecondaryTrigger hamburger hamburger--arrowalt-r" 
+                        type="button" 
+                        aria-label="Sub-Menu" 
+                        aria-controls="navigation"
+                    >
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
+                    </button>
+                </div>
+                <div class="c-HeaderFac-nav">
+                    <nav class="c-NavTertiary hidden-print" role="navigation">
+<ul><li class=" has-subnav"><a href="https://www.unige.ch/sciences/en/lafaculte" target="_self" class="c-NavTertiary-item js-navTertiaryItem" data-toggle="c-NavQuaternary--section311">The Faculty</a></li><li class=" has-subnav"><a href="https://www.unige.ch/sciences/en/sectionsdepartements" target="_self" class="c-NavTertiary-item js-navTertiaryItem" data-toggle="c-NavQuaternary--section312">Sections/Depts/NCCR</a></li><li class=" is-active has-subnav"><a href="https://www.unige.ch/sciences/en/enseignements" target="_self" class="c-NavTertiary-item js-navTertiaryItem" data-toggle="c-NavQuaternary--section313">Programs of study</a></li><li class=" has-subnav"><a href="https://www.unige.ch/sciences/en/larecherche" target="_self" class="c-NavTertiary-item js-navTertiaryItem" data-toggle="c-NavQuaternary--section314">Research</a></li><li class=" has-subnav"><a href="https://www.unige.ch/sciences/en/faculteetcite" target="_self" class="c-NavTertiary-item js-navTertiaryItem" data-toggle="c-NavQuaternary--section315">Faculty and City</a></li><li class=" has-subnav"><a href="https://www.unige.ch/sciences/en/informationspratiques" target="_self" class="c-NavTertiary-item js-navTertiaryItem" data-toggle="c-NavQuaternary--section316">Practical information</a></li><li class=""><a href="https://www.unige.ch/sciences/en/secretariatetudiants" target="_self" class="c-NavTertiary-item">Students / PhD candidates</a></li><li class=""><a href="https://www.unige.ch/sciences/en/prospective-students" target="_self" class="c-NavTertiary-item is-last">Prospective students</a></li></ul></nav>                </div>
+            </div>
+        </div>
+    </div>
+    <!-- nav quaternary -->
+    <div class="o-Layout">
+        <div class="o-Grid">
+            <div class="c-HeaderFac-subNav o-Col">
+                <nav class="c-NavQuaternary hidden-print" role="navigation">
+<div class="c-NavQuaternary-section c-NavQuaternary--section311"><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/sciences/en/lafaculte/the-faculty-of-science" target="_self" class="c-NavQuaternary-item">The Faculty of Science</a></li><li class=""><a href="https://www.unige.ch/sciences/en/lafaculte/motdoyen" target="_self" class="c-NavQuaternary-item">A Word from the Dean</a></li><li class=""><a href="https://www.unige.ch/sciences/en/lafaculte/organisation" target="_self" class="c-NavQuaternary-item">Organization</a></li><li class=""><a href="https://www.unige.ch/sciences/application/files/9917/5440/5428/2025_RO_SCIENCES.pdf" target="_blank" class="c-NavQuaternary-item">Organizational rules of the Faculty (in French)</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/sciences/en/lafaculte/directive-generative-artificial-intelligence" target="_self" class="c-NavQuaternary-item">Faculty of Science Directive on the Use of Generative Artificial Intelligence</a></li><li class=""><a href="https://archive-ouverte.unige.ch/" target="_blank" class="c-NavQuaternary-item">Archive ouverte UNIGE</a></li><li class=""><a href="https://www.unige.ch/biblio/en/" target="_blank" class="c-NavQuaternary-item">Library</a></li><li class=""><a href="https://www.unige.ch/sciences/en/lafaculte/offresdemploi" target="_self" class="c-NavQuaternary-item">Job offers</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/asso-etud/aesc/index.php" target="_blank" class="c-NavQuaternary-item">Association des &Eacute;tudiants en Sciences</a></li></ul></div><div class="c-NavQuaternary-section c-NavQuaternary--section312"><ul class="c-NavQuaternary-col"><li class=""><a href="http://www.unige.ch/sciences/astro/en/" target="_blank" class="c-NavQuaternary-item">Astronomy</a></li><li class=""><a href="http://biologie.unige.ch/en/" target="_blank" class="c-NavQuaternary-item">Biology</a></li><li class=""><a href="http://www.unige.ch/sciences/chimie/en/" target="_blank" class="c-NavQuaternary-item">Chemistry and Biochemistry</a></li><li class=""><a href="https://www.unige.ch/dinfo/en/" target="_blank" class="c-NavQuaternary-item">Computer Science</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="http://www.unige.ch/math/en/" target="_blank" class="c-NavQuaternary-item">Mathematics</a></li><li class=""><a href="http://www.unige.ch/sciences/physique/physics-section/section/" target="_blank" class="c-NavQuaternary-item">Physics</a></li><li class=""><a href="https://ispso.unige.ch/ispso/index.php?l=EN" target="_blank" class="c-NavQuaternary-item">Pharmaceutical Sciences</a></li><li class=""><a href="https://www.unige.ch/sciences/en/sectionsdepartements/pharma" target="_self" class="c-NavQuaternary-item">Section of Pharmaceutical sciences</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="http://www.unige.ch/sciences/terre/en/" target="_blank" class="c-NavQuaternary-item">Earth and Environmental Sciences</a></li><li class=""><a href="http://www.nccr-swissmap.ch/" target="_blank" class="c-NavQuaternary-item">SwissMAP</a></li><li class=""><a href="http://nccr-planets.ch/" target="_blank" class="c-NavQuaternary-item">PlanetS</a></li></ul></div><div class="c-NavQuaternary-section c-NavQuaternary--section313 is-active"><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/sciences/en/enseignements/study-science-in-geneva" target="_self" class="c-NavQuaternary-item">Study Science in Geneva</a></li><li class="is-active"><a href="https://www.unige.ch/sciences/en/enseignements/formations" target="_self" class="c-NavQuaternary-item">Programs Offered</a></li><li class=""><a href="https://pgc.unige.ch/main/teachings?fac=547" target="_blank" class="c-NavQuaternary-item">Course Catalogue</a></li><li class=""><a href="https://www.unige.ch/sciences/en/enseignements/mobilite" target="_self" class="c-NavQuaternary-item">Mobility</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/sciences/en/enseignements/enseignementsenligne" target="_self" class="c-NavQuaternary-item">On-line Programs</a></li><li class=""><a href="https://www.unige.ch/immatriculations/en" target="_blank" class="c-NavQuaternary-item">UNIGE Registration</a></li><li class=""><a href="https://www.unige.ch/biblio/en/" target="_blank" class="c-NavQuaternary-item">Library</a></li><li class=""><a href="https://www.unige.ch/sciences/en/enseignements/calendrieracademique" target="_self" class="c-NavQuaternary-item">Academic Calendar</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/sciences/en/enseignements/contacts" target="_self" class="c-NavQuaternary-item">Contacts</a></li></ul></div><div class="c-NavQuaternary-section c-NavQuaternary--section314"><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/sciences/en/larecherche/excellence-of-research" target="_self" class="c-NavQuaternary-item">Excellence of research</a></li><li class=""><a href="https://www.unige.ch/sciences/en/larecherche/domainesderecherche" target="_self" class="c-NavQuaternary-item">Areas of Research</a></li><li class=""><a href="https://www.unige.ch/sciences/en/larecherche/platforms" target="_self" class="c-NavQuaternary-item">Platforms</a></li><li class=""><a href="https://www.unige.ch/biblio/en/" target="_blank" class="c-NavQuaternary-item">Library</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.lta-geneve.ch/?lang=en" target="_blank" class="c-NavQuaternary-item">Laboratory of Advanced Technology (LTA)</a></li><li class=""><a href="https://www.unige.ch/sih/" target="_blank" class="c-NavQuaternary-item">Science Innovation Hub</a></li><li class=""><a href="https://archive-ouverte.unige.ch/" target="_blank" class="c-NavQuaternary-item">Archive ouverte UNIGE</a></li><li class=""><a href="https://www.unige.ch/recherche/en" target="_blank" class="c-NavQuaternary-item">Research and Grants Office</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="https://swissmaprs.ch/" target="_blank" class="c-NavQuaternary-item">SwissMap Research Station (SRS)</a></li><li class=""><a href="https://www.unige.ch/sciences/cvu/" target="_blank" class="c-NavQuaternary-item">Center for Life in the Universe (LUC)</a></li></ul></div><div class="c-NavQuaternary-section c-NavQuaternary--section315"><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/public/formations/auditeurs" target="_blank" class="c-NavQuaternary-item">Courses open to the Public</a></li><li class=""><a href="https://www.unige.ch/public/formations/auditeurs" target="_blank" class="c-NavQuaternary-item">Auditors</a></li><li class=""><a href="https://www.unige.ch/formcont/en/" target="_blank" class="c-NavQuaternary-item">Continuing Education</a></li><li class=""><a href="https://www.unige.ch/biblio/en/" target="_blank" class="c-NavQuaternary-item">Library</a></li></ul><ul class="c-NavQuaternary-col"><li class=""><a href="https://scienscope.unige.ch/" target="_blank" class="c-NavQuaternary-item">Scienscope</a></li><li class=""><a href="https://lta-geneve.ch/?lang=en" target="_blank" class="c-NavQuaternary-item">Laboratory of Advanced Technology (LTA)</a></li><li class=""><a href="https://www.unige.ch/sih/" target="_blank" class="c-NavQuaternary-item">Science Innovation Hub</a></li><li class=""><a href="https://www.unige.ch/sciences/en/faculteetcite/association-des-parents" target="_self" class="c-NavQuaternary-item">Parents association of Faculty of Science</a></li></ul></div><div class="c-NavQuaternary-section c-NavQuaternary--section316"><ul class="c-NavQuaternary-col"><li class=""><a href="https://www.unige.ch/sciences/en/informationspratiques/contacts" target="_self" class="c-NavQuaternary-item">Contacts</a></li><li class=""><a href="https://www.unige.ch/sciences/en/informationspratiques/horaires" target="_self" class="c-NavQuaternary-item">Hours</a></li><li class=""><a href="https://www.unige.ch/sciences/en/informationspratiques/dates" target="_self" class="c-NavQuaternary-item">Important dates</a></li><li class=""><a href="https://www.unige.ch/sciences/en/informationspratiques/steps" target="_self" class="c-NavQuaternary-item">Health and safety at work</a></li></ul></div></nav>            </div>
+        </div>
+    </div>
+</header>
+
+    <main class="o-Layout o-Layout--main o-Layout--three js-mainWrapper">
+        <div class="o-Grid">
+            <div class="o-Col">
+<div><a href="https://www.unige.ch/sciences/en/enseignements/formations">Programs Offered</a></div>                <div class="o-Grid o-Grid--main">
+                    <aside class="o-Col--1of6 hidden-print">
+<nav class="c-NavQuinary js-navQuinary hidden-print" role="navigation">
+<h4 class="c-NavQuinary-navHeader">Navigation</h4><ul><li class="c-NavQuinary-section"><a href="https://www.unige.ch/sciences/en/enseignements/formations/bachelor-master" target="_self" class="c-NavQuinary-item">Bachelor &amp; Master</a></li><li class="c-NavQuinary-section"><a href="https://www.unige.ch/sciences/en/enseignements/formations/formationspecialisee" target="_self" class="c-NavQuinary-item">Certificates</a></li><li class="c-NavQuinary-section"><a href="https://www.unige.ch/sciences/en/enseignements/formations/mas" target="_self" class="c-NavQuinary-item">MAS</a></li><li class="c-NavQuinary-section"><a href="https://www.unige.ch/sciences/en/enseignements/formations/doctorats" target="_self" class="c-NavQuinary-item">Doctorates</a></li><li class="c-NavQuinary-section"><a href="https://www.unige.ch/sciences/en/enseignements/formations/formationcontinue" target="_self" class="c-NavQuinary-item">Continuing education</a></li></ul></nav>                    </aside>
+                    <article class="o-Col--5of6">
+                        <div class="o-Grid">
+                            <section class="o-Col--2of3 unige-toc-content">
+<h1 class="o-Title--h1 u-mt0">Excellence Master Fellowships</h1>
+
+    <p>The Faculty of Science of the University of Geneva is an internationally&nbsp;recognized leading research institution. This cutting-edge research covers a broad range of scientific disciplines: astronomy, biology, chemistry and biochemistry,&nbsp;computer science, mathematics, physics, pharmaceutical sciences, earth sciences.</p>
+
+<p>&nbsp;</p>
+
+<p>The Faculty hosts two National Centres of Competence in Research of the highly competitive Swiss National Sciences Foundation (<a href="http://www.nccr-swissmap.ch" target="_blank">SwissMAP</a>; <a href="http://www.nccr-planets.ch" target="_blank">Planets</a>)&nbsp;as well as many European research projects. The Masters of the Faculty of Science constitute an ideal training base for an academic but also a professional development, opening on careers in industry, teaching, administration in sciences, communication and media... The programs Master&#39;s degrees are either entirely in English, or in English and French (<a href="https://www.unige.ch/sciences/en/enseignements/formations/masters" title="Masters">see the descriptions of each program</a>).</p>
+
+<p>The Faculty of Science, with the support of external partners, has established an Excellence Fellowship program open to outstanding and highly motivated students who wish to pursue a Master of Science degree in one of the disciplines covered by the Faculty<sup>1</sup>. Candidate selection is based on excellence.</p>
+
+<p><strong>The Excellence Fellowship consists of a grant amounting to CHF 10&#39;000 to CHF 15&rsquo;000/year (no teaching duties); it is awarded for one year and extended for the regular duration of the chosen Master&#39;s program (three or four semesters) provided the applicant is academically successful at the end of his/her first semester of studies.</strong></p>
+
+<hr />
+<p>Regardless of your home university, whether you have passed or are doing a brilliant bachelor degree, and that you are one of the best in your year<sup>2</sup>, this program is for you! You must meet the admission criteria of the Master of your choice<sup>3</sup> and be selected on the basis of the application file for an Excellence Fellowship.</p>
+
+<p><strong><span class="attention"><span style="color: #ff0000;">For the application to be considered, each student has to fulfill the enrollment procedure as described on the</span> <a href="https://www.unige.ch/immatriculations/en/conditions" target="_blank">Admissions office website</a>.</span></strong></p>
+
+<ul>
+	<li><strong>if you are a student at the UNIGE</strong>: a scan of your UNIGE card</li>
+	<li><strong>if you are not yet a student at the UNIGE</strong>: the mail entitled &ldquo;UNIGE-Candidature: D&eacute;p&ocirc;t de votre dossier&rdquo; that you received after registering for the master&#39;s program (proof that you have begun the registration process) is required.</li>
+</ul>
+
+<p>The application (in English or French) must include the following documents in the form of a <span style="color: #ff0000;"><strong> <span class="attention">SINGLE</span> </strong></span> pdf file:</p>
+
+<ul class="type1">
+	<li>A scan of your national identity card or passport.</li>
+	<li>A Curriculum Vitae (2 pages maximum).</li>
+	<li>The transcript of exams passed during the bachelor education, with all grades.</li>
+	<li>A motivation letter in which you describe your specific scientific interests and your motivation to pursue a Master of Science program at the University of Geneva.</li>
+	<li>Letters of references from two professors attesting your aptitude to this program.</li>
+	<li>Any other pertinent information like results of GRE (General requirement examination), of TOEFL or other language test.</li>
+</ul>
+
+<p>The application is made <!-- <a title="Application" lang="en" href="https://formulaire.unige.ch/outils/limesurveyfac/sciences/index.php/289872?lang=en" target="_blank"><strong>online</strong></a> -->online, from the beginning of January of each year. After registering, you will receive an e-mail containing a personal link allowing you to fill out the application form.</p>
+
+<p>Next application deadline is <span style="color: #ff0000;"><strong> <span class="attention">28 February, 2026&nbsp;</span></strong></span>(for Masters starting September 14, 2026).</p>
+
+<p><span style="color: #ff0000;"><strong><span class="attention">IF ALL THE ABOVE MENTIONED CLAUSES ARE NOT COMPLETED, THE APPLICATION FILE WOULD NOT BE CONSIDERED.</span> </strong></span></p>
+
+<p>Additional information is available at <a href="https://www.unige.ch/sciences/en/enseignements/formations/masters">http://www.unige.ch/sciences/Masters.</a></p>
+
+<hr /><!--
+<p> </p>
+<div class="objectBlock" style="text-align: center;"><img src="https://www.unige.ch/sciences/download_file/view_inline/1270" alt="Logos-602_new.jpg" width="602" height="140" /></div>
+<p> </p>
+-->
+<ol class="type1">
+	<li>Complete list of the Master programs under <a href="https://www.unige.ch/sciences/en/enseignements/formations/masters">http://www.unige.ch/sciences/Masters</a></li>
+	<li>Students who have already started a Master programme at the Faculty of Science can no longer apply for the Excellence Master Fellowship</li>
+	<li>Additional information can be obtained from the Masters coordinators or the <a class="obfuscated-link" href="#MAIL:&#65;&#99;&#97;&#100;&#101;&#109;&#105;&#99;&#45;&#65;&#100;&#118;&#105;&#115;&#111;&#114;&#45;&#83;&#99;&#105;&#101;&#110;&#99;&#101;&#115;&#40;&#97;&#116;&#41;&#117;&#110;&#105;&#103;&#101;&#46;&#99;&#104;">Academic advisor</a></li>
+	<!-- <li>Except the students awarded by the Werner Fondation</li> -->
+</ol>
+
+                            </section>
+                            <aside class="o-Col--1of3">
+
+
+    <h3>Excellence Master Fellowships</h3>
+
+<ul>
+	<li><a href="https://www.unige.ch/sciences/en/enseignements/formations/masters/excellencemasterfellowships/winners-2026" title="Winners 2025">Winners Spring 2026</a></li>
+</ul>
+
+                            </aside>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>	
+    </main>
+
+<div class="o-FooterSite js-footerSite hidden-print">
+    <!-- Partners -->
+    <div class="c-FooterPartners u-fw">
+        <div class="o-Layout">
+            <div class="c-FooterPartners-section o-Grid">
+                            </div>
+        </div>
+    </div>
+    <!-- Fac/Institut Footer -->
+<footer class="c-Footer c-Footer--fac u-fw" role="contentinfo">
+    <div class="o-Layout">
+        <div class="o-Grid">
+<nav class="c-Footer-section">
+
+    <h4 class="c-Footer-title">Faculty of Science</h4>
+
+<ul>
+	<li><span class="c-Footer-item">Quai Ernest-Ansermet 30<br />
+	1211 Gen&egrave;ve 4<br />
+	T. +41 22 379 61 11</span></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/informationspratiques/contacts" target="_self">Contacts</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/informationspratiques/acces" target="_self">Where to find us</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/impressum" target="_self">Impressum</a></li>
+</ul>
+
+</nav><nav class="c-Footer-section">
+
+    <h4 class="c-Footer-title">Programs</h4>
+
+<ul>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/enseignements/formations/bachelors" target="_self">Bachelors</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/enseignements/formations/masters" target="_self">Masters</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/enseignements/formations/formationspecialisee" target="_self">Certificats</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/enseignements/formations/mas" target="_self">Masters of Advanced Studies</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/enseignements/formations/doctorats" target="_self">Doctorates</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/enseignements/formations/formationcontinue" target="_self">Continuing education</a></li>
+</ul>
+
+</nav><nav class="c-Footer-section">
+
+    <h4 class="c-Footer-title">Quick links</h4>
+
+<ul>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/admissions/sinscrire/immatenglish/" target="_blank">Enroll at UNIGE</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/lafaculte/offresdemploi" target="_self">Job offers</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/sciences/en/informationspratiques/dates" target="_self">Important dates</a></li>
+	<li><a class="c-Footer-item" href="https://www.unige.ch/biblio/en/" target="_blank">Library</a></li>
+</ul>
+
+</nav><nav class="c-Footer-section">
+
+    <h4 class="c-Footer-title">Social media</h4>
+
+<ul>
+	<li><a class="c-Footer-item c-Footer-item--icon" href="https://twitter.com/sciences_UNIGE" target="_blank" title="X / Twitter"><i class="o-Icon o-Icon--square fa fa-brands fa-x-twitter"></i></a></li>
+	<li><a class="c-Footer-item c-Footer-item--icon" href="https://linkedin.com/showcase/faculty-of-science-unige" target="_blank" title="LinkedIn"><i class="o-Icon o-Icon--square fa fa-linkedin"></i></a></li>
+	<li><a class="c-Footer-item c-Footer-item--icon" href="https://www.instagram.com/sciences_unige/" target="_blank" title="Instagram"><i class="o-Icon o-Icon--square fa fa-instagram"></i></a></li>
+	<li><a class="c-Footer-item c-Footer-item--icon" href="https://www.facebook.com/sciencesUNIGE" target="_blank" title="Facebook"><i class="o-Icon o-Icon--square fa fa-facebook"></i></a></li>
+</ul>
+
+</nav>        </div>
+    </div>
+</footer>
+<!-- Main Site Footer -->
+<footer class="c-Footer c-Footer--site u-fw hidden-print" role="contentinfo">
+    <div class="o-Layout">
+        <div class="o-Grid">
+    <nav class="c-Footer-section"><h4 class="c-Footer-title">University of Geneva</h4>
+<ul><li><span class="c-Footer-item">24 rue du Général-Dufour<br/>1211 Genève 4<br/>T. +41 (0)22 379 71 11<br/>F. +41 (0)22 379 11 34</span></li><li><a class="c-Footer-item" href="https://www.unige.ch/presse/plans/" target="_self">Campus Accessibility</a></li><li><a class="c-Footer-item" href="https://memento.unige.ch/doc/0015/" target="_self">University Calendar</a></li></ul></nav><nav class="c-Footer-section"><h4 class="c-Footer-title">Enroll at UNIGE</h4>
+<ul><li><a class="c-Footer-item" href="https://www.unige.ch/immatriculations/en" target="_blank">Applications</a></li><li><a class="c-Footer-item" href="https://vie-de-campus.unige.ch/campus-life/administrative-procedures" target="_blank">Administrative procedures</a></li><li><a class="c-Footer-item" href="https://admissions.unige.ch/kayako/index.php?/Tickets/Submit" target="_blank">Ask a question</a></li></ul></nav><nav class="c-Footer-section"><h4 class="c-Footer-title">Contact</h4>
+<ul><li><a class="c-Footer-item" href="https://www.unige.ch/medias/en/" target="_self">Media</a></li><li><a class="c-Footer-item" href="https://www.unige.ch/biblio/" target="_self">Library</a></li><li><a class="c-Footer-item" href="https://www.unige.ch/en/services/university-structure/" target="_self">University Structures</a></li></ul></nav><nav class="c-Footer-section"><h4 class="c-Footer-title">Social Media</h4>
+<ul><li><a class="c-Footer-item c-Footer-item--icon" href="https://www.unige.ch/rss/" target="_self" title="RSS"><i class="o-Icon o-Icon--square fa fa-rss"></i></a></li><li><a class="c-Footer-item c-Footer-item--icon" href="https://www.facebook.com/unigeneve" target="_blank" title="Facebook"><i class="o-Icon o-Icon--square fa fa-facebook"></i></a></li><li><a class="c-Footer-item c-Footer-item--icon" href="https://twitter.com/UNIGEnews" target="_blank" title="X / Twitter"><i class="o-Icon o-Icon--square fa fa-brands fa-x-twitter"></i></a></li><li><a class="c-Footer-item c-Footer-item--icon" href="https://www.linkedin.com/company/university-of-geneva" target="_blank" title="LinkedIn"><i class="o-Icon o-Icon--square fa fa-linkedin"></i></a></li><li><a class="c-Footer-item c-Footer-item--icon" href="https://www.youtube.com/channel/UCLVD78-qZV06ULrJ6eKJIiQ" target="_blank" title="YouTube"><i class="o-Icon o-Icon--square fa fa-youtube"></i></a></li><li><a class="c-Footer-item c-Footer-item--icon" href="https://instagram.com/unigeneve/" target="_blank" title="Instagram"><i class="o-Icon o-Icon--square fa fa-instagram"></i></a></li><li><a class="c-Footer-item c-Footer-item--icon" href="http://itunes.apple.com/ch/institution/universite-de-geneve/id434804725?l=en" target="_blank" title="iTunesU"><i class="o-Icon o-Icon--square fa fa-graduation-cap"></i></a></li><li><a class="c-Footer-item c-Footer-item--icon" href="https://www.coursera.org/unige" target="_blank" title="Coursera"><i class="o-Icon o-Icon--square o-Icon--coursera"></i></a></li></ul></nav><nav class="c-Footer-section">
+<div id="HTMLBlock3785" class="HTMLBlock">
+<style type="text/css">
+.unige-footer-img {
+  margin-top: 15px;
+  opacity: 60%;
+}
+@media (max-width: 739px) {
+  .unige-footer-img {
+     width: 40%;
+  }
+}
+</style>
+<h4 class="c-Footer-title">Accreditation</h4>
+<p><img class="unige-footer-img" src="https://www.unige.ch/files/4416/5210/1573/SAR-Label_Institutionen_22-29_EN.png" alt="Accreditation" width="399" height="176" /></p></div></nav>        </div>
+    </div>
+</footer>
+</div>
+
+<div class="hidden-print">
+    <a href="#" class="unige-topnav" title="top">
+        <i class="o-Icon fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- Main Modal for many content: search / login / etc.  -->
+<!-- Fullscreen Modal -->
+<div class="o-Modal o-Modal--fullscreen modal fade" id="js-modalMain--fullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalDynamicTitle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="o-Modal-banner">
+                <a href="https://www.unige.ch/" class="c-CorporateLogo">
+    <img src="https://www.unige.ch/cdn/themes/unige2016/img/unige-logo.svg" alt="University of Geneva" class="c-CorporateLogo-img">
+</a>            </div>
+            <div class="o-Modal-content js-modalGetContent">
+                <!-- ajax content here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Normal Modal -->
+<div class="o-Modal modal fade" id="js-modalMain" tabindex="-1" role="dialog" aria-labelledby="myModalDynamicTitle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="o-Modal-content js-modalGetContent">
+                <!-- ajax content here -->
+            </div>
+        </div>
+    </div>
+</div>
+</div> <!-- ./ o-Layout-wrapper -->
+
+<nav id="c-NavMobilePrimary" class="c-NavMobile js-navMobilePrimary" role="navigation">
+<ul class="c-NavMobile-level1"><li class="c-NavMobile-item"><span>University</span><ul class="c-NavMobile-level2"><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/presentation/" target="_self">About the University</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/politique-generale/" target="_self">General Policy</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/teaching/" target="_self">Teaching</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/excellence-research/" target="_self">Excellence in research</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/community-services/" target="_self">Community Services</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/international/" target="_self">International</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/university-structure/" target="_self">University structure</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/rectorat/en" target="_self">Rectorate</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/stat/welcome" target="_self">Statistics</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/university/history/" target="_self">History</a></li></ul></li><li class="c-NavMobile-item"><span>Faculties</span><ul class="c-NavMobile-level2"><li class="c-NavMobile-item"><a href="https://www.unige.ch/sciences/en/" target="_self">Sciences</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/medecine/en/" target="_self">Medicine</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/lettres/en/" target="_self">Humanities</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/sciences-societe/en/" target="_self">Social Sciences</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/gsem/en/" target="_self">Economics and Management</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/droit/en/" target="_self">Law</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/theologie/" target="_self">Theology</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/fapse/" target="_self">Psychology and Educational Sciences</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/fti/en/" target="_self">Translation and Interpreting</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/faculties/centres-institutes/" target="_self">Centres and Institutes</a></li></ul></li><li class="c-NavMobile-item"><span>Students</span><ul class="c-NavMobile-level2"><li class="c-NavMobile-item"><a href="https://www.unige.ch/admissions/en" target="_self">Admission</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/exchange/en/propos" target="_self">Student Exchange</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/etudiants/bachelor/" target="_self">Bachelor Programs (in French)</a></li><li class="c-NavMobile-item"><a href="https://masters.unige.ch/eng/" target="_self">Master Programs</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/biblio/en/" target="_self">Library</a></li><li class="c-NavMobile-item"><a href="https://vie-de-campus.unige.ch/campus-life" target="_self">Campus Life</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/help/en" target="_self">Help UNIGE</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/formcont/en/" target="_self">Continuing & distance education</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/genevasummerschools/" target="_self">Geneva Summer Schools</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/batiment/service-batiments/logements/en/" target="_self">Accommodation Office</a></li></ul></li><li class="c-NavMobile-item"><span>Services</span><ul class="c-NavMobile-level2"><li class="c-NavMobile-item"><a href="https://www.unige.ch/cite/en" target="_self">Community Services</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/presse/plans/en" target="_self">Campus Accessibility</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/biblio/en/" target="_self">Library</a></li><li class="c-NavMobile-item"><a href="https://archive-ouverte.unige.ch/" target="_self">Archive ouverte</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/medias/en/" target="_self">Media and Communication</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/services/teaching/" target="_self">Teaching services</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/en/services/university-structure/" target="_self">University structure</a></li><li class="c-NavMobile-item"><a href="https://www.welc.ch/en/" target="_self">Welcome center</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/help/en" target="_self">Help UNIGE</a></li><li class="c-NavMobile-item"><a href="https://www.unige.ch/steps/home" target="_self">Health and Safety</a></li></ul></li></ul></nav>
+<nav id="c-NavMobileSecondary" class="c-NavMobileSecondary js-navMobileSecondary hidden-print">
+<ul class="c-NavMobileSecondary-level1"><li class="c-NavMobileSecondary-item"><span>The Faculty</span><ul class="c-NavMobileSecondary-level2"><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/lafaculte/the-faculty-of-science" target="_self">The Faculty of Science</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/lafaculte/motdoyen" target="_self">A Word from the Dean</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/lafaculte/organisation" target="_self">Organization</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/application/files/9917/5440/5428/2025_RO_SCIENCES.pdf" target="_blank">Organizational rules of the Faculty (in French)</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/lafaculte/directive-generative-artificial-intelligence" target="_self">Faculty of Science Directive on the Use of Generative Artificial Intelligence</a></li><li class="c-NavMobileSecondary-item"><a href="https://archive-ouverte.unige.ch/" target="_blank">Archive ouverte UNIGE</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/biblio/en/" target="_blank">Library</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/lafaculte/offresdemploi" target="_self">Job offers</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/asso-etud/aesc/index.php" target="_blank">Association des &Eacute;tudiants en Sciences</a></li></ul></li><li class="c-NavMobileSecondary-item"><span>Sections/Depts/NCCR</span><ul class="c-NavMobileSecondary-level2"><li class="c-NavMobileSecondary-item"><a href="http://www.unige.ch/sciences/astro/en/" target="_blank">Astronomy</a></li><li class="c-NavMobileSecondary-item"><a href="http://biologie.unige.ch/en/" target="_blank">Biology</a></li><li class="c-NavMobileSecondary-item"><a href="http://www.unige.ch/sciences/chimie/en/" target="_blank">Chemistry and Biochemistry</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/dinfo/en/" target="_blank">Computer Science</a></li><li class="c-NavMobileSecondary-item"><a href="http://www.unige.ch/math/en/" target="_blank">Mathematics</a></li><li class="c-NavMobileSecondary-item"><a href="http://www.unige.ch/sciences/physique/physics-section/section/" target="_blank">Physics</a></li><li class="c-NavMobileSecondary-item"><a href="https://ispso.unige.ch/ispso/index.php?l=EN" target="_blank">Pharmaceutical Sciences</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/sectionsdepartements/pharma" target="_self">Section of Pharmaceutical sciences</a></li><li class="c-NavMobileSecondary-item"><a href="http://www.unige.ch/sciences/terre/en/" target="_blank">Earth and Environmental Sciences</a></li><li class="c-NavMobileSecondary-item"><a href="http://www.nccr-swissmap.ch/" target="_blank">SwissMAP</a></li><li class="c-NavMobileSecondary-item"><a href="http://nccr-planets.ch/" target="_blank">PlanetS</a></li></ul></li><li class="c-NavMobileSecondary-item is-active"><span>Programs of study</span><ul class="c-NavMobileSecondary-level2"><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/enseignements/study-science-in-geneva" target="_self">Study Science in Geneva</a></li><li class="c-NavMobileSecondary-item is-active"><a href="https://www.unige.ch/sciences/en/enseignements/formations" target="_self">Programs Offered</a></li><li class="c-NavMobileSecondary-item"><a href="https://pgc.unige.ch/main/teachings?fac=547" target="_blank">Course Catalogue</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/enseignements/mobilite" target="_self">Mobility</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/enseignements/enseignementsenligne" target="_self">On-line Programs</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/immatriculations/en" target="_blank">UNIGE Registration</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/biblio/en/" target="_blank">Library</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/enseignements/calendrieracademique" target="_self">Academic Calendar</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/enseignements/contacts" target="_self">Contacts</a></li></ul></li><li class="c-NavMobileSecondary-item"><span>Research</span><ul class="c-NavMobileSecondary-level2"><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/larecherche/excellence-of-research" target="_self">Excellence of research</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/larecherche/domainesderecherche" target="_self">Areas of Research</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/larecherche/platforms" target="_self">Platforms</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/biblio/en/" target="_blank">Library</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.lta-geneve.ch/?lang=en" target="_blank">Laboratory of Advanced Technology (LTA)</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sih/" target="_blank">Science Innovation Hub</a></li><li class="c-NavMobileSecondary-item"><a href="https://archive-ouverte.unige.ch/" target="_blank">Archive ouverte UNIGE</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/recherche/en" target="_blank">Research and Grants Office</a></li><li class="c-NavMobileSecondary-item"><a href="https://swissmaprs.ch/" target="_blank">SwissMap Research Station (SRS)</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/cvu/" target="_blank">Center for Life in the Universe (LUC)</a></li></ul></li><li class="c-NavMobileSecondary-item"><span>Faculty and City</span><ul class="c-NavMobileSecondary-level2"><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/public/formations/auditeurs" target="_blank">Courses open to the Public</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/public/formations/auditeurs" target="_blank">Auditors</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/formcont/en/" target="_blank">Continuing Education</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/biblio/en/" target="_blank">Library</a></li><li class="c-NavMobileSecondary-item"><a href="https://scienscope.unige.ch/" target="_blank">Scienscope</a></li><li class="c-NavMobileSecondary-item"><a href="https://lta-geneve.ch/?lang=en" target="_blank">Laboratory of Advanced Technology (LTA)</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sih/" target="_blank">Science Innovation Hub</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/faculteetcite/association-des-parents" target="_self">Parents association of Faculty of Science</a></li></ul></li><li class="c-NavMobileSecondary-item"><span>Practical information</span><ul class="c-NavMobileSecondary-level2"><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/informationspratiques/contacts" target="_self">Contacts</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/informationspratiques/horaires" target="_self">Hours</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/informationspratiques/dates" target="_self">Important dates</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/informationspratiques/steps" target="_self">Health and safety at work</a></li></ul></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/secretariatetudiants" target="_self">Students / PhD candidates</a></li><li class="c-NavMobileSecondary-item"><a href="https://www.unige.ch/sciences/en/prospective-students" target="_self">Prospective students</a></li></ul></nav>
+<nav id="c-NavMobileTertiary" class="c-NavMobileTertiary js-navMobileTertiary"></nav><!-- Main js -->
+<script src="https://www.unige.ch/cdn/themes/unige2016/js/scripts.min.js"></script>
+<script src="https://www.unige.ch/cdn/themes/unige2016/js/top.js"></script>
+<script>
+  var _matomoGlobalUrl = 'https://matomo-com-unige.ch/';
+  var _matomoGlobalSiteId = '111';
+
+  window._paq = window._paq || [];
+  window._paq.push(['setCookieDomain', '*.unige.ch']);
+
+  var _prevMatomoInit = window.matomoAsyncInit;
+  window.matomoAsyncInit = function() {
+    if (typeof _prevMatomoInit === 'function') { _prevMatomoInit(); }
+    var t = window.Matomo.addTracker(_matomoGlobalUrl + 'matomo.php', _matomoGlobalSiteId);
+    t.setCookieDomain('*.unige.ch');
+    t.trackPageView();
+    t.enableLinkTracking();
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (!document.querySelector('script[src*="matomo.js"]')) {
+      var g = document.createElement('script');
+      g.async = true;
+      g.src = _matomoGlobalUrl + 'matomo.js';
+      document.head.appendChild(g);
+    }
+  });
+</script>    </div> <!-- /unige-wrapper -->
+    </div> <!-- /pageWrapperClass -->
+<script type="text/javascript" src="/sciences/packages/automatic_email_obfuscator/js/email_deobfuscator_html.js?ccm_nocache=35f06eaef5ab14d3a4b97cdbedb22387ae01b2d2"></script>
+    </body>
+</html>

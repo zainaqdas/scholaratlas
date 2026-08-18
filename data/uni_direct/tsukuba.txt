@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/assets/img/common/favicon.ico" />
+<link rel="canonical" href="https://www.tsukuba.ac.jp/en/admissions/financial-scholarships/">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/plugins/unveilhooks/ls.unveilhooks.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js"></script>
+<script src="/assets/js/lazyload.js"></script>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:500,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:500,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,700&display=swap">
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="/assets/js/common.js"></script>
+<script src="/assets/js/jquery.magnific-popup.min.js"></script>
+<script type="application/ld+json" class="schemantra">{
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "@id": "https://www.tsukuba.ac.jp/",
+  "address": "[1-1-1 Tennodai, Tsukuba, Ibaraki 305-8577 Japan,3-29-1 Otsuka, Bunkyo-ku, Tokyo 112-0012 Japan]",
+  "alternateName": "[Tsukuba University]",
+  "areaServed": "[Tsukuba,Tokyo]",
+  "description": "The University of Tsukuba is a designated national university located in Tsukuba City, Ibaraki Prefecture, Japan. ln 1973, the university was established in Tsukuba Science City as a new concept university. The university's origin dates back to 1872 when it was the Normal School. The slogan of the university is 'IMAGINE THE FUTURE.' As a 'genuinely comprehensive university' with a highly international and interdisciplinary background, the university conducts research that transcends disciplinary borders and is highly regarded by the global community. The Tokyo Campus offers evening graduate school courses for working individuals. October 1, 2023, marked the milestone of 151 years since the inception of our predecessor, the Normal School, and the 50th anniversary of the establishment of the University of Tsukuba.",
+  "foundingDate": "1973-10-01",
+  "hasMap": "https://www.tsukuba.ac.jp/en/access/",
+  "image": "https://www.tsukuba.ac.jp/images/main-visual.jpg",
+  "keywords": "University of Tsukuba,Tsukuba,Designated National University,National University,university,IMAGINE THE FUTURE., Tsukuba University",
+  "legalName": "Designated National University University of Tsukuba",
+  "logo": "https://www.tsukuba.ac.jp/assets/img/common/logo.svg",
+  "map": "https://www.tsukuba.ac.jp/en/access/",
+  "maps": "https://www.tsukuba.ac.jp/en/access/",
+  "openingHours": "[Mo 9:00-12:15 13:15-17:00,Tu 9:00-12:15 13:15-17:00,We 9:00-12:15 13:15-17:00,Th 9:00-12:15 13:15-17:00,Fr 9:00-12:15 13:15-17:00]",
+  "slogan": "IMAGINE THE FUTURE.",
+  "telephone": "029-853-2111",
+  "tourBookingPage": "https://www.tsukuba.ac.jp/en/about/campus-tour-top/",
+  "name": "University of Tsukuba",
+  "latitude": "36.11166113303628",
+  "longitude": "140.1042751250035",
+  "identifier": "https://www.tsukuba.ac.jp/en",
+  "sameAs": "[https://www.facebook.com/univ.tsukuba.en,https://www.facebook.com/univ.tsukuba.ja,https://twitter.com/UNIV_TSUKUBA_EN,https://twitter.com/UNIV_TSUKUBA_JP,https://www.linkedin.com/edu/school?id=14403,https://www.instagram.com/university_of_tsukuba/,https://www.youtube.com/user/univpr2014,https://www.youtube.com/@university_of_tsukuba,https://podcasters.spotify.com/pod/show/university-of-tsukuba]",
+  "url": "https://www.tsukuba.ac.jp/en/"
+}</script>
+<title>Scholarships - University of Tsukuba</title>
+</head>
+<body class="financial-scholarships">
+<main class="main ">
+<!--header-->
+<header class="header sp-head">
+    <div class="nav-header">
+      <a class="logo" href="/en/">
+        <figure class="nav-logo"><img src="/assets/img/common/logo-sp.svg" alt="University of Tsukuba"></figure>
+      </a>
+      <div class="menu is-active">
+        <div class="bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="container">
+				<div class="search-wrap">
+          <input type="radio" name="search_choose" id="search_001" checked>
+          <input type="radio" name="search_choose" id="search_002" />
+          <div class="search-choose">
+            <label class="site" for="search_001">Website</label>
+            <label class="resercher" for="search_002">Researchers</label>
+          </div>
+        <div class="search-panel">
+          <div id="search_panel_001" class="tab-panel">
+            <form name="search___form_en1" class="search-form" action="/en/search/" id="searchform" method="get" target="">
+              <div class="search">
+              <input name="q" type="text" title="Research" placeholder="Website Researchers" accesskey="4" id="search">
+              <button class="search-btn" type="submit">
+                <svg viewBox="0 0 15.9 15.9">
+                  <path class="st0" d="M15.9,14.5l-3.3-3.3C13.5,10,14,8.5,14,7c0-3.8-3.1-7-6.9-7C7.1,0,7,0,7,0C3.2,0,0,3.1,0,6.9
+                  C0,6.9,0,7,0,7c0,3.8,3.1,7,6.9,7c0,0,0.1,0,0.1,0c1.5,0,3-0.5,4.2-1.4l3.3,3.3L15.9,14.5z M2,7c0-2.7,2.2-5,4.9-5C6.9,2,7,2,7,2
+                  c2.7,0,5,2.2,5,4.9c0,0,0,0.1,0,0.1c0,2.7-2.2,5-4.9,5c0,0-0.1,0-0.1,0C4.3,12,2,9.8,2,7C2,7.1,2,7,2,7z"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+
+           <div id="search_panel_002" class="tab-panel">
+						<form name="search___form" class="search-form" action="" id="searchform" method="get" target="_blank">
+              <div class="search">
+              <input name="q" type="text" title="Research" placeholder="Research Researchers" accesskey="4" id="search">
+              <button class="search_btn" type="submit">
+                <svg viewBox="0 0 15.9 15.9">
+                  <path class="st0" d="M15.9,14.5l-3.3-3.3C13.5,10,14,8.5,14,7c0-3.8-3.1-7-6.9-7C7.1,0,7,0,7,0C3.2,0,0,3.1,0,6.9
+                  C0,6.9,0,7,0,7c0,3.8,3.1,7,6.9,7c0,0,0.1,0,0.1,0c1.5,0,3-0.5,4.2-1.4l3.3,3.3L15.9,14.5z M2,7c0-2.7,2.2-5,4.9-5C6.9,2,7,2,7,2
+                  c2.7,0,5,2.2,5,4.9c0,0,0,0.1,0,0.1c0,2.7-2.2,5-4.9,5c0,0-0.1,0-0.1,0C4.3,12,2,9.8,2,7C2,7.1,2,7,2,7z"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        </div>
+        <div class="language"><a href="/" rel="noopener">Japanese</a></div>
+      </div>
+      <nav>
+        <ul class="parent-list">
+          <li class="item"><a href="/en/" rel="noopener" class="txt-link txt-ex-link">Home</a></li>
+          <li class="item"><a>ABOUT</a>
+        		<ul class="child-list">
+                <li class="item"><a class="b-p" href="/en/about/" rel="noopener">ABOUT TOP</a></li>
+                <li class="item"><a class="b-p">Office of the President</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/president-message/" rel="noopener" class="txt-link">Message from the President</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/president-statement/" rel="noopener" class="txt-link">President's Annual Policy Statement</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/president-staffs/" rel="noopener" class="txt-link">Board of Directors</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/president-president/" rel="noopener" class="txt-link">Past Presidents</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Outline</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/outline-concept/" rel="noopener" class="txt-link">Concept</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/designated-national-university/" rel="noopener" class="txt-link">University of Tsukuba as a Designated National University</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/outline-objective/" rel="noopener" class="txt-link">Mission Statement</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/history/" rel="noopener" class="txt-link">History</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/outline-logomark/" rel="noopener" class="txt-link">School Emblem</a></li>
+						<li class="item"><a class="d-p" href="../../50th-anniv/en/" rel="noopener" class="txt-link">Celebrating the 151st+50th Anniversary of the University of Tsukuba</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Discover Tsukuba</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/outline-tsukuba/" rel="noopener" class="txt-link">Discover Tsukuba</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/changemakers/" rel="noopener" class="txt-link">CHANGEMAKERS</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Organizations</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/organization-administrative/" rel="noopener" class="txt-link">Management System</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/organization-ug-list/" rel="noopener" class="txt-link">Undergraduate (Schools &amp; Colleges)</a></li>
+                        <li class="item"><a class="d-p" href="/en/academics/g-list-since-ay-2020/" rel="noopener" class="txt-link">Graduate (Graduate Schools &amp; Programs)</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/organization-institutions-centers/" rel="noopener" class="txt-link">Research Institutions &amp; Centers</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/organization-faculties/" rel="noopener" class="txt-link">Faculty Organizations</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/organization-library/" rel="noopener" class="txt-link">University Library</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/organization-hospital/" rel="noopener" class="txt-link">University Hospital</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/organization-attached-schools/" rel="noopener" class="txt-link">Educational Bureau &amp; Laboratory Schools</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">University Initiatives</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/strategy-list/" rel="noopener" class="txt-link">International Strategy</a></li>
+                  		<li class="item"><a class="d-p" href="https://social-impact.projects.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Multicultural Campus Project Toward Social Impact</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.bgi.sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Bureau of Global Initiatives</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/academicnetworks/" rel="noopener" class="txt-link">Academic Networks</a></li>
+                  		<li class="item"><a class="d-p" href="https://tgsw.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Global Science Week（TGSW）</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.osi.tsukuba.ac.jp/sdgs/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Driving Sustainable Development (SDGs)</a></li>
+                  		<li class="item"><a class="d-p" href="https://diversity.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Gender Support</a></li>
+                                                <li class="item"><a class="d-p" href="https://dac.tsukuba.ac.jp/shien/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Accessibility Support</a></li>
+                                                <li class="item"><a class="d-p" href="https://syushoku.sec.tsukuba.ac.jp/career/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Career Support</a></li>
+
+                                                <li class="item"><a class="d-p" href="/en/campuslife/anti-harassment/" rel="noopener" class="txt-link">Harassment Prevention</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/initiatives-action-disability/" rel="noopener" class="txt-link">The University of Tsukuba Charter of Support for Students with Disabilities</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/taiiku-and-sport-charter/" rel="noopener" class="txt-link">Taiiku and Sport Charter of University of Tsukuba</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/initiatives-contribution/" rel="noopener" class="txt-link">Social Contribution</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/environment-list/" rel="noopener" class="txt-link">Approach to the Environment</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/initiatives-students-kagakunome/" rel="noopener" class="txt-link">Buds of Science Prize</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/action-no-smoking" rel="noopener" class="txt-link">No Smoking on Campus</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Risk Management</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/risk-management/" rel="noopener" class="txt-link">Risk Management</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/risk-safety/" rel="noopener" class="txt-link">Overseas Safety &amp; Risk Management (for Students)</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Campus &amp; Facilities</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/campus-access/" rel="noopener" class="txt-link">Access Map</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/campus-anniversary-hall/" rel="noopener" class="txt-link">University Hall &amp; 30th Anniversary Hall</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/campus-gallery/" rel="noopener" class="txt-link">University of Tsukuba Gallery</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/campus-artspace/" rel="noopener" class="txt-link">University of Tsukuba Art Space</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.stb.tsukuba.ac.jp/~miraishakai/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Future Society Design Complex</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/campus-tour-top/" rel="noopener" class="txt-link">Campus Tour</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/view-our-video/" rel="noopener" class="txt-link">Watch Our Campus</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Information Disclosure</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/mid-term-goals-and-plans/" rel="noopener" class="txt-link">Mid-term Goals and Plans</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/integrated-report/" rel="noopener" class="txt-link">Integrated Report</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/creditrating/" rel="noopener" class="txt-link">Information on Credit Rating</a></li>
+                  		<li class="item"><a class="d-p" href="https://jpcup.niad.ac.jp/institute/0408.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Japanese College and University Portraits (External link managed by NIAD-QE)</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/privacy-policy/" rel="noopener" class="txt-link">Policies and Procedures for Protection of Personal Information</a></li>
+                	</ul>
+
+                </li>
+                <li class="item"><a class="b-p">Public Relations</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/public-outline/" rel="noopener" class="txt-link">Outline of the University of Tsukuba</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/public-booklets-leaflet/" rel="noopener" class="txt-link">At a Glance Maps and Data University of Tsukuba</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/public-branding/" rel="noopener" class="txt-link">Making a Tsukuba Brand</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/tsukucomm/" rel="noopener" class="txt-link">TSUKUCOMM</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Job Opportunities</a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/jobs-information/" rel="noopener" class="txt-link">Job Opportunities</a></li>
+                	</ul>
+                </li>
+                <li class="item"><a class="b-p">Issue of Certificate </a>
+                	<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/alumni/certificates-u-application/" rel="noopener" class="txt-link">Schools / Colleges/ Tokyo University of Education / etc</a></li>
+                  		<li class="item"><a class="d-p" href="/en/alumni/certificates-g-application/" rel="noopener" class="txt-link">Graduate Schools</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/certificate-retirement-resignation/" rel="noopener" class="txt-link">Retirement/Resignation Certificate</a></li>
+
+                	</ul>
+                </li>
+          		</ul>
+        	</li>
+
+          <li class="item"><a>DISCOVER</a>
+          	<ul class="child-list">
+                <li class="item"><a class="b-p" href="/en/discover/" rel="noopener">DISCOVER TOP</a></li>
+                <li class="item"><a class="b-p">The Basics</a>
+            		<ul class="groundchild-list">
+                    <!--<li class="item"><a class="d-p" href="https://www.global.tsukuba.ac.jp/why-tsukuba/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Why Study in Tsukuba</a></li>-->
+                    <li class="item"><a class="d-p" href="/en/about/outline-tsukuba/" rel="noopener" class="txt-link">Discover Tsukuba</a></li>
+                    <li class="item"><a class="d-p" href="/en/about/public-booklets-leaflet/" rel="noopener" class="txt-link">Facts and Figures</a></li>
+                    <li class="item"><a class="d-p" href="https://ssc.sec.tsukuba.ac.jp/photo" rel="noopener" class="txt-link txt-ex-link" target="_blank">Photo Gallery</a></li>
+                    <li class="item"><a class="d-p" href="/en/about/campus-tour-top/" rel="noopener" class="txt-link">Explore the Campus</a></li>
+                    <li class="item"><a class="d-p" href="/en/about/campus-access/" rel="noopener" class="txt-link">Visit Us</a></li>
+                  	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Facilities</a>
+            		<ul class="groundchild-list">
+                    <li class="item"><a class="d-p" href="/en/campuslife/support-healthlife/accommodation/" rel="noopener" class="txt-link">Housing</a></li>
+                    <li class="item"><a class="d-p" href="/en/campuslife/dining/" rel="noopener" class="txt-link">Dining & Shops</a></li>
+                    <li class="item"><a class="d-p" href="/en/campuslife/welfare-facilities-accommodation/" rel="noopener" class="txt-link">Guest Houses</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Tsukuba People</a>
+            		<ul class="groundchild-list">
+                    <li class="item"><a class="d-p" href="/en/tsukuba-frontier/" rel="noopener" class="txt-link">Visit Unique Labs</a></li>
+                    <li class="item"><a class="d-p" href="/en/tsukuba-future/" rel="noopener" class="txt-link">Meet Leading Scientists</a></li>
+                    <li class="item"><a class="d-p" href="/en/about/changemakers/" rel="noopener" class="txt-link">Meet Tsukuba's Finest</a></li>
+                    <li class="item"><a class="d-p" href="/en/tsukuba-alumni/" rel="noopener" class="txt-link">Tsukuba Alumni in Action</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">International Students</a>
+            		<ul class="groundchild-list">
+                    <li class="item"><a class="d-p" href="/en/discover/studentstories/" rel="noopener" class="txt-link">Student Stories</a></li>
+                    <li class="item"><a class="d-p" href="/en/voices/" rel="noopener" class="txt-link">Voices of International Students</a></li>
+                  	<li class="item"><a class="d-p" href="/en/campuslife/support-international/" rel="noopener" class="txt-link">Support for International Students</a></li>
+                    <li class="item"><a class="d-p" href="https://ssc.sec.tsukuba.ac.jp/ssc-news" rel="noopener" class="txt-link txt-ex-link" target="_blank">Events for International Students</a></li>
+                    <li class="item"><a class="d-p" href="/en/alumni/graduates-interviews/" rel="noopener" class="txt-link">Graduates Pursuing Careers in Japan</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Tsukuba Connect</a>
+            		<ul class="groundchild-list">
+                    <li class="item"><a class="d-p" href="https://trios.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Find an Expert</a></li>
+                    <li class="item"><a class="d-p" href="https://www.linkedin.com/school/%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6/?viewAsMember=true" rel="noopener" class="txt-link txt-ex-link" target="_blank">Find Tsukuba People on LinkedIn</a></li>
+                    <li class="item"><a class="d-p" href="https://global-alumni.sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Find Tsukuba Alumni</a></li>
+                	</ul>
+            	</li>
+          		</ul>
+          </li>
+
+          <li class="item futureblue"><a class="itemtxtf">ADMISSIONS</a>
+          	<ul class="child-list">
+                <li class="item"><a class="b-p" href="/en/admissions/" rel="noopener">ADMISSIONS TOP</a></li>
+                <li class="item"><a class="b-p">Undergraduate Admissions</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="https://ac.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Join University of Tsukuba</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.global.tsukuba.ac.jp/apply/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Degree Programs Taught in English</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.ide.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Bachelor's Program in Interdisciplinary Engineering</a></li>
+                  		<li class="item"><a class="d-p" href="https://bpgi.tsukuba.ac.jp/outline/program/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Bachelor’s Program in Global Issues</a></li>
+                  		<li class="item"><a class="d-p" href="https://jp-ex.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Japan-Expert (bachelor degree) Program</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.utmy.edu.my/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Transdisciplinary Science and Design [University of Tsukuba, Malaysia (UTMy)]</a></li>
+                  	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Graduate Admissions</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/admissions/grad-flowchart/" rel="noopener" class="txt-link">Applying to Tsukuba </a></li>
+                  		<li class="item"><a class="d-p" href="https://eng.ap-graduate.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate Admissions</a></li>
+                  		<li class="item"><a class="d-p" href="/en/admissions/grad-exam/" rel="noopener" class="txt-link">Graduate Entrance Examination Schedule</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-since-grad-by-discipline-en/search-programs-by-discipline.html" rel="noopener" class="txt-link">Search Programs by Discipline</a></li>
+                  		<!--li class="item"><a class="d-p" href="/en/admissions/grad-info/" rel="noopener" class="txt-link">Information and Instructions for Examinees</a></li-->
+                	</ul>
+            	</li>
+                <!--<li class="item"><a class="b-p">Why Tsukuba?</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="https://www.global.tsukuba.ac.jp/undergraduate/why-Tsukuba/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Why Tsukuba?</a></li>
+                	</ul>
+            	</li>-->
+                <li class="item"><a class="b-p">Fees &amp; Expenses</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/admissions/fees-tuition/" rel="noopener" class="txt-link">Admission &amp; Tuition Fees</a></li>
+                      	<li class="item"><a class="d-p" href="/en/admissions/fees-living-expenses/" rel="noopener" class="txt-link">Living Expenses</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Financial Aid &amp; Scholarships</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/admissions/financial-exemption/" rel="noopener" class="txt-link">Entrance Fee Exemption and Tuition Waiver</a></li>
+                  		<li class="item"><a class="d-p" href="/en/admissions/financial-scholarships/" rel="noopener" class="txt-link">Scholarships</a></li>
+                  		<li class="item"><a class="d-p" href="https://ssc.sec.tsukuba.ac.jp/ies-top/go-abroad-top/scholarship-4-ga" class="txt-link txt-ex-link" target="_blank">University of Tsukuba Study Abroad Support Programs</a></li>
+                  		<li class="item"><a class="d-p" href="/en/admissions/financial-emergency-support/" rel="noopener" class="txt-link">Emergency Support</a></li>
+                                                <li class="item"><a class="d-p" href="/en/academics/jst-spring-program/" rel="noopener" class="txt-link">Financial Support for Students in the Doctoral Program</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Guidebooks for International Students</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/admissions/guidebook-enrollment/" rel="noopener" class="txt-link">Enrollment Guidebook for International Students</a></li>
+                  		<li class="item"><a class="d-p" href="/en/admissions/guidebook-international-student/" rel="noopener" class="txt-link">International Students' Guidebook</a></li>
+                  		<li class="item"><a class="d-p" href="/campuslife/students-guidebook-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">University of Tsukuba Students' Guide</a></li>
+                  		<li class="item"><a class="d-p" href="/en/campuslife/support-healthsupport/safelivingen.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">SAFE LIVING - How to Live a Pleasant Student Life</a></li>
+                	</ul>
+            	</li>
+          		</ul>
+          </li>
+
+          <li class="item"><a>ACADEMICS</a>
+        	<ul class="child-list">
+                <li class="item"><a class="b-p" href="/en/academics/" rel="noopener">ACADEMICS TOP</a></li>
+                <li class="item"><a class="b-p">Education Philosophy</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/policy-tstandard/" rel="noopener" class="txt-link">Tsukuba STANDARDs</a></li>
+                   		<li class="item"><a class="d-p" href="/en/academics/policy-ethics/" rel="noopener" class="txt-link">Code of Ethics on Education</a></li>
+               	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Academic Calendar</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/academic-calendar/" rel="noopener" class="txt-link">Academic Calendar</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Undergraduate Studies</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/ug-courses-g30guidebook/" rel="noopener" class="txt-link">Course Registration Procedures</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/ug-courses-openclass/" rel="noopener" class="txt-link">Course Catalogue</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.sanrenhonbu.tsukuba.ac.jp/en/course/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Entrepreneurship Education</a></li>
+                                               <li class="item"><a class="d-p" href="/en/academics/grade-evaluation-appeals/" rel="noopener" class="txt-link">Grade Evaluation Appeals</a></li>
+                        <li class="item"><a class="d-p" href="/en/academics/ug-document-spring/" rel="noopener" class="txt-link">Distribution Materials for New Undergraduates Students (Spring Semester)</a></li>
+                        <li class="item"><a class="d-p" href="/en/academics/ug-document-fall/" rel="noopener" class="txt-link">Distribution Materials for New Undergraduates Students (Fall Semester)</a></li>
+
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Schools &amp; Colleges（Bachelor)</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/organization-ug-list/" rel="noopener" class="txt-link">List of Schools and Colleges</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.humcul.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Humanities and Culture</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.soc-int.tsukuba.ac.jp/en/index.php" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Social and International Studies</a></li>
+                  		<li class="item"><a class="d-p" href="https://www2.human.tsukuba.ac.jp/gakugun/english/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Human Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.life.tsukuba.ac.jp/en/#anchor_life-colleges" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Life and Environmental Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://sse.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Science and Engineering</a></li>
+                  		<li class="item"><a class="d-p" href="https://inf.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Informatics</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.md.tsukuba.ac.jp/igakugun/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Medicine and Health Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.taiiku.tsukuba.ac.jp/gakugun/english.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Health and Physical Education</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.geijutsu.tsukuba.ac.jp/school/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Art and Design</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.utmy.edu.my/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Transdisciplinary Science and Design [University of Tsukuba, Malaysia (UTMy)]</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-since-ay-2020-sigma/" rel="noopener" class="txt-link">School of Integrative and Global Majors (SIGMA)</a></li>
+
+                </ul>
+            	</li>
+                <li class="item"><a class="b-p">Graduate Studies</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/g-courses-handbook/" rel="noopener" class="txt-link">Graduate School Handbook</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-courses-kyoutsuukamoku/" rel="noopener" class="txt-link">Graduate General Education</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.sanrenhonbu.tsukuba.ac.jp/en/course/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Entrepreneurship Education</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-courses-degree-program-pamphlet.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Graduate Education Reform</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.office.otsuka.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">University of Tsukuba, Tokyo Campus　(For Working Individuals)</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-courses-s-program/" rel="noopener" class="txt-link">Early Completion Program for Working People</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-courses-cooperative/" rel="noopener" class="txt-link">Cooperative Graduate School System</a></li>
+                                                <li class="item"><a class="d-p" href="/en/academics/grade-evaluation-appeals/" rel="noopener" class="txt-link">Grade Evaluation Appeals</a></li>
+                        <li class="item"><a class="d-p" href="/en/academics/g-document-spring/" rel="noopener" class="txt-link">Distribution Materials for New Graduates Students (Spring Semester)</a></li>
+                        <li class="item"><a class="d-p" href="/en/academics/g-document-fall/" rel="noopener" class="txt-link">Distribution Materials for New Graduates Students (Fall Semester)</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Graduate Schools &amp; Programs (Master, Doctor)</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-since-grad-by-discipline-en/search-programs-by-discipline.html" rel="noopener" class="txt-link">Search Programs by Discipline</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-since-ay-2020/" rel="noopener" class="txt-link">Program Listing</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-since-ay-2020/#a1" rel="noopener" class="txt-link">Graduate School of Business Sciences, Humanities and Social Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-gsst/" rel="noopener" class="txt-link">Graduate School of Science and Technology</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-since-ay-2020/#a9" rel="noopener" class="txt-link">Graduate School of Comprehensive Human Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-since-ay-2020-sigma/" rel="noopener" class="txt-link">School of Integrative and Global Majors (SIGMA)</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Graduate Schools &amp; Programs (for students who entered the university in AY 2019 or before)</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-prev-graduate/" rel="noopener" class="txt-link">Program Listing</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/g-list-prev-graduate/#a1" rel="noopener" class="txt-link">Master's Program in Education</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.hass.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Humanities and Social Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.gsbs.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Business Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://grad.pas.tsukuba.ac.jp/?lang=en" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Pure and Applied Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.sie.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Systems and Information Engineering</a></li>
+                  		<li class="item"><a class="d-p" href="#" rel="noopener">Graduate School of Life and Environmental Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.chs.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Comprehensive Human Sciences</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.slis.tsukuba.ac.jp/grad/english/index-e.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Library, Information and Media Studies</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">International Students</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/admissions/guidebook-enrollment/" rel="noopener" class="txt-link">Enrollment Guide for International Students</a></li>
+                  		<!--<li class="item"><a class="d-p" href="/en/academics/international/international-students-guidebook.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">International Student Classification</a></li>-->
+                  		<!--<li class="item"><a class="d-p" href="/en/academics/international-exam-schedule/" rel="noopener" class="txt-link">Degree Programs Taught in Japanese</a></li>-->
+                  		<li class="item"><a class="d-p" href="https://www.global.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Degree Programs Taught in English </a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/international-exam-scheduleauditors/" rel="noopener" class="txt-link">Credited Auditors</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/international-research-students/" rel="noopener" class="txt-link">Non-degree Research Students</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/international-exchange-students/" rel="noopener" class="txt-link">Exchange Students</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.global.tsukuba.ac.jp/summer/programs/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Short Programs</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/international-jp-courses/" rel="noopener" class="txt-link">Intensive Japanese Training</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Collaboration with Overseas Partner Universities</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="https://www.bgi.sec.tsukuba.ac.jp/en/partner-organizations/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Partner Universities</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.cic.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Campus-in-Campus (CiC) Initiative</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/overseas-ddp-jdp/" rel="noopener" class="txt-link">Double/Joint Degree Program  (DDP/JDP)</a></li>
+                  		<li class="item"><a class="d-p" href="/en/academics/educational-expansion-overseas/" rel="noopener" class="txt-link">Educational Expansion Overseas by the University of Tsukuba</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Featured Educational Programs</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/jst-spring-program/" rel="noopener" class="txt-link">Financial Support for Students in the Doctoral Program</a></li>
+                  		<li class="item"><a class="d-p" href="https://inclusive-smart-society.edu.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Inclusive Smart Society Program (ISS Program)</a></li>
+					</ul>
+            	</li>
+                <li class="item"><a class="b-p">Academic Support Centers</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="https://www.cegloc.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Education of Global Communication (CEGLOC)</a></li>
+                  		<li class="item"><a class="d-p" href="https://www.sapec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Sports and Physical Education Center</a></li>
+                  		<li class="item"><a class="d-p" href="https://ac.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Admission Center (Japanese only）</a></li>
+                	</ul>
+            	</li>
+          		</ul>
+          </li>
+
+
+          <li class="item">
+            <a>RESEARCH</a>
+            <ul class="child-list">
+           <li class="item"><a class="b-p" href="/en/research/" rel="noopener">RESEARCH TOP</a></li>
+
+              <li class="item">
+                <a class="b-p">Research News</a>
+                <ul class="groundchild-list">
+                  <li class="item"><a class="d-p" href="/en/research-news/" rel="noopener" class="txt-link">Research News</a></li>
+                </ul>
+              </li>
+              <li class="item"><a class="b-p">Researchers</a>
+            	<ul class="groundchild-list">
+                <li class="item"><a class="d-p" href="/en/tsukuba-future/" rel="noopener" class="txt-link">TSUKUBA FUTURE</a></li>
+                  <li class="item"><a class="d-p" href="/en/tsukuba-frontier/" rel="noopener" class="txt-link">TSUKUBA FRONTIER</a></li>
+                </ul>
+              </li>
+              <li class="item"><a class="b-p">Tsukuba Institute for Advanced Research(TIAR)</a>
+            	<ul class="groundchild-list">
+                <li class="item"><a class="d-p" href="https://tiar.centers.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Institute for Advanced Research(TIAR)</a></li>
+                </ul>
+              </li>
+              <li class="item"><a class="b-p">Advanced Research Centers</a>
+            	<ul class="groundchild-list">
+		<li class="item"><a class="d-p" href="https://wpi-iiis.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">International Institute for Integrative Sleep Medicine (IIIS)</a></li>
+                                <li class="item"><a class="d-p" href="https://www.ccs.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Computational Sciences</a></li>
+            		<li class="item"><a class="d-p" href="https://www1.tara.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Life Science Center for Survival Dynamics, Tsukuba Advanced Research Alliance </a></li>
+            		<li class="item"><a class="d-p" href="https://www.t-pirc.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba-Plant Innovation Research Center</a></li>
+            		<li class="item"><a class="d-p" href="https://www.shimoda.tsukuba.ac.jp/eng-home.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Shimoda Marine Research Center</a></li>
+            		<li class="item"><a class="d-p" href="https://www.prc.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Plasma Research Center</a></li>
+            		<li class="item"><a class="d-p" href="/en/research/advanced-arena/" rel="noopener" class="txt-link">Alliance for Research on the Mediterranean and North Africa </a></li>
+            		<li class="item"><a class="d-p" href="https://www.ccr.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Cybernics Research</a></li>
+            		<li class="item"><a class="d-p" href="https://www.ied.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Research in Radiation, Isotopes, and Earth System Sciences</a></li>
+            		<li class="item"><a class="d-p" href="https://air.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Artificial Intelligence Research </a></li>
+            		<li class="item"><a class="d-p" href="https://www.mics.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Microbiology Research Center for Sustainability</a></li>
+            		<li class="item"><a class="d-p" href="https://www.arihhp.taiiku.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Advanced Research Initiative for Human High Performance</a></li>
+            		<li class="item"><a class="d-p" href="https://www.pmrc.tsukuba.ac.jp/research/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Proton Medical Research Center</a></li>
+
+            		<li class="item"><a class="d-p" href="https://rcwac.histanth.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Center for West Asian Civilization</a></li>
+            		<li class="item"><a class="d-p" href="https://tchou.tomonaga.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tomonaga Center for the History of the Universe</a></li>
+            		<li class="item"><a class="d-p" href="https://www.trems.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Research Center for Energy Materials Science</a></li>
+            		<li class="item"><a class="d-p" href="https://www.ims.tsukuba.ac.jp/~hbrc/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Hydrogen Boride Research Center</a></li>
+
+            		<li class="item"><a class="d-p" href="https://www.msc.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Mountain Science Center</a></li>
+            		<li class="item"><a class="d-p" href="https://www.md.tsukuba.ac.jp/tmrc/index_en.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Transborder Medical Research Center</a></li>
+            		<li class="item"><a class="d-p" href="https://cyber-m.mc-tsukuba.com/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Cyber Medicine Research</a></li>
+                </ul>
+              </li>
+              <li class="item"><a class="b-p">Unique Programs for Research</a>
+            	<ul class="groundchild-list">
+            		<li class="item"><a class="d-p" href="/en/research/featured-tristar/index.html" rel="noopener" class="txt-link">A Top Runner Development Program Engaging Universities, National Labs, and Companies: TRiSTAR</a></li>
+                  <li class="item"><a class="d-p" href="https://wpi-iiis.tsukuba.ac.jp/about/moonshot/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Moonshot Research and Development Program　Development of new-generation medical care systems through customizing sleep and hibernation</a></li>
+                  <li class="item"><a class="d-p" href="https://tsukubadigitalbio.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JST The program on open innovation platforms for industry-academia co-creation　Tsukuba Digital-Bio International Center</a></li>
+
+                </ul>
+              </li>
+              <li class="item"><a class="b-p">Research Support</a>
+            	<ul class="groundchild-list">
+                    <li class="item"><a class="d-p" href="https://www.kkss.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Facility Center for Science and Technology</a></li>
+            		<li class="item"><a class="d-p" href="https://www.cc.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Academic Computing &amp; Communications Center</a></li>
+            		<li class="item"><a class="d-p" href="https://www.hosp.tsukuba.ac.jp/t-credo/english/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Clinical Research &amp; Development Organization(T-CReDO)</a></li>
+            		<li class="item"><a class="d-p" href="https://www.osi.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Organization for Strategic Research Initiatives (OSRI)</a></li>
+            		<li class="item"><a class="d-p" href="https://ura.sec.tsukuba.ac.jp/ru_registration/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Unit / Research Group System</a></li>
+            		<li class="item"><a class="d-p" href="https://www.osi.tsukuba.ac.jp/fight_covid19/" rel="noopener" class="txt-link txt-ex-link" target="_blank">University ‘Knowledge’-Based Program</a></li>
+            		<li class="item"><a class="d-p" href="https://ura.sec.tsukuba.ac.jp/ura/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Administrators at University of Tsukuba</a></li>
+            		<li class="item"><a class="d-p" href="https://ura.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Information Portal (COTRE)</a></li>
+            		<li class="item"><a class="d-p" href="https://ura.sec.tsukuba.ac.jp/riss/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Information System（RISS)</a></li>
+            		<li class="item"><a class="d-p" href="https://anzenkanri.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Office of Occupational Health and Safety Management </a></li>
+                </ul>
+              </li>
+              <li class="item"><a class="b-p">Research Compliance</a>
+            	<ul class="groundchild-list">
+                  <li class="item"><a class="d-p" href="/en/research/compliance-fairness/" rel="noopener" class="txt-link">Fair Promotion of Research Activities</a></li>
+                  <li class="item"><a class="d-p" href="https://coi-sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Office of Conflict of Interest and Security Export Control</a></li>
+                </ul>
+              </li>
+            <li class="item"><a class="b-p">Industry-University Collaboration</a>
+            	<ul class="groundchild-list">
+                    <li class="item"><a class="d-p" href="https://www.sanrenhonbu.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Industry-University Collaboration </a></li>
+            		<li class="item"><a class="d-p" href="https://www.sanrenhonbu.tsukuba.ac.jp/en/2017rd/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research &amp; Development Centers</a></li>
+            		<li class="item"><a class="d-p" href="https://oiso.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Open Innovation Strategy Organization （OISO） </a></li>
+            		<li class="item"><a class="d-p" href="https://www.sanrenhonbu.tsukuba.ac.jp/en/course/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Entrepreneurship Education</a></li>
+            		<li class="item"><a class="d-p" href="https://itff.projects.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">IMAGINE THE FUTURE. Forum</a></li>
+            		<li class="item"><a class="d-p" href="https://www.sanrenhonbu.tsukuba.ac.jp/en/spin_offs/" rel="noopener" class="txt-link txt-ex-link" target="_blank">University Spin-offs</a></li>
+                </ul>
+            </li>
+            <li class="item"><a class="b-p">Research Collaboration with Tsukuba City</a>
+            	<ul class="groundchild-list">
+                  <li class="item"><a class="d-p" href="https://www.tia-nano.jp/page/dir000002.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Innovation Arena (TIA)</a></li>
+                  <li class="item"><a class="d-p" href="http://www.tsukuba-sogotokku.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba International Strategic Zone</a></li>
+                </ul>
+            </li>
+            <li class="item"><a class="b-p">Partnerships</a>
+            	<ul class="groundchild-list">
+                  <li class="item"><a class="d-p" href="https://www.bgi.sec.tsukuba.ac.jp/en/partner-organizations/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Partner Universities</a></li>
+                  <li class="item"><a class="d-p" href="https://www.cic.sec.tsukuba.ac.jp/partners" rel="noopener" class="txt-link txt-ex-link" target="_blank">Campus-in-Campus Partner Universities</a></li>
+                </ul>
+            </li>
+            </ul>
+          </li>
+
+          <li class="item"><a>CAMPUS LIFE</a>
+        	<ul class="child-list">
+                <li class="item"><a class="b-p" href="/en/campuslife/" rel="noopener">CAMPUS LIFE TOP</a></li>
+                <li class="item"><a class="b-p">Voices of International Students</a>
+            		 <ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/voices/" rel="noopener" class="txt-link">Voices of International Students</a></li>
+                  		<li class="item"><a class="d-p" href="/en/about/view-our-video/" rel="noopener" class="txt-link">Watch Our Campus</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Housing &amp; Dining</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/campuslife/support-healthlife/accommodation/" rel="noopener" class="txt-link">Housing</a></li>
+                  		<li class="item"><a class="d-p" href="/en/campuslife/dining/" rel="noopener" class="txt-link" target="blank">Dining &amp; Shops</a></li>
+                  		<li class="item"><a class="d-p" href="/en/campuslife/welfare-facilities-accommodation/" rel="noopener" class="txt-link">Guest Houses</a></li>
+                </ul>
+            	</li>
+                <li class="item"><a class="b-p">Extracurricular Activities</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/campuslife/activity-unions-circles/" rel="noopener" class="txt-link">Clubs and Circles</a></li>
+                        <li class="item"><a class="d-p" href="/en/campuslife/activity-unions-class/" rel="noopener" class="txt-link">Class &amp; Support System</a></li>
+                        <li class="item"><a class="d-p" href="/en/campuslife/activity-part-time-jobs/" rel="noopener" class="txt-link">Part-time Job Information for Students</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Student Support</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/campuslife/support-international/" rel="noopener" class="txt-link">Support for International Students</a></li>
+                                                <li class="item"><a class="d-p" href="https://ssc.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Student Support Center</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/support-scholarship/" rel="noopener" class="txt-link">News on Scholarship and Tuition Fees</a></li>
+           				 <li class="item"><a class="d-p" href="https://ssc.sec.tsukuba.ac.jp/ies-top/go-abroad-top/scholarship-4-ga" class="txt-link txt-ex-link" target="_blank">University of Tsukuba Study Abroad Support Programs</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/support-healthsupport/" rel="noopener" class="txt-link">Mental and Physical Health Support</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/support-healthsupport/safelivingen.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">SAFE LIVING - How to Live a Pleasant Student Life</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/support-disability/" rel="noopener" class="txt-link">Support for Students with Disabilities</a></li>
+            			<li class="item"><a class="d-p" href="https://diversity.tsukuba.ac.jp/lgbtq/" rel="noopener" class="txt-link txt-ex-link" target="_blank">LGBTQ+</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/support-ta-handbook/" rel="noopener" class="txt-link">Teaching Assistant (TA)</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/support-facilities/" rel="noopener" class="txt-link">Campus &amp; Facilities</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/certificate/" rel="noopener" class="txt-link">Certificates</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/grade-viewing/" rel="noopener" class="txt-link">Grade Viewing by Parents or Guardians</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/support-bus/" rel="noopener" class="txt-link">On-Campus Transportation System (Bus Pass)</a></li>
+            			<li class="item"><a class="d-p" href="https://www.tulips.tsukuba.ac.jp/wsp/index_e.html" rel="noopener" class="txt-link txt-ex-link" target="_blank"> Writing Support</a></li>
+                                                <li class="item"><a class="d-p" href="/en/campuslife/anti-harassment/" rel="noopener" class="txt-link">Harassment Prevention</a></li>
+                </ul>
+            	</li>
+                <li class="item"><a class="b-p">Academic Calendar &amp; University Events</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/academics/academic-calendar/" rel="noopener" class="txt-link">Academic Calendar</a></li>
+                  		<li class="item"><a class="d-p" href="/en/campuslife/calendar-events/" rel="noopener" class="txt-link">University Events</a></li>
+                  		<li class="item"><a class="d-p" href="/en/campuslife/ceremony/" rel="noopener" class="txt-link">Entrance Ceremony &amp; Commencement Ceremony</a></li>
+
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Student's Guide</a>
+            		 <ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/campuslife/students-guidebook-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Student's Guide</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Campus Web Tools</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="https://twins.tsukuba.ac.jp/campusweb/campusportal.do?locale=en_US" rel="noopener" class="txt-link" target="blank">TWINS / Web Bulletin Board</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/tool/twins-sers'-guides-for-students-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">TWINS Users’ Guide for Students</a></li>
+            			<!--li class="item"><a class="d-p" href="/en/campuslife/tool/pdf/board-manual-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Web Bulletin Board for Students (Users’ Guide)</a></li-->
+            			<li class="item"><a class="d-p" href="/en/campuslife/tool/board-manual-itemslist.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Web Bulletin Board Categorized Items List［For Students］</a></li>
+            			<li class="item"><a class="d-p" href="https://kdb.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Curriculum Scheduling Support System (KdB: List of courses)</a></li>
+            			<li class="item"><a class="d-p" href="/en/campuslife/tool/kdb_manual.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Curriculum Scheduling Support System (KdB: List of courses) Manual (For Students)</a></li>
+            			<li class="item"><a class="d-p" href="https://manaba.tsukuba.ac.jp" rel="noopener" class="txt-link txt-ex-link" target="_blank">Learning Management System (manaba) Login</a></li>            			
+						<li class="item"><a class="d-p" href="https://www.ecloud.tsukuba.ac.jp/en/learning-management-system-manaba" rel="noopener" class="txt-link txt-ex-link" target="_blank">Learning Management System (manaba) Support Site</a></li>
+            			<li class="item"><a class="d-p" href="https://trip.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Travel System (TRIP)</a></li>
+            			<li class="item"><a class="d-p" href="https://www.u.tsukuba.ac.jp/en-toppage/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Zengaku Computer System</a></li>
+            			<li class="item"><a class="d-p" href="https://www.u.tsukuba.ac.jp/en-email/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Students' E-mails </a></li>
+            			<li class="item"><a class="d-p" href="https://www.u.tsukuba.ac.jp/en-remote/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Remote Access</a></li>
+            			<li class="item"><a class="d-p" href="https://www.cc.tsukuba.ac.jp/wp_e/service/wireless/" rel="noopener" class="txt-link txt-ex-link" target="_blank">On-Campus Wi-Fi System</a></li>
+            			<li class="item"><a class="d-p" href="https://www.tulips.tsukuba.ac.jp/lib/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Search World's Library Collections (Tulips)</a></li>
+            			<li class="item"><a class="d-p" href="https://openfacility.sec.tsukuba.ac.jp/wp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Open Facility Network Office, Research Facility</a></li>
+                </ul>
+            	</li>
+                <li class="item"><a class="b-p">Career in Japan</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/alumni/graduates-interviews/" rel="noopener" class="txt-link">Graduates Working in Japan</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Overseas Safety &amp; Risk Management</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/about/risk-safety/" rel="noopener" class="txt-link">Overseas Safety &amp; Risk Management</a></li>
+                  		<li class="item"><a class="d-p" href="https://trip.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Travel System (TRIP)</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Welfare Facilities</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/campuslife/welfare-organization/" rel="noopener" class="txt-link">Welfare Facilities</a></li>
+                	</ul>
+            	</li>
+          		</ul>
+          </li>
+          <li class="item"><a>CAREER &amp; ALUMNI</a>
+         	<ul class="child-list">
+                <li class="item"><a class="b-p" href="/en/alumni/" rel="noopener">CAREER &amp; ALUMNI TOP</a></li>
+                <li class="item"><a class="b-p">Exchange after Graduation</a>
+            		<ul class="groundchild-list">
+                  		<!--li class="item"><a class="d-p" href="https://global-alumni.sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Alumni Network (T-Net)</a></li-->
+            			<li class="item"><a class="d-p" href="https://www.linkedin.com/school/%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6/?viewAsMember=true" rel="noopener" class="txt-link txt-ex-link" target="_blank">University of Tsukuba LinkedIn College Page</a></li>
+            			<li class="item"><a class="d-p" href="https://www.bgi.sec.tsukuba.ac.jp/en/overseas-office/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Offices</a></li>
+                	</ul>
+            	</li>
+
+                <li class="item"><a class="b-p">Overseas Alumni</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="https://www.bgi.sec.tsukuba.ac.jp/en/tuan/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Universal Alumni Network (TUAN)</a></li>
+                	</ul>
+            	</li>
+
+                <li class="item"><a class="b-p">Issue of Certificates</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/alumni/certificates-u-application/" rel="noopener" class="txt-link">Undergraduate Schools</a></li>
+                  		<li class="item"><a class="d-p" href="/en/alumni/certificates-g-application/" rel="noopener" class="txt-link">Graduate Schools</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Follow-Up Services</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="https://www.jasso.go.jp/en/ryugaku/after_study_j/tanken/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JASSO Follow Up Research Fellowship</a></li>
+            			<li class="item"><a class="d-p" href="https://www.jasso.go.jp/en/ryugaku/after_study_j/shido/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JASSO Follow Up Research Guidance</a></li>
+            			<li class="item"><a class="d-p" href="https://www.jsps.go.jp/english/e-ronpaku/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JSPS Ronpaku (Dissertation Ph.D) Program</a></li>
+                	</ul>
+            	</li>
+                <li class="item"><a class="b-p">Career in Japan</a>
+            		<ul class="groundchild-list">
+                  		<li class="item"><a class="d-p" href="/en/alumni/graduates-interviews/" rel="noopener" class="txt-link txt-ex-link">Graduates Working in Japan</a></li>
+                	</ul>
+            	</li>
+          		</ul>
+          </li>
+          <li class="item"><a class="b-p" href="/en/news/" rel="noopener">NEWS</a></li>
+          <li class="item"><a class="b-p" href="/en/events" rel="noopener">EVENTS</a></li>
+          <li class="item"><a class="b-p" href="/en/about/risk-safety/" rel="noopener">Risk Management</a></li>
+          <li class="item futureblue"><a class="txt-link txt-ex-link itemtxtf" href="https://futureship.sec.tsukuba.ac.jp/english" rel="noopener" target="_blank">Giving to Tsukuba</a></li>
+        </ul>
+        <div class="close"><a>Close</a></div>
+      </nav>
+
+    </div>
+  </header>
+<header class="header pc-head follow">
+<div class="header-top">
+      <div class="container-wrap">
+      <a class="logo" href="/en/">
+          <figure class="logo-icon"><img class="off" src="/en/assets/img/common/logo.svg" alt="University of Tsukuba"><img class="on" src="/en/assets/img/common/logo-w.svg" alt="University of Tsukuba"></figure>
+        </a>
+        <div class="content">
+          <div class="search-container">
+            <a class="language" href="/" rel="noopener">Japanese</a>
+            <div class="search-wrap">
+            	<input type="radio" name="search___choose" id="search_01" checked=>
+                <input type="radio" name="search___choose" id="search_02">
+              <div class="search-choose">
+                <label class="site" for="search_01">Website</label>
+                <label class="resercher" for="search_02">Researchers</label>
+              </div>
+            <div class="search-panel">
+            	<div id="search_panel_01" class="tab-panel">
+                <form name="search___form1" class="search-form" action="/en/search/" id="searchform" method="get" target="">
+                	<div class="search">
+                  <input name="q" type="text" title="検索" placeholder="Search Website" accesskey="4" id="search">
+                  <button class="search-btn" type="submit">
+                    <svg viewBox="0 0 15.9 15.9">
+                      <path class="st0" d="M15.9,14.5l-3.3-3.3C13.5,10,14,8.5,14,7c0-3.8-3.1-7-6.9-7C7.1,0,7,0,7,0C3.2,0,0,3.1,0,6.9
+                      C0,6.9,0,7,0,7c0,3.8,3.1,7,6.9,7c0,0,0.1,0,0.1,0c1.5,0,3-0.5,4.2-1.4l3.3,3.3L15.9,14.5z M2,7c0-2.7,2.2-5,4.9-5C6.9,2,7,2,7,2
+                      c2.7,0,5,2.2,5,4.9c0,0,0,0.1,0,0.1c0,2.7-2.2,5-4.9,5c0,0-0.1,0-0.1,0C4.3,12,2,9.8,2,7C2,7.1,2,7,2,7z"/>
+                      </svg>
+                  	</button>
+                	</div>
+              	</form>
+            	</div>
+
+           		<div id="search_panel_02" class="tab-panel">
+            	<form name="search___form" class="search-form" action="" id="searchform" method="get" target="_blank">
+                	<div class="search">
+                  <input name="q" type="text" title="検索" placeholder="Search Researchers" accesskey="4" id="search">
+                  <button class="search_btn" type="submit">
+                    <svg viewBox="0 0 15.9 15.9">
+                      <path class="st0" d="M15.9,14.5l-3.3-3.3C13.5,10,14,8.5,14,7c0-3.8-3.1-7-6.9-7C7.1,0,7,0,7,0C3.2,0,0,3.1,0,6.9
+                      C0,6.9,0,7,0,7c0,3.8,3.1,7,6.9,7c0,0,0.1,0,0.1,0c1.5,0,3-0.5,4.2-1.4l3.3,3.3L15.9,14.5z M2,7c0-2.7,2.2-5,4.9-5C6.9,2,7,2,7,2
+                      c2.7,0,5,2.2,5,4.9c0,0,0,0.1,0,0.1c0,2.7-2.2,5-4.9,5c0,0-0.1,0-0.1,0C4.3,12,2,9.8,2,7C2,7.1,2,7,2,7z"/>
+                      </svg>
+                  	</button>
+                	</div>
+              	</form>
+            	</div>
+            </div>
+            </div>
+          </div>
+          <nav class="main-menu">
+            <ul class="list">
+              <li class="item"><a id="g_001" class="gnav" rel="noopener" class="txt-link">ABOUT</a></li>
+              <li class="item"><a id="g_002" class="gnav" rel="noopener" class="txt-link">DISCOVER</a></li>
+              <li class="item"><a id="g_003" class="gnav" rel="noopener" class="txt-link">ADMISSIONS</a></li>
+              <li class="item"><a id="g_004" class="gnav" rel="noopener" class="txt-link">ACADEMICS</a></li>
+              <li class="item"><a id="g_005" class="gnav" rel="noopener" class="txt-link">RESEARCH</a></li>
+              <li class="item"><a id="g_006" class="gnav" rel="noopener" class="txt-link">CAMPUS LIFE</a></li>
+              <li class="item"><a id="g_007" class="gnav" rel="noopener" class="txt-link">CAREER & ALUMNI</a></li>
+            </ul>
+            <div class="navigation">
+              <div class="nav-wrap">
+                <input type="radio" name="nav" id="nav-001" checked>
+                <input type="radio" name="nav" id="nav-002">
+                <input type="radio" name="nav" id="nav-003">
+                <input type="radio" name="nav" id="nav-004">
+                <input type="radio" name="nav" id="nav-005">
+                <input type="radio" name="nav" id="nav-006">
+                <input type="radio" name="nav" id="nav-007">
+                <input type="radio" name="nav" id="nav-008">
+                <div class="nav-header">
+                  <a href="/en"><figure class="nav-logo"><img src="/assets/img/common/logo-sp.svg"></figure></a>
+        <div class="nav-tab">
+          <label for="nav-001" class="nav_001">ABOUT</label>
+          <label for="nav-002" class="nav_002">DISCOVER</label>
+          <label for="nav-003" class="nav_003">ADMISSIONS</label>
+          <label for="nav-004" class="nav_004">ACADEMICS</label>
+          <label for="nav-005" class="nav_005">RESEARCH</label>
+          <label for="nav-006" class="nav_006">CAMPUS LIFE</label>
+          <label for="nav-007" class="nav_007">CAREER & ALUMNI</label>
+        </div>
+                </div>
+                <div class="nav-panel">
+          <div class="close"><a>Close</a></div>
+          <div id="panel_001" class="sub-nav-panel">
+                      <div class="nav-content">
+                      <div class="title">
+                        <h2 class="title-nav">ABOUT</h2>
+                        <figure class="image-nav"><img src="/en/assets/img/common/nav-sub-about.jpg"></figure>
+                      </div>
+                      <div class="child">
+                      <a class="child-nav-top" href="/en/about/" class="txt-link">ABOUT TOP</a>
+            <ul class="child-items">
+              <li class="child-item">
+              <a><span>Office of the President</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                                <li class="groundchild-item"><a href="/en/about/president-message" rel="noopener" class="txt-link">Message from the President</a></li>
+                  <li class="groundchild-item"><a href="/en/about/president-statement" rel="noopener" class="txt-link">President's Annual Policy Statement</a></li>
+                  <li class="groundchild-item"><a href="/en/about/president-staffs" rel="noopener" class="txt-link">Board of Directors</a></li>
+                  <li class="groundchild-item"><a href="/en/about/president-president" rel="noopener" class="txt-link">Past Presidents</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Outline</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/outline-concept" rel="noopener" class="txt-link">Concept</a></li>
+                  <li class="groundchild-item"><a href="/en/about/designated-national-university" rel="noopener" class="txt-link">University of Tsukuba as a Designated National University</a></li>
+                  <li class="groundchild-item"><a href="/en/about/outline-objective" rel="noopener" class="txt-link">Mission Statement</a></li>
+                  <li class="groundchild-item"><a href="/en/about/history" rel="noopener" class="txt-link">History</a></li>
+                  <li class="groundchild-item"><a href="/en/about/outline-logomark" rel="noopener" class="txt-link">School Emblem</a></li>
+                  <li class="groundchild-item"><a href="../../50th-anniv/en/" rel="noopener" class="txt-link">Celebrating the 151st+50th Anniversary of the University of Tsukuba</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Discover Tsukuba</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/outline-tsukuba" rel="noopener" class="txt-link">Discover Tsukuba</a></li>
+                  <li class="groundchild-item"><a href="/en/about/changemakers/" rel="noopener" class="txt-link">CHANGEMAKERS</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Organizations</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/organization-administrative" rel="noopener" class="txt-link">Management System</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/organization-ug-list" rel="noopener" class="txt-link">Undergraduate (Schools &amp; Colleges)</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-ay-2020" rel="noopener" class="txt-link">Graduate (Graduate Schools &amp; Programs)</a></li>
+                  <li class="groundchild-item"><a href="/en/about/organization-institutions-centers/" rel="noopener" class="txt-link">Research Institutions &amp; Centers</a></li>
+                  <li class="groundchild-item"><a href="/en/about/organization-faculties" rel="noopener" class="txt-link">Faculty Organizations</a></li>
+                  <li class="groundchild-item"><a href="/en/about/organization-library" rel="noopener" class="txt-link">University Library</a></li>
+                  <li class="groundchild-item"><a href="/en/about/organization-hospital" rel="noopener" class="txt-link">University Hospital</a></li>
+                  <li class="groundchild-item"><a href="/en/about/organization-attached-schools" rel="noopener" class="txt-link">Educational Bureau &amp; Laboratory Schools　</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>University Initiatives</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/strategy-list" rel="noopener" class="txt-link">International Strategy</a></li>
+                  <li class="groundchild-item"><a href="https://social-impact.projects.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Multicultural Campus Project Toward Social Impact</a></li>
+                  <li class="groundchild-item"><a href="https://www.bgi.sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Bureau of Global Initiatives</a></li>
+                  <li class="groundchild-item"><a href="/en/about/academicnetworks/" rel="noopener" class="txt-link">Academic Networks</a></li>
+                  <li class="groundchild-item"><a href="https://tgsw.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Global Science Week（TGSW）</a></li>
+                  <li class="groundchild-item"><a href="https://www.osi.tsukuba.ac.jp/sdgs/en" rel="noopener" class="txt-link txt-ex-link" target="_blank">Driving Sustainable Development (SDGs)</a></li>
+                  <li class="groundchild-item"><a href="https://diversity.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Gender Support</a></li>
+                  <li class="groundchild-item"><a href="https://dac.tsukuba.ac.jp/shien/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Accessibility Support</a></li>
+                  <li class="groundchild-item"><a href="https://syushoku.sec.tsukuba.ac.jp/career/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Career Support</a></li>
+
+            <li class="groundchild-item"><a href="/en/campuslife/anti-harassment/" rel="noopener" class="txt-link">Harassment Prevention</a></li>
+                  <li class="groundchild-item"><a href="/en/about/initiatives-action-disability" rel="noopener" class="txt-link">The University of Tsukuba Charter of Support for Students with Disabilities</a></li>
+                  <li class="groundchild-item"><a href="/en/about/taiiku-and-sport-charter/" rel="noopener" class="txt-link">Taiiku and Sport Charter of University of Tsukuba</a></li>
+                  <li class="groundchild-item"><a href="/en/about/initiatives-contribution" rel="noopener" class="txt-link">Social Contribution</a></li>
+                  <li class="groundchild-item"><a href="/en/about/environment-list" rel="noopener" class="txt-link">Approach to the Environment</a></li>
+                  <li class="groundchild-item"><a href="/en/about/initiatives-students-kagakunome/" rel="noopener" class="txt-link">Buds of Science Prize</a></li>
+                  <li class="groundchild-item"><a href="/en/about/action-no-smoking/" rel="noopener" class="txt-link">No Smoking on Campus</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Risk Management</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/risk-management/" rel="noopener" class="txt-link">Risk Management</a></li>
+                  <li class="groundchild-item"><a href="/en/about/risk-safety" rel="noopener" class="txt-link">Overseas Safety &amp; Risk Management (for Students)</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Campus &amp; Facilities</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/campus-access" rel="noopener" class="txt-link">Access Map</a></li>
+                  <li class="groundchild-item"><a href="/en/about/campus-anniversary-hall" rel="noopener" class="txt-link">University Hall &amp; 30th Anniversary Hall</a></li>
+                  <li class="groundchild-item"><a href="/en/about/campus-gallery" rel="noopener" class="txt-link">University of Tsukuba Gallery</a></li>
+                  <li class="groundchild-item"><a href="/en/about/campus-artspace" rel="noopener" class="txt-link">University of Tsukuba Art Space</a></li>
+                  <li class="groundchild-item"><a href="https://www.stb.tsukuba.ac.jp/~miraishakai/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Future Society Design Complex</a></li>
+                  <li class="groundchild-item"><a href="/en/about/campus-tour-top" rel="noopener" class="txt-link">Campus Tour</a></li>
+                  <li class="groundchild-item"><a href="/en/about/view-our-video" rel="noopener" class="txt-link">Watch Our Campus</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Information Disclosure</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/mid-term-goals-and-plans/" rel="noopener" class="txt-link">Mid-term Goals and Plans</a></li>
+                  <li class="groundchild-item"><a href="/en/about/integrated-report/" rel="noopener" class="txt-link">Integrated Report</a></li>
+                  <li class="groundchild-item"><a href="/en/about/creditrating/" rel="noopener" class="txt-link">Information on Credit Rating</a></li>
+                  <li class="groundchild-item"><a href="https://jpcup.niad.ac.jp/institute/0408.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Japanese College and University Portraits (External link managed by NIAD-QE)</a></li>
+                  <li class="groundchild-item"><a href="/en/about/privacy-policy/" rel="noopener" class="txt-link">Policies and Procedures for Protection of Personal Information</a></li>
+
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Public Relations</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/public-outline" rel="noopener" class="txt-link">Outline of the University of Tsukuba</a></li>
+                  <li class="groundchild-item"><a href="/en/about/public-booklets-leaflet" rel="noopener" class="txt-link">At a Glance Maps and Data University of Tsukuba</a></li>
+                  <li class="groundchild-item"><a href="/en/about/public-branding" rel="noopener" class="txt-link">Making a Tsukuba Brand</a></li>
+                  <li class="groundchild-item"><a href="/en/about/tsukucomm" rel="noopener" class="txt-link">TSUKUCOMM</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Job Opportunities</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/jobs-information" rel="noopener" class="txt-link">Job Opportunities</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Issue of Certificate </span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/alumni/certificates-u-application" rel="noopener" class="txt-link">Schools / Colleges/ Tokyo University of Education / etc</a></li>
+                  <li class="groundchild-item"><a href="/en/alumni/certificates-g-application" rel="noopener" class="txt-link">Graduate Schools</a></li>
+                  <li class="groundchild-item"><a href="/en/about/certificate-retirement-resignation/" rel="noopener" class="txt-link">Retirement/Resignation Certificate</a></li>
+
+                </ul>
+                </div>
+              </li>
+
+                        </ul>
+                      </div>
+                    </div>
+          </div>
+
+          <div id="panel_002" class="sub-nav-panel">
+                      <div class="nav-content">
+                      <div class="title">
+                        <h2 class="title-nav">DISCOVER</h2>
+                        <figure class="image-nav"><img src="/en/assets/img/common/nav-sub-discover.jpg"></figure>
+                      </div>
+                      <div class="child">
+                       <a class="child-nav-top" href="/en/discover/" class="txt-link">DISCOVER TOP</a>
+
+            <ul class="child-items">
+              <li class="child-item">
+              <a><span>The Basics</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <!--<li class="groundchild-item"><a href="https://www.global.tsukuba.ac.jp/why-tsukuba/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Why Study in Tsukuba</a></li>-->
+                  <li class="groundchild-item"><a href="/en/about/outline-tsukuba/" rel="noopener" class="txt-link">Discover Tsukuba</a></li>
+                  <li class="groundchild-item"><a href="/en/about/public-booklets-leaflet/" rel="noopener" class="txt-link">Facts and Figures</a></li>
+                  <li class="groundchild-item"><a href="https://ssc.sec.tsukuba.ac.jp/photo" rel="noopener" class="txt-link txt-ex-link" target="_blank">Photo Gallery</a></li>
+                  <li class="groundchild-item"><a href="/en/about/campus-tour-top/" rel="noopener" class="txt-link">Explore the Campus</a></li>
+                  <li class="groundchild-item"><a href="/en/about/campus-access/" rel="noopener" class="txt-link">Visit Us</a></li>
+
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Facilities</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/campuslife/support-healthlife/accommodation/" rel="noopener" class="txt-link">Housing</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/dining/" rel="noopener" class="txt-link">Dining & Shops</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/welfare-facilities-accommodation/" rel="noopener" class="txt-link">Guest Houses</a></li>
+                </ul>
+                </div>
+              </li>
+
+              <li class="child-item">
+              <a><span>Tsukuba People</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/tsukuba-frontier/" rel="noopener" class="txt-link">Visit Unique Labs</a></li>
+                  <li class="groundchild-item"><a href="/en/tsukuba-future/" rel="noopener" class="txt-link">Meet Leading Scientists</a></li>
+                  <li class="groundchild-item"><a href="/en/about/changemakers/" rel="noopener" class="txt-link">Meet Tsukuba's Finest</a></li>
+                  <li class="groundchild-item"><a href="/en/tsukuba-alumni/" rel="noopener" class="txt-link">Tsukuba Alumni in Action</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>International Students</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/discover/studentstories/" rel="noopener" class="txt-link">Student Stories</a></li>
+                  <li class="groundchild-item"><a href="/en/voices/" rel="noopener" class="txt-link">Voices of International Students</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/support-international/" rel="noopener" class="txt-link">Support for International Students</a></li>
+                  <li class="groundchild-item"><a href="https://ssc.sec.tsukuba.ac.jp/ssc-news" rel="noopener" class="txt-link txt-ex-link" target="_blank">Events for International Students</a></li>
+                  <li class="groundchild-item"><a href="/en/alumni/graduates-interviews/" rel="noopener" class="txt-link">Graduates Pursuing Careers in Japan</a></li>
+                </ul>
+                </div>
+              </li>
+
+              <li class="child-item">
+              <a><span>Tsukuba Connect</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://trios.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Find an Expert</a></li>
+                  <li class="groundchild-item"><a href="https://www.linkedin.com/school/%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6/?viewAsMember=true" rel="noopener" class="txt-link txt-ex-link" target="_blank">Find Tsukuba People on LinkedIn</a></li>
+                  <li class="groundchild-item"><a href="https://global-alumni.sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Find Tsukuba Alumni</a></li>
+                </ul>
+                </div>
+              </li>
+                        </ul>
+                      </div>
+                    </div>
+          </div>
+
+          <div id="panel_003" class="sub-nav-panel">
+                      <div class="nav-content">
+                      <div class="title">
+                        <h2 class="title-nav">ADMISSIONS</h2>
+                        <figure class="image-nav"><img src="/en/assets/img/common/nav-sub-admissions.jpg"></figure>
+                      </div>
+                      <div class="child">
+                       <a class="child-nav-top" href="/en/admissions/" class="txt-link">ADMISSIONS TOP</a>
+
+            <ul class="child-items">
+              <li class="child-item">
+              <a><span>Undergraduate Admissions</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://ac.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Join University of Tsukuba</a></li>
+                  <li class="groundchild-item"><a href="https://www.global.tsukuba.ac.jp/apply" rel="noopener" class="txt-link txt-ex-link" target="_blank">Degree Programs Taught in English</a></li>
+                  <li class="groundchild-item"><a href="https://www.ide.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Bachelor's Program in Interdisciplinary Engineering</a></li>
+                  <li class="groundchild-item"><a href="https://bpgi.tsukuba.ac.jp/outline/program/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Bachelor’s Program in Global Issues</a></li>
+                  <li class="groundchild-item"><a href="https://jp-ex.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Japan-Expert (bachelor degree) Program</a></li>
+                  <li class="groundchild-item"><a href="https://www.utmy.edu.my/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Transdisciplinary Science and Design [University of Tsukuba, Malaysia (UTMy)]</a></li>
+
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Graduate Admissions</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/admissions/grad-flowchart/" rel="noopener" class="txt-link">Applying to Tsukuba </a></li>
+                  <li class="groundchild-item"><a href="https://eng.ap-graduate.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate Admissions</a></li>
+                  <li class="groundchild-item"><a href="/en/admissions/grad-exam" rel="noopener" class="txt-link">Graduate Entrance Examination Schedule</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-grad-by-discipline-en/search-programs-by-discipline.html" rel="noopener" class="txt-link">Search Programs by Discipline</a></li>
+                  <!--li class="groundchild-item"><a href="/en/admissions/grad-info" rel="noopener" class="txt-link">Information and Instructions for Examinees</a></li-->
+                </ul>
+                </div>
+              </li>
+
+              <!--<li class="child-item">
+              <a><span>Why Tsukuba?</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.global.tsukuba.ac.jp/undergraduate/why-Tsukuba" rel="noopener" class="txt-link txt-ex-link" target="_blank">Why Tsukuba?</a></li>
+                </ul>
+                </div>
+              </li>-->
+
+              <li class="child-item">
+              <a><span>Fees &amp; Expenses</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/admissions/fees-tuition/" rel="noopener" class="txt-link">Admission &amp; Tuition Fees</a></li>
+                      <li class="groundchild-item"><a href="/en/admissions/fees-living-expenses" rel="noopener" class="txt-link">Living Expenses</a></li>
+                </ul>
+                </div>
+              </li>
+
+                            <li class="child-item">
+              <a><span>Financial Aid &amp; Scholarships</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/admissions/financial-exemption" rel="noopener" class="txt-link">Entrance Fee Exemption and Tuition Waiver</a></li>
+                  <li class="groundchild-item"><a href="/en/admissions/financial-scholarships" rel="noopener" class="txt-link">Scholarships</a></li>
+                  <li class="groundchild-item"><a href="https://ssc.sec.tsukuba.ac.jp/ies-top/go-abroad-top/scholarship-4-ga" rel="noopener" class="txt-link txt-ex-link" target="_blank">University of Tsukuba Study Abroad Support Programs</a></li>
+                  <li class="groundchild-item"><a href="/en/admissions/financial-emergency-support/" rel="noopener" class="txt-link">Emergency Support</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/jst-spring-program/" rel="noopener" class="txt-link">Financial Support for Students in the Doctoral Program</a></li>
+                </ul>
+                </div>
+              </li>
+                            <li class="child-item">
+              <a><span>Guidebooks for International Students</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/admissions/guidebook-enrollment" rel="noopener" class="txt-link">Enrollment Guidebook for International Students</a></li>
+                  <li class="groundchild-item"><a href="/en/admissions/guidebook-international-student" rel="noopener" class="txt-link">International Students' Guidebook</a></li>
+                  <li class="groundchild-item"><a href="/campuslife/students-guidebook-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">University of Tsukuba Students' Guide</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/support-healthsupport/safelivingen.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">SAFE LIVING - How to Live a Pleasant Student Life</a></li>
+                </ul>
+                </div>
+              </li>
+                        </ul>
+                      </div>
+                    </div>
+          </div>
+          <div id="panel_004" class="sub-nav-panel">
+                      <div class="nav-content">
+                      <div class="title">
+                        <h2 class="title-nav">ACADEMICS</h2>
+                        <figure class="image-nav"><img src="/en/assets/img/common/nav-sub-education.jpg"></figure>
+                      </div>
+                      <div class="child">
+                     <a class="child-nav-top" href="/en/academics/" class="txt-link">ACADEMICS TOP</a>
+
+            <ul class="child-items">
+              <li class="child-item">
+              <a><span>Education Philosophy</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                 <li class="groundchild-item"><a href="/en/academics/policy-tstandard/" rel="noopener" class="txt-link">Tsukuba STANDARDs</a></li>
+                 <li class="groundchild-item"><a href="/en/academics/policy-ethics" rel="noopener" class="txt-link">Code of Ethics on Education</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Academic Calendar</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/academic-calendar" rel="noopener" class="txt-link">Academic Calendar</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Undergraduate Studies</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/ug-courses-g30guidebook" rel="noopener" class="txt-link">Course Registration Procedures</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/ug-courses-openclass" rel="noopener" class="txt-link">Course Catalogue</a></li>
+                  <li class="groundchild-item"><a href="https://www.sanrenhonbu.tsukuba.ac.jp/en/course/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Entrepreneurship Education</a></li>
+                 <li class="groundchild-item"><a href="/en/academics/grade-evaluation-appeals/" rel="noopener" class="txt-link">Grade Evaluation Appeals</a></li>
+                 <li class="groundchild-item"><a href="/en/academics/ug-document-spring/" rel="noopener" class="txt-link">Distribution Materials for New Undergraduates Students (Spring Semester)</a></li>
+                 <li class="groundchild-item"><a href="/en/academics/ug-document-fall/" rel="noopener" class="txt-link">Distribution Materials for New Undergraduates Students (Fall Semester)</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Schools &amp; Colleges（Bachelor)</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/organization-ug-list" rel="noopener" class="txt-link">List of Schools and Colleges</a></li>
+                  <li class="groundchild-item"><a href="https://www.humcul.tsukuba.ac.jp/en" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Humanities and Culture</a></li>
+                  <li class="groundchild-item"><a href="https://www.soc-int.tsukuba.ac.jp/en/index.php" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Social and International Studies</a></li>
+                  <li class="groundchild-item"><a href="https://www2.human.tsukuba.ac.jp/gakugun/english" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Human Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://www.life.tsukuba.ac.jp/en/#anchor_life-colleges" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Life and Environmental Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://sse.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Science and Engineering</a></li>
+                  <li class="groundchild-item"><a href="https://inf.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Informatics</a></li>
+                  <li class="groundchild-item"><a href="https://www.md.tsukuba.ac.jp/igakugun/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Medicine and Health Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://www.taiiku.tsukuba.ac.jp/gakugun/english.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Health and Physical Education</a></li>
+                  <li class="groundchild-item"><a href="https://www.geijutsu.tsukuba.ac.jp/school/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Art and Design</a></li>
+                  <li class="groundchild-item"><a href="https://www.utmy.edu.my/" rel="noopener" class="txt-link txt-ex-link" target="_blank">School of Transdisciplinary Science and Design [University of Tsukuba, Malaysia (UTMy)]</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-ay-2020-sigma" rel="noopener" class="txt-link">School of Integrative and Global Majors (SIGMA)</a></li>
+
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Graduate Studies</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/g-courses-handbook" rel="noopener" class="txt-link">Graduate School Handbook</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-courses-kyoutsuukamoku" rel="noopener" class="txt-link">Graduate General Education</a></li>
+                  <li class="groundchild-item"><a href="https://www.sanrenhonbu.tsukuba.ac.jp/en/course/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Entrepreneurship Education</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-courses-degree-program-pamphlet.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Graduate Education Reform</a></li>
+                  <li class="groundchild-item"><a href="https://www.office.otsuka.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">University of Tsukuba, Tokyo Campus　(For Working Individuals)</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-courses-s-program" rel="noopener" class="txt-link">Early Completion Program for Working People</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-courses-cooperative" rel="noopener" class="txt-link">Cooperative Graduate School System</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/grade-evaluation-appeals/" rel="noopener" class="txt-link">Grade Evaluation Appeals</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-document-spring/" rel="noopener" class="txt-link">Distribution Materials for New Graduates Students (Spring Semester)</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-document-fall/" rel="noopener" class="txt-link">Distribution Materials for New Graduates Students (Fall Semester)</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Graduate Schools &amp; Programs (Master, Doctor)</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-grad-by-discipline-en/search-programs-by-discipline.html" rel="noopener" class="txt-link">Search Programs by Discipline</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-ay-2020" rel="noopener" class="txt-link">Program Listing</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-ay-2020/#a1" rel="noopener" class="txt-link">Graduate School of Business Sciences, Humanities and Social Sciences</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-gsst/" rel="noopener" class="txt-link">Graduate School of Science and Technology</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-ay-2020/#a9" rel="noopener" class="txt-link">Graduate School of Comprehensive Human Sciences</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-since-ay-2020-sigma" rel="noopener" class="txt-link">School of Integrative and Global Majors (SIGMA)</a></li>
+                </ul>
+                </div>
+              </li>
+                        <li class="child-item">
+              <a><span>Graduate Schools &amp; Programs (for students who entered the university in AY 2019 or before)</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/g-list-prev-graduate" rel="noopener" class="txt-link">Program Listing</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/g-list-prev-graduate/#a1" rel="noopener" class="txt-link">Master's Program in Education</a></li>
+                  <li class="groundchild-item"><a href="https://www.hass.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Humanities and Social Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://www.gsbs.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Business Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://grad.pas.tsukuba.ac.jp/?lang=en" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Pure and Applied Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://www.sie.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Systems and Information Engineering</a></li>
+                  <li class="groundchild-item"><a href="#" rel="noopener">Graduate School of Life and Environmental Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://www.chs.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Comprehensive Human Sciences</a></li>
+                  <li class="groundchild-item"><a href="https://www.slis.tsukuba.ac.jp/grad/english/index-e.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Graduate School of Library, Information and Media Studies</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>International Students</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/admissions/guidebook-enrollment" rel="noopener" class="txt-link">Enrollment Guide for International Students</a></li>
+                  <!--<li class="groundchild-item"><a href="/en/academics/international/international-students-guidebook.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">International Student Classification</a></li>-->
+                  <!--<li class="groundchild-item"><a href="/en/academics/international-exam-schedule" rel="noopener" class="txt-link">Degree Programs Taught in Japanese</a></li>-->
+                  <li class="groundchild-item"><a href="https://www.global.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Degree Programs Taught in English </a></li>
+                  <li class="groundchild-item"><a href="/en/academics/international-exam-scheduleauditors" rel="noopener" class="txt-link">Credited Auditors</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/international-research-students" rel="noopener" class="txt-link">Non-degree Research Students</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/international-exchange-students" rel="noopener" class="txt-link">Exchange Students</a></li>
+                  <li class="groundchild-item"><a href="https://www.global.tsukuba.ac.jp/summer/programs" rel="noopener" class="txt-link txt-ex-link" target="_blank">Short Programs</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/international-jp-courses" rel="noopener" class="txt-link">Intensive Japanese Training</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Collaboration with Overseas Partner Universities</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.bgi.sec.tsukuba.ac.jp/en/partner-organizations/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Partner Universities</a></li>
+                  <li class="groundchild-item"><a href="https://www.cic.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Campus-in-Campus (CiC) Initiative</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/overseas-ddp-jdp" rel="noopener" class="txt-link">Double/Joint Degree Program  (DDP/JDP)</a></li>
+                  <li class="groundchild-item"><a href="/en/academics/educational-expansion-overseas/" rel="noopener" class="txt-link">Educational Expansion Overseas by the University of Tsukuba</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Featured Educational Programs</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/jst-spring-program/" rel="noopener" class="txt-link">Financial Support for Students in the Doctoral Program</a></li>
+                  <li class="groundchild-item"><a href="https://inclusive-smart-society.edu.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Inclusive Smart Society Program (ISS Program)</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Academic Support Centers</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.cegloc.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Education of Global Communication (CEGLOC)</a></li>
+                  <li class="groundchild-item"><a href="https://www.sapec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Sports and Physical Education Center</a></li>
+                  <li class="groundchild-item"><a href="https://ac.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Admission Center (Japanese only）</a></li>
+                </ul>
+                </div>
+              </li>
+                        </ul>
+                      </div>
+                    </div>
+          </div>
+          <div id="panel_005" class="sub-nav-panel">
+                      <div class="nav-content">
+                      <div class="title">
+                        <h2 class="title-nav">RESEARCH</h2>
+                        <figure class="image-nav"><img src="/en/assets/img/common/nav-sub-research.jpg"></figure>
+                      </div>
+                      <div class="child">
+                      <a class="child-nav-top" href="/en/research/" class="txt-link">RESEARCH TOP</a>
+            <ul class="child-items">
+
+                         <li class="child-item">
+              <a><span>Research News</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/research-news/" rel="noopener" class="txt-link">Research News</a></li>
+                </ul>
+                </div>
+              </li>
+                        <li class="child-item">
+              <a><span>Researchers</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                <li class="groundchild-item"><a href="/en/tsukuba-future/" rel="noopener" class="txt-link">TSUKUBA FUTURE</a></li>
+                  <li class="groundchild-item"><a href="/en/tsukuba-frontier" rel="noopener" class="txt-link">TSUKUBA FRONTIER</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Tsukuba Institute for Advanced Research(TIAR)</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://tiar.centers.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Institute for Advanced Research(TIAR)</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Advanced Research Centers</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+            <li class="groundchild-item"><a href="https://wpi-iiis.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">International Institute for Integrative Sleep Medicine (IIIS)</a></li>
+            <li class="groundchild-item"><a href="https://www.ccs.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Computational Sciences</a></li>
+            <li class="groundchild-item"><a href="https://www1.tara.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Life Science Center for Survival Dynamics, Tsukuba Advanced Research Alliance </a></li>
+            <li class="groundchild-item"><a href="https://www.t-pirc.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba-Plant Innovation Research Center</a></li>
+            <li class="groundchild-item"><a href="https://www.shimoda.tsukuba.ac.jp/eng-home.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Shimoda Marine Research Center</a></li>
+            <li class="groundchild-item"><a href="https://www.prc.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Plasma Research Center</a></li>
+            <li class="groundchild-item"><a href="/en/research/advanced-arena" rel="noopener" class="txt-link">Alliance for Research on the Mediterranean and North Africa </a></li>
+            <li class="groundchild-item"><a href="https://www.ccr.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Cybernics Research</a></li>
+            <li class="groundchild-item"><a href="https://www.ied.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Research in Radiation, Isotopes, and Earth System Sciences</a></li>
+            <li class="groundchild-item"><a href="https://air.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Artificial Intelligence Research </a></li>
+            <li class="groundchild-item"><a href="https://www.mics.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Microbiology Research Center for Sustainability</a></li>
+            <li class="groundchild-item"><a href="https://www.arihhp.taiiku.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Advanced Research Initiative for Human High Performance</a></li>
+            <li class="groundchild-item"><a href="https://www.pmrc.tsukuba.ac.jp/research/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Proton Medical Research Center</a></li>
+            <li class="groundchild-item"><a href="https://rcwac.histanth.tsukuba.ac.jp/en" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Center for West Asian Civilization</a></li>
+            <li class="groundchild-item"><a href="https://tchou.tomonaga.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tomonaga Center for the History of the Universe</a></li>
+            <li class="groundchild-item"><a href="https://www.trems.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Research Center for Energy Materials Science</a></li>
+
+            <li class="groundchild-item"><a href="https://www.ims.tsukuba.ac.jp/~hbrc/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Hydrogen Boride Research Center</a></li>
+
+            <li class="groundchild-item"><a href="https://www.msc.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Mountain Science Center</a></li>
+            <li class="groundchild-item"><a href="https://www.md.tsukuba.ac.jp/tmrc/index_en.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Transborder Medical Research Center</a></li>
+            <li class="groundchild-item"><a href="https://cyber-m.mc-tsukuba.com/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Center for Cyber Medicine Research</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Unique Programs for Research</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/research/featured-tristar/index.html" rel="noopener" rel="noopener" class="txt-link">A Top Runner Development Program Engaging Universities, National Labs, and Companies: TRiSTAR</a></li>
+                  <li class="groundchild-item"><a href="https://wpi-iiis.tsukuba.ac.jp/about/moonshot/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Moonshot Research and Development Program　Development of new-generation medical care systems through customizing sleep and hibernation</a></li>
+                  <li class="groundchild-item"><a href="https://tsukubadigitalbio.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JST The program on open innovation platforms for industry-academia co-creation　Tsukuba Digital-Bio International Center</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Research Support</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.kkss.tsukuba.ac.jp" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Facility Center for Science and Technology</a></li>
+            <li class="groundchild-item"><a href="https://www.cc.tsukuba.ac.jp" rel="noopener" class="txt-link txt-ex-link" target="_blank">Academic Computing &amp; Communications Center</a></li>
+            <li class="groundchild-item"><a href="https://www.hosp.tsukuba.ac.jp/t-credo/english/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Clinical Research &amp; Development Organization(T-CReDO)</a></li>
+            <li class="groundchild-item"><a href="https://www.osi.tsukuba.ac.jp/eng/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Organization for Strategic Research Initiatives (OSRI)</a></li>
+            <li class="groundchild-item"><a href="https://ura.sec.tsukuba.ac.jp/ru_registration" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Unit / Research Group System</a></li>
+            <li class="groundchild-item"><a href="https://www.osi.tsukuba.ac.jp/fight_covid19/" rel="noopener" class="txt-link txt-ex-link" target="_blank">University ‘Knowledge’-Based Program</a></li>
+            <li class="groundchild-item"><a href="https://ura.sec.tsukuba.ac.jp/ura/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Administrators at University of Tsukuba</a></li>
+            <li class="groundchild-item"><a href="https://ura.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Information Portal (COTRE)</a></li>
+            <li class="groundchild-item"><a href="https://ura.sec.tsukuba.ac.jp/riss" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research Information System（RISS)</a></li>
+            <li class="groundchild-item"><a href="https://anzenkanri.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Office of Occupational Health and Safety Management </a></li>
+                </ul>
+                </div>
+              </li>
+
+              <li class="child-item">
+              <a><span>Research Compliance</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/research/compliance-fairness" rel="noopener" class="txt-link">Fair Promotion of Research Activities</a></li>
+                  <li class="groundchild-item"><a href="https://coi-sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Office of Conflict of Interest and Security Export Control</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Industry-University Collaboration</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.sanrenhonbu.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Industry-University Collaboration </a></li>
+            <li class="groundchild-item"><a href="https://www.sanrenhonbu.tsukuba.ac.jp/en/2017rd/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Research &amp; Development Centers</a></li>
+            <li class="groundchild-item"><a href="https://oiso.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Open Innovation Strategy Organization （OISO） </a></li>
+            <li class="groundchild-item"><a href="https://www.sanrenhonbu.tsukuba.ac.jp/en/course/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Entrepreneurship Education</a></li>
+            <li class="groundchild-item"><a href="https://itff.projects.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">IMAGINE THE FUTURE. Forum</a></li>
+            <li class="groundchild-item"><a href="https://www.sanrenhonbu.tsukuba.ac.jp/en/spin_offs/" rel="noopener" class="txt-link txt-ex-link" target="_blank">University Spin-offs</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Research Collaboration with Tsukuba City</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.tia-nano.jp/page/dir000002.html" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Innovation Arena (TIA)</a></li>
+                  <li class="groundchild-item"><a href="http://www.tsukuba-sogotokku.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba International Strategic Zone</a></li>
+                </ul>
+                </div>
+              </li>
+                        <li class="child-item">
+              <a><span>Partnerships</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.bgi.sec.tsukuba.ac.jp/en/partner-organizations/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Partner Universities</a></li>
+                  <li class="groundchild-item"><a href="https://www.cic.sec.tsukuba.ac.jp/partners/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Campus-in-Campus Partner Universities</a></li>
+                </ul>
+                </div>
+              </li>
+                        </ul>
+                      </div>
+                    </div>
+          </div>
+          <div id="panel_006" class="sub-nav-panel">
+                      <div class="nav-content">
+                      <div class="title">
+                        <h2 class="title-nav">CAMPUS LIFE</h2>
+                        <figure class="image-nav"><img src="/en/assets/img/common/nav-sub-campuslife.jpg"></figure>
+                      </div>
+                      <div class="child">
+                      <a class="child-nav-top" href="/en/campuslife/" class="txt-link">CAMPUS LIFE TOP</a>
+            <ul class="child-items">
+              <li class="child-item">
+              <a><span>Voices of International Students</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/voices/" rel="noopener" class="txt-link">Voices of International Students</a></li>
+                  <li class="groundchild-item"><a href="/en/about/view-our-video/" rel="noopener" class="txt-link">Watch Our Campus</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Housing &amp; Dining</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/campuslife/support-healthlife/accommodation" rel="noopener" class="txt-link">Housing</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/dining" target="blank" rel="noopener" class="txt-link">Dining &amp; Shops</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/welfare-facilities-accommodation" rel="noopener" class="txt-link">Guest Houses</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Extracurricular Activities</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/campuslife/activity-unions-circles" rel="noopener" class="txt-link">Clubs and Circles</a></li>
+                                <li class="groundchild-item"><a href="/en/campuslife/activity-unions-class" rel="noopener" class="txt-link">Class &amp; Support System</a></li>
+                                <li class="groundchild-item"><a href="/en/campuslife/activity-part-time-jobs/" rel="noopener" class="txt-link">Part-time Job Information for Students</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Student Support</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/campuslife/support-international" rel="noopener" class="txt-link">Support for International Students</a></li>
+                  <li class="groundchild-item"><a href="https://ssc.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Student Support Center</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/support-scholarship" rel="noopener" class="txt-link">News on Scholarship and Tuition Fees</a></li>
+            <li class="groundchild-item"><a href="https://ssc.sec.tsukuba.ac.jp/ies-top/go-abroad-top/scholarship-4-ga" class="txt-link txt-ex-link" target="_blank">University of Tsukuba Study Abroad Support Programs</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/support-healthsupport" rel="noopener" class="txt-link">Mental and Physical Health Support</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/support-healthsupport/safelivingen.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">SAFE LIVING - How to Live a Pleasant Student Life</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/support-disability" rel="noopener" class="txt-link">Support for Students with Disabilities</a></li>
+            <li class="groundchild-item"><a href="https://diversity.tsukuba.ac.jp/lgbtq" rel="noopener" class="txt-link txt-ex-link" target="_blank">LGBTQ+</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/support-ta-handbook" rel="noopener" class="txt-link">Teaching Assistant (TA)</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/support-facilities" rel="noopener" class="txt-link">Campus &amp; Facilities</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/certificate" rel="noopener" class="txt-link">Certificates</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/grade-viewing/" rel="noopener" class="txt-link">Grade Viewing by Parents or Guardians</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/support-bus/" rel="noopener" class="txt-link">On-Campus Transportation System (Bus Pass)</a></li>
+            <li class="groundchild-item"><a href="https://www.tulips.tsukuba.ac.jp/wsp/index_e.html" rel="noopener" class="txt-link txt-ex-link" target="_blank"> Writing Support</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/anti-harassment/" rel="noopener" class="txt-link">Harassment Prevention</a></li>
+                </ul>
+                </div>
+              </li>              
+              <li class="child-item">
+              <a><span>Academic Calendar &amp; University Events</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/academics/academic-calendar" rel="noopener" class="txt-link">Academic Calendar</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/calendar-events" rel="noopener" class="txt-link">University Events</a></li>
+                  <li class="groundchild-item"><a href="/en/campuslife/ceremony" rel="noopener" class="txt-link">Entrance Ceremony &amp; Commencement Ceremony</a></li>
+
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Student's Guide</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/campuslife/students-guidebook-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Student's Guide</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Campus Web Tools</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://twins.tsukuba.ac.jp/campusweb/campusportal.do?locale=en_US" target="blank" rel="noopener" class="txt-link">TWINS / Web Bulletin Board</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/tool/twins-sers'-guides-for-students-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">TWINS Users’ Guide for Students</a></li>
+            <!--li class="groundchild-item"><a href="/en/campuslife/tool/pdf/board-manual-en.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Web Bulletin Board for Students (Users’ Guide)</a></li-->
+            <li class="groundchild-item"><a href="/en/campuslife/tool/board-manual-itemslist.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Web Bulletin Board Categorized Items List［For Students］</a></li>
+            <li class="groundchild-item"><a href="https://kdb.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Curriculum Scheduling Support System (KdB: List of courses)</a></li>
+            <li class="groundchild-item"><a href="/en/campuslife/tool/kdb_manual.pdf" rel="noopener" class="txt-link txt-pdf" target="_blank">Curriculum Scheduling Support System (KdB: List of courses) Manual (For Students)</a></li>
+            <li class="groundchild-item"><a href="https://manaba.tsukuba.ac.jp" rel="noopener" class="txt-link txt-ex-link" target="_blank">Learning Management System (manaba) Login</a></li>            
+            <li class="groundchild-item"><a href="https://www.ecloud.tsukuba.ac.jp/en/learning-management-system-manaba" rel="noopener" class="txt-link txt-ex-link" target="_blank">Learning Management System (manaba) Support Site</a></li>
+            <li class="groundchild-item"><a href="https://trip.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Travel System (TRIP)</a></li>
+            <li class="groundchild-item"><a href="https://www.u.tsukuba.ac.jp/en-toppage/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Zengaku Computer System</a></li>
+            <li class="groundchild-item"><a href="https://www.u.tsukuba.ac.jp/en-email/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Students' E-mails </a></li>
+            <li class="groundchild-item"><a href="https://www.u.tsukuba.ac.jp/en-remote/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Remote Access</a></li>
+            <li class="groundchild-item"><a href="https://www.cc.tsukuba.ac.jp/wp_e/service/wireless/" rel="noopener" class="txt-link txt-ex-link" target="_blank">On-Campus Wi-Fi System</a></li>
+            <li class="groundchild-item"><a href="https://www.tulips.tsukuba.ac.jp/lib/en" rel="noopener" class="txt-link txt-ex-link" target="_blank">Search World's Library Collections (Tulips)</a></li>
+            <li class="groundchild-item"><a href="https://openfacility.sec.tsukuba.ac.jp/wp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Open Facility Network Office, Research Facility</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Career in Japan</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/alumni/graduates-interviews/" rel="noopener" class="txt-link">Graduates Working in Japan</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Overseas Safety &amp; Risk Management</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/about/risk-safety" rel="noopener" class="txt-link">Overseas Safety &amp; Risk Management</a></li>
+                  <li class="groundchild-item"><a href="https://trip.sec.tsukuba.ac.jp/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Travel System (TRIP)</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Welfare Facilities</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/campuslife/welfare-organization" rel="noopener" class="txt-link">Welfare Facilities</a></li>
+                </ul>
+                </div>
+              </li>
+                        </ul>
+                      </div>
+                    </div>
+          </div>
+
+          <div id="panel_007" class="sub-nav-panel">
+                      <div class="nav-content">
+                      <div class="title">
+                        <h2 class="title-nav">CAREER &amp; ALUMNI</h2>
+                        <figure class="image-nav"><img src="/en/assets/img/common/nav-sub-alumni.jpg"></figure>
+                      </div>
+                      <div class="child">
+                      <a class="child-nav-top" href="/en/alumni/" class="txt-link">CAREER &amp; ALUMNI TOP</a>
+            <ul class="child-items">
+             <li class="child-item">
+              <a><span>Exchange after Graduation</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <!--li class="groundchild-item"><a href="https://global-alumni.sec.tsukuba.ac.jp/en/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Alumni Network (T-Net)</a></li-->
+            <li class="groundchild-item"><a href="https://www.linkedin.com/school/%E7%AD%91%E6%B3%A2%E5%A4%A7%E5%AD%A6/?viewAsMember=true" rel="noopener" class="txt-link txt-ex-link" target="_blank">University of Tsukuba LinkedIn College Page</a></li>
+            <li class="groundchild-item"><a href="https://www.bgi.sec.tsukuba.ac.jp/en/overseas-office/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Overseas Offices</a></li>
+                </ul>
+                </div>
+              </li>
+             <li class="child-item">
+               <a><span>Overseas Alumni</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.bgi.sec.tsukuba.ac.jp/en/tuan/" rel="noopener" class="txt-link txt-ex-link" target="_blank">Tsukuba Universal Alumni Network (TUAN)</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Issue of Certificates</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/alumni/certificates-u-application" rel="noopener" class="txt-link">Undergraduate Schools</a></li>
+                  <li class="groundchild-item"><a href="/en/alumni/certificates-g-application" rel="noopener" class="txt-link">Graduate Schools</a></li>
+                </ul>
+                </div>
+              </li>
+
+              <li class="child-item">
+              <a><span>Follow-Up Services</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="https://www.jasso.go.jp/en/ryugaku/after_study_j/tanken/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JASSO Follow Up Research Fellowship</a></li>
+            <li class="groundchild-item"><a href="https://www.jasso.go.jp/en/ryugaku/after_study_j/shido/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JASSO Follow Up Research Guidance</a></li>
+            <li class="groundchild-item"><a href="https://www.jsps.go.jp/english/e-ronpaku/" rel="noopener" class="txt-link txt-ex-link" target="_blank">JSPS Ronpaku (Dissertation Ph.D) Program</a></li>
+                </ul>
+                </div>
+              </li>
+              <li class="child-item">
+              <a><span>Career in Japan</span></a>
+                <div class="ground-child">
+                <ul class="groundchild-items">
+                  <li class="groundchild-item"><a href="/en/alumni/graduates-interviews/" rel="noopener" class="txt-link">Graduates Working in Japan</a></li>
+                </ul>
+                </div>
+              </li>
+
+                        </ul>
+                      </div>
+                    </div>
+          </div>
+                </div>
+              </div>
+              <div class="nav-bg"></div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="container-wrap">
+        <nav class="sub-menu">
+          <ul class="list">
+          <li class="item"><a href="/en/news/" rel="noopener" class="txt-link">NEWS</a></li>
+          <li class="item"><a href="/en/events" rel="noopener" class="txt-link">EVENTS</a></li>
+          <li class="item"><a href="/en/about/risk-management/" rel="noopener" class="txt-link">Risk Management</a></li>
+           <li class="item"><a class="b-p txt-link txt-ex-link giving" style="padding-left:1rem;padding-right:1rem;" href="https://futureship.sec.tsukuba.ac.jp/english" rel="noopener" target="_blank">Giving to Tsukuba</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+</header>
+<!--header-->
+<!--main-visual-->
+<section class="feature">
+<figure class="main-visual lazyload" data-bg="/en/images/bg_admission_financial.jpg">
+<figcaption class="sub-title-wrap"><p class="subtitle">Admissions</p><h1 class="title">Scholarships</h1></figcaption>
+</figure>
+</section>
+<!--main-visual-->
+<!--bread-->
+   		<section class="bread">
+        <ul class="items">
+<li class="item"><a href="../../index.html">Home</a></li>
+<li class="item"><a href="../index.html">Admissions</a></li>
+<li class="item"><a href="index.html">Scholarships</a></li>
+</ul>
+    	</section>
+<!--bread-->
+<!--contents-->
+ <section id="page-451" class="financial-scholarships financial-scholarships-contents">
+<section class="contents">
+      <div class="contents-wrap">
+        <div class="content">
+<div class="content-6">
+<div class="parts-D-column rowcolumn">
+<figcaption class="text-container">
+<p class="description">Scholarships for privately-financed international students are divided into two types according to the application method: The first type of scholarship requires application through the university, while the second type allows direct application to the scholarship foundation.</p><br>
+<ul>
+<li><p class="description">・<a href="recommendation" rel="noopener" class="txt-link">University Recommendation</a></p></li>
+<li><p class="description">・<a href="individual" rel="noopener" class="txt-link"> Individual Application</a></p></li>
+<li><p class="description">・<a href="mext" rel="noopener" class="txt-link">Japanese Government (MEXT) Scholarship</a></p></li>
+<li><p class="description">・<a href="mext/mext-students/index.html" rel="noopener" class="txt-link">For MEXT Scholarship Students</a></p><li><p class="description">・<a href="../../academics/jst-spring-program/index.html" rel="noopener" class="txt-link">Financial Support for Students in the Doctoral Program</a></p></li>
+</ul>
+</figcaption>
+<figure class="image-container">
+<img src="../../images/scholarship.jpg" alt="Scholarships"/>
+</figure>
+</div>
+</div>
+</div>
+</section>
+ </section>
+<!--contents-->
+	</main>
+<div class="gotop"><a href="#top"></a></div>
+<div id="sns"></div>
+<footer class="footer sp-only">
+    <div class="container-wrap">
+      <div class="footer-list">
+        <ul class="items">
+          <li class="item"><a href="/en/about/organization-library/" rel="noopener">University Library</a></li>
+          <li class="item"><a href="/en/about/organization-hospital/" rel="noopener">University Hospital</a></li>
+          <li class="item"><a href="/en/about/organization-attached-schools/" rel="noopener">Laboratory Schools</a></li>
+        </ul>
+        <ul class="items">
+          <li class="item"><a href="/en/about/jobs-information/" rel="noopener">Job Opportunities</a></li>
+          <li class="item"></li>
+          <li class="item"><a href="/en/about/#disclosure" rel="noopener">Information Disclosure</a></li>
+          <li class="item"><a href="/en/about/campus-access/" rel="noopener">Access</a></li>
+        <li class="item"><a href="/en/contact/" rel="noopener">Contact</a></li>
+          <li class="item"><a href="/en/sitemap/" rel="noopener">Site Map</a></li>
+          <li class="item"><a href="/en/sitepolicy/" rel="noopener">Site Policy</a></li>
+        </ul>
+        <ul class="items">
+          <li class="item"><a href="https://ksp.sec.tsukuba.ac.jp/wp/" rel="noopener" target="_blank">Staff Page</a></li>
+          <li class="item"><a href="https://twins.tsukuba.ac.jp/campusweb/campusportal.do?locale=en_US" rel="noopener" target="_blank">Bulletin Board (for students)</a></li>
+          <li class="item"></li>
+        <li class="item"><a href="/en/electricity" rel="noopener">Electricity Monitoring</a></li>
+          <li class="item"></li>
+          <li class="item"><a href="https://www.janu.jp/eng/" rel="noopener" target="_blank">JANU</a></li>
+        </ul>
+      </div>
+      <div class="footer-info">
+        <div class="container">
+          <div class="row">
+            <div class="column_sp"></div>
+            <div class="column">
+              <ul class="sns">
+                <li class="item">
+                  <a class="facebook" href="https://www.facebook.com/univ.tsukuba.en" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M400,32H48C21.5,32,0,53.5,0,80v352c0,26.5,21.5,48,48,48h137.2V327.7h-63V256h63v-54.6c0-62.2,37-96.5,93.7-96.5
+                      c27.1,0,55.5,4.8,55.5,4.8v61h-31.3c-30.8,0-40.4,19.1-40.4,38.7V256h68.8l-11,71.7h-57.8V480H400c26.5,0,48-21.5,48-48V80
+                      C448,53.5,426.5,32,400,32z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="twitter" href="https://twitter.com/UNIV_TSUKUBA_EN" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <g>
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="youtube" href="https://www.youtube.com/user/univpr2014" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M186.8,202.1l95.2,54.1l-95.2,54.1V202.1z M448,80v352c0,26.5-21.5,48-48,48H48c-26.5,0-48-21.5-48-48V80
+                      c0-26.5,21.5-48,48-48h352C426.5,32,448,53.5,448,80z M406,256.3c0,0,0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4
+                      C337.9,128,224,128,224,128s-113.9,0-142.2,7.7c-15.7,4.2-28,16.6-32.2,32.4C42,196.6,42,256.3,42,256.3s0,59.6,7.6,88.2
+                      c4.2,15.8,16.5,27.7,32.2,31.9C110.1,384,224,384,224,384s113.9,0,142.2-7.7c15.7-4.2,28-16.1,32.2-31.9
+                      C406,315.9,406,256.3,406,256.3L406,256.3z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="linkedin" href="https://www.linkedin.com/edu/school?id=14403" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M416,32H31.9C14.3,32,0,46.5,0,64.3v383.4C0,465.5,14.3,480,31.9,480H416c17.6,0,32-14.5,32-32.3V64.3
+                      C448,46.5,433.6,32,416,32z M135.4,416H69V202.2h66.5V416H135.4z M102.2,173c-21.3,0-38.5-17.3-38.5-38.5S80.9,96,102.2,96
+                      c21.2,0,38.5,17.3,38.5,38.5C140.7,155.8,123.5,173,102.2,173z M384.3,416h-66.4V312c0-24.8-0.5-56.7-34.5-56.7
+                      c-34.6,0-39.9,27-39.9,54.9V416h-66.4V202.2h63.7v29.2h0.9c8.9-16.8,30.6-34.5,62.9-34.5c67.2,0,79.7,44.3,79.7,101.9V416z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="instagram" href="https://www.instagram.com/university_of_tsukuba/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M224,202.7c-29.5,0-53.3,23.9-53.3,53.4c0,29.5,23.9,53.3,53.4,53.3c29.5,0,53.3-23.9,53.3-53.3
+                      C277.3,226.5,253.5,202.7,224,202.7z M348.7,161.7c-5.5-13.9-16.5-24.9-30.4-30.4c-21-8.3-71-6.4-94.3-6.4s-73.2-1.9-94.3,6.4
+                      c-13.9,5.5-24.9,16.5-30.4,30.4c-8.3,21-6.4,71.1-6.4,94.3s-1.8,73.3,6.5,94.3c5.5,13.9,16.5,24.9,30.4,30.4c21,8.3,71,6.4,94.3,6.4
+                      s73.2,1.9,94.3-6.4c13.9-5.5,24.9-16.5,30.4-30.4c8.4-21,6.4-71.1,6.4-94.3S357.1,182.7,348.7,161.7L348.7,161.7z M224,338
+                      c-45.3,0-82-36.7-82-82s36.7-82,82-82s82,36.7,82,82c0.1,45.2-36.6,81.9-81.8,82C224.1,338,224.1,338,224,338z M309.4,189.7
+                      c-10.6,0-19.1-8.6-19.1-19.1s8.6-19.1,19.1-19.1c10.6,0,19.1,8.6,19.1,19.1c0,0,0,0,0,0c0,10.5-8.5,19.1-19,19.2
+                      C309.5,189.7,309.4,189.7,309.4,189.7L309.4,189.7z M400,32H48C21.5,32,0,53.5,0,80v352c0,26.5,21.5,48,48,48h352
+                      c26.5,0,48-21.5,48-48V80C448,53.5,426.5,32,400,32z M382.9,322c-1.3,25.6-7.1,48.3-25.9,67s-41.4,24.6-67,25.9
+                      c-26.4,1.5-105.6,1.5-132,0c-25.6-1.3-48.3-7.1-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6,0-132c1.3-25.6,7.1-48.3,25.8-67
+                      s41.5-24.6,67-25.8c26.4-1.5,105.6-1.5,132,0c25.6,1.3,48.3,7.2,67,25.8s24.6,41.4,25.9,67C384.4,216.4,384.4,295.6,382.9,322z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="podcast" href="https://podcasters.spotify.com/pod/show/university-of-tsukuba" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <g transform="matrix(0.1,0,0,-0.1,0,576)">
+                        <path d="M405,5429C207,5400 39,5228 10,5025C-3,4929 -3,1471 10,1375C40,1167 207,1000 415,970C457,964 798,960 1263,960L2040,960L2039,1948L2039,2935L1967,2969C1879,3011 1779,3108 1733,3196C1620,3410 1658,3659 1830,3830C1938,3938 2061,3990 2210,3990C2358,3990 2482,3938 2590,3830C2761,3659 2799,3409 2687,3195C2640,3106 2540,3010 2453,2969L2380,2935L2380,960L3188,960C3672,960 4023,964 4065,970C4273,1000 4440,1167 4470,1375C4483,1471 4483,4929 4470,5025C4440,5233 4273,5400 4065,5430C3978,5442 491,5441 405,5429ZM2470,5085C3156,4978 3713,4433 3840,3745C3874,3558 3870,3306 3830,3113C3702,2496 3228,2002 2613,1845C2559,1831 2509,1820 2503,1820C2493,1820 2490,1861 2490,1990L2490,2159L2533,2170C2670,2205 2815,2271 2946,2359C3199,2528 3391,2788 3474,3076C3629,3610 3442,4173 3000,4504C2483,4891 1772,4851 1304,4408C884,4010 771,3380 1027,2865C1115,2689 1287,2486 1440,2378C1565,2290 1751,2204 1888,2170L1930,2159L1930,1990C1930,1861 1927,1820 1918,1820C1911,1820 1861,1831 1807,1845C1324,1968 927,2294 715,2744C456,3291 513,3922 867,4418C904,4470 982,4560 1041,4619C1419,4997 1942,5167 2470,5085ZM2415,4524C2773,4457 3075,4211 3219,3871C3331,3606 3330,3292 3215,3019C3098,2740 2824,2492 2534,2405L2490,2392L2490,2745L2563,2782C2745,2877 2892,3064 2946,3270C2972,3370 2970,3545 2942,3642C2885,3842 2762,4004 2589,4108C2498,4163 2323,4210 2212,4210C1764,4209 1408,3816 1458,3377C1489,3106 1653,2871 1888,2766L1930,2747L1930,2392L1888,2405C1562,2503 1282,2774 1175,3094C1134,3216 1119,3313 1119,3450C1118,3742 1218,3992 1419,4203C1681,4477 2042,4594 2415,4524Z" style="fill-rule:nonzero;"/>
+                        <path d="M2160,3646C2079,3625 2029,3572 2011,3491C1984,3363 2078,3247 2210,3248C2293,3249 2352,3286 2392,3364C2469,3515 2325,3690 2160,3646Z" style="fill-rule:nonzero;"/>
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <figure class="logo-icon"><img src="/en/assets/img/common/logo-w.svg" alt="University of Tsukuba logo"></figure>
+              <div class="language">
+              <a class="jp" href="/" rel="noopener">Japanese</a>
+              <!--<a class="en" href="/en" rel="noopener">English</a>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="publicinfo sp-only">
+          <address>1-1-1 Tennodai, Tsukuba, Ibaraki 305-8577 Japan</address>
+          <copy>&copy; <script type="text/javascript">myDate = new Date() ;myYear = myDate.getFullYear ();document.write(myYear);</script> University of Tsukuba</copy>
+       </div>
+    </div>
+  </footer>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHQSQD2FS5"></script>
+<script src="/assets/js/ga4.js"></script>
+<div class="gotop"><a href="#top"></a></div>
+<footer class="footer pc-only">
+    <div class="container-wrap">
+      <div class="footer-info">
+        <div class="container">
+          <div class="row">
+            <div class="column">
+              <figure class="logo-icon"><img src="/en/assets/img/common/logo-w.svg" alt="University of Tsukuba logo"></figure>
+              <div class="language">
+              <a class="jp" href="/" rel="noopener">Japanese</a>
+              <!--<a class="en" href="/en" rel="noopener">English</a>-->
+              </div>
+
+          </div>
+            <div class="column">
+              <ul class="sns">
+                <li class="item">
+                  <a class="facebook" href="https://www.facebook.com/univ.tsukuba.en" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M400,32H48C21.5,32,0,53.5,0,80v352c0,26.5,21.5,48,48,48h137.2V327.7h-63V256h63v-54.6c0-62.2,37-96.5,93.7-96.5
+                      c27.1,0,55.5,4.8,55.5,4.8v61h-31.3c-30.8,0-40.4,19.1-40.4,38.7V256h68.8l-11,71.7h-57.8V480H400c26.5,0,48-21.5,48-48V80
+                      C448,53.5,426.5,32,400,32z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="twitter" href="https://twitter.com/UNIV_TSUKUBA_EN" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <g>
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="youtube" href="https://www.youtube.com/user/univpr2014" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M186.8,202.1l95.2,54.1l-95.2,54.1V202.1z M448,80v352c0,26.5-21.5,48-48,48H48c-26.5,0-48-21.5-48-48V80
+                      c0-26.5,21.5-48,48-48h352C426.5,32,448,53.5,448,80z M406,256.3c0,0,0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4
+                      C337.9,128,224,128,224,128s-113.9,0-142.2,7.7c-15.7,4.2-28,16.6-32.2,32.4C42,196.6,42,256.3,42,256.3s0,59.6,7.6,88.2
+                      c4.2,15.8,16.5,27.7,32.2,31.9C110.1,384,224,384,224,384s113.9,0,142.2-7.7c15.7-4.2,28-16.1,32.2-31.9
+                      C406,315.9,406,256.3,406,256.3L406,256.3z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="linkedin" href="https://www.linkedin.com/edu/school?id=14403" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M416,32H31.9C14.3,32,0,46.5,0,64.3v383.4C0,465.5,14.3,480,31.9,480H416c17.6,0,32-14.5,32-32.3V64.3
+                      C448,46.5,433.6,32,416,32z M135.4,416H69V202.2h66.5V416H135.4z M102.2,173c-21.3,0-38.5-17.3-38.5-38.5S80.9,96,102.2,96
+                      c21.2,0,38.5,17.3,38.5,38.5C140.7,155.8,123.5,173,102.2,173z M384.3,416h-66.4V312c0-24.8-0.5-56.7-34.5-56.7
+                      c-34.6,0-39.9,27-39.9,54.9V416h-66.4V202.2h63.7v29.2h0.9c8.9-16.8,30.6-34.5,62.9-34.5c67.2,0,79.7,44.3,79.7,101.9V416z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="instagram" href="https://www.instagram.com/university_of_tsukuba/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <path d="M224,202.7c-29.5,0-53.3,23.9-53.3,53.4c0,29.5,23.9,53.3,53.4,53.3c29.5,0,53.3-23.9,53.3-53.3
+                      C277.3,226.5,253.5,202.7,224,202.7z M348.7,161.7c-5.5-13.9-16.5-24.9-30.4-30.4c-21-8.3-71-6.4-94.3-6.4s-73.2-1.9-94.3,6.4
+                      c-13.9,5.5-24.9,16.5-30.4,30.4c-8.3,21-6.4,71.1-6.4,94.3s-1.8,73.3,6.5,94.3c5.5,13.9,16.5,24.9,30.4,30.4c21,8.3,71,6.4,94.3,6.4
+                      s73.2,1.9,94.3-6.4c13.9-5.5,24.9-16.5,30.4-30.4c8.4-21,6.4-71.1,6.4-94.3S357.1,182.7,348.7,161.7L348.7,161.7z M224,338
+                      c-45.3,0-82-36.7-82-82s36.7-82,82-82s82,36.7,82,82c0.1,45.2-36.6,81.9-81.8,82C224.1,338,224.1,338,224,338z M309.4,189.7
+                      c-10.6,0-19.1-8.6-19.1-19.1s8.6-19.1,19.1-19.1c10.6,0,19.1,8.6,19.1,19.1c0,0,0,0,0,0c0,10.5-8.5,19.1-19,19.2
+                      C309.5,189.7,309.4,189.7,309.4,189.7L309.4,189.7z M400,32H48C21.5,32,0,53.5,0,80v352c0,26.5,21.5,48,48,48h352
+                      c26.5,0,48-21.5,48-48V80C448,53.5,426.5,32,400,32z M382.9,322c-1.3,25.6-7.1,48.3-25.9,67s-41.4,24.6-67,25.9
+                      c-26.4,1.5-105.6,1.5-132,0c-25.6-1.3-48.3-7.1-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6,0-132c1.3-25.6,7.1-48.3,25.8-67
+                      s41.5-24.6,67-25.8c26.4-1.5,105.6-1.5,132,0c25.6,1.3,48.3,7.2,67,25.8s24.6,41.4,25.9,67C384.4,216.4,384.4,295.6,382.9,322z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li class="item">
+                  <a class="podcast" href="https://podcasters.spotify.com/pod/show/university-of-tsukuba" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 500 512">
+                      <g transform="matrix(0.1,0,0,-0.1,0,576)">
+                        <path d="M405,5429C207,5400 39,5228 10,5025C-3,4929 -3,1471 10,1375C40,1167 207,1000 415,970C457,964 798,960 1263,960L2040,960L2039,1948L2039,2935L1967,2969C1879,3011 1779,3108 1733,3196C1620,3410 1658,3659 1830,3830C1938,3938 2061,3990 2210,3990C2358,3990 2482,3938 2590,3830C2761,3659 2799,3409 2687,3195C2640,3106 2540,3010 2453,2969L2380,2935L2380,960L3188,960C3672,960 4023,964 4065,970C4273,1000 4440,1167 4470,1375C4483,1471 4483,4929 4470,5025C4440,5233 4273,5400 4065,5430C3978,5442 491,5441 405,5429ZM2470,5085C3156,4978 3713,4433 3840,3745C3874,3558 3870,3306 3830,3113C3702,2496 3228,2002 2613,1845C2559,1831 2509,1820 2503,1820C2493,1820 2490,1861 2490,1990L2490,2159L2533,2170C2670,2205 2815,2271 2946,2359C3199,2528 3391,2788 3474,3076C3629,3610 3442,4173 3000,4504C2483,4891 1772,4851 1304,4408C884,4010 771,3380 1027,2865C1115,2689 1287,2486 1440,2378C1565,2290 1751,2204 1888,2170L1930,2159L1930,1990C1930,1861 1927,1820 1918,1820C1911,1820 1861,1831 1807,1845C1324,1968 927,2294 715,2744C456,3291 513,3922 867,4418C904,4470 982,4560 1041,4619C1419,4997 1942,5167 2470,5085ZM2415,4524C2773,4457 3075,4211 3219,3871C3331,3606 3330,3292 3215,3019C3098,2740 2824,2492 2534,2405L2490,2392L2490,2745L2563,2782C2745,2877 2892,3064 2946,3270C2972,3370 2970,3545 2942,3642C2885,3842 2762,4004 2589,4108C2498,4163 2323,4210 2212,4210C1764,4209 1408,3816 1458,3377C1489,3106 1653,2871 1888,2766L1930,2747L1930,2392L1888,2405C1562,2503 1282,2774 1175,3094C1134,3216 1119,3313 1119,3450C1118,3742 1218,3992 1419,4203C1681,4477 2042,4594 2415,4524Z" style="fill-rule:nonzero;"/>
+                        <path d="M2160,3646C2079,3625 2029,3572 2011,3491C1984,3363 2078,3247 2210,3248C2293,3249 2352,3286 2392,3364C2469,3515 2325,3690 2160,3646Z" style="fill-rule:nonzero;"/>
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+           </div>
+           <div class="publicinfo pc-only">
+            <div class="rowcolumn">
+              <copy>&copy; <script type="text/javascript">myDate = new Date() ;myYear = myDate.getFullYear ();document.write(myYear);</script> University of Tsukuba</copy>
+              <address class="pc-only">1-1-1 Tennodai, Tsukuba, Ibaraki 305-8577 Japan</address>
+            </div>
+           </div>
+        </div>
+      </div>
+      <div class="footer-list">
+        <ul class="items">
+          <li class="item"><a href="/en/about/organization-library/" rel="noopener">University Library</a></li>
+          <li class="item"><a href="/en/about/organization-hospital/" rel="noopener">University Hospital</a></li>
+          <li class="item"><a href="/en/about/organization-attached-schools/" rel="noopener">Laboratory Schools</a></li>
+        </ul>
+        <ul class="items">
+          <li class="item"><a href="/en/about/jobs-information/" rel="noopener">Job Opportunities</a></li>
+          <li class="item"></li>
+          <li class="item"><a href="/en/about/#disclosure" rel="noopener">Information Disclosure</a></li>
+          <li class="item"><a href="/en/about/campus-access/" rel="noopener">Access</a></li>
+        <li class="item"><a href="/en/contact/" rel="noopener">Contact</a></li>
+          <li class="item"><a href="/en/sitemap/" rel="noopener">Site Map</a></li>
+          <li class="item"><a href="/en/sitepolicy/" rel="noopener">Site Policy</a></li>
+        </ul>
+        <ul class="items">
+          <li class="item"><a href="https://ksp.sec.tsukuba.ac.jp/wp/" rel="noopener" target="_blank">Staff Page</a></li>
+          <li class="item"><a href="https://twins.tsukuba.ac.jp/campusweb/campusportal.do?locale=en_US" rel="noopener" target="_blank">Bulletin Board (for students)</a></li>
+          <li class="item"></li>
+        <li class="item"><a href="/en/electricity" rel="noopener">Electricity Monitoring</a></li>
+          <li class="item"></li>
+          <li class="item"><a href="https://www.janu.jp/eng/" rel="noopener" target="_blank">JANU</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+<script src="/assets/js/cookieconsent.min.js" data-cfasync="false"></script>
+<script src="/en/assets/js/cookieconsent_setting.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HHQSQD2FS5"></script>
+<script src="/assets/js/ga4.js"></script>
+</body>
+<script src="/assets/js/after.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+  var $grid = jQuery('.grids').imagesLoaded(function(){
+    $grid.masonry({
+    itemSelector: '.grid'
+    });
+  });
+</script>
+</html>

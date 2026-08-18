@@ -328,18 +328,19 @@ npm run import:studyinsweden          # -> 60 records, countryCode SE (dry-run s
 For the destinations where aggregator coverage was thinnest (Italy, Spain, Japan, Korea, Switzerland, then Turkey, Norway, Mexico, Brazil) we crawl the **official university scholarship pages directly** instead of relying on aggregators. The crawler renders each page with Playwright (many are JS/WAF-protected) and saves the text; records are then hand-curated so amounts, deadlines, eligibility and ages reflect only what the page states:
 
 ```bash
-python3 scripts/crawl-uni-direct.py            # -> data/uni_direct/*.txt (33 pages incl. TR/NO/MX/BR targets)
+python3 scripts/crawl-uni-direct.py            # -> data/uni_direct/*.txt (pages from 3 rounds)
 npm run import:uni-direct -- --dry-run          # preview
-npm run import:uni-direct                       # -> 28 ACTIVE records (20 + 8)
+npm run import:uni-direct                       # -> 47 ACTIVE records (20 + 8 + 19)
 ```
 
 - **Italy:** Padua (Excellence €8k/yr + fee exemption, 100 fee waivers, departmental, MAECI €900/mo, Invest Your Talent €1k/mo, Galilean School), Sapienza (Post-degree €1,290/mo, Thesis €2,821, IUPALS, Meritorious), Bologna (Unibo Action 1&2 — €11k grant / fee waiver).
 - **Japan:** UTokyo Fellowship (¥200k/mo), Kyoto iUP (full waivers + ¥120k/mo), Nagoya MEXT stipends, Waseda partial tuition waiver.
 - **Korea:** SNU GKS (₩1.2M/mo), SNU President Fellowship, GSFS. **Switzerland:** ETH ESOP (full costs), EPFL Master Excellence (CHF 10k/semester). **Spain:** UPF-BSM, UC3M.
-- **Turkey:** Bilkent (20–100% tuition waivers + accommodation), Koç (25/50/75/100% merit tuition), TOBB ETÜ (full scholarship + monthly stipend, Special Achievement 150%).
+- **Turkey:** Bilkent (20–100% tuition waivers + accommodation), Koç (25/50/75/100% merit tuition), TOBB ETÜ (full scholarship + monthly stipend, Special Achievement 150%), **Sabancı** (100% grad tuition + stipend 115–135k TL + dorm; UG 25–100% waivers).
 - **Norway:** Anglo-Norse Society at NTNU (£3,000/yr, British citizens), GSEP Sustainable Energy at NTNU (developing countries). **Mexico:** Tec de Monterrey Campus Monterrey (Gallagher/Zaber foundations, Domínguez-Rivas, CEMYD). **Brazil:** USP Statistics (CNPq/CAPES R$1,500–2,200/mo), UNICAMP GRE-FAPESP Direct Doctorate (30 scholarships, 60 months).
+- **Round 3 (source-audit-driven, 2026-08-18):** Korea — POSTECH (full tuition + KRW 500k/mo + arrival), GIST (full tuition + 140–295k/mo stipend + RA), SKKU (10–100% automatic waivers), Hanyang HIEA (70/50/30%), Ewha GSIS (half tuition + work-based); Japan — Sophia Tuition Support (full/half/third), Tohoku JASSO Honors (48k yen/mo), Kobe Tuition Exemption (full/half), Kyushu JASSO exchange (80k yen/mo); Switzerland — USI (CHF 4,000), Basel (CHF 200–600/mo), HSG Excellence (42 scholarships, CHF 450k+), Swiss Gov Excellence @ UZH; Spain — IESE MBA (10–50%), ESADE Talent (60–100%) + MSc (50–85%), UV-AUIP (12 scholarships, Latin America); plus the missed round-1 Sapienza "100 Scholarships for Vulnerable Circumstances".
 - Dedupe is exact (sourceUrl / title+provider) **plus fuzzy** (normalized-title containment vs ACTIVE records) — e.g. MEXT editions and the already-covered Padua Excellence are skipped; EXPIRED editions don't block the current one (the existing UiO ISS record blocked a duplicate ISS re-import).
-- Country coverage: IT 8→18, ES 3→5, JP 21→24, KR 22→25, CH 17→19, TR 2→5, NO 2→4, BR 1→3, MX 0→1. **Honest blockers:** Politecnico di Milano (timeout), La Statale Milano & Trento (Cloudflare), Bocconi (WAF), most Spanish universities (WAF/404), KAIST (Korean-only), Yonsei/Hanyang (404), Koç (CloudFront), EGADE/ITAM/UNAM/FGV (unreachable), and the Norwegian honest ceiling (UiO/UiB/UiT offer no scholarships for full-degree international students).
+- Country coverage: IT 8→18, ES 3→9, JP 21→28, KR 22→30, CH 17→23, TR 2→7, NO 2→4, BR 1→3, MX 0→1 (round 3: ES 5→9, JP 24→28, KR 25→30, CH 19→23, TR 5→7). **Honest blockers:** Politecnico di Milano (timeout), La Statale Milano & Trento (Cloudflare), Bocconi (WAF), most Spanish universities (WAF/404), KAIST (Korean-only), Yonsei/Hanyang (404), Koç (CloudFront), EGADE/ITAM/UNAM/FGV (unreachable), and the Norwegian honest ceiling (UiO/UiB/UiT offer no scholarships for full-degree international students).
 
 ### Non-China university language backfill (2026-08-17)
 

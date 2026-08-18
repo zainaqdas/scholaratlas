@@ -1,0 +1,1252 @@
+
+			
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<title>Scholarships | 이화여자대학교 국제대학원</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="icon" type="image/png" sizes="16x16" href="/_res/ewha/_share/img/favicon/favicon-16x16.png">
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en"/>
+<meta property="og:site_name" content="이화여자대학교 국제대학원"/>
+<meta property="og:updated_time" content="2025-09-05T14:09:12Z"/>
+<meta name="twitter:card" content="summary"/>
+<link rel="canonical" href="https://gsis.ewha.ac.kr/gsis/admission/scholarships.do" />
+
+<link defer rel="stylesheet" type="text/css" href="/_res/_common/css/cms.css" />
+<link href="/_res/ewha/_share/css/cms-common.css?92338" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/_res/ewha/_share/css/gnbpc.widget.css?40301" />
+
+<link href="/_res/ewha/gsis/css/cms-common.css?82688" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/_res/ewha/gsis/css/path.content.css?30538" />
+<link rel="stylesheet" type="text/css" href="/_res/ewha/gsis/css/title.content.css?30538" />
+<link rel="stylesheet" type="text/css" href="/_res/ewha/gsis/css/header.content.css?88451" />
+<link rel="stylesheet" type="text/css" href="/_res/ewha/gsis/css/footer.content.css?79989" />
+<link rel="stylesheet" type="text/css" href="/_res/ewha/gsis/css/sub-visual.content.css?30538" />
+
+
+<script type="text/javascript" src="/_res/_common/js/jquery/jquery-2.2.4.min.js"></script>
+<script defer type="text/javascript" src="/_res/_common/js/jquery/jquery-ui-1.12.1.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	var CMS = {"contentEditAuth":false,"isDevelopAllContent":false,"editImageLimitSize":1200,"isCallAdm":false,"editActive":true,"resourcePath":"\/_res\/ewha\/gsis\/","excludePrintSelector":"","locale":"en","isCToken":true,"smoothScroll":"Y","mainContentId":"cms-content","appKey":"","contentEditOnlyMain":false,"servicePort":"","devContentKey":null,"subContentKeyMap":{},"boardNo":"","menuCd":"1585","ctx":"","sslPort":"","isMobileSite":false,"tokenSec":"0","editorVendor":"froala","localeScriptPath":"\/_custom\/ewha\/resource\/js\/","mainContentKey":"\/gsis\/_content\/scholarships001","printClass":"cms-print","pageKind":"STATIC","editClass":"cms-edit","cherryPath":"\/_fox","siteId":"gsis","isDevelop":false,"device":"pc","isSSL":false}, ctx = '', locale = 'en';
+
+//]]>
+</script>
+<script defer type="text/javascript" src="/_res/_common/js/cms.js"></script>
+	<script defer type="text/javascript" src="/_res/ewha/_share/js/pdfobject.min.js"></script>
+<script src="/_res/ewha/_share/js/cms-common.js?92330" defer type="text/javascript" ></script>
+<script src="/_res/ewha/gsis/js/cms-common.js?88331" defer type="text/javascript" ></script>
+<script defer type="text/javascript" src="/_res/ewha/gsis/js/header.content.js?88451" ></script>
+<script defer type="text/javascript" src="/_res/ewha/_share/js/gnbmobile.widget.js?14237" ></script>
+
+</head>
+<body class=" gsis-site pc color-type01" data-cur-uri="/gsis/admission/scholarships.do">
+
+
+
+
+<div class="wrap">
+	<header>
+		<div class="bottom-header-wrap" id="cms-gnb" data-cms-content="/gsis/_content/header">
+			
+				
+			
+<div class="bottom-header-box">
+	<h1><a href="/gsis/index.do" title="바로가기"><span class="white"><img src="/_res/ewha/gsis/img/main/main-logo-w.png" alt="EWHA WOMANS UNIVERSITY Graduate School of &amp;lt;br&amp;gt;International Studies"></span><span class="green"><img src="/_res/ewha/gsis/img/main/main-logo.png" alt="EWHA WOMANS UNIVERSITY Graduate School of &amp;lt;br&amp;gt;International Studies"></span></a></h1>
+	<div class="gnb-box">
+		<div class="pc-box">
+			
+				
+				
+			
+<ul class="gnb-ul">
+	
+		
+		<li>
+			<a href="/gsis/about/remark.do" id="pc-gnb-menu-1573"  title="대학원 소개 About"  ><span>대학원 소개 About</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/about/remark.do" id="pc-gnb-menu-1574"  title="원장 인사말 Welcoming Remarks"  ><span>원장 인사말 Welcoming Remarks</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/about/leaflet.do" id="pc-gnb-menu-1575"  title="개요 Overview"  ><span>개요 Overview</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/faculty/international-studies-adjunct.do" id="pc-gnb-menu-1587"  title="교수진 Faculty"  ><span>교수진 Faculty</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/about/contact01.do" id="pc-gnb-menu-1578"  title="문의처 Contact Information"  ><span>문의처 Contact Information</span></a>
+
+								
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		
+		<li>
+			<a href="/gsis/academics/programs01-01.do" id="pc-gnb-menu-1590"  title="과정 Programs"  class="active" ><span>과정 Programs</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/academics/programs01-01.do" id="pc-gnb-menu-1591"  title="Degree Program"  ><span>Degree Program</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/admission/scholarships.do" id="pc-gnb-menu-1585"  title="Scholarships"  class="active" ><span>Scholarships</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/admission/degree.do" id="pc-gnb-menu-1583"  title="Regular Programs"  ><span>Regular Programs</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/academics/introduction.do" id="pc-gnb-menu-1594"  title="Special Programs"  ><span>Special Programs</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/academics/academic-calendar.do" id="pc-gnb-menu-2659903"  title="Academic Calendar"  ><span>Academic Calendar</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/academics/course.do" id="pc-gnb-menu-2659902"  title="Course"  ><span>Course</span></a>
+
+								
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		
+		<li>
+			<a href="/gsis/admission/admissions.do" id="pc-gnb-menu-1582"  title="입학 Admissions"  ><span>입학 Admissions</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/admission/admissions.do" id="pc-gnb-menu-1584"  title="입학 Admissions"  ><span>입학 Admissions</span></a>
+
+								
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		
+		<li>
+			<a href="/gsis/research/aisr.do" id="pc-gnb-menu-1601"  title="Research"  ><span>Research</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/research/aisr.do" id="pc-gnb-menu-1602"  title="IIAS &amp; AISR"  ><span>IIAS &amp; AISR</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/research/ewhafrontier10-10.do" id="pc-gnb-menu-2659216"  title="Ewha Frontier 10-10"  ><span>Ewha Frontier 10-10</span></a>
+
+								
+								
+									<ul class="sub-mn02">
+										
+											<li>
+												<a href="/gsis/research/achievements.do" id="pc-gnb-menu-2659217"  title="Research Achievements"  ><span>Research Achievements</span></a>
+											</li>
+										
+									</ul>
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		
+		<li>
+			<a href="/gsis/campus/useful01.do" id="pc-gnb-menu-1604"  title="Campus Life"  ><span>Campus Life</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/campus/useful01.do" id="pc-gnb-menu-1605"  title="Useful Links &amp; Files"  ><span>Useful Links &amp; Files</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/campus/student.do" id="pc-gnb-menu-1609"  title="Student Council"  ><span>Student Council</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/campus/facilities.do" id="pc-gnb-menu-1610"  title="Facilities"  ><span>Facilities</span></a>
+
+								
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		
+		<li>
+			<a href="/gsis/global/guidelines01.do" id="pc-gnb-menu-1611"  title="Global Career"  ><span>Global Career</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/global/guidelines01.do" id="pc-gnb-menu-1612"  title="Internship Guidelines"  ><span>Internship Guidelines</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/global/job.do" id="pc-gnb-menu-1617"  title="Job/Internship Postings"  ><span>Job/Internship Postings</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/global/resources.do" id="pc-gnb-menu-1618"  title="Resources"  ><span>Resources</span></a>
+
+								
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		
+		<li>
+			<a href="/gsis/news/news01.do" id="pc-gnb-menu-1619"  title="Notice &amp; Event"  ><span>Notice &amp; Event</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/news/news01.do" id="pc-gnb-menu-1620"  title="Notice"  ><span>Notice</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/news/news02.do" id="pc-gnb-menu-1621"  title="Seminars &amp; Conference"  ><span>Seminars &amp; Conference</span></a>
+
+								
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+		
+		<li>
+			<a href="/gsis/alumni/women.do" id="pc-gnb-menu-1622"  title="Alumni"  ><span>Alumni</span></a>
+
+			
+				<div class="sub-mn-box">
+					<ul class="sub-mn">
+						
+						
+							<li>
+								<a href="/gsis/alumni/women.do" id="pc-gnb-menu-1623"  title="Women of GSIS"  ><span>Women of GSIS</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/alumni/career01.do" id="pc-gnb-menu-1624"  title="Career Track"  ><span>Career Track</span></a>
+
+								
+									
+							</li>
+						
+							<li>
+								<a href="/gsis/alumni/international-studies01.do" id="pc-gnb-menu-1627"  title="Theses &amp; Dissertations"  ><span>Theses &amp; Dissertations</span></a>
+
+								
+									
+							</li>
+						
+					</ul>
+				</div>
+			
+		</li>
+	
+</ul>
+		</div>
+		<div class="mo-box">
+			<nav class="slideMenu">
+				<div class="m-util">
+					<ul>
+						<!--
+<li>
+
+
+
+<a href="/_custom/ewha/sso/login.jsp?referer=/gsis/index.do" title="로그인" class="login"><span>LOGIN</span></a>
+</li>
+--><li><a href="https://www.ewha.ac.kr/ewha/index.do" target="_blank" title="새창열림">EWHA</a></li>
+					</ul>
+				</div>
+				<div class="m-gnb">
+					
+						
+						
+					
+<ul class="dep1">
+	
+
+		
+	<li><a href="/gsis/about/remark.do" id="menu-1573"  title="대학원 소개 About"  ><span>대학원 소개 About</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/about/remark.do" id="menu-1574"  title="원장 인사말 Welcoming Remarks"  >원장 인사말 Welcoming Remarks</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/about/leaflet.do" id="menu-1575"  title="개요 Overview"  >개요 Overview</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/about/leaflet.do" id="menu-1576"  title="About GSIS"  >About GSIS</a></li>
+								
+									<li><a href="/gsis/about/overview02.do" id="menu-1577"  title="Brochure"  >Brochure</a></li>
+								
+									<li><a href="/gsis/about/overview03.do" id="menu-2662639"  title="Promotional Postcard"  >Promotional Postcard</a></li>
+								
+							</ul>
+							
+					</li>
+				
+					<li><a href="/gsis/faculty/international-studies-adjunct.do" id="menu-1587"  title="교수진 Faculty"  >교수진 Faculty</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/faculty/international-studies-adjunct.do" id="menu-1588"  title="국제학과 International Studies"  >국제학과 International Studies</a></li>
+								
+									<li><a href="/gsis/faculty/studies02.do" id="menu-1589"  title="한국학과 Korean Studies"  >한국학과 Korean Studies</a></li>
+								
+							</ul>
+							
+					</li>
+				
+					<li><a href="/gsis/about/contact01.do" id="menu-1578"  title="문의처 Contact Information"  >문의처 Contact Information</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/about/contact01.do" id="menu-1579"  title="Directory"  >Directory</a></li>
+								
+									<li><a href="/gsis/about/contact02.do" id="menu-1580"  title="Directions"  >Directions</a></li>
+								
+									<li><a href="/gsis/about/contact03.do" id="menu-1581"  title="Maps"  >Maps</a></li>
+								
+							</ul>
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+
+		
+	<li><a href="/gsis/academics/programs01-01.do" id="menu-1590"  title="과정 Programs"  class="active" ><span>과정 Programs</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/academics/programs01-01.do" id="menu-1591"  title="Degree Program"  >Degree Program</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/academics/programs01-01.do" id="menu-1592"  title="국제학과 Department of International Studies"  >국제학과 Department of International Studies</a></li>
+								
+									<li><a href="/gsis/academics/programs02-01.do" id="menu-1593"  title="한국학과 Department of Korean Studies"  >한국학과 Department of Korean Studies</a></li>
+								
+							</ul>
+							
+					</li>
+				
+					<li><a href="/gsis/admission/scholarships.do" id="menu-1585"  title="Scholarships"  class="active" >Scholarships</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/admission/degree.do" id="menu-1583"  title="Regular Programs"  >Regular Programs</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/academics/introduction.do" id="menu-1594"  title="Special Programs"  >Special Programs</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/academics/introduction.do" id="menu-1595"  title="Ewha KOICA"  >Ewha KOICA</a></li>
+								
+									<li><a href="/gsis/academics/outreach03.do" id="menu-1597"  title="Certificate Program"  >Certificate Program</a></li>
+								
+									<li><a href="/gsis/campus/outreach04-02.do" id="menu-1598"  title="Study Abroad"  >Study Abroad</a></li>
+								
+									<li><a href="/gsis/academics/outreach05.do" id="menu-1599"  title="Exchange"  >Exchange</a></li>
+								
+									<li><a href="/gsis/academics/outreach06.do" id="menu-1600"  title="Korean Language Program"  >Korean Language Program</a></li>
+								
+									<li><a href="/gsis/academics/outreach02.do" id="menu-1596"  title="Ewha Harvard Summer"  >Ewha Harvard Summer</a></li>
+								
+							</ul>
+							
+					</li>
+				
+					<li><a href="/gsis/academics/academic-calendar.do" id="menu-2659903"  title="Academic Calendar"  >Academic Calendar</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/academics/course.do" id="menu-2659902"  title="Course"  >Course</a>
+
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+
+		
+	<li><a href="/gsis/admission/admissions.do" id="menu-1582"  title="입학 Admissions"  ><span>입학 Admissions</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/admission/admissions.do" id="menu-1584"  title="입학 Admissions"  >입학 Admissions</a>
+
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+
+		
+	<li><a href="/gsis/research/aisr.do" id="menu-1601"  title="Research"  ><span>Research</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/research/aisr.do" id="menu-1602"  title="IIAS &amp; AISR"  >IIAS &amp; AISR</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/research/ewhafrontier10-10.do" id="menu-2659216"  title="Ewha Frontier 10-10"  >Ewha Frontier 10-10</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/research/achievements.do" id="menu-2659217"  title="Research Achievements"  >Research Achievements</a></li>
+								
+							</ul>
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+
+		
+	<li><a href="/gsis/campus/useful01.do" id="menu-1604"  title="Campus Life"  ><span>Campus Life</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/campus/useful01.do" id="menu-1605"  title="Useful Links &amp; Files"  >Useful Links &amp; Files</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/campus/useful01.do" id="menu-1606"  title="Links"  >Links</a></li>
+								
+									<li><a href="/gsis/campus/useful02-01.do" id="menu-1607"  title="Forms"  >Forms</a></li>
+								
+									<li><a href="/gsis/campus/useful03.do" id="menu-1608"  title="Student Handbook"  >Student Handbook</a></li>
+								
+							</ul>
+							
+					</li>
+				
+					<li><a href="/gsis/campus/student.do" id="menu-1609"  title="Student Council"  >Student Council</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/campus/facilities.do" id="menu-1610"  title="Facilities"  >Facilities</a>
+
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+
+		
+	<li><a href="/gsis/global/guidelines01.do" id="menu-1611"  title="Global Career"  ><span>Global Career</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/global/guidelines01.do" id="menu-1612"  title="Internship Guidelines"  >Internship Guidelines</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/global/guidelines01.do" id="menu-1613"  title="Introduction"  >Introduction</a></li>
+								
+									<li><a href="/gsis/global/guidelines02.do" id="menu-1614"  title="International Studies"  >International Studies</a></li>
+								
+									<li><a href="/gsis/global/guidelines03.do" id="menu-1615"  title="Korean Studies"  >Korean Studies</a></li>
+								
+									<li><a href="/gsis/global/guidelines04.do" id="menu-1616"  title="Contact Information"  >Contact Information</a></li>
+								
+							</ul>
+							
+					</li>
+				
+					<li><a href="/gsis/global/job.do" id="menu-1617"  title="Job/Internship Postings"  >Job/Internship Postings</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/global/resources.do" id="menu-1618"  title="Resources"  >Resources</a>
+
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+
+		
+	<li><a href="/gsis/news/news01.do" id="menu-1619"  title="Notice &amp; Event"  ><span>Notice &amp; Event</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/news/news01.do" id="menu-1620"  title="Notice"  >Notice</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/news/news02.do" id="menu-1621"  title="Seminars &amp; Conference"  >Seminars &amp; Conference</a>
+
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+
+		
+	<li><a href="/gsis/alumni/women.do" id="menu-1622"  title="Alumni"  ><span>Alumni</span></a>
+
+		
+			<ul class="dep2">
+				
+					<li><a href="/gsis/alumni/women.do" id="menu-1623"  title="Women of GSIS"  >Women of GSIS</a>
+
+							
+					</li>
+				
+					<li><a href="/gsis/alumni/career01.do" id="menu-1624"  title="Career Track"  >Career Track</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/alumni/career01.do" id="menu-1625"  title="International Studies"  >International Studies</a></li>
+								
+									<li><a href="/gsis/alumni/career02.do" id="menu-1626"  title="Korean Studies"  >Korean Studies</a></li>
+								
+							</ul>
+							
+					</li>
+				
+					<li><a href="/gsis/alumni/international-studies01.do" id="menu-1627"  title="Theses &amp; Dissertations"  >Theses &amp; Dissertations</a>
+
+						
+							<ul class="dep3">
+								
+									<li><a href="/gsis/alumni/international-studies01.do" id="menu-1628"  title="International Studies"  >International Studies</a></li>
+								
+									<li><a href="/gsis/alumni/korean-studies01.do" id="menu-1629"  title="Korean Studies"  >Korean Studies</a></li>
+								
+							</ul>
+							
+					</li>
+				
+			</ul>
+		
+	</li>
+	
+</ul>
+				</div>
+				<button class="slide-close" type="button"><span class="hide">모바일메뉴 닫기</span></button>
+			</nav>
+			<div class="m-gnb-bg">&nbsp;</div>
+		</div>
+	</div>
+	<button class="btn-m-menu" type="button"><span class="hide">전체메뉴 열기</span></button>
+</div>
+		</div>
+	</header>
+	<div class="sub-container">
+		<div class="sub-visual-wrap" data-cms-content="/gsis/_content/sub-visual">
+			
+				
+			
+<div class="sub-visual-box">
+	
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sub-visual-img-box" style="background-image: url(/_res/ewha/_share/img/temp07/img-sub-vi01.jpg);">
+</div>
+</div>
+		</div>
+		<div class="path-wrap" data-cms-content="/gsis/_content/path">
+			
+				
+			
+<div class="path-box">
+	<div>
+		<div class="path-navi-wrap"><a class="home" href="/gsis" title="홈 바로가기"><span class="hide">홈</span></a>
+			<div class="path-depth-wrap">
+				
+					
+					
+					
+					
+					
+				
+
+
+
+
+<ul>
+	
+
+		
+		
+
+		
+			<li>
+				<a href="/gsis/academics/programs01-01.do" id="menu-1590"  class="active" >과정 Programs</a>
+				
+				
+			</li>
+		
+	
+
+		
+		
+
+		
+			<li>
+				<a href="/gsis/admission/scholarships.do" id="menu-1585"  class="active" >Scholarships</a>
+				
+				
+			</li>
+		
+	
+</ul>
+			</div>
+		</div>
+		<div class="info">
+			<ul>
+				<li class="print"><a href="#a" id="cms-print" title="프린트">&nbsp;</a></li>
+				<li class="text-zoom in"><a href="#a" title="zoom in">&nbsp;</a></li>
+				<li class="text-zoom out"><a href="#a" title="zoom out">&nbsp;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+		</div>
+		<div class="content-wrap">
+			<div class="title" data-cms-content="/gsis/_content/title">
+				
+					
+				
+<div class="page-title">
+  <h3>
+    
+      
+      
+      
+      
+      
+      
+    
+Scholarships
+  </h3>
+</div>
+			</div>
+			<div class="sub-content cms-sub-content" data-cms-sub-content="HJXqgjZZAXbf">
+				<!-- 지정된 서브컨텐츠가 하나도 존재하지 않습니다. -->	
+
+			</div>
+			<div class="content cms-print" id="cms-content">
+	
+		
+			
+		
+<div class="content-box">
+  <div class="con-box">
+    <h4 class="h4-tit01">On-campus scholarships</h4>
+    <div class="con-inner-box">
+      <div class="con-box02">
+        <p class="mark-p02">On-Campus Scholarships are all semester-based.</p>
+        <p class="mark-p02">This information on this webpage is subject to change without notice.</p>
+        <p class="mark-p02">For more information, refer to the <span class="txt-medium">News &amp; Events on the EWHA GSIS website</span>.</p>
+      </div>
+      <div class="con-box02">
+        <h5 class="h5-tit01">1. Merit Based</h5>
+        <div class="con-inner-box">
+          <div class="table-wrap">
+            <table class="ewha-table">
+              <caption>Table for On-campus scholarships(Merit Base)</caption>
+              <colgroup>
+                <col>
+                <col>
+                <col>
+                <col width="30%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Type of Scholarship</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Classifications</th>
+                  <th scope="col">Selection Process</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="txt-medium">Sun</td>
+                  <td>Half tuition<br>(including entrance fee)</td>
+                  <td>Both for incoming and current students</td>
+                  <td rowspan="2">
+                    <p style="text-align: left;">No application required.</p>
+                    <ul class="ul-type01">
+                      <li style="text-align: left;">Incoming students: Based on admission rank.</li>
+                      <li style="text-align: left;">Current students: <strong>Full-time students only</strong></li>
+                    </ul><br></td>
+                </tr>
+                <tr>
+                  <td class="txt-medium" style="width: 23.3107%;">GSIS Faculty</td>
+                  <td style="width: 23.3333%;">Half tuition<br>(excluding entrance fee)</td>
+                  <td style="width: 23.3333%;">Both for incoming and current students</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="con-box02">
+        <h5 class="h5-tit01">2. Work Based: Relevant working hours are required.</h5>
+        <div class="con-inner-box">
+          <div class="table-wrap">
+            <table class="ewha-table">
+              <caption>Table for On-campus scholarships(Need Base)</caption>
+              <colgroup>
+                <col width="15%">
+                <col width="10%">
+                <col>
+                <col>
+                <col width="30%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th colspan="2" scope="col">Type of Scholarship</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Classifications</th>
+                  <th scope="col">Selection Process</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="txt-medium" colspan="2"><strong>KOICA-Sun<br>(Scholarship on a Working Basis)</strong></td>
+                  <td>Half tuition<br>(including entrance fee)</td>
+                  <td>Both for incoming and current students</td>
+                  <td class="td-left">
+                    <ul class="ul-type01">
+                      <li>Application required as semester-based (Working at GSIS-related administrative offices.)<br>(working 10 hours/week)<br>Based on academic performance, participation in GSIS events and work experience.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="txt-medium" rowspan="2"><strong>Ewha Scholarship on a Working Basis</strong></td>
+                  <td class="txt-medium">A Level</td>
+                  <td>4,000,000 KRW</td>
+                  <td>Both for incoming and current students</td>
+                  <td class="td-left">
+                    <ul class="ul-type01">
+                      <li style="text-align: left;">Application to respective Ewha admin office (working 14 hours/week)</li>
+                      <li>Selected by the GSIS Main Office based on applicants&#39; working ability.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="txt-medium">B Level</td>
+                  <td>2,000,000 KRW</td>
+                  <td>Both for incoming and current students</td>
+                  <td class="td-left">
+                    <ul class="ul-type01">
+                      <li style="text-align: left;">Application to respective Ewha admin office (working 7 hours/week)</li>
+                      <li>Selected by the GSIS Main Office based on applicants&#39; working ability.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="txt-medium" colspan="2"><strong>Research Assistantship</strong></td>
+                  <td>Full tuition/Half tuition</td>
+                  <td>Both for incoming and current students</td>
+                  <td class="td-left">Respective professor to be assigned RA for semester or yearly basis</td>
+                </tr>
+                <tr>
+                  <td class="txt-medium" colspan="2"><strong>Sunbae Ramen Scholarship</strong></td>
+                  <td>Subject to change due to the amount of donation received</td>
+                  <td>Current Students</td>
+                  <td class="td-left">Previous semester GPA 3.00 / 4.30 or higher;<br>Student in need of financial assistance prioritized</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="con-box02 no-pd">
+        <h5 class="h5-tit01">3. Special Scholarship</h5>
+        <div class="con-inner-box">
+          <div class="table-wrap">
+            <table class="ewha-table">
+              <caption>Table for On-campus scholarships(Special Scholarship)</caption>
+              <colgroup>
+                <col>
+                <col>
+                <col>
+                <col width="30%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">Type of Scholarship</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Classifications</th>
+                  <th scope="col">Selection Process</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>EGPP<br>(Ewha Global Partnership Program)</strong></td>
+                  <td>Full tuition (including entrance fee), housing fee (for dormitory residents), stipend<br><br>Master&#39;s: max 4 semesters<br>Doctoral &amp; Combined: max 6 semesters</td>
+                  <td style="text-align: center;">
+                    <div>Incoming Master, Doctoral &amp; Combined students</div>
+                  </td>
+                  <td>
+                    <ul class="ul-type01">
+                      <li style="text-align: left;">Incoming students from developing countries</li>
+                      <li style="text-align: left;">No application: Recipients will be considered from the regular admission pool of applicants</li>
+                      <li style="text-align: left;">Requirements: Students must maintain a 3.5 GPA throughout their study</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="txt-medium"><strong>Janet A. Napolitano Scholarship</strong></td>
+                  <td>Full tuition &amp; Monthly living expense<br><br>(max 4 semesters)</td>
+                  <td>Incoming Master&#39;s Degree students<br>(GDIS only)</td>
+                  <td class="td-left">
+                    <ul class="ul-type01">
+                      <li>Incoming students from developing countries</li>
+                      <li>No application: Recipients will be considered from the regular admission pool of applicants</li>
+                      <li>Requirements: Students must maintain a 3.5 GPA throughout their study</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="con-box no-pd">
+    <h4 class="h4-tit01">Off-campus scholarships</h4>
+    <div class="con-inner-box">
+      <div class="con-box02">
+        <p class="mark-p02">This information in this webpage is subject to change without notice.</p>
+        <p class="mark-p02">For more information, refer to the relevant websites.</p>
+      </div>
+      <div class="con-box02 no-pd">
+        <div class="table-wrap">
+          <table class="ewha-table">
+            <caption>Table for Off-campus scholarships</caption>
+            <colgroup>
+              <col>
+              <col>
+              <col>
+              <col width="30%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">Type of Scholarship</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Classifications</th>
+                <th scope="col">Selection Process</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="txt-medium" style="width: 23.3482%;"><strong>Global Korea Scholarship (GKS)</strong></td>
+                <td style="width: 23.3482%;">Full tuition &amp; Monthly Living Expense</td>
+                <td class="td-left" style="width: 23.3482%;">Student who has obtained a bachelor&rsquo;s degree or master&rsquo;s degree<br>*Please refer to recruitment guidelines*</td>
+                <td class="td-left" style="width: 30%;">Documents to fill in &amp; Certificates required<br>(Applicants must check Embassy/University website or notice regarding document submission requirements.)</td>
+              </tr>
+              <tr>
+                <td class="txt-medium"><strong>POSCO Asia Fellowship</strong></td>
+                <td>Full tuition &amp; Monthly Living Expense</td>
+                <td class="td-left">
+                  <ul class="ul-type01">
+                    <li>Asians students who will receive or received undergraduate degree (*Asian excluding dual nationality or Korean citizenship)</li>
+                    <li>Students who will apply for masters, doctoral, or integrated doctoral programs</li>
+                  </ul>
+                </td>
+                <td class="td-left">Access the <a class="txt-link" href="https://www.postf.org/ko/main.do" target="_blank" title="새창열림">POSCO Asia Fellowship website</a><br>during the application period and submit application and evidential documents online.</td>
+              </tr>
+              <tr>
+                <td><strong>King Sejong Institute Foundation Scholarship</strong></td>
+                <td>Full tuition (1st semester) &amp; Entrance Fee</td>
+                <td>
+                  <ul class="ul-type01">
+                    <li style="text-align: left;">Master&#39;s and Ph.D. students who are in Korean track</li>
+                    <li style="text-align: left;">TOPIK 6</li>
+                  </ul>
+                </td>
+                <td>
+                  <div data-empty="true" style="text-align: left;">Application period: Twice a year<br>(For more info, refer to <span style="color: rgb(41, 105, 176);"><a href="https://www.ksif.or.kr/index.do" rel="noopener noreferrer" target="_blank"><u>King Sejong Institute Foundation</u></a></span>)</div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>YongWoon Scholarship Foundation</strong></td>
+                <td>Full tuition (1 year)</td>
+                <td>
+                  <ul class="ul-type01">
+                    <li style="text-align: left;">Student with good conduct and poor family circumstances even though their academic records are excellent&nbsp;</li>
+                  </ul>
+                </td>
+                <td style="text-align: left;">
+                  <ul>
+                    <li>Public invitation, recommendation by university presidents</li>
+                    <li>
+                      <div style="text-align: left;">(For more info, refer to <a href="https://www.yongwoon.co.kr/" rel="noopener noreferrer" target="_blank"><span style="color: rgb(41, 105, 176);"><u>Yongwoon Scholarship Foundation</u></span></a>)</div>
+                      <p><br></p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>WooJung Education &amp; Culture Foundation</strong></td>
+                <td>Master&#39;s: First 4 semesters<br>PhD: First 6 semesters</td>
+                <td>
+                  <ul class="ul-type01">
+                    <li style="text-align: left;">Student who requires tuition assistance</li>
+                    <li style="text-align: left;">Foreign students studying in Korea who seek tuition assistance or have demonstrated academic excellence&nbsp;</li>
+                    <li style="text-align: left;">Students specifically identified by the board of directors as deserving of the scholarship</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="ul-type01">
+                    <li style="text-align: left;">Recommendation by university presidents, professors, renowned figures in society/</li>
+                    <li style="text-align: left;">Recommendation by foreign Embassies in Korea/</li>
+                    <li style="text-align: left;">Recommendation by the board of directors<br>(For more info, refer to <span style="color: rgb(41, 105, 176);"><u><a href="http://www.woojungedu.co.kr/edu-info" rel="noopener noreferrer" target="_blank">WooJung Education &amp; Culture Foundation</a></u></span>)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Daewoong Foundation Global Scholarship Program</strong></td>
+                <td>500k Won monthly (during active semesters)</td>
+                <td>
+                  <ul class="ul-type01" style='margin: 0px; padding: 0px; border: 0px; list-style-type: none; color: rgb(34, 34, 34); font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 200; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Student enrolled in Master&#39;s/PhD&#39;s program</li>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Able to communicate in Korean or English</li>
+                  </ul>
+                </td>
+                <td>
+                  <p style="text-align: left;">1. Documents Evaluation</p>
+                  <p style="text-align: left;">2. Interview</p>
+                  <p style="text-align: left;">3. Announcement</p>
+                  <p style="text-align: left;">(For more info, refer to the <span style="color: rgb(41, 105, 176);"><u><a href="http://www.daewoongfoundation.or.kr/Board/Board.asp?ModuleID=1" rel="noopener noreferrer" target="_blank">Daewoong Foundation website</a></u></span>)</p>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Hansae Yes24 Foundation</strong></td>
+                <td>Tuition, living costs and expenses</td>
+                <td>
+                  <ul class="ul-type01" style='margin: 0px; padding: 0px; border: 0px; list-style-type: none; color: rgb(34, 34, 34); font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 200; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Foreign graduate school students</li>
+                  </ul>
+                </td>
+                <td>
+                  <div data-empty="true" style="text-align: left;">Application period: March and September<br>(For more info, refer to <span style="color: rgb(41, 105, 176);"><a href="http://hansaeyes24foundation.com/" rel="noopener noreferrer" target="_blank"><u>Hansae Yes24 Foundation</u></a></span>)</div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Hyundai Motor Chung Mong-Koo Global Scholarship</strong></td>
+                <td>Full tuition<br>Master&#39;s: 4 semesters<br>PhD: 8 semesters<br>Combined Master&#39;s and PhD: 10 semesters</td>
+                <td>
+                  <ul class="ul-type01" style='margin: 0px; padding: 0px; border: 0px; list-style-type: none; color: rgb(34, 34, 34); font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 200; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">8 ASEAN countries (Vietnam, Indonesia, Malaysia, Philippines, Thailand, Laos, Myanmar, Cambodia)</li>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">General graduate school students: Business/economics, future industry (intelligence information technology, bio-health, new energy industry), Korean/Koreanology</li>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Civil servants of corresponding countries: Business/economics, politics/public development, etc.</li>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Recommendation by foreign Embassies in Korea or the board of directors</li>
+                  </ul>
+                </td>
+                <td>
+                  <div data-empty="true" style="text-align: left;">Application period: Twice a year (Spring, fall semester)<br>(For more info, refer to <span style="color: rgb(41, 105, 176);"><a href="https://www.cmkfoundation-scholarship.org/" rel="noopener noreferrer" target="_blank"><u>Hyundai Motor Chung Mong-Koo Foundation</u></a></span>)</div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>OK Bae &amp; Jung Scholarship</strong></td>
+                <td>
+                  <ul class="ul-type01" style='margin: 0px; padding: 0px; border: 0px; list-style-type: none; color: rgb(34, 34, 34); font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 200; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Scholarship (750,000 won to 2 million won per month)&nbsp;</li>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Domestic and international training and education for scholarship students once or twice a year</li>
+                  </ul><br></td>
+                <td>
+                  <ul class="ul-type01" style='margin: 0px; padding: 0px; border: 0px; list-style-type: none; color: rgb(34, 34, 34); font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 200; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;'>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">(Master&#39;s)Students have grades for at least one semesters in the program currently enrolled</li>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">(Ph.D.) Students who enrolled in the program in the 2023-1 semester/scheduled to enter the 2023-2 semester<br>The total score of the current program (doctoral) and the previous program (master) is 4.0/4.5 (3.7/4.3) or higher, respectively</li>
+                  </ul>
+                </td>
+                <td>
+                  <div data-empty="true" style="text-align: left;">Application period: July 4, 2023 ~ July 24, 2023<br>(For more info, refer to <span style="color: rgb(41, 105, 176);"><u><a href="https://www.okscholarship.or.kr/#/aboutScholarship/senior/selectionGuide" rel="noopener noreferrer" target="_blank">OK Bae &amp; Jung Scholarship Foundation</a></u></span>)</div>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Human Asia Global Vision Scholarship</strong></td>
+                <td>5,000,000~10,000,000 KRW per year</td>
+                <td>
+                  <ul class="ul-type01" style='margin: 0px; padding: 0px; border: 0px; list-style-type: none; color: rgb(34, 34, 34); font-family: "Noto Sans KR", sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 200; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-align: left;'>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Master&#39;s and PhD students majoring in International Law, International Relations, Develoopment Cooperation, etc.</li>
+                    <li style="margin: 0px; padding: 0px 0px 5px 15px; border: 0px; position: relative; font-size: 16px; color: rgb(34, 34, 34); line-height: 26px; text-indent: 0px; word-break: keep-all; text-align: left;">Both for incoming and current students</li>
+                  </ul>
+                </td>
+                <td>
+                  <div style="text-align: left;">Application period: August 31, 2023<br>(For more info, refer to <span style="color: rgb(41, 105, 176);"><a href="http://humanasia.org/bbs/board.php?bo_table=notice&wr_id=263" rel="noopener noreferrer" target="_blank"><u>Human Asia</u></a>)</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	
+	
+	
+</div>
+		</div>
+	</div>
+	<footer>
+		<div class="bottom-footer-wrap" data-cms-content="/gsis/_content/footer">
+			
+				
+			
+<div class="bottom-footer-box">
+  <div class="logo-box"><img src="/_res/ewha/_share/img/common/img-logo-symbol-w.png" alt="이화여자대학교 로고 심볼">
+    <p><span>EWHA WOMANS UNIVERSITY</span></p>
+  </div>
+  <div class="address-box">
+    <ul>
+      <li><a class="open-pop" href="http://www.ewha.ac.kr/ewhaen/etc/privacy.do" target="_blank" title="새창열림">Privacy Policy</a></li>
+    </ul><address><address>
+    <p>03760 서울특별시 서대문구 이화여대길 52 이화여자대학교 국제교육관 1102호</p>
+    <p>#1102 International Education Building, Ewha Womans University, 52 Ewhayeodae-gil, Seodaemun-gu, Seoul, Republic of Korea (Post Code. 03760)</p>
+    <p>T . <a href="tel:02-3277-3652" title="전화걸기">+82-2-3277-3652</a>, <a href="tel:02-3277-3956">3</a>650 &nbsp; &nbsp;Email.&nbsp;<a href="mailto:gsis97@ewha.ac.kr" title="메일보내기">gsis@ewha.ac.kr</a></p></address></address>
+    <p class="copyright">COPYRIGHT 2022 BY EWHA WOMANS UNIVERSITY. ALL RIGHTS RESERVED.)</p>
+  </div>
+</div>
+		</div>
+	</footer>
+</div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+<script type="text/javascript">
+(function() {
+	// jQuery가 로드되어 있는지 확인
+	if (typeof jQuery === 'undefined') {
+		console.warn('SSO async check: jQuery is not loaded');
+		return;
+	}
+	
+	// 이미 체크 중이거나 체크 완료된 경우 실행하지 않음
+	if (window._ssoCheckDone === true) {
+		return;
+	}
+	window._ssoCheckDone = true; // 중복 실행 방지
+	
+	var serverAppUrl = 'https://nsso.ewha.ac.kr/sso';
+	var loginUrl = '/_custom/ewha/sso/login.jsp';
+	
+	// 원래 접근하려던 페이지 URL (세션에서 가져온 값 또는 현재 페이지 URL)
+	var originalUrlElement = document.getElementById('sso-original-url');
+	var originalUrl = originalUrlElement ? originalUrlElement.getAttribute('data-original-url') : null;
+	var currentUrl = (originalUrl && originalUrl !== '' && originalUrl !== 'null') ? originalUrl : (window.location.pathname + window.location.search);
+	
+	// SSO 인증 상태 확인 (비동기)
+	$.ajax({
+		url: serverAppUrl + '/api/ewha/auth/status',
+		method: 'POST',
+		dataType: 'json',
+		xhrFields: {
+			withCredentials: true
+		},
+		timeout: 2000,
+		error: function(xhr, status, error) {
+			// 에러 발생 시 무시 (로그인 상태가 아닐 수 있음)
+			window._ssoCheckDone = false; // 재시도 가능하도록 플래그 해제
+		},
+		success: function(response) {
+			var result = response.result;
+			
+			// 포털에 로그인 되어있으면
+			if (result === true || result == true) {
+				// SSO 로그인 플로우로 이동 (returnUrl 파라미터 포함)
+				var finalLoginUrl = loginUrl + '?returnUrl=' + encodeURIComponent(currentUrl);
+				window.location.href = finalLoginUrl;
+			} else {
+				// 로그인 상태가 아니면 그냥 현재 페이지 유지
+				window._ssoCheckDone = false; // 재시도 가능하도록 플래그 해제
+			}
+		}
+	});
+})();
+</script>
+<!-- 원래 접근하려던 페이지 URL (data attribute로 전달) -->
+<div id="sso-original-url" data-original-url="/gsis/admission/scholarships.do" style="display:none;"></div>
+
+
+			

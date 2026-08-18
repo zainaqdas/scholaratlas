@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en" data-site-name="piloti">
+  <head>
+        <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scholarships for International Students (Student Visa Holders)｜Sophia University Web Piloti</title>
+    <meta name="description" content="Sophia University Web Piloti. Information for Sophia students and faculty members.">
+    <meta property="og:title" content="Scholarships for International Students (Student Visa Holders)｜Sophia University Web Piloti">
+    <meta property="og:description" content="Sophia University Web Piloti. Information for Sophia students and faculty members.">
+    <meta property="og:url" content="https://piloti.sophia.ac.jp/eng/scholarships1/international-students/">
+    <meta property="og:image" content="https://piloti.sophia.ac.jp/assets/themes/sophia-university-piloti/img/ogimage.png">
+    <meta property="og:type" content="article">
+
+    <meta name='robots' content='max-image-preview:large' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://piloti.sophia.ac.jp/wp-includes/css/dist/block-library/style.min.css?ver=6.4.2' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='cookie-law-info-css' href='https://piloti.sophia.ac.jp/assets/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css?ver=3.2.4' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-law-info-gdpr-css' href='https://piloti.sophia.ac.jp/assets/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css?ver=3.2.4' type='text/css' media='all' />
+<script type="text/javascript" src="https://piloti.sophia.ac.jp/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://piloti.sophia.ac.jp/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="cookie-law-info-js-extra">
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"1","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#929fae","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#61a229","button_1_button_hover":"#4e8221","button_1_link_colour":"#fff","button_1_as_button":"1","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#444","button_2_as_button":"","button_2_hidebar":"","button_3_button_colour":"#dedfe0","button_3_button_hover":"#b2b2b3","button_3_link_colour":"#333333","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#dedfe0","button_4_button_hover":"#b2b2b3","button_4_link_colour":"#333333","button_4_as_button":"1","button_7_button_colour":"#1e2f4a","button_7_button_hover":"#18263b","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"1","reject_close_reload":"1","showagain_tab":"","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#333333","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"https:\/\/piloti.sophia.ac.jp\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://piloti.sophia.ac.jp/assets/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.2.4" id="cookie-law-info-js"></script>
+<link rel="https://api.w.org/" href="https://piloti.sophia.ac.jp/wp-json/" /><link rel="alternate" type="application/json" href="https://piloti.sophia.ac.jp/wp-json/wp/v2/pages/14726" /><link rel="alternate" type="application/json+oembed" href="https://piloti.sophia.ac.jp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpiloti.sophia.ac.jp%2Feng%2Fscholarships1%2Finternational-students%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://piloti.sophia.ac.jp/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpiloti.sophia.ac.jp%2Feng%2Fscholarships1%2Finternational-students%2F&#038;format=xml" />
+<!-- Google Tag Manager -->
+<script type="text/plain" data-cli-class="cli-blocker-script"  data-cli-script-type="analytics" data-cli-block="true"  data-cli-element-position="head">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5QJ98TQ');</script>
+<!-- End Google Tag Manager --><!-- Google tag (gtag.js) -->
+<script type="text/plain" data-cli-class="cli-blocker-script"  data-cli-script-type="analyticsen" data-cli-block="true"  data-cli-element-position="head" async src="https://www.googletagmanager.com/gtag/js?id=UA-11114735-8"></script>
+<script type="text/plain" data-cli-class="cli-blocker-script"  data-cli-script-type="analyticsen" data-cli-block="true"  data-cli-element-position="head">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-11114735-8');
+</script>
+<link rel="alternate" type="application/rss+xml" title="Web Piloti &raquo; Feed" href="https://piloti.sophia.ac.jp/eng/feed/">
+<link rel="icon" href="https://piloti.sophia.ac.jp/assets/uploads/2023/01/27195552/cropped-android-chrome-512x512-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://piloti.sophia.ac.jp/assets/uploads/2023/01/27195552/cropped-android-chrome-512x512-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://piloti.sophia.ac.jp/assets/uploads/2023/01/27195552/cropped-android-chrome-512x512-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://piloti.sophia.ac.jp/assets/uploads/2023/01/27195552/cropped-android-chrome-512x512-1-270x270.png" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://piloti.sophia.ac.jp/assets/themes/sophia-university-piloti/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://piloti.sophia.ac.jp/assets/themes/sophia-university-piloti/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://piloti.sophia.ac.jp/assets/themes/sophia-university-piloti/img/favicon-16x16.png">
+    <link rel="manifest" href="https://piloti.sophia.ac.jp/assets/themes/sophia-university-piloti/img/site.webmanifest">
+    <link rel="mask-icon" href="https://piloti.sophia.ac.jp/assets/themes/sophia-university-piloti/img/safari-pinned-tab.svg" color="#9a003d">
+    <meta name="msapplication-TileColor" content="#9a003d">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preload" href="/assets/commons/css/style_common.css?ver=202503110809" as="style" />
+    <link rel="preload" href="/assets/commons/css/style_piloti.css?ver=202503110809" as="style" />
+    <link rel="stylesheet" href="/assets/commons/css/style_common.css?ver=202503110809" />
+    <link rel="stylesheet" href="/assets/commons/css/style_piloti.css?ver=202503110809" />
+
+    <link rel="preload" href="/assets/commons/css/print_common.css?ver=202503110809" as="style" media="print" />
+    <link rel="preload" href="/assets/commons/css/print_piloti.css?ver=202503110809" as="style"  media="print" />
+    <link rel="stylesheet" href="/assets/commons/css/print_common.css?ver=202503110809"  media="print" />
+    <link rel="stylesheet" href="/assets/commons/css/print_piloti.css?ver=202503110809"  media="print" />
+
+    <script src="/assets/commons/js/vendor.bundle.js?ver=202503110810"></script>
+    <script src="/assets/commons/js/main.bundle.js?ver=202503110810"></script>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'uqm0guv',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+      </head>
+  <body data-controller="test-for-piloti test-for-common">
+    <div class="l-wrapper">
+      <div class="l-header">
+        <header
+          class="ly-header header"
+          data-controller="fixed"
+          data-action="scroll@window->fixed#fixed"
+          data-fixed-isfixed-value="false"
+        >
+          <a href="https://piloti.sophia.ac.jp/eng/">
+            <h1 class="header__logo">
+              <div class="header__logo__main">
+                <img
+                  src="/assets/commons/images/common/communication-mark.svg"
+                  width="1"
+                  height="1"
+                  alt="上智大学 Sophia University"
+                />
+                <img
+                  class="-abbr"
+                  src="/assets/commons/images/common/communication-mark-u.svg"
+                  width="1"
+                  height="1"
+                  alt="Sophia U"
+                  data-fixed-target="fixedPosContent"
+                />
+              </div>
+              <div class="header__logo__sub">
+                <img
+                  src="/assets/commons/images/piloti/piloti-logo.svg"
+                  width="1"
+                  height="1"
+                  alt="WEB PILOTI"
+                />
+              </div>
+            </h1>
+          </a>
+          <div class="header__content">
+            <img
+              class="header__sprit"
+              src="/assets/commons/images/piloti/sophia-spirit.svg"
+              width="1"
+              height="1"
+              alt="FOR OTHERS, WITH OTHERS"
+            />
+            <nav class="header__sideNav">
+              <ul class="header__sideNavList">
+                <li>
+                  <a href="https://www.sophia.ac.jp/" target="_blank">
+                    <i class="icon" data-icon-name="material/shield">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M9.333,2,4,4V8.06a7.518,7.518,0,0,0,5.333,7.273A7.518,7.518,0,0,0,14.667,8.06V4Zm4,6.06a6.224,6.224,0,0,1-4,5.887,6.218,6.218,0,0,1-4-5.887V4.927l4-1.5,4,1.5Z"
+                          transform="translate(-1.333 -0.667)"
+                        />
+                      </svg>
+                    </i>
+
+                    Sophia University Website                  </a>
+                </li>
+                <li>
+                  <i class="icon" data-icon-name="material/language">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M11.99,2A10,10,0,1,0,22,12,10,10,0,0,0,11.99,2Zm6.93,6H15.97a15.649,15.649,0,0,0-1.38-3.56A8.03,8.03,0,0,1,18.92,8ZM12,4.04A14.087,14.087,0,0,1,13.91,8H10.09A14.087,14.087,0,0,1,12,4.04ZM4.26,14a7.822,7.822,0,0,1,0-4H7.64a16.515,16.515,0,0,0-.14,2,16.515,16.515,0,0,0,.14,2Zm.82,2H8.03a15.649,15.649,0,0,0,1.38,3.56A7.987,7.987,0,0,1,5.08,16ZM8.03,8H5.08A7.987,7.987,0,0,1,9.41,4.44,15.649,15.649,0,0,0,8.03,8ZM12,19.96A14.087,14.087,0,0,1,10.09,16h3.82A14.087,14.087,0,0,1,12,19.96ZM14.34,14H9.66a14.713,14.713,0,0,1-.16-2,14.585,14.585,0,0,1,.16-2h4.68a14.585,14.585,0,0,1,.16,2A14.713,14.713,0,0,1,14.34,14Zm.25,5.56A15.649,15.649,0,0,0,15.97,16h2.95A8.03,8.03,0,0,1,14.59,19.56ZM16.36,14a16.515,16.515,0,0,0,.14-2,16.515,16.515,0,0,0-.14-2h3.38a7.822,7.822,0,0,1,0,4Z"
+                      />
+                    </svg>
+                  </i>
+
+                  <ul class="header__langSelector">
+                    <li>
+                      <a class="langJa" href="https://piloti.sophia.ac.jp/jpn/">JP</a>
+                    </li>
+                    <li class="is-current">
+                      <a class="langEn">EN</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </div>
+
+<div class="l-main">
+  <main>
+    <div class="mainHead" data-controller="mainHead">
+      <div class="mainHead__content">
+        <ul class="c-breadcrumb">
+  <li>
+    <a href="https://piloti.sophia.ac.jp/eng/" class="c-breadcrumb-link">
+      <p class="c-breadcrumb-link__text">HOME</p>
+      <i
+        class="icon breadcrumb-link__icon"
+        data-icon-name="material/breadcrumb-arrow"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.834"
+          height="18"
+          viewBox="0 0 17.834 18"
+        >
+          <path
+            d="M-23081.838-11762.812l-.58-.552,4.676-4.448-4.676-4.449.58-.551,5.254,5Z"
+            transform="translate(23088.418 11776.813)"
+          />
+        </svg>
+      </i>
+    </a>
+  </li>
+  <li>
+    <a href="https://piloti.sophia.ac.jp/eng/scholarships1/" class="c-breadcrumb-link">
+      <p class="c-breadcrumb-link__text">Scholarships</p>
+      <i
+        class="icon breadcrumb-link__icon"
+        data-icon-name="material/breadcrumb-arrow"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="17.834"
+          height="18"
+          viewBox="0 0 17.834 18"
+        >
+          <path
+            d="M-23081.838-11762.812l-.58-.552,4.676-4.448-4.676-4.449.58-.551,5.254,5Z"
+            transform="translate(23088.418 11776.813)"
+          />
+        </svg>
+      </i>
+    </a>
+  </li></ul>
+        <h1 class="mainHead__title">Scholarships for International Students (Student Visa Holders)</h1>
+                      </div>
+
+      
+    </div>
+
+    
+    <div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28">A variety of scholarships are available for non-Japanese degree students who have come from abroad to study at Sophia with a “Student” (ryugaku) status of residence. Please check “My Sophia&#8221;(Scholarship [International student with Student visa]) for all application information. Please feel free to consult with the Center for Student Affairs if you have sudden changes in your financial situation or if you are not sure which scholarship is suitable for you.</p>
+</div>
+
+
+<div class="module wysiwyg -mtPc48 -mtSp42 -mtPc48 -mtSp42">
+  
+<p class="-mtPc48 -mtSp42"><mark style="background-color:#7bdcb5" class="has-inline-color has-black-color"><strong> ◆For the general guidelines and the available scholarships based on previous year, please refer to the booklet <a href="/eng/studentlife/scholarships/scholarship_e0001.html" target="_blank" rel="noreferrer noopener">“Scholarship Information”</a> .</strong></mark></p>
+</div>
+
+
+
+<div class="module wysiwyg  -mtPc72 -mtSp63">
+  
+<h3 class="wp-block-heading -mtPc72 -mtSp63"><strong>Sophia University New Student Scholarship (may apply for before entering Sophia University)</strong></h3>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28">This is a scholarship (repayment is not required) covering the full, one-half, or one-third of the Tuition Fee for the students with excellent grades whose first-choice university is our university experiencing financial hardship that affects their studies.</p>
+</div>
+
+
+<div class="module wysiwyg -mtPc8 -mtSp7 -mtPc8 -mtSp7">
+  
+<p class="-mtPc8 -mtSp7"><a href="https://piloti.sophia.ac.jp/eng/scholarships1/scholraship_e0005/" data-type="URL" data-id="https://piloti.sophia.ac.jp/eng/scholarships1/scholraship_e0005/" target="_blank" rel="noreferrer noopener">Scholarships that Students May Apply For Before Entering Sophia University</a></p>
+</div>
+
+
+
+<div class="module wysiwyg  -mtPc72 -mtSp63">
+  
+<h3 class="wp-block-heading -mtPc72 -mtSp63"><strong>Sophia University Tuition Support Scholarship</strong></h3>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28">This is a scholarship (repayment is not required) covering the full, one-half, or one-third of the Tuition Fee for the students who are facing financial hardship that makes it difficult to continue their studies despite their tremendous motivation.</p>
+</div>
+
+
+
+<div class="module wysiwyg  -mtPc72 -mtSp63">
+  
+<h3 class="wp-block-heading -mtPc72 -mtSp63"><strong>Sophia University Benefactors’ Scholarship</strong>s</h3>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28">These scholarships are offered by the benefactors in and outside of Japan for students who meet the requirements.</p>
+</div>
+
+
+
+<div class="module wysiwyg  -mtPc72 -mtSp63">
+  
+<h3 class="wp-block-heading -mtPc72 -mtSp63"><strong>External Scholarships (Offered by Private Organizations)</strong></h3>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28">These scholarships are offered by the private organizations to support students who meet the requirements set by the organizations.</p>
+</div>
+
+
+
+<div class="module wysiwyg  -mtPc72 -mtSp63">
+  
+<h3 class="wp-block-heading -mtPc72 -mtSp63"><strong>Monbukagakusho Honors Scholarship for Privately-Financed International Students</strong></h3>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28">This study grant (48,000yen per month / FY2025 result) is supported to students with excellent grades and need of financial assistance to continue their studies as an international student.</p>
+</div>
+
+
+
+<div class="module wysiwyg  -mtPc72 -mtSp63">
+  
+<h3 class="wp-block-heading -mtPc72 -mtSp63"><strong>Other Scholarships</strong></h3>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28">Please see the information on scholarships for postgraduate students (Master’s Program, Doctoral Program, Law School) who demonstrate excellent research abilities and academic performance.</p>
+</div>
+
+
+<div class="module wysiwyg -mtPc0 -mtSp0 -mtPc32 -mtSp28">
+  
+<p class="-mtPc0 -mtSp0"><a href="https://piloti.sophia.ac.jp/eng/scholarships1/postgraduate/" target="_blank" rel="noreferrer noopener">Scholarship for Postgraduate Students</a></p>
+</div>
+
+
+
+<div class="module wysiwyg  -mtPc72 -mtSp63">
+  
+<h4 class="wp-block-heading -mtPc72 -mtSp63"><span>Inquiry</span></h4>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28"> Financial Support Department <br> Center for Student Affairs<br> *Phone: 03-3238-3523 (International call: +81-3-3238-3523)<br> *Email:  scholarship-co@sophia.ac.jp<br> *Office Hour: <br>  10:00-11:30 and 12:30-15:30 on weekdays (During class and exam period)<br>  12:30-15:30 on weekdays (Outside of class period)<br>  Closed on weekends and holidays </p>
+</div>
+
+
+<div class="module -mtPc32 -mtSp28 ">
+  <div class="c-inquiry">
+    <div class="c-inquiry__head">
+      <h2>Inquiries about the <br />contents of this page</h2>
+    </div>
+    <div class="c-inquiry__body">
+      <dl class="c-inquiry__item">
+        <dt>Department Name</dt>
+        <dd>Center for Student Affairs</dd>
+      </dl>
+            <dl class="c-inquiry__item">
+        <dt>Location</dt>
+        <dd>Bldg.2, 1F</dd>
+      </dl>    </div>
+    <div class="c-inquiry__foot">
+            <a class="c-inquiry__link c-btnCommon" href="https://www.sophia.ac.jp/eng/contact/student/" target="_blank"
+        >Contact Form        <i class="icon" data-icon-name="material/blank">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M0,0H24V24H0Z" fill="none" />
+            <path
+              d="M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V12H19ZM14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3Z"
+            />
+          </svg>
+        </i>
+      </a>
+    </div>  </div>
+</div>
+
+
+<div class="module wysiwyg -mtPc32 -mtSp28 -mtPc32 -mtSp28">
+  
+<p class="-mtPc32 -mtSp28"></p>
+</div>
+
+  </main>
+</div>
+
+<div class="l-aside">
+  <aside class="aside">
+    <div class="search">
+  <div class="search__contents">
+    <form method="get" action="https://piloti.sophia.ac.jp/eng/search/">
+  <div class="searchInput search__content">
+    <input
+      class="searchInput__input"
+      type="text"
+      name="s"
+      placeholder="Free Word Search"
+    />
+    <button class="searchInput__button">
+      <i
+        class="icon searchInput__icon"
+        data-icon-name="material/search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.5,14h-.79l-.28-.27a6.51,6.51,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+</form>
+
+    <div class="search__description">
+      <p>
+        Web Piloti provides a collection of information from various departments on education, research and student life that is necessary for life at Sophia University.      </p>
+    </div>
+              <div class="search__content otherLinks">
+                            <a href="https://piloti.sophia.ac.jp/eng/ict/" class="otherLink" target="_blank">
+             <p class="otherLink__text">ICT Service</p>                          <i
+                  class="icon otherLink__icon"
+                  data-icon-name="material/blank"
+              >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                >
+                  <path d="M0,0H24V24H0Z" fill="none" />
+                  <path
+                      d="M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V12H19ZM14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3Z"
+                  />
+                </svg>
+              </i>
+                      </a>
+                            <a href="https://ccweb.cc.sophia.ac.jp/en/" class="otherLink" target="_blank">
+             <p class="otherLink__text">ICT Office Website</p>                          <i
+                  class="icon otherLink__icon"
+                  data-icon-name="material/blank"
+              >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                >
+                  <path d="M0,0H24V24H0Z" fill="none" />
+                  <path
+                      d="M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V12H19ZM14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3Z"
+                  />
+                </svg>
+              </i>
+                      </a>
+                            <a href="https://www.lib.sophia.ac.jp/?lang=en" class="otherLink" target="_blank">
+             <p class="otherLink__text">Library</p>                          <i
+                  class="icon otherLink__icon"
+                  data-icon-name="material/blank"
+              >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                >
+                  <path d="M0,0H24V24H0Z" fill="none" />
+                  <path
+                      d="M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V12H19ZM14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3Z"
+                  />
+                </svg>
+              </i>
+                      </a>
+                            <a href="https://piloti.sophia.ac.jp/eng/soudan/consultation/" class="otherLink">
+             <p class="otherLink__text">Student Support Services</p>                      </a>
+              </div>
+      </div>
+</div>
+    <div
+  class="fixedSearch"
+  data-controller="toggle"
+  data-toggle-isopen-value="false"
+  data-action="scroll@window->toggle#close"
+>
+  <div
+    class="fixedSearch__overlay"
+    data-action=" click->toggle#close"
+  ></div>
+  <div class="fixedSearch__inputWrapper">
+    <form method="get" action="https://piloti.sophia.ac.jp/eng/search/">
+  <div class="searchInput">
+    <input
+      class="searchInput__input"
+      type="text"
+      name="s"
+      placeholder="Free Word Search"
+    />
+    <button class="searchInput__button">
+      <i
+        class="icon searchInput__icon"
+        data-icon-name="material/search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.5,14h-.79l-.28-.27a6.51,6.51,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+</form>
+  </div>
+  <button
+    class="fixedSearch__button -search"
+    data-action="click->toggle#open"
+  >
+    <i class="icon" data-icon-name="custom/search">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="28"
+        height="14"
+        viewBox="0 0 28 14"
+      >
+        <defs>
+          <clipPath id="a">
+            <rect width="27.734" height="14" fill="none" />
+          </clipPath>
+        </defs>
+        <rect width="28" height="14" fill="none" />
+        <g clip-path="url(#a)">
+          <path
+            d="M7,14a7,7,0,1,1,7-7,7.008,7.008,0,0,1-7,7M7,2a5,5,0,1,0,5,5A5.006,5.006,0,0,0,7,2m20.734,9.809-11.67-3.29-.543,1.925,11.67,3.29Z"
+          />
+        </g>
+      </svg>
+    </i>
+    <span>SEARCH</span>
+  </button>
+  <button
+    class="fixedSearch__button -close"
+    data-action="click->toggle#close"
+  >
+    <i class="icon" data-icon-name="custom/close">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="14"
+        viewBox="0 0 28 14"
+      >
+        <rect width="28" height="14" fill="none" />
+        <path
+          d="M16.114,7.932l10.093,3.8.7-1.871L18.954,6.863ZM26.207,0,13.455,4.8.7,0,0,1.871,10.615,5.864,0,9.856l.7,1.871L26.91,1.871Z"
+          transform="translate(0.545 1.137)"
+        />
+      </svg>
+    </i>
+    <span>SEARCH</span>
+  </button>
+</div>
+  </aside>
+</div>
+
+      <div class="l-footer">
+        <footer class="ly-footer footer">
+                      <div class="footer__search" data-controller="fixed" data-action="scroll@window->fixed#released" data-fixed-isfixed-value="true" data-fixed-pos-type-value="bottom" data-fixed-target="fixedPosContent">
+              <div class="search">
+  <div class="search__contents">
+    <form method="get" action="https://piloti.sophia.ac.jp/eng/search/">
+  <div class="searchInput search__content">
+    <input
+      class="searchInput__input"
+      type="text"
+      name="s"
+      placeholder="Free Word Search"
+    />
+    <button class="searchInput__button">
+      <i
+        class="icon searchInput__icon"
+        data-icon-name="material/search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.5,14h-.79l-.28-.27a6.51,6.51,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+</form>
+
+    <div class="search__description">
+      <p>
+        Web Piloti provides a collection of information from various departments on education, research and student life that is necessary for life at Sophia University.      </p>
+    </div>
+              <div class="search__content otherLinks">
+                            <a href="https://piloti.sophia.ac.jp/eng/ict/" class="otherLink" target="_blank">
+             <p class="otherLink__text">ICT Service</p>                          <i
+                  class="icon otherLink__icon"
+                  data-icon-name="material/blank"
+              >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                >
+                  <path d="M0,0H24V24H0Z" fill="none" />
+                  <path
+                      d="M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V12H19ZM14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3Z"
+                  />
+                </svg>
+              </i>
+                      </a>
+                            <a href="https://ccweb.cc.sophia.ac.jp/en/" class="otherLink" target="_blank">
+             <p class="otherLink__text">ICT Office Website</p>                          <i
+                  class="icon otherLink__icon"
+                  data-icon-name="material/blank"
+              >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                >
+                  <path d="M0,0H24V24H0Z" fill="none" />
+                  <path
+                      d="M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V12H19ZM14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3Z"
+                  />
+                </svg>
+              </i>
+                      </a>
+                            <a href="https://www.lib.sophia.ac.jp/?lang=en" class="otherLink" target="_blank">
+             <p class="otherLink__text">Library</p>                          <i
+                  class="icon otherLink__icon"
+                  data-icon-name="material/blank"
+              >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                >
+                  <path d="M0,0H24V24H0Z" fill="none" />
+                  <path
+                      d="M19,19H5V5h7V3H5A2,2,0,0,0,3,5V19a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V12H19ZM14,3V5h3.59L7.76,14.83l1.41,1.41L19,6.41V10h2V3Z"
+                  />
+                </svg>
+              </i>
+                      </a>
+                            <a href="https://piloti.sophia.ac.jp/eng/soudan/consultation/" class="otherLink">
+             <p class="otherLink__text">Student Support Services</p>                      </a>
+              </div>
+      </div>
+</div>
+              <div
+  class="fixedSearch"
+  data-controller="toggle"
+  data-toggle-isopen-value="false"
+  data-action="scroll@window->toggle#close"
+>
+  <div
+    class="fixedSearch__overlay"
+    data-action=" click->toggle#close"
+  ></div>
+  <div class="fixedSearch__inputWrapper">
+    <form method="get" action="https://piloti.sophia.ac.jp/eng/search/">
+  <div class="searchInput">
+    <input
+      class="searchInput__input"
+      type="text"
+      name="s"
+      placeholder="Free Word Search"
+    />
+    <button class="searchInput__button">
+      <i
+        class="icon searchInput__icon"
+        data-icon-name="material/search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.5,14h-.79l-.28-.27a6.51,6.51,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+</form>
+  </div>
+  <button
+    class="fixedSearch__button -search"
+    data-action="click->toggle#open"
+  >
+    <i class="icon" data-icon-name="custom/search">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="28"
+        height="14"
+        viewBox="0 0 28 14"
+      >
+        <defs>
+          <clipPath id="a">
+            <rect width="27.734" height="14" fill="none" />
+          </clipPath>
+        </defs>
+        <rect width="28" height="14" fill="none" />
+        <g clip-path="url(#a)">
+          <path
+            d="M7,14a7,7,0,1,1,7-7,7.008,7.008,0,0,1-7,7M7,2a5,5,0,1,0,5,5A5.006,5.006,0,0,0,7,2m20.734,9.809-11.67-3.29-.543,1.925,11.67,3.29Z"
+          />
+        </g>
+      </svg>
+    </i>
+    <span>SEARCH</span>
+  </button>
+  <button
+    class="fixedSearch__button -close"
+    data-action="click->toggle#close"
+  >
+    <i class="icon" data-icon-name="custom/close">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="14"
+        viewBox="0 0 28 14"
+      >
+        <rect width="28" height="14" fill="none" />
+        <path
+          d="M16.114,7.932l10.093,3.8.7-1.871L18.954,6.863ZM26.207,0,13.455,4.8.7,0,0,1.871,10.615,5.864,0,9.856l.7,1.871L26.91,1.871Z"
+          transform="translate(0.545 1.137)"
+        />
+      </svg>
+    </i>
+    <span>SEARCH</span>
+  </button>
+</div>
+            </div>
+          
+          <div class="footer__content">
+            <nav>
+              <a class="footer__link" href="https://piloti.sophia.ac.jp/eng/info/contact/">
+                <i class="icon footer__link__icon" data-icon-name="material/arrow-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M16.01,11H4v2H16.01v3L20,12,16.01,8Z" />
+                  </svg>
+                </i>
+                Contact</a>
+                          </nav>
+            <div class="footer__copy">
+              <img src="/assets/commons/images/common/sophia-communication-mark.svg" width="1" height="1" alt="上智大学 Sophia University" />
+              <div>
+                <small>
+                  &copy; Sophia University.<br />
+                  All Rights Reserved.
+                </small>
+                <div class="footer__pageTop">
+                  <a href="#">Page top
+
+                    <i class="icon" data-icon-name="material/page-top">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18">
+                        <path d="M8,11h3V21h2V11h3L12,7ZM4,3V5H20V3Z" transform="translate(-4 -3)" />
+                      </svg>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      </div>
+
+      <!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span><div class="cookieDialog cli-bar-container cli-style-v2"><br />
+<div class="cli-bar-message"><br />
+    We use cookies on our website to give you the most relevant experience by remembering your preferences and repeat visits. By clicking “Accept All”, you consent to the use of ALL the cookies. <br />
+However, you may visit "Cookie Settings" to provide a controlled consent.<br />
+<a href="https://www.sophia.ac.jp/eng/sitepolicy/" target="_blank">View cookie policy</a><br />
+</div><div class="cli-bar-btn_container"><br />
+    <a role='button' class="medium cli-plugin-button cli-plugin-main-button cli_settings_button" style="margin:0px 5px 0px 0px">Cookie Settings</a><br />
+    <a id="wt-cli-accept-all-btn" role='button' data-cli_action="accept_all" class="wt-cli-element medium cli-plugin-button wt-cli-accept-all-btn cookie_action_close_header cli_action_button">Accept All</a><br />
+  </div><br />
+</div></span></div><div id="cookie-law-info-again" data-nosnippet="true"><span id="cookie_hdr_showagain">Manage consent</span></div><div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+		  <button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+		  </button>
+		  <div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="analytics" data-toggle="cli-toggle-tab">
+								Analytics							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-analytics" class="cli-user-preference-checkbox"  data-id="checkbox-analytics" />
+									<label for="wt-cli-checkbox-analytics" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Analytics</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="analytics">
+								<div class="wt-cli-cookie-description">
+									Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc. 								</div>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="analyticsen" data-toggle="cli-toggle-tab">
+								Analytics							</a>
+															<div class="cli-switch">
+									<input type="checkbox" id="wt-cli-checkbox-analyticsen" class="cli-user-preference-checkbox"  data-id="checkbox-analyticsen" />
+									<label for="wt-cli-checkbox-analyticsen" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Analytics</span></label>
+								</div>
+													</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="analyticsen">
+								<div class="wt-cli-cookie-description">
+									Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics the number of visitors, bounce rate, traffic source, etc.
+								</div>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+		  </div>
+		  <div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE &amp; ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QJ98TQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><link rel='stylesheet' id='cookie-law-info-table-css' href='https://piloti.sophia.ac.jp/assets/plugins/cookie-law-info/legacy/public/css/cookie-law-info-table.css?ver=3.2.4' type='text/css' media='all' />
+
+      </body>
+
+      </html>

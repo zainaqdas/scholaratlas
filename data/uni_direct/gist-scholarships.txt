@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html id="menucode_0401" lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width">
+<meta name="author" content="GIST International Applicants"><!-- 작성자//메인은 사이트네임,서브는 각 컨텐츠 담당자  -->
+<meta name="keywords" content="GIST International Applicants"><!-- 키워드 //SEO검색 관련으로 인하여 삽입 // 각 컨텐츠 별로 추가 또는 컨텐츠타이틀 게시판view는 게시글 제목 -->
+<meta name="copyright" content="(우)61005 광주광역시 북구 첨단과기로 123 (오룡동) Tel. 062)715-2114 Fax. 062)715-2300"><!--풋터주소 -->
+<title>
+ GIST Scholarships<Financial Support </title>
+
+<script type="text/javascript" src="/common/js/webfont.js"></script>
+<script>
+	WebFont.load({
+		custom:{
+			families: ['ntk','nsr'],
+			urls: ['/common/css/font.css']
+		}
+	});
+
+</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/common/img/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/common/img/favicon.png">
+
+<link rel="stylesheet" href="/common/css/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" href="/common/css/common.css" type="text/css" media="all">
+
+<link rel="stylesheet" href="/iadm/css/layout.css" type="text/css" media="all">
+<link rel="stylesheet" href="/iadm/css/respond.css" type="text/css" media="all">
+<link rel="stylesheet" href="/common/css/cmpt.css" type="text/css" media="all">
+<link rel="stylesheet" href="/common/css/ui.css" type="text/css" media="all">
+
+<link rel="stylesheet" href="/iadm/css/content.css?ver=1.2" type="text/css" media="all">
+
+<script type="text/javascript" src="/common/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="/common/js/jquery-ui.custom.js"></script>
+<script type="text/javascript" src="/common/js/script.js"></script>
+<script type="text/javascript" src="/common/js/common-popup.js"></script>
+<script type="text/javascript" src="/iadm/js/topmenu.js"></script>
+<!--[if lt IE 9]><script type="text/javascript" src="/common/js/html5.js"></script><![endif]-->
+
+
+<script type="text/javascript" src="/common/js/print/jquery.PrintArea.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	function _in(event){
+		$("#txt").printArea({
+			popWd:$("#txt").width(),
+			popHt:$("#txt").height(),
+			mode:"popup",
+			popClose:true,
+			extraCss:"/common/css/print.css",
+			retainAttr:["id","class"],
+			extraHead:"<meta charset=\"utf-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">"
+		});
+
+		event.preventDefault();
+	}
+
+	$("#print").on("click",_in);
+
+});
+</script>
+
+<script type="text/javascript" src="/common/js/flexcroll/flexcroll.js"></script>
+<link rel="stylesheet" type="text/css" href="/common/js/flexcroll/flexcrollstyles.css">
+<script type="text/javascript">
+function facebookOpen() {
+	var titl = "";
+	titl = titl.replace ('"', '&quot;');
+	titl = titl.replace ('"', '&quot;');
+	titl = encodeURIComponent(titl);
+	var link = encodeURIComponent("https://www.gist.ac.kr/site/iadm/html/sub04/0401.html");
+	var url = "http://www.facebook.com/sharer.php?u=" + link + "&t=" + titl;
+	snswindowOpen (url, 900, 450, 'no');
+}
+</script>
+</head>
+<body id="total">
+<!-- 스킵네비케이션시작 -->
+<div id="accessibility">
+	<a href="#contents">본문 바로가기</a>
+	<a href="#snb">사이드메뉴 바로가기</a>
+	<a href="#gnb">주메뉴 바로가기</a>
+</div>
+<!-- 스킵네비케이션끝 -->
+<div id="wrap">
+	<!--  헤더 -->
+	<div class="admission_link">
+		<a target="_parent" href="/uadm/main.html"><span class="ink_ico ico1"></span>Undergraduate Admissions</a>
+		<a target="_parent" href="/gadm/"><span class="ink_ico ico2"></span>Graduate Admissions</a>
+		<a target="_parent" href="/iuadm/"><span class="ink_ico ico3"></span>International Undergraduate Admissions</a>
+		<a target="_parent" href="/iadm/main.html" class="on" ><span class="ink_ico ico3"></span>International Graduate Admissions</a>
+	</div>
+	<div id="header_group">
+
+		<div id="animate">
+
+			<div class="style">
+
+			<header id="header">
+				<h1 id="logo"><a href="/iadm/"><span class="skip">GIST International Applicants</span></a></h1>
+
+				<div id="util">
+
+					<div id="siteSearch" class="siteSearch">
+						<form name="searchForm" id="search_form" method="post" action="#" target="_blank" rel="noopener noreferrer" onsubmit="siteSearch(this); return false;">
+
+							<div class="keyword">
+								<input name="pQuery_tmp" value="" id="siteKeyword" title="통합 검색" type="search">
+							</div>
+
+							<input id="siteSubmit" class="micon" value="검색" type="submit">
+						</form>
+
+					</div>
+
+					<script type="text/javascript">
+					function siteSearch(t){
+						var siteSearch = {};
+						var keyword = $("#siteKeyword").val();
+						siteSearch.btn = $("#siteSubmit");
+						siteSearch.obj = $("#siteSearch");
+						siteSearch.data = false;
+
+						if(t.pQuery_tmp.value === "" && siteSearch.obj.attr("class").match("open")){
+							t.pQuery_tmp.value = "";
+							siteSearch.obj.removeClass("open");
+							siteSearch.data = false;
+
+						}else if(t.pQuery_tmp.value === "" && !siteSearch.obj.attr("class").match("open")){
+							siteSearch.obj.addClass("open");
+							siteSearch.data = true;
+
+						}else{
+							$("#pQuery").val(keyword);
+							$("#pPastQuery").val(keyword);
+							t.submit();
+
+						}
+
+					}
+
+					$(function(){
+						function _in(event){
+							if(!$("#siteSearch").attr("class").match("open")){
+								$("#siteSearch").addClass("open");
+
+							}
+						}
+
+						$("#siteKeyword").on("focusin",_in);
+
+					});
+					</script>
+
+					<div id="siteLink">
+
+						<div id="language">
+							<a href="#">ENG</a>
+
+						</div>
+
+						<a id="siteMap" href="/iadm/html/guide/0601.html"><span class="skip">전체메뉴보기</span></a>
+						<a id="moOpen" href="#"><span class="skip">모바일메뉴열기</span></a>
+
+					</div>
+
+				</div>
+
+			</header>
+
+			<!--pc menu  -->
+			<nav id="gnb">
+				<h2 class="skip">주메뉴영역</h2>
+				<ul id='tm'><li id='setMenu1' class='th1'><a href='/iadm/html/sub02/020101.html' class='th1_lnk'>Admissions</a><div class='item'><ul class='th2'><li>	<a href='/iadm/html/sub02/020101.html' target='_self'  ><span class='bullet'></span>Admission Guide</a>	<ul class='th3'>		<li ><a href='/iadm/html/sub02/020101.html' target='_self' class='lnk_2th' >Schedule</a></li>		<li ><a href='/iadm/html/sub02/020102.html' target='_self' class='lnk_2th' >Procedure</a></li>		<li ><a href='/iadm/html/sub02/020103.html' target='_self' class='lnk_2th' >Required Documents</a></li></ul></li></ul></div>
+</li><li id='setMenu2' class='th1'><a href='/iadm/html/sub03/0301.html' class='th1_lnk'>Information</a><div class='item'><ul class='th2'><li>	<a href='/iadm/html/sub03/0302.html' target='_self'  ><span class='bullet'></span>Graduate Prospectus</a></li><li>	<a href='/iadm/html/sub03/0301.html' target='_self'  ><span class='bullet'></span>Degree Programs</a></li><li>	<a href='https://ipa.gist.ac.kr/ipa/html/sub04/0401.html' target='_blank' rel='noopener noreferrer' title='새창으로 링크 열림'   ><span class='bullet'></span>Student Exchange Program</a></li><li>	<a href='https://ipa.gist.ac.kr/ipa/html/sub03/0301.html' target='_blank' rel='noopener noreferrer' title='새창으로 링크 열림'   ><span class='bullet'></span>Global Intern Program Applicants</a></li></ul></div>
+</li><li id='setMenu3' class='th1'><a href='/iadm/html/sub04/0401.html' class='th1_lnk'>Financial Support</a><div class='item'><ul class='th2'><li>	<a href='/iadm/html/sub04/0401.html' target='_self'  ><span class='bullet'></span>GIST Scholarships</a></li></ul></div>
+</li><li id='setMenu4' class='th1'><a href='/iadm/html/sub05/0502.html' class='th1_lnk'>Board</a><div class='item'><ul class='th2'><li>	<a href='/iadm/html/sub05/0502.html' target='_self'  ><span class='bullet'></span>Notice</a></li><li>	<a href='/iadm/html/sub05/0503.html' target='_self'  ><span class='bullet'></span>FAQ</a></li><li>	<a href='/iadm/html/sub05/0504.html' target='_self'  ><span class='bullet'></span>Contact Us</a></li></ul></div>
+</li></ul>
+			</nav>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript">
+		(function(){
+
+			var mno = { str:"0401" };
+
+			mno._index = function(t){
+				/* 비어있는 배열이 반환되는 경우는 메뉴코드에 이상이 있거나 메인화면일 경우입니다. */
+				if(mno.str === "" || mno.str.substr(0,2) == "06"){
+					return 0;
+
+				}
+				else{
+					switch(t){
+
+						case 0 : return Number(mno.str.substr(0,2))-1;
+						case 1 : return Number(mno.str.substr(2,2))-1;
+						case 2 : return Number(mno.str.substr(4,2))-1;
+						case 3 : return Number(mno.str.substr(6,2))-1;
+
+						default : return 0; break;
+
+					}
+
+				}
+
+			};
+
+			var gnb = {};
+
+			gnb.area = $("#header_group");
+			gnb.wrap = $("#animate");
+			gnb.btnPath = ".th1>a";
+			gnb.objPath = ".item";
+
+			gnb.blockedClose = false;
+
+			gnb.btn = function(t){
+				return (t != undefined) ? gnb.area.find(gnb.btnPath).eq(t) : gnb.area.find(gnb.btnPath);
+
+			};
+
+			gnb._height = function(t){
+
+				var array = [];
+
+				for(var i=0; i<gnb.btn().length; i++){
+					array[i] = gnb.area.outerHeight()+gnb.btn(i).next().outerHeight(true);
+
+				}
+
+				if(!t){
+
+					return Math.max.apply(null, array);
+
+				}
+				else{
+
+					if(t === "item"){
+						return Math.max.apply(null, array)-gnb.area.outerHeight();
+
+					}
+
+					return gnb.area.outerHeight();
+
+				}
+
+			}
+
+			gnb.myposTop=[],gnb.myposLeft=[],gnb.myWidth=[];
+
+			function chakcahkchukchuk(){
+
+				gnb.btn().removeAttr("style");
+
+				// 촥촥척척
+				$.each(gnb.area.find(gnb.objPath),function(e){
+					gnb.myposTop[e] = Math.ceil(gnb.btn(e).position().top);
+					gnb.myposLeft[e] = Math.ceil(gnb.btn(e).position().left);
+					gnb.myWidth[e] = gnb.btn(e).outerWidth()+1;
+
+					gnb.btn(e).css({
+						"width":gnb.myWidth[e]
+
+					});
+
+				});
+
+			}
+
+			gnb._open = function(t){
+				gnb.wrap.addClass('action');
+
+				gnb.wrap.css({
+					"height":gnb._height()
+
+				});
+
+				gnb.btn().next().css({ "height":gnb._height("item") });
+
+
+				if($(window).width() >= 1250){
+
+					// 촥촥척척
+					$.each(gnb.area.find(gnb.objPath),function(e){
+						gnb.btn(e).stop(true,false).animate({
+							"width":$(this).outerWidth()-25
+
+						},170,"easeOutExpo");
+
+					});
+
+				}
+
+			};
+
+			gnb._close = function(){
+
+				gnb.wrap.css({
+					"height":gnb._height(true)
+
+				});
+
+				gnb.wrap.removeClass('action');
+
+				// 촥촥척척
+				$.each(gnb.area.find(gnb.objPath),function(e){
+
+					gnb.btn(e).stop(true,false).animate({
+						"left":gnb.myposLeft[e],
+						"width":gnb.myWidth[e]
+
+					},170,"easeInExpo");
+
+				});
+
+			};
+
+			function _in(event){
+
+				var t = $(this);
+
+				switch(event.handleObj.namespace){
+					case "enter" :
+						gnb._open({ index:gnb.btn().index(t) });
+
+					break;
+
+					case "leave" :
+						if(!gnb.blockedClose){
+							gnb._close();
+
+						}
+
+					break;
+
+					case "control" :
+						gnb.blockedClose = true;
+
+						gnb._open({ index:Number(t.val()) });
+
+					break;
+
+					case "blocked" :
+						gnb.blockedClose = false;
+
+					break;
+
+				};
+
+			}
+
+			gnb.btn().on("mouseenter.enter",_in);
+
+			gnb.wrap.on("mousemove.blocked mouseleave.leave",_in);
+
+			function headerHeight(){
+
+				gnb.wrap.css({ "height":gnb._height(true) });
+
+				chakcahkchukchuk();
+
+			}
+
+			$(window).resize(function(){
+
+				var t = $(this);
+
+				clearTimeout(gnb.timeout);
+
+			 	gnb.timeout = setTimeout(function(){
+					return headerHeight();
+
+				},100);
+
+			});
+
+			chakcahkchukchuk();
+
+		}());
+		</script>
+
+		<!--pc menu  -->
+	</div>
+	<!--  헤더 -->
+
+	<div id="shadow_device"></div>
+	<nav id="mo_gnb">
+		<h2 class="skip">모바일 메뉴영역</h2>
+		
+<div id='mo_touchmove'>
+<ul id='mo_tm'><li data-thiscode='02' class='th1'><a href='/iadm/html/sub02/020101.html' class='th1_lnk th1_lnk_02'>Admissions</a><ul class='th2'><li class='th2_li_0201'>	<a href='/iadm/html/sub02/020101.html' target='_self'  ><span class='arr'></span>Admission Guide</a>	<ul class='th3'>		<li ><a href='/iadm/html/sub02/020101.html' target='_self'   class='lnk_2th th3_a_020101'>Schedule</a></li>		<li ><a href='/iadm/html/sub02/020102.html' target='_self'   class='lnk_2th th3_a_020102'>Procedure</a></li>		<li ><a href='/iadm/html/sub02/020103.html' target='_self'   class='lnk_2th th3_a_020103'>Required Documents</a></li></ul></li></ul></li><li data-thiscode='03' class='th1'><a href='/iadm/html/sub03/0301.html' class='th1_lnk th1_lnk_03'>Information</a><ul class='th2'><li class='th2_li_0302'>	<a href='/iadm/html/sub03/0302.html' target='_self'  ><span class='arr'></span>Graduate Prospectus</a></li><li class='th2_li_0301'>	<a href='/iadm/html/sub03/0301.html' target='_self'  ><span class='arr'></span>Degree Programs</a></li><li class='th2_li_0303'>	<a href='https://ipa.gist.ac.kr/ipa/html/sub04/0401.html' target='_blank' rel='noopener noreferrer' title='새창으로 링크 열림'   ><span class='arr'></span>Student Exchange Program</a></li><li class='th2_li_0304'>	<a href='https://ipa.gist.ac.kr/ipa/html/sub03/0301.html' target='_blank' rel='noopener noreferrer' title='새창으로 링크 열림'   ><span class='arr'></span>Global Intern Program Applicants</a></li></ul></li><li data-thiscode='04' class='th1'><a href='/iadm/html/sub04/0401.html' class='th1_lnk th1_lnk_04'>Financial Support</a><ul class='th2'><li class='th2_li_0401'>	<a href='/iadm/html/sub04/0401.html' target='_self'  ><span class='arr'></span>GIST Scholarships</a></li></ul></li><li data-thiscode='05' class='th1'><a href='/iadm/html/sub05/0502.html' class='th1_lnk th1_lnk_05'>Board</a><ul class='th2'><li class='th2_li_0502'>	<a href='/iadm/html/sub05/0502.html' target='_self'  ><span class='arr'></span>Notice</a></li><li class='th2_li_0503'>	<a href='/iadm/html/sub05/0503.html' target='_self'  ><span class='arr'></span>FAQ</a></li><li class='th2_li_0504'>	<a href='/iadm/html/sub05/0504.html' target='_self'  ><span class='arr'></span>Contact Us</a></li></ul></li></ul></div>
+
+	</nav>
+
+	<script type="text/javascript">
+	(function(){
+
+		var mno = { str:"0401" };
+
+		mno._index = function(t){
+			/* 비어있는 배열이 반환되는 경우는 메뉴코드에 이상이 있거나 메인화면일 경우입니다. */
+			if(mno.str === "" || mno.str.substr(0,2) == "06"){
+				return 0;
+
+			}
+			else{
+				switch(t){
+					case 0 : return Number(mno.str.substr(0,2))-1;
+					case 1 : return Number(mno.str.substr(2,2))-1;
+					case 2 : return Number(mno.str.substr(4,2))-1;
+					case 3 : return Number(mno.str.substr(6,2))-1;
+
+					default : return 0; break;
+				}
+			}
+		};
+
+		var param = "#mo_gnb";
+		var obj = "#wrap";
+		var btn = "#moOpen";
+		var index1 = mno._index(0); // th1 메뉴코드, index로 사용
+		var index2 = mno._index(1); // th1 메뉴코드, index로 사용
+		var index3 = mno._index(2); // th1 메뉴코드, index로 사용
+		var dur = 300; // 애니메이션 진행 속도
+		var meth = "easeOutExpo"; // 애니메이션 진행 타입
+
+		gnb_open(param,obj,btn,index1,index2,index3,dur,meth,mno.str);
+
+	}());
+	</script>
+
+
+	<!-- visual -->
+	<section id="visual">
+
+		<h1>Financial Support</h1>
+		<p>President.s Message Welcomes You<span>!</span></p>
+
+	</section>
+	<!-- visual -->
+
+
+
+	<!-- content  -->
+	<div id="middle">
+		<div class="deco"></div>
+
+		<div id="container">
+
+			<div class="layout">
+
+			<!-- leftmenu -->
+			<!--
+			<section id="snb">
+				<nav id="sidemenu">
+					<h1><div>Financial Support</div></h1>
+					<ul class='lm_2th sidebar-menu'><li class=' active'><a href='/iadm/html/sub04/0401.html' target='_self' class='lnk_2th' onclick="goto('/iadm/html/sub04/0401.html');">GIST Scholarships</a></li>
+</ul>				</nav>
+			</section>
+			-->
+			<!-- leftmenu -->
+			
+<script type="text/javascript">
+	
+/* Tree()
+* ======
+* Converts the sidebar into a multilevel
+* tree view menu.
+*
+* @type Function
+* @Usage: $.AdminLTE.tree('.sidebar')
+*/
+ 
+$.AdminLTE = {};
+
+$.AdminLTE.options = {
+  //Add slimscroll to navbar menus
+  //This requires you to load the slimscroll plugin
+  //in every page before app.js
+  navbarMenuSlimscroll: true,
+  navbarMenuSlimscrollWidth: "3px", //The width of the scroll bar
+  navbarMenuHeight: "200px", //The height of the inner menu
+  //General animation speed for JS animated elements such as box collapse/expand and
+  //sidebar treeview slide up/down. This options accepts an integer as milliseconds,
+  //'fast', 'normal', or 'slow'
+  animationSpeed: 500,
+  //Sidebar push menu toggle button selector
+  sidebarToggleSelector: "[data-toggle='offcanvas']",
+  //Activate sidebar push menu
+  sidebarPushMenu: true,
+  //Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
+  sidebarSlimScroll: true,
+  //Enable sidebar expand on hover effect for sidebar mini
+  //This option is forced to true if both the fixed layout and sidebar mini
+  //are used together
+  sidebarExpandOnHover: false,
+  //BoxRefresh Plugin
+  enableBoxRefresh: true,
+  //Bootstrap.js tooltip
+  enableBSToppltip: true,
+  BSTooltipSelector: "[data-toggle='tooltip']",
+  //Enable Fast Click. Fastclick.js creates a more
+  //native touch experience with touch devices. If you
+  //choose to enable the plugin, make sure you load the script
+  //before AdminLTE's app.js
+  enableFastclick: true,
+  //Control Sidebar Options
+  enableControlSidebar: true,
+  controlSidebarOptions: {
+    //Which button should trigger the open/close event
+    toggleBtnSelector: "[data-toggle='control-sidebar']",
+    //The sidebar selector
+    selector: ".control-sidebar",
+    //Enable slide over content
+    slide: true
+  },
+  //Box Widget Plugin. Enable this plugin
+  //to allow boxes to be collapsed and/or removed
+  enableBoxWidget: true,
+  //Box Widget plugin options
+  boxWidgetOptions: {
+    boxWidgetIcons: {
+      //Collapse icon
+      collapse: 'fa-minus',
+      //Open icon
+      open: 'fa-plus',
+      //Remove icon
+      remove: 'fa-times'
+    },
+    boxWidgetSelectors: {
+      //Remove button selector
+      remove: '[data-widget="remove"]',
+      //Collapse button selector
+      collapse: '[data-widget="collapse"]'
+    }
+  },
+  //Direct Chat plugin options
+  directChat: {
+    //Enable direct chat by default
+    enable: true,
+    //The button to open and close the chat contacts pane
+    contactToggleSelector: '[data-widget="chat-pane-toggle"]'
+  },
+  //Define the set of colors to use globally around the website
+  colors: {
+    lightBlue: "#3c8dbc",
+    red: "#f56954",
+    green: "#00a65a",
+    aqua: "#00c0ef",
+    yellow: "#f39c12",
+    blue: "#0073b7",
+    navy: "#001F3F",
+    teal: "#39CCCC",
+    olive: "#3D9970",
+    lime: "#01FF70",
+    orange: "#FF851B",
+    fuchsia: "#F012BE",
+    purple: "#8E24AA",
+    maroon: "#D81B60",
+    black: "#222222",
+    gray: "#d2d6de"
+  },
+  //The standard screen sizes that bootstrap uses.
+  //If you change these in the variables.less file, change
+  //them here too.
+  screenSizes: {
+    xs: 480,
+    sm: 768,
+    md: 992,
+    lg: 1200
+  }
+};
+
+$(function () {
+ 
+	"use strict";
+	//Extend options if external options exist
+	if (typeof AdminLTEOptions !== "undefined") {
+		$.extend(true,
+		$.AdminLTE.options,
+		AdminLTEOptions);
+	}
+
+	//Easy access to options
+	var o = $.AdminLTE.options;
+	
+	//Set up the object
+	_init();
+	
+	$.AdminLTE.layout.activate();
+	
+	$.AdminLTE.tree('.sidebar');
+
+});
+ 
+function _init() {
+
+  'use strict';
+  /* Layout
+   * ======
+   * Fixes the layout height in case min-height fails.
+   *
+   * @type Object
+   * @usage $.AdminLTE.layout.activate()
+   *        $.AdminLTE.layout.fix()
+   *        $.AdminLTE.layout.fixSidebar()
+   */
+   
+  $.AdminLTE.layout = {
+    activate: function () {
+      var _this = this;
+      _this.fix();
+      _this.fixSidebar();
+      $(window, ".wrapper").resize(function () {
+        _this.fix();
+        _this.fixSidebar();
+      });
+    },
+    fix: function () {
+      //Get window height and the wrapper height
+      var neg = $('.main-header').outerHeight() + $('.main-footer').outerHeight();
+      var window_height = $(window).height();
+      var sidebar_height = $(".sidebar").height();
+      //Set the min-height of the content and sidebar based on the
+      //the height of the document.
+      if ($("body").hasClass("fixed")) {
+        $(".content-wrapper, .right-side").css('min-height', window_height - $('.main-footer').outerHeight());
+      } else {
+        var postSetWidth;
+        if (window_height >= sidebar_height) {
+          $(".content-wrapper, .right-side").css('min-height', window_height - neg);
+          postSetWidth = window_height - neg;
+        } else {
+          $(".content-wrapper, .right-side").css('min-height', sidebar_height);
+          postSetWidth = sidebar_height;
+        }
+
+        //Fix for the control sidebar height
+        var controlSidebar = $($.AdminLTE.options.controlSidebarOptions.selector);
+        if (typeof controlSidebar !== "undefined") {
+          if (controlSidebar.height() > postSetWidth)
+            $(".content-wrapper, .right-side").css('min-height', controlSidebar.height());
+        }
+
+      }
+    },
+    fixSidebar: function () {
+      //Make sure the body tag has the .fixed class
+      if (!$("body").hasClass("fixed")) {
+        if (typeof $.fn.slimScroll != 'undefined') {
+          $(".sidebar").slimScroll({destroy: true}).height("auto");
+        }
+        return;
+      } else if (typeof $.fn.slimScroll == 'undefined' && window.console) {
+        window.console.error("Error: the fixed layout requires the slimscroll plugin!");
+      }
+      //Enable slimscroll for fixed layout
+      if ($.AdminLTE.options.sidebarSlimScroll) {
+        if (typeof $.fn.slimScroll != 'undefined') {
+          //Destroy if it exists
+          $(".sidebar").slimScroll({destroy: true}).height("auto");
+          //Add slimscroll
+          $(".sidebar").slimscroll({
+            height: ($(window).height() - $(".main-header").height()) + "px",
+            color: "rgba(0,0,0,0.2)",
+            size: "3px"
+          });
+        }
+      }
+    }
+  };
+
+  $.AdminLTE.tree = function (menu) {
+
+    var _this = this;
+    var animationSpeed = $.AdminLTE.options.animationSpeed;
+    $(document).on('click', menu + ' li a', function (e) {
+      //Get the clicked link and the next element
+      var $this = $(this);
+      var checkElement = $this.next();
+
+      //Check if the next element is a menu and is visible
+      if ((checkElement.is('.treeview-menu')) && (checkElement.is(':visible'))) {
+	      
+        //Close the menu
+        checkElement.slideUp(animationSpeed, function () {
+          checkElement.removeClass('menu-open');
+          //Fix the layout in case the sidebar stretches over the height of the window
+          //_this.layout.fix();
+        });
+        checkElement.parent("li").removeClass("active");
+      
+		//console.log(menu+' _treemenu1');
+      }
+      //If the menu is not visible
+      else if ((checkElement.is('.treeview-menu')) && (!checkElement.is(':visible'))) {
+        //Get the parent menu
+        var parent = $this.parents('ul').first();
+        //Close all open menus within the parent
+        var ul = parent.find('ul:visible').slideUp(animationSpeed);
+        //Remove the menu-open class from the parent
+        ul.removeClass('menu-open');
+        //Get the parent li
+        var parent_li = $this.parent("li");
+
+        //Open the target menu and add the menu-open class
+        checkElement.slideDown(animationSpeed, function () {
+          //Add the class active to the parent li
+          checkElement.addClass('menu-open');
+          parent.find('li.active').removeClass('active');
+          parent_li.addClass('active');
+          //Fix the layout in case the sidebar stretches over the height of the window
+          _this.layout.fix();
+        });
+      
+		//console.log('treemenu2');
+      }
+      //if this isn't a link, prevent the page from being redirected
+      if (checkElement.is('.treeview-menu')) {
+        e.preventDefault();
+        
+        //console.log('treemenu3');
+      }
+    });
+  };
+
+}
+
+function goto(url) {
+	location.href=url;	
+}
+
+</script>
+
+
+<!-- leftmenu -->
+<section id="snb">
+	<nav id="sidemenu">
+	
+	<h1><div>Financial Support</div></h1>
+	
+	<section class="sidebar">
+		<ul class="sidebar-menu">
+		<li class=' active'><a href='/iadm/html/sub04/0401.html' target='_self' class='lnk_2th' onclick="goto('/iadm/html/sub04/0401.html');">GIST Scholarships</a></li>		</ul>		
+	</section>
+	</nav>
+	
+	<div class="left_banner">
+		<ul>
+			<li class="banner2">
+				<a href="https://ipsi3.uwayapply.com/2027/foreign/GIST/?CHA=1" target="_blank">
+					<h3><span class="red">Online<br>Application</span></h3>
+				</a>
+			</li>
+			<!-- <li class="banner3">
+				<a href="/iadm/html/sub01/0102.html">
+					<h3>Overview</h3>
+				</a>
+			</li> -->
+			<!-- <li class="banner4">
+				<a href="/download/?file_id=z1l7fx6iaz87gazogfd9c9rxyg3z4l">
+					<h3 class="center">FORM A</h3>
+				</a>
+			</li> -->
+		</ul>
+	</div>
+</section>
+<!-- leftmenu -->
+			
+			<section id="contents">
+				<header id="ti_box">
+					<h1 id="tit_cont">GIST Scholarships</h1>
+
+					<nav id="location">
+						<!--
+						<div id="navigator">
+							<a href="#" class="navi">소개</a>
+							<a href="#" class="navi">총장실</a>
+							<a href="#" class="navi current">인사말</a>
+						</div>
+						-->
+						
+			<div id='navigator'>
+				<a href='/iadm/html/sub04/0401.html' >Financial Support</a><a href='/iadm/html/sub04/0401.html' class='navi_ov'>GIST Scholarships</a>
+			</div>
+			
+						<a id="print" href="#txt" title="본문컨텐츠 프린트하기, 새창에서 열림"><span class="skip">인쇄</span></a>
+
+						<a id="snsOpen" href="#"><span class="skip">SNS에 공유하기</span></a>
+						<div id="snsGroup">
+							<a href="#sns" title="트위터 공유"  onclick="twitterOpen(); return false;" class="tw">트위터</a>
+							<a href="#sns" title="페이스북 공유" onclick="facebookOpen(); return false;" class="fb">페이스북</a>
+							<a href="#sns" title="카카오톡 공유 새창에서 열림" onclick="shareMessage();" class="kakao" id="kakaotalk-sharing-btn">카카오톡</a>
+
+						</div>
+
+						<script type="text/javascript" src="/common/js/sns/facebook.js"></script>
+						<script type="text/javascript" src="/common/js/sns/twiter.js"></script>
+						<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.3/kakao.min.js" integrity="sha384-kLbo2SvoNtOFiniJ1EQ9o2iDA8i3xp+O6Cns+L5cd4RsOJfl+43z5pvieT2ayq3C" crossorigin="anonymous"></script>
+						<script>Kakao.init('b99c991eb5d718f1a58313f7dba0cf10');</script>
+						<script>
+							function shareMessage() {
+								var titl = $("title").text();
+								var url = "https://www.gist.ac.kr/site/iadm/html/sub04/0401.html";
+								url = url.replaceAll("&amp;amp;","&");
+								var img = "";
+								var desc = "";
+
+								Kakao.Share.sendDefault({
+									objectType: 'feed',
+									content: {
+										title: titl,
+										description: desc,
+										imageUrl: img,
+										link: {
+											mobileWebUrl: url,
+											webUrl: url,
+										}
+									},
+									buttons: [
+										{
+										title: '웹으로 보기',
+										link: {
+											mobileWebUrl: url,
+											webUrl: url,
+										},
+										},
+										{
+										title: '앱으로 보기',
+										link: {
+											mobileWebUrl: url,
+											webUrl: url,
+										},
+										},
+									]
+								});
+							}
+						</script>
+
+						<script type="text/javascript">
+						(function(){
+
+							$("#snsOpen").on("click",function(event){
+
+								event.preventDefault();
+
+								var t = $(this);
+
+								if(!t.hasClass("open")){
+									t.addClass("open");
+
+								}
+								else{
+									t.removeClass("open");
+
+								}
+
+							});
+
+						}());
+						</script>
+					</nav>
+
+				</header>
+						<!-- Contents Info : uadm 04 신청 -->
+
+<div id="txt">
+<!-- content start -->
+
+
+					
+<h2 class="pro_h2">Tuition Assistance (All students)</h2>
+<ul class="list_1st">
+	<li>Tuition fully supported: 3,607,000 won per semester
+	</li>
+</ul>
+<p class="txtp">※ The one-time matriculation fee of 680,000 won is charged to all newly admitted students to be enrolled. 	Some students may be exempt from this fee.</p>
+
+<h2 class="pro_h2">Monthly Stipends (All International Students)</h2>
+<ul class="list_1st">
+	<li>Student allowance: 140,000 won per month for M.S. students, 295,000 won per month for Ph.D. students</li>
+	<li>Meal allowance: nearly 100,000 won per month
+	<p class="txtp">※Students should have completed at least 9 credits in the previous semester for the above two.</p>
+	</li>
+	<li>International student allowance: 120,000 won per month
+	<p class="txtp">※ GPA of 3.0 or higher (out of 4.5) in the previous semester </p>
+	</li>
+</ul>
+
+<h2 class="pro_h2">Research Assistantship<br>(All students participating in research projects)</h2>
+<p class="txtp">Average as of 2022</p>
+<ul class="list_1st">
+	<li>6,400,000 won per year of M.S.</li>
+	<li>13,740,000 won per year of Ph.D </li>
+</ul>
+
+<h2 class="pro_h2">Housing (All Students)</h2>
+<ul class="list_1st">
+	<p class="txtp">※ The waiting time may take longer than expected.</p>
+	<p class="txtp">※ The housing fees will be increased every year.</p>
+	<p class="txtp">※ Utility fees are charged separately.</p>
+	<p class="txtp">※ Additional costs may occur for wall papering or flooring.</p>
+		<li style="position:relative;">Dormitory & Apartment for Married Students (as of 2022, KRW)
+		<span style="position:absolute; right:5px; top:18px; z-index:111">(Unit: Won)</span>
+        <table class="tbl_basic center mt_20">
+	<caption>
+		<strong> Dormitory & Apartment for Married Students (as of 2022, KRW)</strong>
+		<details>
+			<summary>Admission Schedule</summary>
+		</details>
+	</caption>
+	<colgroup>
+		<col>
+		<col>
+		<col>
+		<col>
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">Accommodation</th>
+			<th scope="col">Room Type</th>
+			<th scope="col">Monthly Fees</th>
+			<th scope="col">Deposit</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td rowspan="4">Dormitory(Graduate)</td>
+		<td>single(Bldg. 8)</td>
+		<td>140,000 won</td>
+		<td rowspan="4">150,000 won</td>
+	  </tr>
+	  <tr>
+		<td style="border-left:1px solid #ccc;">Double(1~7)</td>
+		<td>80,000 won</td>
+	  </tr>
+	  <tr>
+		<td style="border-left:1px solid #ccc;">Double(8)</td>
+		<td>95,000 won</td>
+	  </tr>
+	  <tr>
+		<td style="border-left:1px solid #ccc;">Double(9)</td>
+		<td>115,000 won</td>
+	  </tr>
+	  <tr>
+		<td rowspan="3">Married Student Apartment(Two bed room)</td>
+		<td>E, F(Before Renovation)</td>
+		<td>125,000 won</td>
+		<td>300,000 won</td>
+	  </tr>
+	  <tr>
+		<td style="border-left:1px solid #ccc;">E, F(After Renovation)</td>
+		<td>185,000 won</td>
+		<td>600,000 won</td>
+	  </tr>
+	  <tr>
+		<td style="border-left:1px solid #ccc;">G</td>
+		<td>175,000 won</td>
+		<td>600,000 won</td>
+	  </tr>
+	</tbody>
+</table>
+	
+	</li>
+<!-- 	<li>Apartment for Married Students: Two bedroom apartment (as of 2020)
+	<table class="tbl_basic center mt_20">
+	<caption>
+		<strong>Apartment for Married Students: Two bedroom apartment (as of 2020)</strong>
+		<details>
+			<summary>Apartment for Married Students: Two bedroom apartment (as of 2019)</summary>
+		</details>
+	</caption>
+	<colgroup>
+		<col>
+		<col>
+		<col>
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">Room Type </th>
+			<th scope="col">Monthly Fees</th>
+			<th scope="col">Deposit</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td>E~F</td>
+		<td>160,000 won</td>
+		<td>300,000 won</td>
+	  </tr>
+	  <tr>
+		<td>G</td>
+		<td>150,000 won</td>
+		<td>600,000 won</td>
+	  </tr>
+	</tbody>
+	</table> -->
+	<!-- <p class="txtp">※ The waiting time may take longer than expected. </p>
+	<p class="txtp">※ The Housing fee can be increased. </p> -->
+	<!-- </li> -->
+</ul>
+
+
+<h2 class="pro_h2">Health Insurance (All International Students)</h2>
+<ul class="list_1st">
+	<li>60% of National Health Insurance is supported. 
+		<p class="txtp">※Other options may exist.</p>
+	</li>
+	<li>Annual medical checkup</li>
+</ul>
+
+
+
+<h2 class="pro_h2">Flight Reimbursement (All Incoming International Students)</h2>
+<ul class="list_1st">
+	<li>Reimbursement for a one-way flight to Korea
+		<p class="txtp">※For the first time use only.</p>
+	</li>
+</ul>							
+
+
+<!-- content end -->
+</div>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91551382-5', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+			</section>
+
+			</div>
+
+		</div>
+	</div>
+	<!-- content  -->
+	<!-- 풋터 -->
+	<footer id="footer">
+		<div class="layout">
+			<div id="futil" class="clearfix">
+				<!--
+				<ul class="fm">
+					<li><a href="/uadm/html/guide/0504.html">개인정보처리방침</a></li>
+					<li><a href="/uadm/html/guide/0505.html">이메일무단수집거부</a></li>
+					<li><a href="#" class="rss">RSS <span></span></a></li>
+					<li><a href="http://www.alio.go.kr/home.do" target="_blank" rel="noopener noreferrer" title="새창열림">알리오</a></li>
+					<li><a href="/kr/html/sub01/010305.html" target="_blank" rel="noopener noreferrer" title="새창열림">오시는 길</a></li>
+				</ul>
+				-->
+				<!--
+				<div class="r_util">
+
+					<div id="familybox" class="family">
+						<a class="ti" href="#">Family Site</a>
+						<ul class="obj">
+							<li><a href="https://portal.gist.ac.kr/" target="_blank" rel="noopener noreferrer" title="새창열림">GIST Portal</a></li>
+							<li><a href="https://mail.gist.ac.kr/" target="_blank" rel="noopener noreferrer" title="새창열림">GIST e-mail</a></li>
+							<li><a href="https://gw.gist.ac.kr/" target="_blank" rel="noopener noreferrer" title="새창열림">Groupware</a></li>
+							<li><a href="https://college.gist.ac.kr/" target="_blank" rel="noopener noreferrer" title="새창열림">GIST 대학</a></li>
+						</ul>
+					</div>
+
+					<script type="text/javascript">
+					(function(){
+
+						var familybox = $("#familybox");
+
+						familybox.find(".ti").on("click",function(event){
+
+							event.preventDefault();
+
+							var t = $(this);
+
+							if(t.next().css("display") != "block"){
+								t.next().show();
+
+							}
+							else{
+								t.next().hide();
+
+							}
+
+						});
+
+					}());
+					</script>
+
+					<a class="return_top" href="#total">TOP</a>
+
+				</div>
+
+			</div>
+-->
+			<address>
+				<p id="address">
+					Section of Graduate Admissions, Unit 323, GIST College A, 123 Cheomdangwagiro, Bukgu, Jeonnam-Gwangju Special Metropolitan City, 61005, Republic of Korea
+					<br>
+					<span class="tel">Tel. +82-62-715-3951, 2963</span>
+				</p>
+
+				<p id="copyright" lang="en">Copyright (C) 2017 Gwangju Institute of Science and Technology.  All Rights Reserved</p>
+
+			</address>
+
+		</div>
+	</footer>
+	<!-- 풋터 -->
+</div>
+</body>
+</html>

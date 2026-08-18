@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>SUNG KYUN KWAN UNIVERSITY(SKKU)</title>
+	<link rel="shortcut icon" href="/eng/img/common/favicon.png">
+
+	<link rel="stylesheet" type="text/css" href="/eng/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/eng/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/eng/css/aos.css" />
+	<link rel="stylesheet" type="text/css" href="/eng/css/swiper.css" />
+    <link rel="stylesheet" type="text/css" href="/eng/css/sub.css" />
+
+	<script type="text/javascript" src="/eng/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/eng/js/common.js"></script>
+	<script type="text/javascript" src="/eng/js/aos.js"></script>
+	<script type="text/javascript" src="/eng/js/jquery.bxslider.js"></script>
+	<script type="text/javascript" src="/eng/js/swiper.js"></script>
+	<script type="text/javascript" src="/eng/js/sub.js"></script>
+    
+</head>
+<body class="en"><!--HEADER-->
+<div class="wrap">
+<div class="header">
+	<h1 class="logo">
+		<a href="/eng/index.html?PHPSESSID=f22561e2f256314349229450f7250889">
+			<img src="/eng/img/common/logo.png" alt="" class="img_off">
+			<img src="/eng/img/common/logo_on.png" alt="" class="img_on">
+		</a>
+	</h1>
+	<ul class="gnb clfix">
+		<li >
+			<a href="#none" class="d1">About SKKU</a>
+			<ul class="depth2">
+				<li ><a href="https://www.skku.edu/eng/About/s620/sub01.do" target="_blank"><span class="d2">History & Overview</span></a></li>
+				<li><a href="https://www.skku.edu/eng/About/pr/greeting.do" target="_blank"><span class="d2">Office of the President</span></a></li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Mission & Vision</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/About/vision/vision1.do" target="_blank"><span class="d3">VISION 2030</span></a></li>
+						<li><a href="https://www.skku.edu/eng/International/GlobalEngagement/InternationalReputationandAchievements.do" target="_blank"><span class="d3">Rankings</span></a></li>
+					</ul>
+				</li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">SKKU News</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/About/media/news.do" target="_blank"><span class="d3">News</span></a></li>
+						<li><a href="https://www.skku.edu/eng/Research/industry/StudentChallenge.do" target="_blank"><span class="d3">Student Success Story</span></a></a></li>
+						<li><a href="https://webzine.skku.edu/skkuzine/index.do" target="_blank"><span class="d3">SKKU Webzine</span></a></a></li>
+					</ul>
+				</li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Campus</span></a>
+					<ul class="depth3">
+						<li><a href="https://admission.skku.edu/admission/html/high/vr.html" target="_blank"><span class="d3">VR Campus Tour</span></a></li>
+						<li><a href="https://sgallery.skku.edu/sda/index.do" target="_blank"><span class="d3">S-Gallery</span></a></a></li>
+						<li><a href="/eng/etc/inquiry.html?PHPSESSID=f22561e2f256314349229450f7250889"><span class="d3">Contact</span></a></a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li   >
+			<a href="#none" class="d1">Undergraduate</a>
+			<ul class="depth2">
+				<li><a href="/eng/etc/bbs_list.html?ctg_cd=Undergraduate&PHPSESSID=f22561e2f256314349229450f7250889"><span class="d2">Notice</span></a></li>
+				<li><a href="https://www.skku.edu/eng/edu/education.do" target="_blank"><span class="d2">Academic Programs</span></a></li>
+				<li><a href="https://admission-global.skku.edu/chn/etc/card_list.html"><span class="d2">Card News</span></a></li>
+				<li><a href="/eng/qna/ask_admission_01.html?degree=1&PHPSESSID=f22561e2f256314349229450f7250889"><span class="d2">Q&A</span></a></li>
+				<li><a href="https://admission-global.skku.edu/pre-pass/certification.html" target="_blank"><span class="d2">For Candidates with a <br>Preliminary Admission Offer</span></a></li>
+			</ul>
+		</li>
+		<li    >
+			<a href="#none" class="d1">Graduate</a>
+			<ul class="depth2">
+				<li><a href="/eng/etc/bbs_list.html?ctg_cd=Graduate&PHPSESSID=f22561e2f256314349229450f7250889"><span class="d2">Notice</span></a></li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Admissions Process</span></a>
+					<ul class="depth3"> 
+						<li><a href="/eng/iphak_process/processor.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">When Applying</a></li>
+						<li><a href="/eng/iphak_process/after_passing.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">After Acceptance</a></li>
+						<li><a href="/eng/iphak_process/before_entry.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">Before Arrival</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.skku.edu/eng/edu/graduateSchool/graduate_school.do" target="_blank"><span class="d2">Academic Programs</span></a></li>
+				<li><a href="https://professor.skku.edu/researcher_eng/index.do" target="_blank"><span class="d2">SKKU Faculty</span></a></li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Research</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/Research/industry/researchStory.do" target="_blank"><span class="d3">Research Stories</span></a></li>
+						<li><a href="https://scholarworks.bwise.kr/skku/?locale=en_US" target="_blank"><span class="d3">Research Information</span></a></li>
+						<li><a href="https://www.skku.edu/eng/Research/support/research02.do" target="_blank"><span class="d3">Research Support</span></a></li>
+					</ul>
+				</li>
+				<li><a href="/eng/qna/ask_admission_01.html?degree=2&PHPSESSID=f22561e2f256314349229450f7250889"><span class="d2">Q&A</span></a></li>
+			</ul>
+		</li>
+		<li class='active'>
+			<a href="#none" class="d1">Campus Life</a>
+			<ul class="depth2">
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Academic Information</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/edu/bachelor/ca_de_schedule.do" target="_blank"><span class="d3">Academic Schedule</span></a></li>
+						<li><a href="https://ibook.skku.edu/Viewer/FI0EL1WDRCHT" target="_blank"><span class="d3">Academic Policies</span></a></li>
+						<li><a href="/eng/grad/scholarship_undergrad.html?PHPSESSID=f22561e2f256314349229450f7250889"><span class="d3">Scholarships</span></a></li>
+						<li><a href="https://www.skku.edu/eng/CampusLife/skku/Notice1.do" target="_blank"><span class="d3">Notice</span></a></li>
+					</ul>
+				</li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">International Student Services </span></a>
+					<ul class="depth3">
+						<li><a href="https://oiss.skku.edu/oiss/foreign_registration.do" target="_blank"><span class="d3">Visa & Immigration</span></a></li>
+						<li><a href="https://oiss.skku.edu/oiss/notice.do" target="_blank"><span class="d3">Notice</span></a></li>
+					</ul>
+				</li>
+				<li><a href="https://dorm.skku.edu/dorm_eng/" target="_blank"><span class="d2">Dormitory</span></a></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- // gnb -->
+	
+
+	<div class="h_right">
+		<div class="lang">
+			<img src="/eng/img/common/icon_lang.png" alt="" class="img_off">
+			<img src="/eng/img/common/icon_lang_on.png" alt="" class="img_on">	
+			<ul class="lang_list clfix">
+				<li><a href="https://admission-global.skku.edu/chn/">한국어 / 中文</a></li>
+				<li><a href="/eng/?PHPSESSID=f22561e2f256314349229450f7250889">ENGLISH</a></li>
+			</ul>
+		</div>
+		<span class="btn_siteMap">
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+		</span>
+	</div>
+	
+</div>
+<!-- // header -->
+
+
+<div class="siteMap">
+	<div class="inner">
+		<div class="siteMap_header">
+			<div class="logo">
+				<img src="/eng/img/common/logo.png" alt="SKKU">
+			</div>	
+			<div class="h_right">		
+				<div class="lang">
+					<img src="/eng/img/common/icon_lang.png" alt="">
+					<ul class="lang_list">
+						<li><a href="https://admission-global.skku.edu/chn/">한국어 / 中文</a></li>
+						<li><a href="./index.html?PHPSESSID=f22561e2f256314349229450f7250889">ENGLISH</a></li>
+					</ul>
+				</div>
+				<span class="btn_close">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+				</span>				
+			</div>
+		</div>
+	
+	
+		<ul class="map_nav clfix">
+			<li>
+				<span class="d1">About SKKU</span>
+				<ul class="map_depth2">
+					<li><a href="https://www.skku.edu/eng/About/s620/sub01.do"  target="_blank" class="d2">History & Overview</a></li>
+					<li><a href="https://www.skku.edu/eng/About/pr/greeting.do " target="_blank" class="d2">Office of the President</a></li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Mission & Vision</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/About/vision/vision1.do" class="d3"  target="_blank">VISION 2030</a></li>
+							<li><a href="https://www.skku.edu/eng/International/GlobalEngagement/InternationalReputationandAchievements.do" target="_blank" class="d3">Rankings</a></li>
+						</ul>
+					</li>
+					<li class="use_depth3">
+						<a href="#" class="d2">SKKU News</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/About/media/news.do" target="_blank" class="d3">News</a></li>
+							<li><a href="https://www.skku.edu/eng/Research/industry/StudentChallenge.do" target="_blank" class="d3">Student Success Story</a></li>
+							<li><a href="https://webzine.skku.edu/skkuzine/index.do" target="_blank" class="d3">SKKU Webzine</a></li>
+						</ul>
+					</li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Campus</a>
+						<ul class="map_depth3">
+							<li><a href="https://admission.skku.edu/admission/html/high/vr.html" target="_blank" class="d3">VR Campus Tour</a></li>
+							<li><a href="https://sgallery.skku.edu/sda/index.do" target="_blank" class="d3">S-Gallery</a></li>
+							<li><a href="/eng/etc/inquiry.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">Contact</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="d1">Undergraduate</span></span>
+				<ul class="map_depth2">
+					<li><a href="/eng/etc/bbs_list.html?ctg_cd=Undergraduate&PHPSESSID=f22561e2f256314349229450f7250889" class="d2">Notice</a></li>
+					<li><a href="https://www.skku.edu/eng/edu/education.do" target="_blank" class="d2">Academic Programs</a></li>
+					<li><a href="https://admission-global.skku.edu/chn/etc/card_list.html"><span class="d2">Card News</span></a></li>
+					<li><a href="/eng/qna/ask_admission_01.html?degree=1&PHPSESSID=f22561e2f256314349229450f7250889" class="d2">Q&A</a></li>
+					<li><a href="https://admission-global.skku.edu/pre-pass/certification.html" target="_blank"  class="d2">For Candidates with a <br>Preliminary Admission Offer</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="d1">Graduate</span>
+				<ul class="map_depth2">
+					<li><a href="/eng/etc/bbs_list.html?ctg_cd=Graduate&PHPSESSID=f22561e2f256314349229450f7250889" class="d2">Notice</a></li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Admissions Process</a>
+						<ul class="map_depth3">
+							<li><a href="/eng/iphak_process/processor.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">When Applying</a></li>
+							<li><a href="/eng/iphak_process/after_passing.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">After Acceptance</a></li>
+							<li><a href="/eng/iphak_process/before_entry.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">Before Arrival</a></li>
+						</ul>
+					</li>
+					<li><a href="https://www.skku.edu/eng/edu/graduateSchool/graduate_school.do" target="_blank" class="d2">Academic Programs</a></li>
+					<li><a href="https://professor.skku.edu/researcher_eng/index.do" target="_blank" class="d2">SKKU Faculty</a></li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Research</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/Research/industry/researchStory.do" target="_blank" class="d3">Research Stories</a></li>
+							<li><a href="https://scholarworks.bwise.kr/skku/?locale=en_US" target="_blank" class="d3">Research Information</a></li>
+							<li><a href="https://www.skku.edu/eng/Research/support/research02.do" target="_blank" class="d3">Research Support</a></li>
+						</ul>
+					</li>
+					<li><a href="/eng/qna/ask_admission_01.html?degree=2&PHPSESSID=f22561e2f256314349229450f7250889" class="d2">Q&A</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="d1">Campus Life</span>
+				<ul class="map_depth2">
+					<li class="use_depth3">
+						<a href="#" class="d2">Academic Information</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/edu/bachelor/ca_de_schedule.do" target="_blank" class="d3">Academic Schedule</a></li>
+							<li><a href="https://ibook.skku.edu/Viewer/FI0EL1WDRCHT" target="_blank" class="d3">Academic Policies</a></li>
+							<li><a href="/eng/grad/scholarship_undergrad.html?PHPSESSID=f22561e2f256314349229450f7250889" class="d3">Scholarships</a></li>
+							<li><a href="https://www.skku.edu/eng/CampusLife/skku/Notice1.do" target="_blank" class="d3">Notice</a></li>
+						</ul>
+					</li>
+					<li class="use_depth3">
+						<a href="#" class="d2">International Student Services</a>
+						<ul class="map_depth3">
+							<li><a href="https://oiss.skku.edu/oiss/foreign_registration.do" target="_blank" class="d3">Visa & Immigration</a></li>
+							<li><a href="https://oiss.skku.edu/oiss/notice.do" target="_blank" class="d3">Notice</a></li>
+						</ul>
+					</li>
+					<li><a href="https://dorm.skku.edu/dorm_eng/" target="_blank" class="d2">Dormitory</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<div class="sns_menu_box">
+			<ul class="sns_menu">
+				<li><a href="https://www.facebook.com/sungkyunkwanuniversity1398" target="_blank"><img src="/eng/img/common/icon_sns_facebook_st.png" alt="페이스북"></a></li>
+				<li><a href="https://www.instagram.com/skku.official/" target="_blank"><img src="/eng/img/common/icon_sns_instagram_st.png" alt="인스타그램"></a></li>
+				<li><a href="https://www.youtube.com/channel/UCMSzjNHLZNNUUA-Z8OrXY9Q" target="_blank"><img src="/eng/img/common/icon_sns_youtube_st.png" alt="유투브"></a></li>
+				<li><a href="https://weibo.com/skku1398" target="_blank"><img src="/eng/img/common/icon_sns_weibo_st.png" alt="weibo"></a></li>
+			</ul>
+		</div>	
+	</div>	
+</div>
+<!-- // siteMap -->
+<!--/HEADER-->
+
+
+<div class="sub_visual_wrap sub_02">
+	<h2 class="page_tit"><span>Campus Life</span></h2>
+</div>
+<!-- // sub_visual_wrap -->
+
+
+<div class="sub_container">
+	<div class="inner">
+		<div class="page_title">
+			<h3 class="h3_tit"><span>Scholarships</span></h3>
+			<div class="location clfix">
+				<a href="#none"><img src="../img/sub/ico_home.png" alt="홈"></a>
+				<span>&middot;</span>
+				<a href="#none">Campus Life</a>
+				<span>&middot;</span>
+				<a href="#none">Academic Information</a>
+				<span>&middot;</span>
+				<a href="#none">Scholarships</a>
+			</div>
+		</div> <!-- // page_title -->
+
+		<div class="tabMenu_area">
+			<div class="now"></div>
+			<ul class="tabMenu tab02">
+				<li class="undergrad selected"><a href="/eng/grad/scholarship_undergrad.html?PHPSESSID=f22561e2f256314349229450f7250889">Undergraduate</a></li>
+				<li class="grad"><a href="/eng/grad/scholarship_grad.html?PHPSESSID=f22561e2f256314349229450f7250889">Graduate</a></li>
+			</ul>
+		</div>	<!-- // tabMenu_area -->
+
+		<div class="scholarchip undergrad">
+
+			<h4 class="h4_tit">Undergraduate Program Scholarship for International Students</h4>
+			<div>
+				<h5 class="h5_tit">1. Admission scholarships</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span> : Separate application for Admission Scholarship is not required as applicants are automatically selected based on their admission evaluation results. Applicants can check the nomination result at the time of the admission announcement (1st semester only).</li>
+						<li><span class="s_tit">Amount</span> : 10-100% of Dues (including entrance fee) will be waived for remarkable freshmen</li>
+					</ul>	
+				</div>
+<h5 class="h5_tit">2. Scholarship for Excellent Korean Language Professionals</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span>: Scholarship will be granted to the successful candidates who have graduated or are expected to graduate from overseas high schools if they meet the following Korean language proficiency (1st semester only).</li>
+						<li><span class="s_tit">Qualification and Amount</span><br>
+ - TOPIK Level 6 or Completion of Level 6 at SLI: 100% tuition waiver<br>
+  - TOPIK Level 5&nbsp;or Completion of Level 5 / Preparatory course for degree(Basic Korean for college) at SLI: 50% tuition waiver
+								<p class="info_txt">※ Scholarship shall be provided even if the successful candidate additionally meets the above requirements after enrollment and before the beginning date of the semester / Among successful candidates, those recommended by SLI may receive the scholarship</p></li>
+					</ul>
+				</div>	
+<h5 class="h5_tit">3. Scholarship for Excellent English Language Professionals</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span>: Scholarship will be granted to the successful candidates if they meet the following English Language proficiency(1st semester only)</li>
+						<li><span class="s_tit">Qualification and Amount</span><br>
+ -  IELTS 8.0 / TOEFL iBT 110 or higher : 100% tuition waiver<br>
+  - IELTS 7.0 / TOEFL iBT 95 or higher : 50% tuition waiver
+								<p class="info_txt">※ Scholarship shall be provided even if the successful candidate additionally meets the above requirements after enrollment and before the beginning date of the semester.</p>
+						</li>
+					</ul>
+				</div>	
+<h5 class="h5_tit">4. Merit-Based Scholarships</h5><h5 class="h5_tit"><div class="txt_con" style="font-size: 12px; font-weight: 400;"><ul class="list_01"><li><span class="s_tit">Qualification and Amount: Scholarship is granted for 2nd~8th semester based on the rank of academic performance in the previous semester (average GPA)</span><br><p class="info_txt">※ Candidates must have completed at least 12 credits (9 credits for the 7th semester) in the previous semester without any failing (F) grades</p></li></ul><div><table class="tbl tbl_01 __se_tbl_ext"><thead><tr><th>Condition</th><th>Amount</th><th>Note</th></tr></thead><tbody><tr><td class="left" style="text-align: left;">Top 6% of last semester</td><td style="text-align: center;">70% tuition waiver</td><td rowspan="3" class="left" style="text-align: left;">Recipients are selected separately for freshmen and others (2-4th year)</td></tr><tr><td class="left" style="text-align: left;">Top 6% or above and below 18% of the previous semester</td><td style="text-align: center;">50% tuition waiver</td></tr><tr><td class="left" style="text-align: left;">Top 18% or above and below 30% of the previous semester</td><td style="text-align: center;"><p>30% tuition waiver</p></td></tr></tbody></table></div></div></h5>
+				<h5 class="h5_tit"><br></h5><h5 class="h5_tit">5. Samsung Global Sungkyun Scholarship for International Students</h5>
+				<div class="txt_con">
+					<div class="scroll">
+						<table class="tbl tbl_02">
+							<colgroup>
+								<col width="8%">
+								<col width="8%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th colspan="2">Category</th>
+									<th>Details</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th colspan="2">Nomination</th>
+									<td>
+										<p>Nomination will be held among remarkable freshmen&nbsp;based on admission evaluation results (Interview may be held if needed)</p>
+										<p>Nomination result will be notified individually to the nominee after 2nd qualify announcement </p>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Benefit</th>
+									<th>A</th>
+									<td>
+										<p>Full Dues for 4 academic years (8 semesters, including Entrance fee)</p>
+										<ul class="txt">
+										<li>Student should meet one of the following ➀, ➁ : </li>
+										<li>① Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve a semester GPA of 3.7 or above without any “F” grade (In case of 1st and 2nd semester: 3.5 GPA or above)</li>
+										<li>② Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve an overall GPA of 3.7 or above without any “F” grade</li>
+										<li>※ The rules follow the article 4 of Scholarship regulation </li>
+										<li>※ Disqualified if fail to meet the requirement twice</li>
+										<li>- Fail to meet the requirement once: student will not be able to receive scholarship in the following semester</li>
+										<li>- Fail to meet the requirement twice: student will be disqualified and will not be able to receive scholarship in the remaining semesters</li>
+										</ul>
+										<p>Living expenses provided : KRW 570,000 per month (KRW 3,400,000 per semester)</p>	
+										<p>Priority in assignment of dormitory and full dormitory fees provided if assigned</p>	
+										<p>1:1 mentoring program (alumni, professor or experts in the field of your choice)</p>	
+										<p>Exclusive counseling program</p>	
+									</td>
+								</tr>
+								<tr>
+									<th>B</th>
+									<td>
+										<p>Full Dues for 4 academic years (8 semesters, including Entrance fee) </p>	
+										<ul class="txt">
+										<li>Student should meet one of the following ➀, ➁ : </li>
+										<li>① Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve 3.7 GPA or above without any “F” grade (In case of 1st and 2nd semester: 3.5 GPA or above)</li>
+										<li>② Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve overall 3.7 GPA or above without any “F” grade</li>
+										<li>※ The rules follow the article 4 of Scholarship regulation semesters  </li>
+										<li>※ Disqualified if fail to meet the requirement twice</li>
+										<li>- Fail to meet the requirement once: student will not be able to receive scholarship in the following semester</li>
+										<li>- Fail to meet the requirement twice: student will be disqualified and will not be able to receive scholarship in the remaining semesters</li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<h5 class="h5_tit">6. SKKU Global Leader Scholarship</h5>
+				<div class="txt_con">
+					<div class="scroll">
+						<table class="tbl tbl_02">
+							<colgroup>
+								<col width="8%">
+								<col width="8%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th colspan="2">Category</th>
+									<th>Details</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th colspan="2">Nomination</th>
+									<td>
+										<p>Nomination will be held among remarkable freshmen based on admission evaluation results (No need to apply for the scholarship separately; interview may be held if needed)</p>
+										<p>Nomination result will be notified individually to the nominees after the admission announcement</p>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Type A</th>
+									<th>Nomination Criteria</th>
+									<td>
+										<p>Students holding the nationality of country which meets both criteria ① and ②</p>
+										<ul class="txt">
+										<li>① One of the countries in the OECD DAC list of ODA(Official Development Assistance) recipients</li>
+										<li>② The country with 3 or lower number of students enrolled in SKKU</li>
+										<li>※ Only the visa-free entry countries are eligible(in accordance with Korean Ministry of Foreign Affairs standard)</li>
+										<li>※ Refer to the notice on the SKKU international students admission website for the list of eligible countries</li>
+
+										</ul>
+										<p>Admissions grade, nationality, admission unit, and so on will be considered comprehensively</p>
+									</td>
+								</tr>
+								<tr>
+									<th>Benefit</th>
+									<td>
+										<p>50% tuition scholarship will be offered for 4 years(for 8 semesters)</p>	
+										<ul class="txt">
+										<li>The scholarship will continuously be offered only if the condition below is met</li>
+										<li>Completion of at least 12 credits in the previous semester (9 credits for semester previous to the final semester) with a GPA of 3.5 or higher (without any F grades)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Type B</th>
+									<th>Nomination Criteria</th>
+									<td>
+										<p>Outstanding students in STEM field</p>
+										<ul class="txt">
+										<li>※ Award winner of International Mathematics/Science/Informatics Olympiad and related field&nbsp;may be given preference</li>
+										<li>  * Only the awards won during the high school period(grade 10~12) are accepted</li>
+										<li>※ Scholarship recommendation letter from the school principal or the headmaster of related institutions are accepted (submit along with the application documents)</li>
+										</ul>
+										<p>Admissions grade and award winning performances, and so on will be considered comprehensively</p>
+									</td>
+								</tr>
+								<tr>
+									<th>Benefit</th>
+									<td>
+										<p>50% tuition scholarship will be offered for 4 years(for 8 semesters)</p>	
+										<ul class="txt">
+										<li>The scholarship will continuously be offered only if the condition below is met</li><li>Completion of at least 12 credits in the previous semester (9 credits for semester previous to the final semester) with a GPA of 3.5 or higher (without any F grades)</li>
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Type C</th>
+									<th>Nomination Criteria</th>
+									<td>
+										<p>Remarkable freshmen of Global characterized departments(Global Business Administration, Global Economics, Global Biomedical Engineering) based on the admission results</p>
+									</td>
+								</tr>
+								<tr>
+									<th>Benefit</th>
+									<td>
+										<p>50% tuition scholarship will be offered for 4 years(for 8 semesters)</p>	
+										<ul class="txt">
+										<li>Priority in assignment of dormitory and full dormitory fees provided if assigned</li>
+										<li>The scholarship will continuously be offered only if the condition below is met</li>
+										<li>Completion of at least 12 credits in the previous semester (9 credits for semester previous to the final semester) with a GPA of 3.5 or higher (without any F grades)</li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>			
+			<!-- <h4 class="h4_tit">Undergraduate Program Scholarship for International Students</h4>
+			<div>
+				<h5 class="h5_tit">1. Admission scholarships</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span> : separated application for Admission Scholarship is not required and applicant can check the nomination result and amount he/she will receive at the time of admission announcement</li>
+						<li><span class="s_tit">Amount</span> : 10-100% of Dues (including entrance fee) will be waived for remarkable freshmen</li>
+					</ul>	
+				</div>
+				<h5 class="h5_tit">2. Merit-Based Scholarships</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Qualification and Amount</span> : scholarship is granted for 2nd ~8th semester based on the rank of academic performance (average GPA)
+							<div class="scroll">
+								<table class="tbl tbl_01">
+									<colgroup>
+										<col width="35%" />
+										<col width="*" />
+										<col width="40%" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>Condition</th>
+											<th>Amount</th>
+											<th>Note</th>
+										</tr>
+									</thead>
+									<tbody>								
+										<tr>
+											<td class="left">Top 6% of last semester</td>
+											<td>70% tuition waiver</td>
+											<td rowspan="3" class="left">Recipients chosen divided between freshman / Others</td>
+										</tr>
+										<tr>
+											<td class="left">Top 6% ~ 18% of last semester</td>
+											<td>50% tuition waiver</td>
+										</tr>
+										<tr>
+											<td class="left">Top 18% ~ 30% of last semester</td>
+											<td>30% tuition waiver</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</li>
+					</ul>
+				</div>	
+				<h5 class="h5_tit">3. Samsung Global Sungkyun Scholarship for Foreign Students</h5>
+				<div class="txt_con">
+					<div class="scroll">
+						<table class="tbl tbl_02">
+							<colgroup>
+								<col width="8%" />
+								<col width="8%" />
+								<col width="*" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th colspan="2">Category</th>
+									<th>Details</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th colspan="2">Nomination</th>
+									<td>
+										<p>Nomination will be held among remarkable freshmen (Interview may be held if needed)</p>
+										<p>Nomination result will be notified individually to the nominee after 2nd qualify announcement </p>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="2">Benefit</th>
+									<th>A</th>
+									<td>
+										<p>Full Dues for 4 academic years (8 semesters, including Entrance fee)</p>
+										<ul class="txt">
+										<li>Student should meet one of the following ➀, ➁ : </li>
+										<li>① Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve 3.7 GPA or above without any “F” grade (In case of 1st and 2nd semester: 3.5 GPA or above)</li>
+										<li>② Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve overall 3.7 GPA or above without any “F” grade</li>
+										<li>※ The rules follow the article 4 of Scholarship regulation </li>
+										<li>※ Disqualified if fail to meet the requirement twice</li>
+										<li>- Fail to meet the requirement once: student will not be able to receive scholarship in the following semester</li>
+										<li>- Fail to meet the requirement twice: student will be disqualified and will not be able to receive scholarship in the remaining semesters</li>
+										</ul>
+										<p>Living expenses provided : KRW 570,000 per month (KRW 3,400,000 per semester)</p>	
+										<p>Priority in assignment of dormitory and full dormitory fees provided if assigned</p>	
+										<p>1:1 monitoring program (alumni, professor or experts in the field of your choice)</p>	
+										<p>Exclusive counseling program</p>	
+									</td>
+								</tr>
+								<tr>
+									<th>B</th>
+									<td>
+										<p>Full Dues for 4 academic years (8 semesters) </p>	
+										<ul class="txt">
+										<li>Student should meet one of the following ➀, ➁ : </li>
+										<li>① Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve 3.7 GPA or above without any “F” grade (In case of 1st and 2nd semester: 3.5 GPA or above)</li>
+										<li>② Student should take at least 12 credits (taking 9 credits is allowed for the 7th semester) and achieve overall 3.7 GPA or above without any “F” grade</li>
+										<li>※ The rules follow the article 4 of Scholarship regulation semesters  </li>
+										<li>※ Disqualified if fail to meet the requirement twice</li>
+										<li>- Fail to meet the requirement once: student will not be able to receive scholarship in the following semester</li>
+										<li>- Fail to meet the requirement twice: student will be disqualified and will not be able to receive scholarship in the remaining semesters</li>
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div> -->
+		</div> <!-- // scholarchip -->
+	</div><!-- // inner -->		
+</div>
+<!-- // sub_container -->
+<!--footer-->
+
+<!-- footer -->
+<div class="footer">
+	<div class="inner clfix">
+		<img src="/eng/img/common/logo_footer.png" alt="Uway" class="footer_logo" />
+		
+		<div class="addr_info">
+			<address class="address">
+				<p class="addr1">HUMANITIES AND SOCIAL SCIENCES CAMPUS : <span class="br">25-2, SUNGKYUNKWAN-RO, JONGNO-GU, SEOUL, KOREA</span></p>
+				<p class="addr2">NATURAL SCIENCES CAMPUS : <span class="br">2066, SEOBU-RO, JANGAN-GU, SUWON-SI, GYEONG GI-DO, KOREA</span></p>
+			</address>
+		</div>
+		
+		<ul class="sns_box clfix">
+			<li><a href="https://www.instagram.com/skku.official/" target="_blank"><img src="/eng/img/common/icon_sns_instagram_ft.png" alt="instagram"></a></li>
+			<li><a href="https://www.youtube.com/channel/UCMSzjNHLZNNUUA-Z8OrXY9Q" target="_blank"><img src="/eng/img/common/icon_sns_youtube_ft.png" alt="youtube"></a></li>
+			<li><a href="https://www.facebook.com/sungkyunkwanuniversity1398" target="_blank"><img src="/eng/img/common/icon_sns_facebook_ft.png" alt="facebook"></a></li>
+		</ul>
+	</div>
+</div>
+<!-- // footer -->
+</div>
+
+</body>
+</html><!--/footer-->

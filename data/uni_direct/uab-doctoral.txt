@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+		<html lang="en">
+			<head>
+			
+		<link rel="shortcut icon" href="/Xcelerate/WAI/img/simbol.png?v=4.0.0" /><link rel="preload" href="/Xcelerate/WAI/font/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/Xcelerate/WAI/font/Hubot-Sans.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/Xcelerate/WAI/css/sites/w-escola-doctorat.css?v=4.0.0" /><link rel="stylesheet" href="/Xcelerate/WAI/css/vendor/owl/owl.carousel.min.css?v=4.0.0" /><noscript>
+            <link rel="stylesheet" href="/Xcelerate/WAI/css/noscript.css?v=4.0.0" />
+        </noscript><script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script><script defer="defer" src="/Xcelerate/WAI/js/utils.min.js?v=4.0.0"></script><script defer="defer" src="/Xcelerate/WAI/js/vendor/owl/owl.carousel.min.js?v=4.0.0"></script><script src="/Xcelerate/WAI/js/vendor/dimbox/dimbox.min.js"></script>
+		<title>Grants, Scholarships and Calls - School for Doctoral Studies - UAB Barcelona</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta property="og:title" content="Grants, Scholarships and Calls" />
+		<meta property="og:description" content="Doctoral funding opportunities at UAB: predoctoral grants, mobility funding, international placements and financial support" />
+		<meta property="og:site_name" content="UAB Barcelona" />
+		<meta property="og:image" content="https://www.uab.cat/en/studies/img/logotipo-universitat-autonoma-barcelona/logo-xxss.png" />
+		<meta property="og:url" content='https://www.uab.cat/en/doctoral-school/grants-scholarships-calls' />
+		<meta name="description" content="Doctoral funding opportunities at UAB: predoctoral grants, mobility funding, international placements and financial support" />
+		<meta name="author" content="UAB - Universitat Autònoma de Barcelona" />
+		<meta name="robots" content='index, follow' />
+		<meta name="pageid" content="1345904592984">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+		<link rel="canonical" href="https://www.uab.cat/en/doctoral-school/grants-scholarships-calls">
+		<link rel="alternate" hreflang="en" href="https://www.uab.cat/en/doctoral-school/grants-scholarships-calls">
+		<link rel="alternate" hreflang="ca" href="https://www.uab.cat/ca/escola-doctorat/beques-ajuts">
+		<link rel="alternate" hreflang="es" href="https://www.uab.cat/es/escuela-doctorado/becas-ayudas">
+			<script>
+				var dataLayer = window.dataLayer = window.dataLayer || [];
+				dataLayer.push({
+					'site':'w-EDoctorat',
+					'language':'en'
+				});
+			</script>
+
+				<script type="text/javascript">
+					(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+					})(window,document,'script','dataLayer','GTM-PW3QBZ4');
+				</script><script type="application/ld+json">
+		{ 
+			"@context": "https://schema.org",
+			"@type": "CollegeOrUniversity",
+			"name": "Universitat Aut&ograve;noma de Barcelona",
+			"url": "https://www.uab.cat/",
+			"logo": "https://www.uab.cat/web/coneix-la-uab/itineraris/identitat-i-imatge-corporativa/uab.cat/servlet/BlobServer?blobkey=id&blobnocache=true&blobwhere=1345725428582&blobheader=application&blobcol=urlimg&blobtable=Imatge",
+			"sameAs": [ 
+				"https://www.linkedin.com/school/uabbarcelona",
+				"https://www.facebook.com/uabbarcelona",
+				"https://www.instagram.com/uabbarcelona/",
+				"https://bsky.app/profile/uab.cat",
+				"https://www.youtube.com/uabbarcelona",
+				"https://t.me/uabbarcelona",
+				"https://www.tiktok.com/@uabbarcelona"
+			],
+			"contactPoint": [ 
+				{ 
+					"@type": "ContactPoint",
+					"telephone": "+34 - 93 581 1111",
+					"contactType": "Customer service" 
+				} 
+			] 
+		}
+		</script>
+			</head>
+			<body class="w-edoctorat">
+				<header><div id="sr-kw-only"><a href="#contingut">Go to main content</a></div><div class="eina-idioma navegacio">
+				<button type="button" id="eina-idioma-obre" data-component="dropdown" data-target="eina-idioma-opcions">
+					<span class="sr-only">Selected language:</span>English<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona dropdown'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-dropdown'></use>
+	</svg>
+	</button>
+				
+				<ul id="eina-idioma-opcions" class="desplegable" aria-hidden="true"><li data-item>
+								<a class="desplegable-item" href="https://www.uab.cat/ca/escola-doctorat/beques-ajuts" lang='ca' data-focus>Català</a>
+							</li><li data-item>
+								<a class="desplegable-item" href="https://www.uab.cat/es/escuela-doctorado/becas-ayudas" lang='es' data-focus>Español</a>
+							</li></ul> 
+			</div><div class="eina-cerca navegacio" role="search">
+		<button type="button" id="eina-cerca-obre" aria-expanded="true" aria-controls="eina-cerca-form">
+			<svg role="img" viewbox="0 0 24 24" class="icona cerca" aria-labelledby="icona-cerca-titol">
+				<title id="icona-cerca-titol">Display the search form</title>
+				<use href='/Xcelerate/WAI/img/icones.svg#icona-cerca'></use>
+			</svg>
+		</button>
+		<form id="eina-cerca-form" class="desplegable" method="get" action="https://www.uab.cat/cerca-en.html" aria-hidden="true">
+			<label class="sr-only" for="cercaweb">Web search</label>
+			<input id="cercaweb" type="text" placeholder='Web search' title='Enter the search textWeb search' name="query" accesskey="i" />
+			<button class="boto" type="submit">Go<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona ves'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-ves'></use>
+	</svg>
+	</button>
+		</form>
+	</div>			
+	
+	<div class="logo-uab">
+		<a href="https://www.uab.cat">Universitat Autònoma de Barcelona</a>
+	</div>
+	<span class="titol-site"><a href="https://www.uab.cat/en/doctoral-school"><span>School for</span>Doctoral Studies</a></span><button id="nav-site-toggle" aria-expanded="false"><span class="sr-only">Menu</span><svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona menu'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-menu'></use>
+	</svg>
+	
+				
+			</button><nav id="nav-site" class="navegacio" aria-label="Site navigation Doctoral Studies" >
+					<ul id="nav-site-menu"><li><a href='https://www.uab.cat/en/doctoral-school/doctoral-studies' data-focus>Doctoral Studies</a></li><li><a href='https://www.uab.cat/en/doctoral-school/the-school' data-focus>The School</a></li><li><a href='https://www.uab.cat/en/doctoral-school/quality' data-focus>Quality</a></li><li><a href='https://www.uab.cat/en/doctoral-school/grants-scholarships-calls' data-focus>Grants and Scholarships</a></li>
+													<li>
+														<button type="button" id="boto-desplegable-staff" data-component="dropdown" data-target="desplegable-staff" aria-haspopup="true" aria-controls="desplegable-staff">
+															<span>
+																Staff
+															</span><svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona dropdown'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-dropdown'></use>
+	</svg>
+	</button><ul id="desplegable-staff" class="desplegable" aria-hidden="true" role="menu" aria-labelledby="boto-desplegable-staff" tabindex="-1"><li data-item><a href='https://www.uab.cat/en/doctoral-school/pdi' data-focus>PDI</a></li><li data-item><a href='https://www.uab.cat/en/doctoral-school/training-supervisors-tutors' data-focus>Training for Supervisors and Academic Tutors</a></li><li data-item><a href='https://www.uab.cat/en/doctoral-school/ptgas' data-focus>PTGAS</a></li></ul></li><li>
+<a href="https://www.uab.cat/web/studies/phds/admission/admission-new-doctoral-studies-regulated-by-rd-99/2011-1345666996343.html" target="_blank" >
+				Academic Information<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	 <span class="sr-only">This link opens a new window</span>
+			</a>
+</li></ul>
+				</nav>
+				</header><div class="capcal-baner" style="background-image: url('https://www.uab.cat/en/doctoral-school/img/header/doctoral-school.jpg');"></div>
+
+
+		<div class="contingut-wrap container"><nav aria-label="Location of this page on the web" class="ruta"><span id="ruta-ellipsis-text" data-attribute='Show the full breadcrumb'></span><ol itemscope="itemscope" itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem"><a itemprop="item" href="https://www.uab.cat/en/doctoral-school"><span itemprop="name">Home</span></a><meta itemprop="position" content="1">
+											</li><li class="seccio actiu" aria-current="page" itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem"><span itemprop="name">Grants and Scholarships</span><meta itemprop="position" content='2'> 
+				</li></ol>
+		</nav>
+		
+			<main class="row flex-wrap"><div id="contingut" class="interior col"><h1 id="titol-pagina" class="mida-variable">
+							Grants, Scholarships and Calls
+						</h1><div class="cos-text"><p>On this page you will find information about scholarships.</p>
+
+<p>Specifically, these are the most important predoctoral scholarships that are managed by the Research Area of the UAB and that are disseminated through our distribution lists when they are announced.</p>
+
+<p>If you are interested in receiving the information, you can contact&nbsp;<a href="mailto:recerca.respon@uab.cat" target="_blank">recerca.respon@uab.cat</a>&nbsp;to be included in the distribution list, indicating which field you want to receive information from among the following (you can request to receive information from more than a scope):</p>
+
+<ul>
+	<li>Social</li>
+	<li>Humanities</li>
+	<li>Social and Humanities</li>
+	<li>Health</li>
+	<li>Experimental</li>
+	<li>Health and Experimental</li>
+	<li>Engineering</li>
+</ul>
+
+						
+					</div><div class="cc-banners-cta conj-targetes">
+		<div class="cos-text">
+			<h2 id="grants-and-scholarships-at-your-disposal">Grants and scholarships at your disposal</h2>
+		</div>
+		
+			<ul>
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://portalajuts.uab.cat/eligibility/5062">
+								
+									<p class="titol">UAB Research Calls Portal
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://agaur.gencat.cat/en/beques-i-ajuts/Research-grants/ajuts-predoctorals/index.html">
+								
+									<p class="titol">AGAUR Grants for PhD Studies
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://www.ciencia.gob.es/en/Convocatorias.html">
+								
+									<p class="titol">Ministry of Universities Grants
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://www.aei.gob.es/en/announcements/announcements-finder">
+								
+									<p class="titol">Announcements Finder of the State Research Agency
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://mobilitatpractiques.uab.cat/">
+								
+									<p class="titol">Erasmus+ Traineeships (Long-Term Stays)
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://www.uab.cat/web/mobility-international-exchange/mobility-international-exchange-programmes/erasmus-bip-students-1345895713659.html">
+								
+									<p class="titol">Erasmus BIP
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://www.uab.cat/web/mobility-international-exchange/mobility-international-exchange-programmes/erasmus-ka171-third-countries-1345895711322.html">
+								
+									<p class="titol">Erasmus+ KA171 
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://www.santanderopenacademy.com/en/scholarships.html">
+								
+									<p class="titol">Santander Scholarships
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://fulbright.es/programas-y-becas/">
+								
+									<p class="titol">Fulbright Grants
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						
+						
+						<li>
+							<a class="context-color-gris"  target="_blank"  href="https://dialogo.es/formacion-becas/becas-avenir-destino-francia/">
+								
+									<p class="titol">Avenir Grants
+									</p>
+								
+								
+								<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	<span class="sr-only">This link opens a new window</span>
+							</a>										
+						</li>
+						</ul>
+	</div>
+	
+
+</div>
+			
+				
+			</main>
+		</div>
+<nav id="mapa" aria-labelledby="mapa-titol">
+				<h2 id="mapa-titol" class="sr-only">
+					Site map
+				</h2>
+			<div class="container"><ul><li>
+									<a class="titol" href='https://www.uab.cat/en/doctoral-school'>Home</a>
+								</li><li><button type="button" id="mapa-seccio-1-boto" class="desktop-mostra" aria-expanded="true" aria-controls="mapa-seccio-1" disabled="">
+															<span class="titol">
+																Doctoral Studies
+																
+																								
+																<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona dropdown'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-dropdown'></use>
+	</svg>
+			
+															</span>
+														</button><ul id="mapa-seccio-1" class="desplegable desktop-mostra-contingut" aria-hidden="true"><li>
+																	<a href='https://www.uab.cat/en/doctoral-school/doctoral-studies'>Doctoral Studies (overview)</a>
+																</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/upcoming-thesis-defenses'>Upcoming thesis presentations</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/transversal-activities'>Transversal Activities</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/competitions-awards'>Competitions and Awards</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/support-students'>Support for Students</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/ceremonies'>Ceremonies and Events</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/employment'>Employment</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/ethics'>Ethics</a>
+																				</li></ul></li><li><button type="button" id="mapa-seccio-2-boto" class="desktop-mostra" aria-expanded="true" aria-controls="mapa-seccio-2" disabled="">
+															<span class="titol">
+																The School
+																
+																								
+																<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona dropdown'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-dropdown'></use>
+	</svg>
+			
+															</span>
+														</button><ul id="mapa-seccio-2" class="desplegable desktop-mostra-contingut" aria-hidden="true"><li>
+																	<a href='https://www.uab.cat/en/doctoral-school/the-school'>The School (overview)</a>
+																</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/school-staff'>User Information</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/annual-reports'>Annual Reports</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/maps-transportation'>Maps and Transportation</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/masia-can-miro'>The Masia Can Miró</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/building-21st-century'>A Building for the 21st Century</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/protocol-against-harassment'>Protocol to prevent and act against harassment</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/news'>News</a>
+																				</li></ul></li><li><button type="button" id="mapa-seccio-3-boto" class="desktop-mostra" aria-expanded="true" aria-controls="mapa-seccio-3" disabled="">
+															<span class="titol">
+																Quality
+																
+																								
+																<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona dropdown'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-dropdown'></use>
+	</svg>
+			
+															</span>
+														</button><ul id="mapa-seccio-3" class="desplegable desktop-mostra-contingut" aria-hidden="true"><li>
+																	<a href='https://www.uab.cat/en/doctoral-school/quality'>Quality (overview)</a>
+																</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/institutional-accreditation'>Institutional Accreditation</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/strategic-quality-policy'>Strategic quality policy</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/guidance-action-plan'>Guidance Action Plan</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/phd-figures'>UAB PhD Figures</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/reports'>Reports</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/satisfaction-surveys'>Satisfaction Surveys</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/employability-surveys'>Employability Surveys</a>
+																				</li></ul></li><li><a class="titol" href='https://www.uab.cat/en/doctoral-school/grants-scholarships-calls'>Grants and Scholarships</a></li><li><button type="button" id="mapa-seccio-5-boto" class="desktop-mostra" aria-expanded="true" aria-controls="mapa-seccio-5" disabled="">
+															<span class="titol">
+																Staff
+																
+																								
+																<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona dropdown'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-dropdown'></use>
+	</svg>
+			
+															</span>
+														</button><ul id="mapa-seccio-5" class="desplegable desktop-mostra-contingut" aria-hidden="true"><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/pdi'>PDI</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/training-supervisors-tutors'>Training for Supervisors and Academic Tutors</a>
+																				</li><li>
+																					<a href='https://www.uab.cat/en/doctoral-school/ptgas'>PTGAS</a>
+																				</li></ul></li><li><li>
+<a href="https://www.uab.cat/web/studies/phds/admission/admission-new-doctoral-studies-regulated-by-rd-99/2011-1345666996343.html" target="_blank"  class="titol">
+				Academic Information<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona enllac-extern'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-enllac-extern'></use>
+	</svg>
+	 <span class="sr-only">This link opens a new window</span>
+			</a>
+</li></li></ul></div>
+		</nav>
+			<footer>
+				<button id="js-torna" class="torna-dalt amaga">
+					<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona puja'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-puja'></use>
+	</svg>
+	<span class="sr-only">Go back up</span></button>
+
+				<div class="container"><h2 class="sr-only">Contact and legal information</h2>
+					<div class="row"><div class="contacte-site col-md-6 col-lg-4">
+									<h3>
+										Contact
+									</h3>
+
+										<address>
+													<p>
+															<strong>
+																School for Doctoral Studies
+															</strong>
+													</p>
+												<p>
+															Edifici U
+															<br/>
+															Travessera de Can Miró
+															<br/>
+															08193 Bellaterra
+															<br/>
+															(Cerdanyola del Vallès)
+															<br/>
+															Campus UAB
+															<br/>
+												</p>
+
+											<p>
+											</p><p></p>
+
+										</address></div>
+
+
+									<div class="xarxes-socials col-md-6 col-lg-4">
+											<h3>
+												Follow us on Social Media
+											</h3>
+											<ul>
+													<li>
+<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona facebook'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-facebook'></use>
+	</svg>
+	<a href="https://www.facebook.com/uabbarcelona" target="_blank" >
+				Facebook <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+													<li>
+<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona twitter'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-twitter'></use>
+	</svg>
+	<a href="https://twitter.com/UABBarcelona" target="_blank" >
+				Twitter <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+													<li>
+<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona youtube'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-youtube'></use>
+	</svg>
+	<a href="http://www.youtube.com/uabbarcelona?sub_confirmation=1" target="_blank" >
+				Youtube <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+													<li>
+<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona instagram'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-instagram'></use>
+	</svg>
+	<a href="https://www.instagram.com/uabbarcelona/" target="_blank" >
+				Instagram <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+													<li>
+<svg focusable="false" aria-hidden="true" viewBox='0 0 24 24' class='icona linkedin'>
+		
+		<use href='/Xcelerate/WAI/img/icones.svg#icona-linkedin'></use>
+	</svg>
+	<a href="https://www.linkedin.com/school/uabbarcelona" target="_blank" >
+				LinkedIn <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+											</ul></div>
+
+								<div class="legal col-lg-4">
+									<h3>
+										About this website
+									</h3>
+									<div class="row">
+										<div class="col-sm-5 col-md-12">
+											<div class="logo">
+													<span class="sr-only">
+														Universitat Autònoma de Barcelona
+													</span>											
+											</div>
+										</div>
+										<nav class="col-sm-7 col-md-12" aria-label='Technical and legal information'> 
+											<ul>
+													<li>
+<a href="https://www.uab.cat/web/about-the-uab/itineraries/legal-notice-1345668684716.html" target="_blank" >
+				Legal notice <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+													<li>
+<a href="https://www.uab.cat/web/about-the-uab/itineraries/data-protection-1345672265358.html" target="_blank" >
+				Data protection <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+													<li>
+<a href="https://www.uab.cat/web/about-the-uab/itineraries/about-this-website-1345668684665.html" target="_blank" >
+				About this website <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+													<li>
+<a href="https://www.uab.cat/web/about-the-uab/itineraries/web-accessibility-1345805993931.html" target="_blank" >
+				Web accessibility <span class="sr-only">This link opens a new window</span>
+			</a>
+
+													</li>
+										
+											</ul>
+												<p>The UAB is a young, public and groundbreaking university. A leader in international rankings and a benchmark in research. Barcelonian, Catalan and international. A transformative, supportive, diverse and egalitarian, sustainable and healthy, participative and cultural university. And a campus university, with its faculties and schools, research institutes and services all within a natural environment that offers a variety of unique experiences.</p>
+<p>&copy; 2026 Universitat Autònoma de Barcelona</p>
+										</nav>
+									</div>
+								</div>
+
+					</div>
+				</div>
+			</footer>
+			<script>
+				window.onload = function() {			
+					const collection = document.getElementsByTagName("iframe");
+					for (let i = 0; i < collection.length; i++) {
+					  if (collection[i].width == 0 && collection[i].height == 0) {
+						if (!collection[i].hasAttribute("src")) {
+							collection[i].setAttribute('aria-hidden', 'true');
+							collection[i].setAttribute('tabindex', '-1');
+							collection[i].setAttribute('role', 'presentation');
+							collection[i].setAttribute('title', 'presentation');
+							}
+						}
+					}
+				};
+			</script>
+			
+			
+				
+			</body>
+		</html>

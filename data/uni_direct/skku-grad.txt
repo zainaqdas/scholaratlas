@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>SUNG KYUN KWAN UNIVERSITY(SKKU)</title>
+	<link rel="shortcut icon" href="/eng/img/common/favicon.png">
+
+	<link rel="stylesheet" type="text/css" href="/eng/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="/eng/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/eng/css/aos.css" />
+	<link rel="stylesheet" type="text/css" href="/eng/css/swiper.css" />
+    <link rel="stylesheet" type="text/css" href="/eng/css/sub.css" />
+
+	<script type="text/javascript" src="/eng/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/eng/js/common.js"></script>
+	<script type="text/javascript" src="/eng/js/aos.js"></script>
+	<script type="text/javascript" src="/eng/js/jquery.bxslider.js"></script>
+	<script type="text/javascript" src="/eng/js/swiper.js"></script>
+	<script type="text/javascript" src="/eng/js/sub.js"></script>
+    
+</head>
+<body class="en"><!--HEADER-->
+<div class="wrap">
+<div class="header">
+	<h1 class="logo">
+		<a href="/eng/index.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795">
+			<img src="/eng/img/common/logo.png" alt="" class="img_off">
+			<img src="/eng/img/common/logo_on.png" alt="" class="img_on">
+		</a>
+	</h1>
+	<ul class="gnb clfix">
+		<li >
+			<a href="#none" class="d1">About SKKU</a>
+			<ul class="depth2">
+				<li ><a href="https://www.skku.edu/eng/About/s620/sub01.do" target="_blank"><span class="d2">History & Overview</span></a></li>
+				<li><a href="https://www.skku.edu/eng/About/pr/greeting.do" target="_blank"><span class="d2">Office of the President</span></a></li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Mission & Vision</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/About/vision/vision1.do" target="_blank"><span class="d3">VISION 2030</span></a></li>
+						<li><a href="https://www.skku.edu/eng/International/GlobalEngagement/InternationalReputationandAchievements.do" target="_blank"><span class="d3">Rankings</span></a></li>
+					</ul>
+				</li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">SKKU News</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/About/media/news.do" target="_blank"><span class="d3">News</span></a></li>
+						<li><a href="https://www.skku.edu/eng/Research/industry/StudentChallenge.do" target="_blank"><span class="d3">Student Success Story</span></a></a></li>
+						<li><a href="https://webzine.skku.edu/skkuzine/index.do" target="_blank"><span class="d3">SKKU Webzine</span></a></a></li>
+					</ul>
+				</li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Campus</span></a>
+					<ul class="depth3">
+						<li><a href="https://admission.skku.edu/admission/html/high/vr.html" target="_blank"><span class="d3">VR Campus Tour</span></a></li>
+						<li><a href="https://sgallery.skku.edu/sda/index.do" target="_blank"><span class="d3">S-Gallery</span></a></a></li>
+						<li><a href="/eng/etc/inquiry.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795"><span class="d3">Contact</span></a></a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li   >
+			<a href="#none" class="d1">Undergraduate</a>
+			<ul class="depth2">
+				<li><a href="/eng/etc/bbs_list.html?ctg_cd=Undergraduate&PHPSESSID=3909579b42c9d0650c67a6bb43041795"><span class="d2">Notice</span></a></li>
+				<li><a href="https://www.skku.edu/eng/edu/education.do" target="_blank"><span class="d2">Academic Programs</span></a></li>
+				<li><a href="https://admission-global.skku.edu/chn/etc/card_list.html"><span class="d2">Card News</span></a></li>
+				<li><a href="/eng/qna/ask_admission_01.html?degree=1&PHPSESSID=3909579b42c9d0650c67a6bb43041795"><span class="d2">Q&A</span></a></li>
+				<li><a href="https://admission-global.skku.edu/pre-pass/certification.html" target="_blank"><span class="d2">For Candidates with a <br>Preliminary Admission Offer</span></a></li>
+			</ul>
+		</li>
+		<li    >
+			<a href="#none" class="d1">Graduate</a>
+			<ul class="depth2">
+				<li><a href="/eng/etc/bbs_list.html?ctg_cd=Graduate&PHPSESSID=3909579b42c9d0650c67a6bb43041795"><span class="d2">Notice</span></a></li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Admissions Process</span></a>
+					<ul class="depth3"> 
+						<li><a href="/eng/iphak_process/processor.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">When Applying</a></li>
+						<li><a href="/eng/iphak_process/after_passing.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">After Acceptance</a></li>
+						<li><a href="/eng/iphak_process/before_entry.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">Before Arrival</a></li>
+					</ul>
+				</li>
+				<li><a href="https://www.skku.edu/eng/edu/graduateSchool/graduate_school.do" target="_blank"><span class="d2">Academic Programs</span></a></li>
+				<li><a href="https://professor.skku.edu/researcher_eng/index.do" target="_blank"><span class="d2">SKKU Faculty</span></a></li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Research</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/Research/industry/researchStory.do" target="_blank"><span class="d3">Research Stories</span></a></li>
+						<li><a href="https://scholarworks.bwise.kr/skku/?locale=en_US" target="_blank"><span class="d3">Research Information</span></a></li>
+						<li><a href="https://www.skku.edu/eng/Research/support/research02.do" target="_blank"><span class="d3">Research Support</span></a></li>
+					</ul>
+				</li>
+				<li><a href="/eng/qna/ask_admission_01.html?degree=2&PHPSESSID=3909579b42c9d0650c67a6bb43041795"><span class="d2">Q&A</span></a></li>
+			</ul>
+		</li>
+		<li >
+			<a href="#none" class="d1">Campus Life</a>
+			<ul class="depth2">
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">Academic Information</span></a>
+					<ul class="depth3">
+						<li><a href="https://www.skku.edu/eng/edu/bachelor/ca_de_schedule.do" target="_blank"><span class="d3">Academic Schedule</span></a></li>
+						<li><a href="https://ibook.skku.edu/Viewer/FI0EL1WDRCHT" target="_blank"><span class="d3">Academic Policies</span></a></li>
+						<li><a href="/eng/grad/scholarship_undergrad.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795"><span class="d3">Scholarships</span></a></li>
+						<li><a href="https://www.skku.edu/eng/CampusLife/skku/Notice1.do" target="_blank"><span class="d3">Notice</span></a></li>
+					</ul>
+				</li>
+				<li class="use_depth3">
+					<a href="#none"><span class="d2">International Student Services </span></a>
+					<ul class="depth3">
+						<li><a href="https://oiss.skku.edu/oiss/foreign_registration.do" target="_blank"><span class="d3">Visa & Immigration</span></a></li>
+						<li><a href="https://oiss.skku.edu/oiss/notice.do" target="_blank"><span class="d3">Notice</span></a></li>
+					</ul>
+				</li>
+				<li><a href="https://dorm.skku.edu/dorm_eng/" target="_blank"><span class="d2">Dormitory</span></a></li>
+			</ul>
+		</li>
+	</ul>
+	<!-- // gnb -->
+	
+
+	<div class="h_right">
+		<div class="lang">
+			<img src="/eng/img/common/icon_lang.png" alt="" class="img_off">
+			<img src="/eng/img/common/icon_lang_on.png" alt="" class="img_on">	
+			<ul class="lang_list clfix">
+				<li><a href="https://admission-global.skku.edu/chn/">한국어 / 中文</a></li>
+				<li><a href="/eng/?PHPSESSID=3909579b42c9d0650c67a6bb43041795">ENGLISH</a></li>
+			</ul>
+		</div>
+		<span class="btn_siteMap">
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+		</span>
+	</div>
+	
+</div>
+<!-- // header -->
+
+
+<div class="siteMap">
+	<div class="inner">
+		<div class="siteMap_header">
+			<div class="logo">
+				<img src="/eng/img/common/logo.png" alt="SKKU">
+			</div>	
+			<div class="h_right">		
+				<div class="lang">
+					<img src="/eng/img/common/icon_lang.png" alt="">
+					<ul class="lang_list">
+						<li><a href="https://admission-global.skku.edu/chn/">한국어 / 中文</a></li>
+						<li><a href="./index.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795">ENGLISH</a></li>
+					</ul>
+				</div>
+				<span class="btn_close">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+				</span>				
+			</div>
+		</div>
+	
+	
+		<ul class="map_nav clfix">
+			<li>
+				<span class="d1">About SKKU</span>
+				<ul class="map_depth2">
+					<li><a href="https://www.skku.edu/eng/About/s620/sub01.do"  target="_blank" class="d2">History & Overview</a></li>
+					<li><a href="https://www.skku.edu/eng/About/pr/greeting.do " target="_blank" class="d2">Office of the President</a></li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Mission & Vision</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/About/vision/vision1.do" class="d3"  target="_blank">VISION 2030</a></li>
+							<li><a href="https://www.skku.edu/eng/International/GlobalEngagement/InternationalReputationandAchievements.do" target="_blank" class="d3">Rankings</a></li>
+						</ul>
+					</li>
+					<li class="use_depth3">
+						<a href="#" class="d2">SKKU News</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/About/media/news.do" target="_blank" class="d3">News</a></li>
+							<li><a href="https://www.skku.edu/eng/Research/industry/StudentChallenge.do" target="_blank" class="d3">Student Success Story</a></li>
+							<li><a href="https://webzine.skku.edu/skkuzine/index.do" target="_blank" class="d3">SKKU Webzine</a></li>
+						</ul>
+					</li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Campus</a>
+						<ul class="map_depth3">
+							<li><a href="https://admission.skku.edu/admission/html/high/vr.html" target="_blank" class="d3">VR Campus Tour</a></li>
+							<li><a href="https://sgallery.skku.edu/sda/index.do" target="_blank" class="d3">S-Gallery</a></li>
+							<li><a href="/eng/etc/inquiry.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">Contact</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<span class="d1">Undergraduate</span></span>
+				<ul class="map_depth2">
+					<li><a href="/eng/etc/bbs_list.html?ctg_cd=Undergraduate&PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d2">Notice</a></li>
+					<li><a href="https://www.skku.edu/eng/edu/education.do" target="_blank" class="d2">Academic Programs</a></li>
+					<li><a href="https://admission-global.skku.edu/chn/etc/card_list.html"><span class="d2">Card News</span></a></li>
+					<li><a href="/eng/qna/ask_admission_01.html?degree=1&PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d2">Q&A</a></li>
+					<li><a href="https://admission-global.skku.edu/pre-pass/certification.html" target="_blank"  class="d2">For Candidates with a <br>Preliminary Admission Offer</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="d1">Graduate</span>
+				<ul class="map_depth2">
+					<li><a href="/eng/etc/bbs_list.html?ctg_cd=Graduate&PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d2">Notice</a></li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Admissions Process</a>
+						<ul class="map_depth3">
+							<li><a href="/eng/iphak_process/processor.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">When Applying</a></li>
+							<li><a href="/eng/iphak_process/after_passing.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">After Acceptance</a></li>
+							<li><a href="/eng/iphak_process/before_entry.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">Before Arrival</a></li>
+						</ul>
+					</li>
+					<li><a href="https://www.skku.edu/eng/edu/graduateSchool/graduate_school.do" target="_blank" class="d2">Academic Programs</a></li>
+					<li><a href="https://professor.skku.edu/researcher_eng/index.do" target="_blank" class="d2">SKKU Faculty</a></li>
+					<li class="use_depth3">
+						<a href="#" class="d2">Research</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/Research/industry/researchStory.do" target="_blank" class="d3">Research Stories</a></li>
+							<li><a href="https://scholarworks.bwise.kr/skku/?locale=en_US" target="_blank" class="d3">Research Information</a></li>
+							<li><a href="https://www.skku.edu/eng/Research/support/research02.do" target="_blank" class="d3">Research Support</a></li>
+						</ul>
+					</li>
+					<li><a href="/eng/qna/ask_admission_01.html?degree=2&PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d2">Q&A</a></li>
+				</ul>
+			</li>
+			<li>
+				<span class="d1">Campus Life</span>
+				<ul class="map_depth2">
+					<li class="use_depth3">
+						<a href="#" class="d2">Academic Information</a>
+						<ul class="map_depth3">
+							<li><a href="https://www.skku.edu/eng/edu/bachelor/ca_de_schedule.do" target="_blank" class="d3">Academic Schedule</a></li>
+							<li><a href="https://ibook.skku.edu/Viewer/FI0EL1WDRCHT" target="_blank" class="d3">Academic Policies</a></li>
+							<li><a href="/eng/grad/scholarship_undergrad.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795" class="d3">Scholarships</a></li>
+							<li><a href="https://www.skku.edu/eng/CampusLife/skku/Notice1.do" target="_blank" class="d3">Notice</a></li>
+						</ul>
+					</li>
+					<li class="use_depth3">
+						<a href="#" class="d2">International Student Services</a>
+						<ul class="map_depth3">
+							<li><a href="https://oiss.skku.edu/oiss/foreign_registration.do" target="_blank" class="d3">Visa & Immigration</a></li>
+							<li><a href="https://oiss.skku.edu/oiss/notice.do" target="_blank" class="d3">Notice</a></li>
+						</ul>
+					</li>
+					<li><a href="https://dorm.skku.edu/dorm_eng/" target="_blank" class="d2">Dormitory</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<div class="sns_menu_box">
+			<ul class="sns_menu">
+				<li><a href="https://www.facebook.com/sungkyunkwanuniversity1398" target="_blank"><img src="/eng/img/common/icon_sns_facebook_st.png" alt="페이스북"></a></li>
+				<li><a href="https://www.instagram.com/skku.official/" target="_blank"><img src="/eng/img/common/icon_sns_instagram_st.png" alt="인스타그램"></a></li>
+				<li><a href="https://www.youtube.com/channel/UCMSzjNHLZNNUUA-Z8OrXY9Q" target="_blank"><img src="/eng/img/common/icon_sns_youtube_st.png" alt="유투브"></a></li>
+				<li><a href="https://weibo.com/skku1398" target="_blank"><img src="/eng/img/common/icon_sns_weibo_st.png" alt="weibo"></a></li>
+			</ul>
+		</div>	
+	</div>	
+</div>
+<!-- // siteMap -->
+<!--/HEADER-->
+
+
+<div class="sub_visual_wrap sub_02">
+	<h2 class="page_tit"><span>Campus Life</span></h2>
+</div>
+<!-- // sub_visual_wrap -->
+
+
+<div class="sub_container">
+	<div class="inner">
+		<div class="page_title">
+			<h3 class="h3_tit"><span>Scholarships</span></h3>
+			<div class="location clfix">
+				<a href="#none"><img src="../img/sub/ico_home.png" alt="홈"></a>
+				<span>&middot;</span>
+				<a href="#none">Campus Life</a>
+				<span>&middot;</span>
+				<a href="#none">Academic Information</a>
+				<span>&middot;</span>
+				<a href="#none">Scholarships</a>
+			</div>
+		</div> <!-- // page_title -->
+
+		<div class="tabMenu_area">
+			<div class="now"></div>
+			<ul class="tabMenu tab02">
+				<li class="undergrad"><a href="/eng/grad/scholarship_undergrad.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795">Undergraduate</a></li>
+				<li class="grad selected"><a href="/eng/grad/scholarship_grad.html?PHPSESSID=3909579b42c9d0650c67a6bb43041795">Graduate</a></li>
+			</ul>
+		</div>	<!-- // tabMenu_area -->
+	
+		<div class="scholarchip grad">
+
+			<h4 class="h4_tit">Graduate Program Scholarship for International Students</h4>
+			<div>
+				<h5 class="h5_tit">1. Admission Scholarship for international students of Humanities, Social Sciences, and Art departments</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span> : international student accepted to Humanities, Social Sciences or Art departments and selected based on the admissions evaluation result</li>
+						<li><span class="s_tit">Amount</span> : 100%, 70%, 50%, 25% or 10% of admission fee and tuition for the first semester.</li>
+					</ul>
+				</div>
+				<h5 class="h5_tit">2. Merit-based Scholarship for international students during semesters (from the 2nd semester)</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Qualification and Amount</span> : international student admitted through the International Student admissions track will be nominated based on the GPA of the previous semester
+							<ul class="list_02">
+								<li><span>· </span><strong>Average GPA 4.5 in the previous semester</strong> : 50% tuition waiver</li>
+								<li><span>· </span><strong>Average GPA 4.2~4.5 in the previous semester</strong> : 30% tuition waiver</li>
+								<li><span>· </span><strong>Average GPA 3.8~4.2 in the previous semester</strong> : 20% tuition waiver</li>
+							</ul>					
+						</li>
+					</ul>
+				</div>
+				<h5 class="h5_tit">3. Scholarships for international students of Natural Sciences, Engineering, and Medical departments (STEM)</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span> : selected international student accepted to Natural Sciences, Engineering or Medical departments with qualifications and received recommendations from advising professors at SKKU (※ It is required to contact the advising professor prior to application.)</li>
+						<li><span class="s_tit">Amount</span> : depends on the result of each department’s evaluation (up to 100% of tuition) </li>
+						<li>Ph.D student can be awarded with extra scholarships for the research enrollment semester</li>
+						<li><span class="s_tit">Initial settlement fund</span> : ￦600,000 for scholars after admission</li>
+						<li>STEM scholarship continuation requirement: recommendation of the advising professor each semester</li>
+					</ul>
+				</div>
+				<h5 class="h5_tit">4. Graduate School-affiliated Scholarships</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Qualification</span> : selected international student who graduated from SKKU with outstanding academic records and research performances</li>
+						<li><span class="s_tit">Amount</span> : partial amount of the tuition fee (including the admission fee)</li>
+					</ul>
+				</div>
+			</div>
+			<!-- <h4 class="h4_tit">Graduate Program Scholarship for International Students</h4>
+			<div>
+				<h5 class="h5_tit">1. Admission Scholarship for international students of Humanities, Social Sciences, and Art departments</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span> : international student accepted to Humanities, Social Sciences or Art departments and selected based on the admissions evaluation result</li>
+						<li><span class="s_tit">Amount</span> : 100%, 70%, 50%, 25% or 10% of admission fee and tuition for the first semester.</li>
+					</ul>
+				</div>
+				<h5 class="h5_tit">2. Merit-based Scholarship for international students during semesters (from the 2nd semester)</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Qualification and Amount</span> : international student admitted through the International Student admissions track will be nominated based on the GPA of the previous semester
+							<ul class="list_02">
+								<li><span>&middot; </span><strong>Average GPA 4.5 in the previous semester</strong> : 50% tuition waiver</li>
+								<li><span>&middot; </span><strong>Average GPA 4.2~4.5 in the previous semester</strong> : 30% tuition waiver</li>
+								<li><span>&middot; </span><strong>Average GPA 3.8~4.2 in the previous semester</strong> : 20% tuition waiver</li>
+							</ul>					
+						</li>
+					</ul>
+				</div>
+				<h5 class="h5_tit">3. Scholarships for international students of Natural Sciences, Engineering, and Medical departments (STEM)</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Candidate</span> : selected international student accepted to Natural Sciences, Engineering or Medical departments with qualifications and received recommendations from advising professors at SKKU (※ It is required to contact the advising professor prior to application.)</li>
+						<li><span class="s_tit">Amount</span> : depends on the result of each department’s evaluation (up to 100% of tuition) </li>
+						<li>Ph.D student can be awarded with extra scholarships for the research enrollment semester</li>
+						<li><span class="s_tit">Initial settlement fund</span> : ￦600,000 for scholars after admission</li>
+						<li>STEM scholarship continuation requirement: recommendation of the advising professor each semester</li>
+					</ul>
+				</div>
+				<h5 class="h5_tit">4. Graduate School-affiliated Scholarships</h5>
+				<div class="txt_con">
+					<ul class="list_01">
+						<li><span class="s_tit">Qualification</span> : selected international student who graduated from SKKU with outstanding academic records and research performances</li>
+						<li><span class="s_tit">Amount</span> : partial amount of the tuition fee (including the admission fee)</li>
+					</ul>
+				</div>
+			</div> -->
+		</div> <!-- // scholarchip -->
+
+	</div> <!-- // inner -->	
+</div>
+<!-- // sub_container -->
+<!--footer-->
+
+<!-- footer -->
+<div class="footer">
+	<div class="inner clfix">
+		<img src="/eng/img/common/logo_footer.png" alt="Uway" class="footer_logo" />
+		
+		<div class="addr_info">
+			<address class="address">
+				<p class="addr1">HUMANITIES AND SOCIAL SCIENCES CAMPUS : <span class="br">25-2, SUNGKYUNKWAN-RO, JONGNO-GU, SEOUL, KOREA</span></p>
+				<p class="addr2">NATURAL SCIENCES CAMPUS : <span class="br">2066, SEOBU-RO, JANGAN-GU, SUWON-SI, GYEONG GI-DO, KOREA</span></p>
+			</address>
+		</div>
+		
+		<ul class="sns_box clfix">
+			<li><a href="https://www.instagram.com/skku.official/" target="_blank"><img src="/eng/img/common/icon_sns_instagram_ft.png" alt="instagram"></a></li>
+			<li><a href="https://www.youtube.com/channel/UCMSzjNHLZNNUUA-Z8OrXY9Q" target="_blank"><img src="/eng/img/common/icon_sns_youtube_ft.png" alt="youtube"></a></li>
+			<li><a href="https://www.facebook.com/sungkyunkwanuniversity1398" target="_blank"><img src="/eng/img/common/icon_sns_facebook_ft.png" alt="facebook"></a></li>
+		</ul>
+	</div>
+</div>
+<!-- // footer -->
+</div>
+
+</body>
+</html><!--/footer-->

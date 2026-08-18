@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Financial Aid | Tuition, Fees, & Scholarships | Admissions | KYUSHU UNIVERSITY</title>
+    <meta name="Keywords" content="Financial Aid,Tuition, Fees, &amp; Scholarships,Admissions,KYUSHU UNIVERSITY">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta property="fb:app_id" content="826348767477500">
+    <meta property="og:title" content="Financial Aid | Tuition, Fees, &amp; Scholarships | Admissions | KYUSHU UNIVERSITY">
+    <meta property="og:url" content="https://www.kyushu-u.ac.jp/en/admission/fees/support/">
+        <meta property="og:image" content="https://www.kyushu-u.ac.jp/img/common/thumb.png">
+    <meta property="og:site_name" content="九州大学（KYUSHU UNIVERSITY）">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png">
+<!--[if lt IE 9]>
+<script src="/js/html5shiv.min.js"></script>
+<script src="/js/respond.min.js"></script>
+<![endif]-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="canonical" href="https://www.kyushu-u.ac.jp/en/admission/fees/support/" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&family=Oswald:wght@600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+	<link rel="stylesheet" type="text/css" href="/css/datepicker/jquery.ui.all.css?1758015468"/>
+	<link rel="stylesheet" type="text/css" href="/css/kyushu-u.css?1767834660"/>
+	<link rel="stylesheet" type="text/css" href="/css/print.css?1758015468"/>
+    <link rel="stylesheet" href="/contents_file/contents_files/loader/0/DesignCssFile/62/css_file/2f95ac2b5c5eda4a1bea9a45e95bcf2cb6fb902b/default/ku-design.css">
+    
+        <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new
+            Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-12014992-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K24ZMY3FP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3K24ZMY3FP');
+    </script>
+<link rel="stylesheet" type="text/css" href="/contents_designer/css/content_view.css?1758015468"/><link rel="stylesheet" type="text/css" href="/css/contents_designer/content.css?1758015468"/>
+</head>
+
+<body class="en">
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '826348767477500',
+          xfbml      : true,
+          version    : 'v24.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         js.async = true; js.defer = true;
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="wrapper">
+        <header role="banner" id="header" class="common_style en">
+            <div class="head">
+                <div class="inner">
+                    <ul class="sns-link">
+                        <li><a href="https://www.facebook.com/KyushuUniv.en/" target="_blank"><img src="/img/header_common/icon_facebook.png" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com/KyushuUniv_EN" target=" _blank"><img src="/img/header_common/icon_twitter.png" alt="X"></a></li>
+                        <li><a href="https://www.youtube.com/user/KyushuUniv" target="_blank"><img src="/img/header_common/icon_youtube.png" alt="YOUTUBE"></a></li>
+                        <li><a href="https://www.instagram.com/kyushuuniversity/" target="_blank"><img src="/img/header_common/icon_instagram.png" alt="instagram"></a></li>
+                        <li><a href="https://www.linkedin.com/school/kyushuuniversity/" target="_blank"><img src="/img/header_common/icon_linkdIn.png" alt="LinkdIn"></a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li><a href="/en/university/donation">Support Kyushu U</a></li>
+                    </ul>
+                    <ul class="lang">
+	<li class="li_ja"><a href="/ja/admission/fees/support">日本語</a></li>
+	<li class="in-active li_en"><a href="#" class="current">ENGLISH</a></li>
+</ul>                    <div id="head_search_block" class="search">
+                        <!-- Google Custom Search -->
+                        <form action="/en/search" utf-8="utf-8" id="PageManagementIndexForm" method="get" accept-charset="utf-8">                        <div style="display:none;"><input type="hidden" name="_method" value="GET" /></div>
+                        <input type="hidden" name="cx" value="003450530278392158931:s35zk1urulw" />
+                        <input type="hidden" name="ie" value="shift_jis" />
+                        <input name="q" type="search" value="" id="RuleTitle" placeholder="Search" />
+                        <input type="submit" value="">
+                        <script type="text/javascript" src="//www.google.com/cse/brand?form=AllSearch&lang=en"></script>
+                        </form>                        <!-- / Google Custom Search -->
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <div class="logo-inner">
+                    <p class="logo">
+                        <a href="/en">
+                            <img src="/img/header_common/logo_header_en.png" alt="九州大学 Kyushu University">
+                        </a>
+                    </p>
+                    <p>
+                        <a href="/en/university/president/vision">
+                            <img src="/img/header_common/vision2030_e.png" alt="VISION2030 Driving social change with integrative knowledge">
+                        </a>
+                    </p>
+                </div>
+                <div class="main">
+    <div class="menu">
+        <ul>
+            <li><a href="/en/targets/entrance">Prospective students</a></li>
+            <li><a href="/en/targets/student">Current students</a></li>
+            <li><a href="/en/targets/researcher">Companies &amp; researchers</a></li>
+            <li><a href="/en/targets/graduate">Alumni</a></li>
+        </ul>
+        <p><a href="/en/crisismanagement/riskmanagement">Crisis Management</a></p>
+    </div>
+    <div class="navi">
+        <ul>
+            <li><a href="/en/news">News</a></li>
+            <li><a href="/en/events">Events</a></li>
+        </ul>
+        <ul>
+            <li class="js-drawer">
+                <a href="/en/university">About</a>
+                <div class="drawer">
+                    <div id="layout01" class="inner">
+                        <ul class="content01">
+                            <li>
+                                <a href="/en/university/president/">
+                                    <img src="/img/header_common/img_menu01_01.png" alt="">
+                                    <span>Office of the President</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="content02">
+                            <li>
+                                <a href="/en/university/information/">
+                                    <img src="/img/header_common/img_menu01_02.png" alt="">
+                                    <span>University Overview</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/university/connect/">
+                                    <img src="/img/header_common/img_menu01_connect.png" alt="">
+                                    <span>Kyushu U Connect</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/university/data/">
+                                    <img src="/img/header_common/img_menu01_06.png" alt="">
+                                    <span>Fast Facts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/university/publicity/">
+                                    <img src="/img/header_common/img_menu01_04.png" alt="">
+                                    <span>Public Relations</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/university/publicity/researchers">
+                                    <img src="/img/header_common/img_menu01_07.png" alt="">
+                                    <span>Featured Academics</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/university/#sec5">
+                                    <img src="/img/header_common/img_menu01_08.png" alt="">
+                                    <span>Schools &amp; Centers</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="content03">
+                            <ul>
+                                <li><a href="http://www.share.kyushu-u.ac.jp/" target="_blank">The Global University Project</a></li>
+                                <li><a href="/en/university/graduate">Alumni Resources</a></li>
+                                <li><a href="/en/university/donation/">Donation</a></li>
+                                <li><a href="/en/university/approach/">Activities and Initiatives</a></li>
+                                <li><a href="/en/university/plan/">Future Plans</a></li>
+                                <li><a href="/en/university/facility/">University Facilities</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="js-drawer">
+                <a href="/en/faculty/">Academics</a>
+                <div class="drawer">
+                    <div class="inner layout04">
+                        <ul class="content02">
+                            <li>
+                                <a href="/en/faculty/artsci/">
+                                    <img src="/img/header_common/img_submenu_02_01.png" alt="">
+                                    <span>Faculty of Arts and Science</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/faculty/undergraduate/">
+                                    <img src="/img/header_common/img_submenu_02_02.png" alt="">
+                                    <span>Schools</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/faculty/program/">
+                                    <img src="/img/header_common/img_submenu_04_03.png" alt="">
+                                    <span>Distinctive Education Programs</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.isc.kyushu-u.ac.jp/intlweb/en/admission/degree#admission_deg_4" target="_blank">
+                                    <img src="/img/common_en/img_submenu_03_07.png" alt="">
+                                    <span>Double Degree Programs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.isc.kyushu-u.ac.jp/intlweb/en/admission/exchangetop" target="_blank">
+                                    <img src="/img/common_en/img_submenu_03_08.png" alt="">
+                                    <span>Student Exchange Programs</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.isc.kyushu-u.ac.jp/intlweb/admission_short-term.html" target="_blank">
+                                    <img src="/img/header_common/img_submenu_02_shortterm.png" alt="">
+                                    <span>Short-term Study Programs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/faculty/policy/">
+                                    <img src="/img/header_common/img_submenu_04_01_en.png" alt="">
+                                    <span>The 3 Policies: Diploma, Curriculum, and Admissions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/faculty/class/">
+                                    <img src="/img/header_common/img_submenu_04_02.png" alt="">
+                                    <span>Course Registration</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="content03">
+                            <ul>
+                                <li><a href="/en/faculty/schedule/">Academic Calendar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="js-drawer">
+                <a href="/en/admission/">Admissions</a>
+                <div class="drawer">
+                    <div id="layout02" class="inner">
+                        <ul class="content02">
+                            <li>
+                                <a href="/en/admission/faculty/">
+                                    <img src="/img/header_common/img_submenu_03_01.png" alt="">
+                                    <span>Undergraduate Admissions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/admission/entrance/">
+                                    <img src="/img/header_common/img_submenu_03_02.png" alt="">
+                                    <span>Graduate Admissions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/admission/fees/">
+                                    <img src="/img/common/img_submenu_04_05.png" alt="">
+                                    <span>Tuition, Fees &amp; Scholarships</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.isc.kyushu-u.ac.jp/invitation/" target="_blank">
+                                    <img src="/img/common/img_submenu_04_09.png" alt="">
+                                    <span>Information for International Students</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="js-drawer">
+                <a href="/en/education/">Campus Life</a>
+                <div class="drawer">
+                    <div class="inner layout04">
+                        <ul class="content02">
+                            <li>
+                                <a href="/en/education/life/">
+                                    <img src="/img/common/img_submenu_04_06.png" alt="">
+                                    <span>Facilities and Healthcare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/education/extracurricular/">
+                                    <img src=" /img/common/img_submenu_04_07.png" alt="">
+                                    <span>Extracurricular / Student-Led Activities</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/education/employment/">
+                                    <img src="/img/common/img_submenu_04_08.png" alt="">
+                                    <span>Careers &amp; Employment</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="content03">
+                            <ul>
+                                <li><a href="/en/education/procedure/">Procedures</a></li>
+                                <li><a href="/en/education/contact/">Contact Information for Consultations</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="js-drawer">
+                <a href="/en/research/">Research</a>
+                <div class="drawer">
+                    <div class="inner layout04">
+                        <ul class="content02">
+                            <li>
+                                <a href="/en/research/information/">
+                                    <img src="/img/header_common/img_submenu_05_01.png" alt="">
+                                    <span>Research at Kyushu University</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://hyoka.ofc.kyushu-u.ac.jp/search/index_e.html" target="_blank">
+                                    <img src="/img/header_common/img_submenu_05_02.png" alt="">
+                                    <span>Academic Staff Educational and Research Activities Database</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/research/support/">
+                                    <img src="/img/header_common/img_submenu_05_03.png" alt="">
+                                    <span>Research Activity Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/research/cooperation/">
+                                    <img src="/img/header_common/img_submenu_05_04.png" alt="">
+                                    <span>Industry-University -Government Collaboration Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/research/approach/">
+                                    <img src="/img/header_common/img_submenu_05_05.png" alt="">
+                                    <span>Research Centers and Projects</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en/research/system/">
+                                    <img src="/img/header_common/img_submenu_05_06.png" alt="">
+                                    <span>Framework to Support Collaborated Research</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="content03">
+                            <ul>
+                                <li><a href="/en/research/integrity">Research Integrity</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+            </div>
+        </header>
+
+        <header role="banner" id="header_sp" class="common_style en js-header">
+            <div class="head">
+                <div class="logo-inner">
+                    <p class="logo">
+                        <a href="/en">
+                            <img src="/img/header_common/logo_header_en_sp_active.png" alt="九州大学 Kyushu University">
+                            <img src="/img/header_common/logo_header_en_sp.png" alt="九州大学 Kyushu University">
+                        </a>
+                    </p>
+                    <p class="logo-vision2030">
+                        <a href="/en/university/president/vision">
+                            <img src="/img/header_common/vision2030_e.png" alt="VISION2030 Driving social change with integrative knowledge">
+                        </a>
+                    </p>
+                </div>
+                <div class="menu">
+                    <ul class="lang">
+	<li class="li_ja"><a href="/ja/admission/fees/support">日本語</a></li>
+	<li class="in-active li_en"><a href="#" class="current">ENGLISH</a></li>
+</ul>                    <div class="hum js-header-hum">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <div id="sp_head_search_block" class="search">
+                    <!-- Google Custom Search -->
+                    <form action="/en/search" utf-8="utf-8" id="PageManagementIndexForm" method="get" accept-charset="utf-8">                    <div>
+                        <div style="display:none;"><input type="hidden" name="_method" value="GET" /></div>
+                        <input type="hidden" name="cx" value="003450530278392158931:s35zk1urulw" />
+                        <input type="hidden" name="ie" value="shift_jis" />
+                        <input name="q" type="search" value="" id="RuleTitle" placeholder="Search" />
+                        <input type="submit" value="">
+                        <script type="text/javascript" src="//www.google.com/cse/brand?form=AllSearch&lang=en"></script>
+                    </div>
+                    </form>                    <!-- / Google Custom Search -->
+                </div>
+
+                <!-- Hamburger menu -->
+                <div class="menu_layer1 accordion_action">
+    <div class="accordion_action_ttl">
+        <a href="/en/news">News</a>        <span class="open"></span>
+    </div>
+</div>
+<ul class="menu_layer2">
+            <li class="accordion_action">
+            <div class="accordion_action_ttl nobtn">
+                <a href="/en/topics?category=1">Topics</a>            </div>
+        </li>
+            <li class="accordion_action">
+            <div class="accordion_action_ttl nobtn">
+                <a href="/en/topics?category=2">Features</a>            </div>
+        </li>
+            <li class="accordion_action">
+            <div class="accordion_action_ttl nobtn">
+                <a href="/en/topics?category=3">Research Close-Up</a>            </div>
+        </li>
+            <li class="accordion_action">
+            <div class="accordion_action_ttl nobtn">
+                <a href="/en/topics?category=4">Discover the Research</a>            </div>
+        </li>
+                                <li class="accordion_action">
+            <div class="accordion_action_ttl">
+                <a href="/en/notices">Notices</a>                <span class="open"></span>
+            </div>
+            <div class="accordion_action_list">
+                <a href="/en/notices?important=1">Important</a>            </div>
+        </li>
+                    <li class="accordion_action">
+            <div class="accordion_action_ttl">
+                <a href="/en/researches">Research Results</a>                <span class="open"></span>
+            </div>
+            <div class="accordion_action_list">
+                    <a href="/en/researches?category_humanities_flag=1">Humanities &amp; Social Sciences</a>    <a href="/en/researches?category_art_flag=1">Art &amp; Design</a>    <a href="/en/researches?category_life_flag=1">Life &amp; Health</a>    <a href="/en/researches?category_math_flag=1">Math &amp; Data</a>    <a href="/en/researches?category_physics_flag=1">Physics &amp; Chemistry</a>    <a href="/en/researches?category_materials_flag=1">Materials</a>    <a href="/en/researches?category_technology_flag=1">Technology</a>    <a href="/en/researches?category_environment_flag=1">Environment &amp; Sustainability</a>            </div>
+        </li>
+    </ul>
+
+<div class="menu_layer1 accordion_action">
+    <div class="accordion_action_ttl">
+        <a href="/en/events">Events</a>        <span class="open"></span>
+    </div>
+</div>
+<ul class="menu_layer2">
+    <li class="accordion_action">
+        <div class="accordion_action_ttl nobtn">
+            <a href="/en/events/calender">Event Calendar</a>        </div>
+    </li>
+    <li class="accordion_action">
+        <div class="accordion_action_ttl">
+            <span class="nolink">Categories</span>
+            <span class="open"></span>
+        </div>
+        <div class="accordion_action_list">
+                            <a href="/en/events?category=1">Public Seminar</a>                            <a href="/en/events?category=2">Lecture, etc.</a>                            <a href="/en/events?category=3">Exhibition</a>                            <a href="/en/events?category=4">Other</a>                    </div>
+    </li>
+    <li class="accordion_action">
+        <div class="accordion_action_ttl">
+            <span class="nolink">Place</span>
+            <span class="open"></span>
+        </div>
+        <div class="accordion_action_list">
+                            <a href="/en/events?event_place_ito=1">Ito Campus</a>                            <a href="/en/events?event_place_hakozaki=1">Hakozaki Satellite</a>                            <a href="/en/events?event_place_byoin=1">Hospital Campus</a>                            <a href="/en/events?event_place_tikushi=1">Chikushi Campus</a>                            <a href="/en/events?event_place_ohashi=1">Ohashi Campus</a>                            <a href="/en/events?event_place_beppu=1">Beppu Campus</a>                            <a href="/en/events?event_place_sonota=1">Off Campus</a>                    </div>
+    </li>
+</ul>
+
+    <div class="menu_layer1 accordion_action">
+        <div class="accordion_action_ttl">
+            <a href="/en/university">About</a>            <span class="open"></span>
+        </div>
+    </div>
+    <ul class="menu_layer2">
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/president">Office of the President</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/president/message">Message from the President</a>                                                    <a href="/en/university/president/vision">Kyushu University VISION 2030</a>                                                    <a href="/en/university/president/organization">Biography</a>                                                    <a href="/en/university/president/meiyohakase">Honorary Doctorates</a>                                                    <a href="/en/university/president/rekidai">History of the Presidency</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/university/connect">Kyushu U Connect</a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/information">University Overview</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/information/organization">Organization</a>                                                    <a href="/en/university/information/charter">Charter</a>                                                    <a href="/en/university/information/presidential_selection">Presidential Selection</a>                                                    <a href="/en/university/information/rule">Regulations and Policies</a>                                                    <a href="/en/university/information/history">History </a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/plan">Future Plans</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/plan/chuki">Mid-Term Objectives and Plans</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/publicity">Public Relations</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/publicity/pressrelease">Press Releases</a>                                                    <a href="/en/university/publicity/publications">Publications</a>                                                    <a href="/en/university/publicity/movie">Promotional Videos</a>                                                    <a href="/en/university/publicity/logo">University logomark</a>                                                    <a href="/en/university/publicity/social">List of Social Media Accounts</a>                                                    <a href="/en/university/publicity/virtual-backgrounds">Virtual Backgrounds</a>                                                    <a href="/en/university/publicity/virtual-backgrounds-Archive">Virtual Backgrounds (Archive)</a>                                                    <a href="/en/university/publicity/researchers">Featured Academics</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/campus">Campus Relocation</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/campus/ito-new-campus-completed-ceremony">Ceremony to Commemorate Completion of Ito Campus</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/facility">University Facilities</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/facility/campus-visit">Campus visit</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/graduate">Alumni Resources</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/graduate/overseas_alumni">Alumni Associations</a>                                                    <a href="/en/university/graduate/kyupal">Alumni Platform “Kyudai PAL”</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/donation">Donation</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/donation/faculty">Donations to Schools, Graduate Schools, and Researchers, etc.</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/approach">Activities and Initiatives</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/approach/diversity-equity-inclusion">Promoting Diversity, Equity, and Inclusion</a>                                                    <a href="/en/university/approach/qs2019">QS-APPLE 2019</a>                                                    <a href="/en/university/approach/kumamotoquake">Response to the 2016 Kumamoto Earthquake</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/university/organization">Schools &amp; Centers</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/university/organization/fuzoku">Research Institutes</a>                                                    <a href="/en/university/organization/gakunai-kyodo">Centers for Common Education and Research</a>                                                    <a href="/en/university/organization/kiko">Organizations and Offices</a>                                                    <a href="/en/university/organization/byoin">Hospitals</a>                                                    <a href="/en/university/organization/toshokan">Libraries</a>                                                    <a href="/en/university/organization/hakubutsukan">Museums</a>                                                    <a href="/en/university/organization/sonota">Others</a>                                            </div>
+                            </li>
+            </ul>
+    <div class="menu_layer1 accordion_action">
+        <div class="accordion_action_ttl">
+            <a href="/en/faculty">Academics</a>            <span class="open"></span>
+        </div>
+    </div>
+    <ul class="menu_layer2">
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/faculty/artsci">Faculty of Arts and Science</a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/faculty/undergraduate">Schools</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/faculty/undergraduate/educational-research">Educational and Research Course</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/faculty/policy">The 3 Policies</a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/faculty/schedule">Academic Calendar</a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/faculty/class">Course Registration</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/faculty/class/curriculum">Curriculum</a>                                                    <a href="/en/faculty/class/learning">Registration / Syllabuses</a>                                                    <a href="/en/faculty/class/disasters">Policy and procedures for classes and end-of-semester examinations in the event of natural disasters</a>                                                    <a href="/en/faculty/class/openbadge">Kyushu University Open Badge</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/faculty/program">Distinctive Education Programs</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/faculty/program/leading">Program for Leading Graduate Schools</a>                                            </div>
+                            </li>
+            </ul>
+    <div class="menu_layer1 accordion_action">
+        <div class="accordion_action_ttl">
+            <a href="/en/admission">Admissions</a>            <span class="open"></span>
+        </div>
+    </div>
+    <ul class="menu_layer2">
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/admission/faculty">Undergraduate Admissions</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/admission/faculty/foreign">Enrolling in Undergraduate School </a>                                                    <a href="/en/admission/faculty/disabilities">Applicants with Disabilities</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/admission/entrance">Graduate Admissions</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/admission/entrance/jizensodan">Applicants with Disabilities</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/admission/fees">Tuition, Fees, &amp; Scholarships</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/admission/fees/expenses">Tuition and Fees</a>                                                    <a href="/en/admission/fees/scholarship">Scholarships</a>                                                    <a href="/en/admission/fees/payment">Payment of tuition</a>                                                    <a href="/en/admission/fees/exempt02">Tuition Fee Exemption, Enrollment Fee Exemption/Deferment</a>                                                    <a href="/en/admission/fees/support">Financial Aid</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/admission/double">Double Degree Programs</a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/admission/jointdegree">Joint Degree Programs</a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/admission/exchange">Student Exchange Programs</a>                                    </div>
+                            </li>
+            </ul>
+    <div class="menu_layer1 accordion_action">
+        <div class="accordion_action_ttl">
+            <a href="/en/education">Campus Life</a>            <span class="open"></span>
+        </div>
+    </div>
+    <ul class="menu_layer2">
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/education/life">Facilities and Healthcare</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/education/life/institution">Student Facilities</a>                                                    <a href="/en/education/life/dormitory">Dormitories</a>                                                    <a href="/en/education/life/health">Healthcare</a>                                                    <a href="/en/education/life/insurance">Personal Accident Insurance for Students/ Liability Insurance</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/education/employment">Careers &amp; Employment</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/education/employment/guidance">New Information</a>                                                    <a href="/en/education/employment/campusmate-j">How to use Job and Career Support System</a>                                                    <a href="/en/education/employment/consultation">Career Consulting</a>                                                    <a href="/en/education/employment/foreign">Job Hunting Support for International Students</a>                                                    <a href="/en/education/employment/intl_recruit">Recruitment of International Students</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/education/extracurricular">Extracurricular / Student-Led Activities </a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/education/procedure">Procedures</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/education/procedure/certificate">Certificates</a>                                                    <a href="/en/education/procedure/pension">National Pension System for Students</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/education/contact">Contact Information for Consultations</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/education/contact/consultation">One-Stop Consultation Service</a>                                            </div>
+                            </li>
+            </ul>
+    <div class="menu_layer1 accordion_action">
+        <div class="accordion_action_ttl">
+            <a href="/en/research">Research</a>            <span class="open"></span>
+        </div>
+    </div>
+    <ul class="menu_layer2">
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/research/information">Research at Kyushu University</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/research/information/humanities">Humanities and Social Sciences</a>                                                    <a href="/en/research/information/artdesign">Art and Design</a>                                                    <a href="/en/research/information/lifehealth">Life and Health</a>                                                    <a href="/en/research/information/mathdata">Math and Data</a>                                                    <a href="/en/research/information/physchem">Physics and Chemistry</a>                                                    <a href="/en/research/information/materials">Materials</a>                                                    <a href="/en/research/information/technology">Technology</a>                                                    <a href="/en/research/information/environment">Environment and Sustainability</a>                                                    <a href="/en/research/information/discover-research">Discover the Research</a>                                                    <a href="/en/research/information/close-up">Research Close-Up</a>                                                    <a href="/en/research/information/design">Recent Studies at the Faculty of Design</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/research/approach">Research Centers and Projects</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/research/approach/fuel">Next-Generation Fuel Cell Research Center (NEXT-FC)</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/research/support">Research Activity Support</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/research/support/consultation">On-campus Consultation</a>                                                    <a href="/en/research/support/promotion">Research Strategy Promotion</a>                                                    <a href="/en/research/support/grant">Support for Research Funding and Grants</a>                                                    <a href="/en/research/support/other">Researchers Support Program</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl ">
+                    <a href="/en/research/cooperation">Industry - University - Government Collaboration Support</a>                                            <span class="open"></span>
+                                    </div>
+                                    <div class="accordion_action_list">
+                                                    <a href="/en/research/cooperation/consulting">Technological Consultation</a>                                                    <a href="/en/research/cooperation/management">Intellectual Property Management and Use</a>                                                    <a href="/en/research/cooperation/procedure">Joint Research/Sponsored Research</a>                                                    <a href="/en/research/cooperation/collaboration">Comprehensive Collaboration</a>                                                    <a href="/en/research/cooperation/department">Joint Research Department</a>                                            </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/research/integrity">Research Integrity</a>                                    </div>
+                            </li>
+                    <li class="accordion_action">
+                <div class="accordion_action_ttl nobtn">
+                    <a href="/en/research/system">Framework to Support  Collaborative Research</a>                                    </div>
+                            </li>
+            </ul>
+    <div class="menu_layer1 accordion_action">
+        <div class="accordion_action_ttl">
+            <a href="/en/international">International</a>            <span class="open"></span>
+        </div>
+    </div>
+    <ul class="menu_layer2">
+            </ul>
+
+<ul class="menu">
+    <li><a href="/en/targets/entrance">･Prospective students</a></li>
+    <li><a href="/en/targets/student">･Current students</a></li>
+    <li><a href="/en/targets/researcher">･Companies &amp; researchers</a></li>
+    <li><a href="/en/targets/graduate">･Alumni</a></li>
+</ul>
+
+<ul class="menu">
+    <li><a href="/en/university/donation">･Support Kyushu U</a></li>
+    <li class="current"><a href="/en/crisismanagement/riskmanagement">Crisis Management</a></li>
+</ul>
+
+<ul class="menu">
+    <li><a href="/en/contact/">･Contact Us</a></li>
+    <li><a href="/en/campus/">･Visit</a></li>
+    <li><a href="https://jrecin.jst.go.jp/seek/SeekTop?ln=1" target="_blank">･Career</a></li>
+    <li><a href="/en/website/sitepolicy">･Disclaimer &amp; Copyright</a></li>
+    <li><a href="/en/website/privacypolicy">･Privacy Policy</a></li>
+    <li><a href="/en/website/sitemap">･Sitemap</a></li>
+</ul>
+
+<ul class="sns">
+    <li><a href="https://www.facebook.com/KyushuUniv.en/" target="_blank"><img src="/img/header_common/icon_facebook.png" alt="Facebook"></a></li>
+    <li><a href="https://twitter.com/KyushuUniv_EN" target=" _blank"><img src="/img/header_common/icon_twitter.png" alt="X"></a></li>
+    <li><a href="https://www.youtube.com/user/KyushuUniv" target="_blank"><img src="/img/header_common/icon_youtube.png" alt="YOUTUBE"></a></li>
+    <li><a href="https://www.instagram.com/kyushuuniversity/" target="_blank"><img src="/img/header_common/icon_instagram.png" alt="instagram"></a></li>
+    <li><a href="https://www.linkedin.com/school/kyushuuniversity/" target="_blank"><img src="/img/header_common/icon_linkdIn.png" alt="LinkdIn"></a></li>
+</ul>
+                <!-- / Hamburger menu -->
+
+            </div>
+        </header>
+        <!-- / header -->
+
+            <div class="cms-page">
+
+        <div id="ttl_page">
+    <div class="inner">
+        <p class="ttl">
+            <span class="ttl_inner">
+                <span class="sub_ttl">入試・入学</span>
+                Admissions            </span>
+        </p>
+        <h1>Financial Aid</h1>
+    </div>
+</div>
+        <!-- / #ttl_page -->
+
+        <div id="contents">
+            <div class="container">
+
+                <main id="main">
+
+                    <div id="topic_path">
+    <ul class="clearfix">
+        <li><a href="/en">TOP</a></li>
+                                    <li><a href="/en/admission">Admissions</a></li>
+                            <li><a href="/en/admission/fees">Tuition, Fees, &amp; Scholarships</a></li>
+                            <li>Financial Aid</li>
+    </ul>
+</div>
+                    <!-- / #topic_path -->
+
+                    <section>
+
+                        <!-- CMSコンテンツ　ここから -->
+                            <div class="contents_designer-wrapper">
+<div class="contents_designer-contents headline_box undisplay-m"><h2>Financial Aid</h2></div>
+<div class="contents_designer-contents headline_box undisplay-m"><h3>Enrollment Fee Exemption and Deferment program /Tuition Fee Exemption program</h3></div>
+<div class="contents_designer-contents text_one undisplay-m"><div class="float-box">
+    <div class="text-area">
+<p>There is a program for those who fall under the following application qualifications to allow exemption of enrollment fee and tuition fee or to allow deferment the enrollment fee after selection based on each application. In principle, it is categorized as follows, a half enrollment fee exemption and a full/half/quarter-tuition fee exemption.</p>
+<p><strong><a href="/ja/education/fees/exempt01/">・Enrollment Fee Exemption Program</a></strong><br>(a) Incoming post-graduate students who are recognized by the university as exhibiting outstanding academic performance, but cannot afford to pay the enrollment fee because of their economic circumstances, and (b) incoming undergraduate students under extenuating circumstances may apply for full or half exemption of the enrollment fee.</p>
+<p><strong><a href="/ja/education/fees/grace/">・Enrollment Fee Deferment Program</a></strong><br>Incoming students who cannot afford to pay the enrollment fee by the deadline because of their economic circumstances and who are recognized by the university as exhibiting outstanding academic performance and incoming students under extenuating circumstances may apply for deferment of the enrollment fee. Deferment of the enrollment fee is a postponement of the payment period and not an exemption of the enrollment fee and, therefore, the full amount of the enrollment fee must be paid.</p>
+<p><strong><a href="/en/education/fees/exempt02">・Tuition Fee Exemption Program</a></strong><br>Graduate students who are recognized by the university as exhibiting outstanding academic performance, but cannot afford to pay the tuition fee because of their economic circumstances may apply for half, full and quarter exemption of the tuition fee.</p>
+</div>
+</div></div>
+<div class="contents_designer-contents headline_box undisplay-m"><h3>Scholarships for International Students</h3></div>
+<div class="contents_designer-contents text_one undisplay-m"><div class="float-box">
+    <div class="text-area">
+<p><strong><a href="https://www.isc.kyushu-u.ac.jp/intlweb/en/student/government-expense" target="_blank">Japanese Government (Monbukagakusho) Scholarship</a></strong> <br> This scholarship program was established by the Government of Japan in order to promote an acceptance of international students from all over the world. There are following three categories:<br> (1) by embassy recommendation, (2) by Kyushu University recommendation(overseas applications), and (3) through Kyushu University nomination (domestic applications by those enrolled at Kyushu Univ.) <br>Please note that Chinese students have different procedures.</p>
+<p><strong><a href="https://www.isc.kyushu-u.ac.jp/intlweb/en/admission/school-fees#school-fees_2" target="_blank">Kyushu University Friendship Scholarship</a></strong><br> Under Kyushu University Friendship Scholarships Scheme (hereafter Friendship Scholarship), Kyushu University invites students from abroad who attend prestigious universities in their home country and who will play an important role in their nation's future. <br> By offering them a chance to study abroad at Kyushu University, the scheme aims to foster the nation's future leaders, maintain good relations with Kyushu University, and play the role of point of contact to cultivate joint research and bring in external capital depending on their course or career after graduation.</p>
+<p><strong><a href="https://www.isc.kyushu-u.ac.jp/intlweb/en/student/page-012#student_p12_3" target="_blank">JASSO (Japan Student Services Organization) Scholarship</a></strong><br> This scholarship is available for exchange students from our overseas partner universities. Since application for JASSO should be done through Kyushu University, indicate so on the application form of Kyushu University Student Exchange Program when you would like to apply for it.</p>
+<p><strong><a href="https://www.isc.kyushu-u.ac.jp/intlweb/en/student/page-012" target="_blank">Scholarships for Self-supporting International Students</a></strong><br> Scholarship information for self-supporting international students is available on <a href="http://www.isc.kyushu-u.ac.jp/intlweb/scholarship/view/list.php?nendo=2016&amp;lang=en">our website.</a></p>
+</div>
+</div></div>
+<div class="contents_designer-contents headline_box undisplay-m"><h3>Kyushu University Scholarships and Financial Support</h3></div>
+<div class="contents_designer-contents text_one undisplay-m"><div class="float-box">
+    <div class="text-area">
+<p><strong>Yamakawa Prize and Grant (Kyushu University Fund)</strong> <br> This grant is named after the first president of the university, Kenjiro Yamakawa. It is granted for undergraduate students who have excellent academic record and excellent aspiration for humanity, sociability, internationality and expertise.</p>
+<p><strong>Grant for Students' Unique Studies and Social Activities (Kyushu University Fund)</strong> <br> This is granted to support the cost of unique studies and social activities which are planned by students or research students.</p>
+<p><strong>Grant for Students’ Participation in International Conferences (Kyushu University Fund)</strong> <br> This is granted to support the cost of travel for students to participate and present projects and research results at international conferences.<br>Grant for Research Activities (Kyushu University Student Support Association) <br> This is granted to graduate students who have excellent academic record and whose parent is or will be a member of Kyushu University Student Support Association.</p>
+<p><strong>Emergency Grant (Kyushu University Student Support Association)</strong> <br> This grant is given for students, whose parent is or will be a member of Kyushu University Student Support Association, struggling with serious financial circumstances due to family emergency, crisis or death.</p>
+</div>
+</div></div>
+</div>
+                        <!-- / CMSコンテンツ　ここまで -->
+                    </section>
+                </main>
+                <!-- /#main -->
+
+                <div id="topic_path_sp">
+    <ul class="clearfix">
+        <li><a href="/en">TOP</a></li>
+                                    <li><a href="/en/admission">Admissions</a></li>
+                            <li><a href="/en/admission/fees">Tuition, Fees, &amp; Scholarships</a></li>
+                            <li>Financial Aid</li>
+    </ul>
+</div>
+                <!-- / #topic_path_sp -->
+
+                <div id="sub">
+	<div id="lnav">
+		<div class="ttl_block">
+			<h2><a href="/en/admission">Admissions</a></h2>
+		</div>
+        <div class="lnav_block">
+                            <ul>
+                                            <li class="accordion_action ">
+                            <div class="accordion_action_ttl ">
+                                <a href="/en/admission/faculty">Undergraduate Admissions</a>
+                                                                                                            <span class="open"></span>
+                                                                                                </div>
+
+                                                            <div class="accordion_action_list">
+                                                                            <a class="" href="/en/admission/faculty/foreign">Enrolling in Undergraduate School </a>
+                                                                            <a class="" href="/en/admission/faculty/disabilities">Applicants with Disabilities</a>
+                                                                    </div>
+                            
+                        </li>
+                                            <li class="accordion_action ">
+                            <div class="accordion_action_ttl ">
+                                <a href="/en/admission/entrance">Graduate Admissions</a>
+                                                                                                            <span class="open"></span>
+                                                                                                </div>
+
+                                                            <div class="accordion_action_list">
+                                                                            <a class="" href="/en/admission/entrance/jizensodan">Applicants with Disabilities</a>
+                                                                    </div>
+                            
+                        </li>
+                                            <li class="accordion_action current">
+                            <div class="accordion_action_ttl ">
+                                <a href="/en/admission/fees">Tuition, Fees, &amp; Scholarships</a>
+                                                                                                            <span class="close"></span>
+                                                                                                </div>
+
+                                                            <div class="accordion_action_list">
+                                                                            <a class="" href="/en/admission/fees/expenses">Tuition and Fees</a>
+                                                                            <a class="" href="/en/admission/fees/scholarship">Scholarships</a>
+                                                                            <a class="" href="/en/admission/fees/payment">Payment of tuition</a>
+                                                                            <a class="" href="/en/admission/fees/exempt02">Tuition Fee Exemption, Enrollment Fee Exemption/Deferment</a>
+                                                                            <a class="current" href="/en/admission/fees/support">Financial Aid</a>
+                                                                    </div>
+                            
+                        </li>
+                                            <li class="accordion_action ">
+                            <div class="accordion_action_ttl nobtn">
+                                <a href="/en/admission/double">Double Degree Programs</a>
+                                                            </div>
+
+                            
+                        </li>
+                                            <li class="accordion_action ">
+                            <div class="accordion_action_ttl nobtn">
+                                <a href="/en/admission/jointdegree">Joint Degree Programs</a>
+                                                            </div>
+
+                            
+                        </li>
+                                            <li class="accordion_action ">
+                            <div class="accordion_action_ttl nobtn">
+                                <a href="/en/admission/exchange">Student Exchange Programs</a>
+                                                            </div>
+
+                            
+                        </li>
+                                    </ul>
+                    </div>
+    </div>
+</div>
+                <!-- /#sub -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#contents -->
+
+    </div>
+    <!-- /.cms-page -->
+
+        <a href="#header">
+            <div id="btn_pagetop"></div>
+        </a><!-- btn_pagetop -->
+
+        <footer role="contentinfo" id="footer" class="common_style en">
+            <div class="container">
+                <div class="head">
+                    <h2><a href="/en"><img src="/img/header_common/logo_footer.png" alt="九州大学 Kyushu University"></a></h2>
+                    <p><span>九州大学</span>Kyushu University<br>744 Motooka Nishi-ku Fukuoka 819-0395</p>
+                    <p class="links"><a href="/en/contact/">Contact Us</a> | <a href="/en/campus/">Visit</a></p>
+                    <ul>
+                        <li><a href="https://www.facebook.com/KyushuUniv.en/" target="_blank"><img src="/img/header_common/icon_facebook.png" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com/KyushuUniv_EN" target=" _blank"><img src="/img/header_common/icon_twitter.png" alt="X"></a></li>
+                        <li><a href="https://www.youtube.com/user/KyushuUniv" target="_blank"><img src="/img/header_common/icon_youtube.png" alt="YOUTUBE"></a></li>
+                        <li><a href="https://www.instagram.com/kyushuuniversity/" target="_blank"><img src="/img/header_common/icon_instagram.png" alt="instagram"></a></li>
+                        <li><a href="https://www.linkedin.com/school/kyushuuniversity/" target="_blank"><img src="/img/header_common/icon_linkdIn.png" alt="LinkdIn"></a></li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <ul>
+                        <li><a href="https://jrecin.jst.go.jp/seek/SeekTop?ln=1">Career</a></li>
+                        <li><a href="/en/faculty">Academics</a></li>
+                        <li><a href="/en/website/sitepolicy">Disclaimer &amp; Copyright</a></li>
+                        <li><a href="/en/admission">Admissions</a></li>
+                        <li><a href="/en/news">News</a></li>
+                        <li><a href="/en/website/privacypolicy">Privacy Policy</a></li>
+                        <li><a href="/en/research/">Research</a></li>
+                        <li><a href="/en/events">Events</a></li>
+                        <li><a href="/en/website/sitemap">Sitemap</a></li>
+                        <li><a href="/en/education">Campus Life</a></li>
+                        <li><a href="/en/university">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot">
+                <p>COPYRIGHT &copy; KYUSHU UNIVERSITY. <br class="u-device-sp">ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+        <!-- / footer -->
+    </div>
+    <!-- /#wrapper -->
+
+    
+	<script type="text/javascript" src="/js/jquery-1.11.2.min.js?1758015473"></script>
+	<script type="text/javascript" src="/js/baser.min.js?1758015473"></script>
+	<script type="text/javascript" src="/js/jquery.cookie.js?1758015473"></script>
+	<script type="text/javascript" src="/js/script_common.js?1758015473"></script>
+	<script type="text/javascript" src="/js/add_class_by_filetype.js?1758015473"></script>
+	<script type="text/javascript" src="/js/header_common.js?1758015473"></script>
+	<script type="text/javascript" src="/js/common_renew.js?1758015473"></script>
+	<script type="text/javascript" src="/js/sidemenu_renew.js?1758015473"></script>
+	<script type="text/javascript" src="/js/jquery-ui-1.11.4.min.js?1758015473"></script>
+	<script type="text/javascript" src="/js/datepicker/i18n/jquery.ui.datepicker-ja.js?1758015473"></script>
+	<script type="text/javascript" src="/js/events_forms_2.js?1758015473"></script>
+	<script type="text/javascript" src="/js/datepicker_2.js?1758015473"></script>
+    <script type="text/javascript">
+        var baseUrl = '/';
+    </script>
+    
+<script type="text/javascript">
+//<![CDATA[
+var CONTENTS_DESIGNER = {};CONTENTS_DESIGNER.global = {};CONTENTS_DESIGNER.global.parentUrl = '/';CONTENTS_DESIGNER.global.baseUrl = '/contents_designer/';CONTENTS_DESIGNER.global.imgUrl = '/contents_designer/img/';CONTENTS_DESIGNER.global.cssUrl = '/contents_designer/css/';CONTENTS_DESIGNER.global.jsUrl = '/contents_designer/js/';CONTENTS_DESIGNER.global.content = {};CONTENTS_DESIGNER.global.content.is_smartphone_flg = false;
+//]]>
+</script>
+<script type="text/javascript" src="/contents_designer/js/init_wrapper.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/jquery.lightbox-0.5.min.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/init_zoom.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/init_table.js?1758015468"></script>
+<script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="/contents_designer/js/jquery.ui.core.min.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/jquery.ui.widget.min.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/jquery.ui.map.min.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/init_gmaps.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/init_youtube.js?1758015468"></script>
+<script type="text/javascript" src="/contents_designer/js/ready_view_content.js?1758015468"></script>
+</body>
+
+</html>
