@@ -177,6 +177,11 @@ export default async function CountryPage({ params }: PageProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/scholarships/global" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
+                  <Globe2 className="h-4 w-4" /> Global &amp; multi-country programmes
+                </Link>
+              </li>
+              <li>
                 <Link href="/resources" className="flex items-center gap-2 text-muted-foreground hover:text-primary">
                   <Globe2 className="h-4 w-4" /> Application resources
                 </Link>

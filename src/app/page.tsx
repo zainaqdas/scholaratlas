@@ -41,9 +41,9 @@ const FLOAT_CARDS = [
 ];
 
 const getHomeData = cachedData(
-  ["homepage-data-v2"],
+  ["homepage-data-v3"],
   async () => {
-    const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows] =
+    const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows, globalCount] =
       await Promise.all([
       prisma.scholarship.count({ where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } }),
       prisma.scholarship.findMany({
@@ -84,6 +84,9 @@ const getHomeData = cachedData(
         by: ["countryCode"],
         where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
         _count: { _all: true },
+      }),
+      prisma.scholarship.count({
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", countryCode: null },
       }),
     ]);
 
@@ -126,6 +129,7 @@ const getHomeData = cachedData(
       activeDeadlines,
       countryStats,
       countryCount,
+      globalCount,
     };
   },
   HOMEPAGE_TTL
@@ -356,6 +360,18 @@ export default async function HomePage() {
         action={{ href: "/countries", label: "All countries" }}
       >
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {data.globalCount > 0 && (
+            <Link
+              href="/scholarships/global"
+              className="lift flex items-center gap-3 rounded-2xl border bg-card p-4"
+            >
+              <span className="text-2xl" aria-hidden="true">🪐</span>
+              <div className="min-w-0">
+                <p className="truncate font-semibold">Global &amp; Multi-Country</p>
+                <p className="text-xs text-muted-foreground">{data.globalCount} scholarships</p>
+              </div>
+            </Link>
+          )}
           {Object.entries(data.countryStats).map(([code, count]) => (
             <Link
               key={code}
