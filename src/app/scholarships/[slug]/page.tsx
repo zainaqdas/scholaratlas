@@ -23,6 +23,9 @@ import {
   Wallet,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { fieldGroupBySlug } from "@/lib/constants";
+import { fieldGroupCategory } from "@/lib/categories";
+import { CategoryPage } from "@/components/category-page";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -71,6 +74,25 @@ async function getScholarship(slug: string) {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  // Broad field categories (umbrella groups) get their own SEO landing pages,
+  // e.g. /scholarships/medicine-health — checked before the scholarship lookup
+  // (no scholarship slug collides with a group slug, verified against the DB).
+  const group = fieldGroupBySlug(slug);
+  if (group) {
+    return {
+      title: `${group.name} Scholarships`,
+      description: `${group.description} Discover funding for ${group.name.toLowerCase()} students from universities, governments and foundations worldwide.`,
+      alternates: { canonical: `/scholarships/${group.slug}` },
+      openGraph: {
+        type: "website",
+        title: `${group.name} Scholarships`,
+        description: group.description,
+        url: `/scholarships/${group.slug}`,
+      },
+    };
+  }
+
   const s = await getScholarship(slug);
   if (!s) return { title: "Scholarship not found" };
 
@@ -93,6 +115,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ScholarshipDetailPage({ params }: PageProps) {
   const { slug } = await params;
+
+  // Broad field category landing pages (umbrella groups).
+  const groupCategory = fieldGroupCategory(slug);
+  if (groupCategory) {
+    return <CategoryPage category={groupCategory} />;
+  }
+
   const s = await getScholarship(slug);
   if (!s) notFound();
 

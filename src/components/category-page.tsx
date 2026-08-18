@@ -8,6 +8,8 @@ import { SearchBar } from "@/components/search-bar";
 import { Badge } from "@/components/ui/badge";
 import { getCurrentUser } from "@/lib/auth";
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://scholaratlas.vercel.app";
+
 export async function CategoryPage({ category }: { category: CategoryPageDef }) {
   const [result, user] = await Promise.all([
     searchScholarships({ ...category.filters, sort: "recent" }),
@@ -98,6 +100,32 @@ export async function CategoryPage({ category }: { category: CategoryPageDef }) 
           </div>
         </section>
       </div>
+
+      {/* Structured data: breadcrumbs + collection page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: `${APP_URL}/` },
+                  { "@type": "ListItem", position: 2, name: "Scholarships", item: `${APP_URL}/scholarships` },
+                  { "@type": "ListItem", position: 3, name: category.title },
+                ],
+              },
+              {
+                "@type": "CollectionPage",
+                name: category.headline,
+                description: category.intro,
+                url: `${APP_URL}/scholarships/${category.slug}`,
+              },
+            ],
+          }),
+        }}
+      />
     </div>
   );
 }

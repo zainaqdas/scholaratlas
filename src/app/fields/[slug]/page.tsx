@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, FIELD_GROUPS, fieldBySlug, fieldGroupBySlug, fieldSlugsForFilter } from "@/lib/constants";
@@ -84,6 +85,15 @@ export default async function FieldPage({ params }: PageProps) {
           <p className="mt-1 text-muted-foreground">
             {total} matching opportunities currently listed.
           </p>
+          {isGroup && (
+            <Link
+              href={`/scholarships/${slug}`}
+              className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+            >
+              View all {field.name.toLowerCase()} scholarships
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          )}
         </div>
       </div>
 

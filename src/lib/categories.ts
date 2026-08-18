@@ -1,5 +1,6 @@
 // SEO category landing pages under /scholarships/[category].
 import type { SearchFilters } from "./search";
+import { FIELD_GROUPS, fieldGroupBySlug, fieldName } from "./constants";
 
 export interface CategoryPageDef {
   slug: string;
@@ -119,3 +120,49 @@ export const CATEGORY_PAGES: CategoryPageDef[] = [
 ];
 
 export const categoryBySlug = (slug: string) => CATEGORY_PAGES.find((c) => c.slug === slug);
+
+// Dynamic SEO landing pages for the broad field categories (umbrella groups),
+// e.g. /scholarships/medicine-health. These are data-driven: the filters map to
+// the group's field filter (which already expands to every child sub-field).
+export function fieldGroupCategory(slug: string): CategoryPageDef | null {
+  const group = fieldGroupBySlug(slug);
+  if (!group) return null;
+
+  const others = FIELD_GROUPS.filter((g) => g.slug !== slug);
+  const subNames = group.children.map(fieldName);
+  const subSummary =
+    subNames.length > 4
+      ? `${subNames.slice(0, 4).join(", ")} and more`
+      : subNames.join(", ");
+
+  return {
+    slug: group.slug,
+    title: `${group.name} Scholarships`,
+    headline: `${group.name} Scholarships`,
+    intro: `${group.description} Browse ${group.name.toLowerCase()} opportunities from universities, governments and foundations around the world, then narrow by sub-field, study level, funding and destination.`,
+    filters: { field: group.slug },
+    faqs: [
+      {
+        q: `Which fields are included in ${group.name}?`,
+        a: `${group.name} is an umbrella category covering ${subSummary}. Scholarships tagged with any of these sub-fields — plus open-to-all opportunities — appear on this page.`,
+      },
+      {
+        q: `Can I see only one sub-field of ${group.name}?`,
+        a: "Yes — open the specific sub-field page from Related Categories below, or use the Field of Study filter on the search page and pick the exact sub-field.",
+      },
+      {
+        q: "Are these scholarships for a specific study level?",
+        a: "No — the category includes undergraduate, master's, PhD and other levels. Use the study level filter on the search page to narrow down.",
+      },
+      {
+        q: "How do I know if I'm eligible?",
+        a: "Eligibility varies by scholarship. Always check the eligible nationalities and requirements on the official provider website before applying.",
+      },
+    ],
+    related: [
+      { label: `All ${group.name} sub-fields`, href: `/fields/${group.slug}` },
+      ...others.map((g) => ({ label: `${g.name} Scholarships`, href: `/scholarships/${g.slug}` })),
+      { label: "All Fields of Study", href: "/fields" },
+    ],
+  };
+}
