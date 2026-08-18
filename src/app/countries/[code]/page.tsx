@@ -29,10 +29,13 @@ export default async function CountryPage({ params }: PageProps) {
   const country = countryByCode(code);
   if (!country) notFound();
 
+  // A country page shows records hosted there — either by single countryCode or
+  // by appearing in a multi-country programme's hostCountries list (SEARCA has
+  // a Philippine partner university, so it belongs on /countries/ph too).
   const scholarshipWhere: Prisma.ScholarshipWhereInput = {
     status: "ACTIVE",
     recordType: "SCHOLARSHIP",
-    countryCode: country.code,
+    OR: [{ countryCode: country.code }, { hostCountries: { contains: `"${country.code}"` } }],
   };
   const [scholarships, total, universities, user] = await Promise.all([
     prisma.scholarship.findMany({

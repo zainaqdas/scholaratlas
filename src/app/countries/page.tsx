@@ -11,21 +11,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/countries" },
 };
 
-// Heavy read: three aggregate scans over the ACTIVE scholarship table per view.
-// Counts only change on the weekly re-crawl, so they're cached across requests.
+// Heavy read: the ACTIVE scholarship table (code + host list + funding) is
+// scanned per view and tallied in JS, because a record can belong to several
+// countries via hostCountries (e.g. SEARCA → ID/MY/TH/PH). Counts only change
+// on the weekly re-crawl, so they're cached across requests.
 const getCountryCounts = cachedData(
-  ["country-counts-v3"],
+  ["country-counts-v4"],
   async () => {
-    const [rows, fullyFunded, unis, globalCount, globalFF] = await Promise.all([
-      prisma.scholarship.groupBy({
-        by: ["countryCode"],
-        where: { status: "ACTIVE" },
-        _count: { _all: true },
-      }),
-      prisma.scholarship.groupBy({
-        by: ["countryCode"],
-        where: { status: "ACTIVE", fundingType: { in: ["FULLY_FUNDED", "FULLY_FUNDED_STIPEND"] } },
-        _count: { _all: true },
+    const [scholarships, unis, globalCount, globalFF] = await Promise.all([
+      prisma.scholarship.findMany({
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+        select: { countryCode: true, hostCountries: true, fundingType: true },
       }),
       prisma.university.groupBy({
         by: ["countryCode"],
@@ -40,10 +36,28 @@ const getCountryCounts = cachedData(
         },
       }),
     ]);
+
+    const counts = new Map<string, number>();
+    const ffCounts = new Map<string, number>();
+    for (const s of scholarships) {
+      const codes = new Set<string>();
+      if (s.countryCode) codes.add(s.countryCode);
+      try {
+        for (const c of JSON.parse(s.hostCountries) as string[]) codes.add(c);
+      } catch {
+        // malformed JSON — ignore, countryCode still counted
+      }
+      const ff = s.fundingType === "FULLY_FUNDED" || s.fundingType === "FULLY_FUNDED_STIPEND";
+      for (const code of codes) {
+        counts.set(code, (counts.get(code) ?? 0) + 1);
+        if (ff) ffCounts.set(code, (ffCounts.get(code) ?? 0) + 1);
+      }
+    }
+
     return {
-      counts: rows.map((r) => [r.countryCode, r._count._all] as const),
-      ffCounts: fullyFunded.map((r) => [r.countryCode, r._count._all] as const),
-      uniCounts: unis.map((r) => [r.countryCode, r._count._all] as const),
+      counts,
+      ffCounts,
+      uniCounts: new Map(unis.map((r) => [r.countryCode, r._count._all] as const)),
       globalCount,
       globalFF,
     };
@@ -52,11 +66,7 @@ const getCountryCounts = cachedData(
 );
 
 export default async function CountriesPage() {
-  const { counts: countRows, ffCounts: ffRows, uniCounts: uniRows, globalCount, globalFF } =
-    await getCountryCounts();
-  const counts = new Map(countRows);
-  const ffCounts = new Map(ffRows);
-  const uniCounts = new Map(uniRows);
+  const { counts, ffCounts, uniCounts, globalCount, globalFF } = await getCountryCounts();
 
   const countries = COUNTRIES.filter((c) => counts.has(c.code) || uniCounts.has(c.code))
     .map((c) => ({

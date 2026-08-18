@@ -41,9 +41,9 @@ const FLOAT_CARDS = [
 ];
 
 const getHomeData = cachedData(
-  ["homepage-data-v5"],
+  ["homepage-data-v6"],
   async () => {
-    const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows, globalCount] =
+    const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, allCountryRows] =
       await Promise.all([
       prisma.scholarship.count({ where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } }),
       prisma.scholarship.findMany({
@@ -73,20 +73,12 @@ const getHomeData = cachedData(
       prisma.scholarship.count({
         where: { status: "ACTIVE", recordType: "SCHOLARSHIP", deadline: { gte: new Date() } },
       }),
-      prisma.scholarship.groupBy({
-        by: ["countryCode"],
+      // countryCode + host list for every ACTIVE scholarship — a record can
+      // belong to several countries via hostCountries (SEARCA → ID/MY/TH/PH),
+      // so the top-country grid and the distinct-country count are tallied in JS.
+      prisma.scholarship.findMany({
         where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
-        _count: { _all: true },
-        orderBy: { _count: { countryCode: "desc" } },
-        take: 8,
-      }),
-      prisma.scholarship.groupBy({
-        by: ["countryCode"],
-        where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
-        _count: { _all: true },
-      }),
-      prisma.scholarship.count({
-        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", countryCode: null },
+        select: { countryCode: true, hostCountries: true },
       }),
     ]);
 
@@ -128,12 +120,31 @@ const getHomeData = cachedData(
             take: 6,
           });
 
-    const countryStats: Record<string, number> = {};
-    for (const c of topCountries) {
-      if (c.countryCode) countryStats[c.countryCode] = c._count._all;
+    // Tallies include hostCountries: a multi-country programme counts toward
+    // every country it lists (SEARCA counts toward ID/MY/TH/PH as well as being
+    // in the Global category).
+    const countryStatsAll: Record<string, number> = {};
+    const countrySet = new Set<string>();
+    for (const s of allCountryRows) {
+      const codes = new Set<string>();
+      if (s.countryCode) codes.add(s.countryCode);
+      try {
+        for (const c of JSON.parse(s.hostCountries) as string[]) codes.add(c);
+      } catch {
+        // ignore malformed JSON
+      }
+      for (const code of codes) {
+        countrySet.add(code);
+        countryStatsAll[code] = (countryStatsAll[code] ?? 0) + 1;
+      }
     }
+    const countryStats: Record<string, number> = Object.fromEntries(
+      Object.entries(countryStatsAll).sort((a, b) => b[1] - a[1]).slice(0, 8)
+    );
     // Distinct destination countries with at least one active scholarship
-    const countryCount = allCountryRows.filter((r) => r.countryCode).length;
+    const countryCount = countrySet.size;
+    // Multi-country programmes with no single host country (Global category)
+    const globalCount = allCountryRows.filter((r) => !r.countryCode).length;
 
     return {
       stats,

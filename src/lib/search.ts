@@ -105,18 +105,27 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
     const codes = filters.countries.map((c) => c.toUpperCase());
     const hasGlobal = codes.includes("GLOBAL");
     const specific = codes.filter((c) => c !== "GLOBAL");
+    // Multi-country programmes (SEARCA, Erasmus Mundus, VLIR-UOS…) store their
+    // host list in hostCountries (JSON country-code array). A destination filter
+    // matches a record by its single countryCode OR by appearing in its
+    // hostCountries list. Quoted containment keeps "TH" from matching inside a
+    // longer code — codes are stored as JSON strings, so "\"PH\"" is exact.
+    const hostMatch = (code: string) => ({ hostCountries: { contains: `"${code}"` } });
     if (hasGlobal && specific.length === 0) {
       // "Global / Multiple Countries" — no single host country (Erasmus Mundus,
       // VLIR-UOS, online programmes…). Pinning one country would be wrong.
       where.countryCode = null;
     } else if (hasGlobal) {
-      // Global OR any of the selected countries
+      // Global OR any of the selected countries (incl. multi-country host lists)
       where.AND = [
         ...(Array.isArray(where.AND) ? where.AND : []),
-        { OR: [{ countryCode: null }, { countryCode: { in: specific } }] },
+        { OR: [{ countryCode: null }, { countryCode: { in: specific } }, ...specific.map(hostMatch)] },
       ];
     } else {
-      where.countryCode = { in: specific };
+      where.AND = [
+        ...(Array.isArray(where.AND) ? where.AND : []),
+        { OR: [{ countryCode: { in: specific } }, ...specific.map(hostMatch)] },
+      ];
     }
   }
 
