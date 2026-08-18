@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* Import the scholars4dev.com scholarship database (583 posts, ~530 real
  * scholarship listings) from data/s4d/scholarships.jsonl (crawled by
  * scripts/crawl-scholars4dev.py).
@@ -400,7 +401,7 @@ async function main() {
 
   const CHUNK = 50;
   for (let i = 0; i < toCreate.length; i += CHUNK) {
-    await prisma.scholarship.createMany({ data: toCreate.slice(i, i + CHUNK), skipDuplicates: true });
+    await createManySkipDuplicates(prisma.scholarship, toCreate.slice(i, i + CHUNK), CHUNK);
     console.log(`inserted ${Math.min(i + CHUNK, toCreate.length)}/${toCreate.length}`);
   }
 

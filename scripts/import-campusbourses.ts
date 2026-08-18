@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* Import the Campus Bourses (Campus France) official scholarship database
  * (380 programs) from data/campusbourses/campusbourses.jsonl (crawled by
  * scripts/crawl-campusbourses.py).
@@ -274,7 +275,7 @@ async function main() {
 
   const CHUNK = 50;
   for (let i = 0; i < toCreate.length; i += CHUNK) {
-    await prisma.scholarship.createMany({ data: toCreate.slice(i, i + CHUNK), skipDuplicates: true });
+    await createManySkipDuplicates(prisma.scholarship, toCreate.slice(i, i + CHUNK), CHUNK);
     console.log(`inserted ${Math.min(i + CHUNK, toCreate.length)}/${toCreate.length}`);
   }
 

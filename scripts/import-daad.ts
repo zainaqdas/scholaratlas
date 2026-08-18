@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* Import DAAD scholarship database (156 programs) from data/daad-details.jsonl.
  *
  * Maps DAAD detail fields to the Scholarship schema:
@@ -170,7 +171,7 @@ async function main() {
 
   const CHUNK = 50;
   for (let i = 0; i < toCreate.length; i += CHUNK) {
-    await prisma.scholarship.createMany({ data: toCreate.slice(i, i + CHUNK), skipDuplicates: true });
+    await createManySkipDuplicates(prisma.scholarship, toCreate.slice(i, i + CHUNK), CHUNK);
     console.log(`inserted ${Math.min(i + CHUNK, toCreate.length)}/${toCreate.length}`);
   }
   await prisma.$disconnect();

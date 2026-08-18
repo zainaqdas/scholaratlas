@@ -1,5 +1,6 @@
 // ScholarAtlas data model.
-// Database: PostgreSQL (serverless — e.g. Neon on Vercel).
+// Database: SQLite via libSQL (Turso) — charges by rows-read instead of egress,
+// so the 5 GB/month transfer wall that suspended Neon can't happen here.
 // NOTE: enum-like fields are Strings backed by TypeScript constants in
 // src/lib/constants.ts.
 
@@ -8,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 

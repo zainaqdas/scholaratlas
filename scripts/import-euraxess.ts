@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // EURAXESS RSS importer.
@@ -252,11 +253,7 @@ async function main() {
 
   let inserted = 0;
   if (finalData.length) {
-    const result = await prisma.scholarship.createMany({
-      data: finalData as never[],
-      skipDuplicates: true,
-    });
-    inserted = result.count;
+    inserted = await createManySkipDuplicates(prisma.scholarship, finalData);
   }
 
   console.log(`New: ${toInsert.length} | Skipped (already imported): ${skipped} | Inserted: ${inserted}`);

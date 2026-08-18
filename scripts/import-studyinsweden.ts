@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* Import the official Study in Sweden scholarship database (60 scholarships)
  * from data/studyinsweden/scholarships.jsonl (extracted from the site's
  * embedded Next.js data — cms.studyinsweden.se is the official Swedish
@@ -139,7 +140,7 @@ async function main() {
 
   const CHUNK = 50;
   for (let i = 0; i < toCreate.length; i += CHUNK) {
-    await prisma.scholarship.createMany({ data: toCreate.slice(i, i + CHUNK), skipDuplicates: true });
+    await createManySkipDuplicates(prisma.scholarship, toCreate.slice(i, i + CHUNK), CHUNK);
     console.log(`inserted ${Math.min(i + CHUNK, toCreate.length)}/${toCreate.length}`);
   }
 

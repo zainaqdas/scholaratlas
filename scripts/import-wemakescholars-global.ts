@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // wemakescholars.com US/UK/EU scholarship importer.
@@ -295,8 +296,9 @@ async function main() {
 
   let inserted = 0;
   if (records.length) {
-    const result = await prisma.scholarship.createMany({
-      data: records.map((r) => ({
+    inserted = await createManySkipDuplicates(
+      prisma.scholarship,
+      records.map((r) => ({
         title: r.title,
         slug: r.slug,
         description: r.description,
@@ -314,10 +316,8 @@ async function main() {
         verificationStatus: "UNVERIFIED",
         recordType: "SCHOLARSHIP",
         submittedNote: `Imported from wemakescholars.com on ${new Date().toISOString().slice(0, 10)}`,
-      })),
-      skipDuplicates: true,
-    });
-    inserted = result.count;
+      }))
+    );
   }
   console.log(`Inserted: ${inserted}`);
 }

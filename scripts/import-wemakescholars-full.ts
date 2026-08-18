@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // wemakescholars.com FULL catalogue importer.
@@ -363,8 +364,9 @@ async function main() {
   let inserted = 0;
   for (let i = 0; i < toInsert.length; i += 500) {
     const chunk = toInsert.slice(i, i + 500);
-    const result = await prisma.scholarship.createMany({
-      data: chunk.map((r) => ({
+    const chunkInserted = await createManySkipDuplicates(
+      prisma.scholarship,
+      chunk.map((r) => ({
         title: r.title,
         slug: r.slug,
         description: r.description,
@@ -382,11 +384,10 @@ async function main() {
         verificationStatus: "UNVERIFIED",
         recordType: "SCHOLARSHIP",
         submittedNote: `Imported from wemakescholars.com global catalogue on ${new Date().toISOString().slice(0, 10)}`,
-      })),
-      skipDuplicates: true,
-    });
-    inserted += result.count;
-    console.log(`  inserted chunk ${i / 500 + 1}: ${result.count} (total ${inserted})`);
+      }))
+    );
+    inserted += chunkInserted;
+    console.log(`  inserted chunk ${i / 500 + 1}: ${chunkInserted} (total ${inserted})`);
   }
   console.log(`Inserted: ${inserted}`);
 }
@@ -421,8 +422,9 @@ async function insertOnly() {
   let inserted = 0;
   for (let i = 0; i < toInsert.length; i += 500) {
     const chunk = toInsert.slice(i, i + 500);
-    const result = await prisma.scholarship.createMany({
-      data: chunk.map((r) => ({
+    const chunkInserted = await createManySkipDuplicates(
+      prisma.scholarship,
+      chunk.map((r) => ({
         title: r.title,
         slug: r.slug,
         description: r.description,
@@ -440,11 +442,10 @@ async function insertOnly() {
         verificationStatus: "UNVERIFIED",
         recordType: "SCHOLARSHIP",
         submittedNote: `Imported from wemakescholars.com global catalogue on ${new Date().toISOString().slice(0, 10)}`,
-      })),
-      skipDuplicates: true,
-    });
-    inserted += result.count;
-    console.log(`  inserted chunk ${i / 500 + 1}: ${result.count} (total ${inserted})`);
+      }))
+    );
+    inserted += chunkInserted;
+    console.log(`  inserted chunk ${i / 500 + 1}: ${chunkInserted} (total ${inserted})`);
   }
   console.log(`Inserted: ${inserted}`);
 }

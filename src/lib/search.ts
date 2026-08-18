@@ -76,12 +76,12 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
 
   if (filters.q?.trim()) {
     const q = filters.q.trim();
-    // mode: insensitive — PostgreSQL LIKE is case-sensitive and users type
-    // lowercase; "gynecology" must match "Gynecology — Shandong University".
+    // SQLite LIKE is case-insensitive for ASCII by default, so lowercase
+    // "gynecology" matches "Gynecology — Shandong University" without a mode flag.
     where.OR = [
-      { title: { contains: q, mode: "insensitive" } },
-      { description: { contains: q, mode: "insensitive" } },
-      { provider: { contains: q, mode: "insensitive" } },
+      { title: { contains: q } },
+      { description: { contains: q } },
+      { provider: { contains: q } },
     ];
   }
 
@@ -258,8 +258,8 @@ export async function searchSuggestions(q: string, limit = 5) {
         status: "ACTIVE",
         recordType: "SCHOLARSHIP", // never suggest JOB listings (EURAXESS positions)
         OR: [
-          { title: { contains: query, mode: "insensitive" } },
-          { provider: { contains: query, mode: "insensitive" } },
+          { title: { contains: query } },
+          { provider: { contains: query } },
         ],
       },
       include: { country: true },
@@ -267,19 +267,19 @@ export async function searchSuggestions(q: string, limit = 5) {
       orderBy: { views: "desc" },
     }),
     prisma.university.findMany({
-      where: { name: { contains: query, mode: "insensitive" } },
+      where: { name: { contains: query } },
       include: { country: true },
       take: limit,
     }),
     prisma.country.findMany({
-      where: { name: { contains: query, mode: "insensitive" } },
+      where: { name: { contains: query } },
       take: limit,
     }),
     prisma.article.findMany({
       where: {
         OR: [
-          { title: { contains: query, mode: "insensitive" } },
-          { category: { contains: query, mode: "insensitive" } },
+          { title: { contains: query } },
+          { category: { contains: query } },
         ],
       },
       take: limit,

@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // CUCAS China Scholarship importer.
@@ -317,8 +318,7 @@ async function main() {
 
   let uniCreated = 0;
   if (newUnis.length && !DRY_RUN) {
-    await prisma.university.createMany({ data: newUnis, skipDuplicates: true });
-    uniCreated = newUnis.length;
+    uniCreated = await createManySkipDuplicates(prisma.university, newUnis);
     const created = await prisma.university.findMany({ where: { slug: { in: newUnis.map((u) => u.slug) } } });
     for (const u of created) uniIdByName.set(u.name, u.id);
   }
@@ -413,8 +413,7 @@ async function main() {
 
   let inserted = 0;
   if (final.length) {
-    const result = await prisma.scholarship.createMany({ data: final as never[], skipDuplicates: true });
-    inserted = result.count;
+    inserted = await createManySkipDuplicates(prisma.scholarship, final);
   }
 
   console.log(`Inserted: ${inserted} | Skipped (already imported): ${toInsert.length - inserted}`);

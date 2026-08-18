@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // chinesescholarshipcouncil.com importer — per-university CSC scholarship pages.
@@ -231,8 +232,9 @@ async function main() {
 
   let inserted = 0;
   if (fresh.length) {
-    const result = await prisma.scholarship.createMany({
-      data: fresh.map((r) => ({
+    inserted = await createManySkipDuplicates(
+      prisma.scholarship,
+      fresh.map((r) => ({
         title: r.title,
         slug: r.slug,
         description: r.description,
@@ -251,10 +253,8 @@ async function main() {
         verificationStatus: "UNVERIFIED",
         recordType: "SCHOLARSHIP",
         submittedNote: `Imported from chinesescholarshipcouncil.com (third-party, unverified) on ${new Date().toISOString().slice(0, 10)}`,
-      })),
-      skipDuplicates: true,
-    });
-    inserted = result.count;
+      }))
+    );
   }
   console.log(`New: ${fresh.length} | Already imported: ${records.length - fresh.length} | Inserted: ${inserted}`);
 }

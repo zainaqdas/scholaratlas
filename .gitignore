@@ -27,6 +27,10 @@
 /data/wms-levels-backfill.jsonl
 /data/pts-programs.json
 /data/pts-details.jsonl
+
+# Turso migration dump (transient — regenerate with scripts/migrate-dump.ts)
+/data/migration/
+
 __pycache__/
 /build
 

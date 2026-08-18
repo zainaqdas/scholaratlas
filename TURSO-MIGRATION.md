@@ -1,6 +1,8 @@
 # Turso Migration Plan — Permanent Free Fix for the Egress Wall
 
-> Status: **PLANNED** (2026-08-18). Not yet executed.
+> Status: **IN PROGRESS** (2026-08-18). Code changes done + verified locally
+> against a SQLite file DB; dump of the live Neon catalogue captured; awaiting
+> Turso credentials to create the target database and load the data.
 > Goal: move the catalogue off Neon's 5 GB/month public-network-transfer ceiling
 > onto Turso's **rows-read** model, which at our scale is effectively unlimited.
 
@@ -169,3 +171,42 @@ transfer-cap reset; the current account is already past that point.)
    - an auth token (`npx turso db tokens create scholaratlas`)
 
 I'll handle everything else (code, dump, load, verify, deploy steps).
+
+---
+
+## 8. Progress log
+
+### 2026-08-18 — code changes complete + locally verified
+
+- **Schema**: `prisma/schema.prisma` datasource provider → `sqlite` (no model
+  changes — no JSON columns, no `@db.` annotations, no enums).
+- **Runtime**: `src/lib/prisma.ts` now constructs `new PrismaLibSQL({ url:
+  DATABASE_URL, authToken: TURSO_AUTH_TOKEN })` — note the adapter takes a
+  libSQL **config object**, not a client (the v6 adapter creates its own
+  client). `@prisma/adapter-libsql@6.19.3` + `@libsql/client` added; the
+  adapter version must match the Prisma major (7.x adapter + 6.x client
+  breaks).
+- **Search**: dropped all 9 `mode: "insensitive"` flags in `src/lib/search.ts`
+  — SQLite `LIKE` is case-insensitive for ASCII by default, verified
+  lowercase "gynecology" and uppercase "ONCOLOGY" both hit the right records.
+- **Importers**: `skipDuplicates: true` (Postgres-only) existed in 15 spots
+  across 12 scripts — replaced with a shared `scripts/lib/insert-many.ts`
+  helper (`createManySkipDuplicates`) that batches inserts and falls back to
+  row-by-row on a unique-constraint error, so the weekly re-crawl keeps
+  working on SQLite. All importers pre-filter by unique key, so this is
+  behavior-preserving.
+- **Dump**: `scripts/migrate-dump.ts` (raw `pg` — the generated client is
+  SQLite-flavored now) captured the live Neon catalogue: **90 countries,
+  1,746 universities, 25,261 scholarships** (8,826 ACTIVE / 16,152 EXPIRED /
+  20 jobs / 263 PENDING) → `data/migration/*.jsonl` (gitignored, 51 MB).
+- **Load**: `scripts/migrate-load.ts` inserted the dump into a local SQLite
+  file DB preserving ids/timestamps — counts match the dump exactly. Full
+  local smoke test: all 11 pages (home, /scholarships + q=oncology +
+  country/level/funding filters, /fields, /countries, /universities,
+  /deadlines, /resources, /about, sitemap) return **200**.
+- **Build**: `next build` passes with the SQLite provider.
+- **Remaining**: (1) user creates the Turso database + pastes URL/token;
+  (2) push schema + load; (3) verify counts against Neon; (4) update Vercel
+  env (`DATABASE_URL` → libsql URL, add `TURSO_AUTH_TOKEN`); (5) deploy +
+  verify live; (6) add `TURSO_AUTH_TOKEN` secret to the re-crawl GitHub
+  Action (its `DATABASE_URL` secret becomes the libsql URL).

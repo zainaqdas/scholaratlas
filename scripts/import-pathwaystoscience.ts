@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // pathwaystoscience.org importer — US STEM research/fellowship opportunities.
@@ -333,8 +334,9 @@ async function insertRecords() {
   let inserted = 0;
   for (let i = 0; i < toInsert.length; i += 400) {
     const chunk = toInsert.slice(i, i + 400);
-    const result = await prisma.scholarship.createMany({
-      data: chunk.map((r) => ({
+    const chunkInserted = await createManySkipDuplicates(
+      prisma.scholarship,
+      chunk.map((r) => ({
         title: r.title,
         slug: uniqueSlug(r.title, r.sort),
         description: r.description,
@@ -350,11 +352,10 @@ async function insertRecords() {
         verificationStatus: "UNVERIFIED",
         recordType: "SCHOLARSHIP",
         submittedNote: `Imported from pathwaystoscience.org on ${new Date().toISOString().slice(0, 10)}`,
-      })),
-      skipDuplicates: true,
-    });
-    inserted += result.count;
-    console.log(`  inserted chunk ${i / 400 + 1}: ${result.count} (total ${inserted})`);
+      }))
+    );
+    inserted += chunkInserted;
+    console.log(`  inserted chunk ${i / 400 + 1}: ${chunkInserted} (total ${inserted})`);
   }
   console.log(`Inserted: ${inserted}`);
 }

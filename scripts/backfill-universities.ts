@@ -1,3 +1,4 @@
+import { createManySkipDuplicates } from "./lib/insert-many";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Create University records from scholarship providers and link scholarships.
@@ -148,8 +149,7 @@ async function main() {
     const validCodes = new Set(countries.map((c) => c.code));
     const valid = data.filter((d) => validCodes.has(d.countryCode));
     console.log(`Valid country codes: ${valid.length}/${data.length}`);
-    await prisma.university.createMany({ data: valid, skipDuplicates: true });
-    uniCreated = valid.length;
+    uniCreated = await createManySkipDuplicates(prisma.university, valid);
     const created = await prisma.university.findMany({ where: { slug: { in: valid.map((u) => u.slug) } } });
     for (const u of created) {
       const key = norm(u.name);
