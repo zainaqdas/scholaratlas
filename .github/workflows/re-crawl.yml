@@ -10,7 +10,9 @@ name: Scholarship data re-crawl
 # and several hours. Run them manually when a deep refresh is wanted
 # (see README "Importing real data").
 #
-# Required repository secret: DATABASE_URL (Neon/Postgres connection string).
+# Required repository secrets:
+#   - DATABASE_URL      Turso libsql:// URL (e.g. libsql://<db>-<org>.turso.io)
+#   - TURSO_AUTH_TOKEN  Turso token (npx turso db tokens create <db-name>)
 
 on:
   schedule:
@@ -28,6 +30,7 @@ jobs:
     timeout-minutes: 45
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 

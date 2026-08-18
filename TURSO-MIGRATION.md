@@ -1,8 +1,9 @@
 # Turso Migration Plan — Permanent Free Fix for the Egress Wall
 
-> Status: **IN PROGRESS** (2026-08-18). Code changes done + verified locally
-> against a SQLite file DB; dump of the live Neon catalogue captured; awaiting
-> Turso credentials to create the target database and load the data.
+> Status: **DATA LOADED + VERIFIED** (2026-08-18). The full catalogue is live in
+> Turso (`libsql://sholaratlas-zainu786110.aws-ap-south-1.turso.io`) with counts
+> matching the Neon dump exactly; all pages verified 200 against Turso locally.
+> Remaining: update Vercel env vars + push + verify live.
 > Goal: move the catalogue off Neon's 5 GB/month public-network-transfer ceiling
 > onto Turso's **rows-read** model, which at our scale is effectively unlimited.
 
@@ -205,8 +206,26 @@ I'll handle everything else (code, dump, load, verify, deploy steps).
   country/level/funding filters, /fields, /countries, /universities,
   /deadlines, /resources, /about, sitemap) return **200**.
 - **Build**: `next build` passes with the SQLite provider.
-- **Remaining**: (1) user creates the Turso database + pastes URL/token;
-  (2) push schema + load; (3) verify counts against Neon; (4) update Vercel
-  env (`DATABASE_URL` → libsql URL, add `TURSO_AUTH_TOKEN`); (5) deploy +
-  verify live; (6) add `TURSO_AUTH_TOKEN` secret to the re-crawl GitHub
-  Action (its `DATABASE_URL` secret becomes the libsql URL).
+- **Turso DB created** by user (`sholaratlas-zainu786110`, aws-ap-south-1).
+- **Schema pushed** — Prisma CLI can't push to a remote `libsql://` URL
+  (SQLite provider requires `file:`), so the DDL was extracted from the local
+  schema-pushed dev.db (`sqlite_master`) and applied to Turso directly: all
+  8 tables + 15 indexes.
+- **Data loaded** — first attempt (per-row `create` over HTTP) managed only
+  4,757 scholarships in 10 min; rewrote `migrate-load.ts` to use batched
+  `createManySkipDuplicates` (250/batch) → full load in ~5 min. Fixed the
+  helper's violation detection: the libSQL adapter reports unique-constraint
+  failures as `SQLITE_CONSTRAINT`/"UNIQUE constraint failed" messages, not
+  Prisma `P2002`.
+- **Verified against Turso**: 90 countries, 1,746 universities, 25,261
+  scholarships (8,826 ACTIVE / 16,152 EXPIRED / 283 PENDING incl. 20 jobs) —
+  counts match the Neon dump exactly; dates/JSON fields round-trip correctly.
+  Local smoke test against Turso: all 10 pages 200, oncology search hits,
+  scholarship detail (International Ambassador — West London) renders real
+  title, university detail 200, /fields/medicine-health + /scholarships/
+  fully-funded 200.
+- **Re-crawl GitHub Action** updated to pass `TURSO_AUTH_TOKEN`; its
+  `DATABASE_URL` secret becomes the libsql URL.
+- **Remaining**: user updates Vercel env (`DATABASE_URL` → libsql URL, add
+  `TURSO_AUTH_TOKEN`), then push → deploy → verify live; keep Neon account
+  alive ~1 billing cycle as rollback.

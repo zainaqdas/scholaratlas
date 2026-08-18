@@ -11,6 +11,15 @@
 // rows that collide.
 // ---------------------------------------------------------------------------
 
+// A unique-constraint violation surfaces as Prisma P2002 on Postgres, but the
+// libSQL adapter reports it as a raw SQLite error (SQLITE_CONSTRAINT / message
+// containing "UNIQUE constraint failed"). Treat both as "skip this row".
+function isUniqueViolation(e: any): boolean {
+  if (e?.code === "P2002") return true;
+  const msg = typeof e?.message === "string" ? e.message : "";
+  return /SQLITE_CONSTRAINT|UNIQUE constraint failed/i.test(msg);
+}
+
 export async function createManySkipDuplicates(
   model: any,
   data: any[],
@@ -23,14 +32,14 @@ export async function createManySkipDuplicates(
       const res = await model.createMany({ data: chunk });
       inserted += res.count;
     } catch (e: any) {
-      if (e?.code === "P2002") {
+      if (isUniqueViolation(e)) {
         // Unique constraint hit — fall back to row-by-row, skipping colliders.
         for (const row of chunk) {
           try {
             await model.create({ data: row });
             inserted += 1;
           } catch (e2: any) {
-            if (e2?.code !== "P2002") throw e2;
+            if (!isUniqueViolation(e2)) throw e2;
           }
         }
       } else {
