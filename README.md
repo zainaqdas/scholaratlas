@@ -249,7 +249,7 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `npm run backfill:wms-levels` — backfills study levels for records the parser missed ("Post Doc", "High/Secondary School", college diplomas…), resumable checkpoint in `data/wms-levels-backfill.jsonl`
   - `npm run import:pts` — [pathwaystoscience.org](https://www.pathwaystoscience.org) importer (1,049 US STEM research programs: REUs, fellowships, summer research). Phases: `--listing-only` → `--detail-only` → `--insert-only` (all checkpointed + idempotent)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
-- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 9,226 genuinely-open scholarships (including the 156 DAAD programmes, 135 scholars4dev listings and 368 Campus Bourses grants). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
+- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 9,286 genuinely-open scholarships (including the 156 DAAD programmes, 135 scholars4dev listings, 368 Campus Bourses grants and 60 Study in Sweden listings). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
 - **Rich-field backfills (all derived from source text, never fabricated):**
   - `npm run backfill:universities` — 1,559 University rows created, 96% of scholarships linked
   - `npm run backfill:wms-benefits` — amounts/currency/benefits parsed from cached descriptions
@@ -310,6 +310,18 @@ npm run import:campusbourses                 # -> 368 records (12 without offici
 - Grants are mostly to study in France (`countryCode FR`); a small explicit override handles mobility programs (Mitacs→CA, Marietta Blau→AT, Erwin-Schrödinger→AT, BEPE→BR).
 - `montant` → amount/benefits/funding type; `dateEnd` → deadline; `pieces` → required documents; `inscriptionUrl`/`url1`/`url2` → officialUrl; the Campus Bourses program page is kept as `sourceUrl`.
 - Records are inserted PENDING then activated; kept ACTIVE even where `dateEnd` shows a past cycle date because these are annual recurring programs (e.g. Eiffel) — the site's "Closed" badge keeps staleness honest.
+
+### Study in Sweden — official database (2026-08-18)
+
+The Swedish government's official guide ([studyinsweden.se/scholarships](https://www.studyinsweden.se/scholarships/)) embeds its full scholarship database (60 records) in the page's Next.js data — no scraping needed:
+
+```bash
+npm run import:studyinsweden          # -> 60 records, countryCode SE (dry-run supported)
+```
+
+- Swedish Institute scholarships (2) + all 29 Swedish university scholarship programs (KTH, Chalmers, Lund, Uppsala, Stockholm, Karolinska, Linköping, Umeå, Luleå…) + 29 exchange/foundation grants.
+- Eligible nationalities (ISO codes) from the site's regions taxonomy; the official provider page becomes `officialUrl`; the studyinsweden listing is kept as `sourceUrl`.
+- Levels/amounts/deadlines aren't published in the guide (they vary per provider), so those stay unset honestly.
 
 ### Non-China university language backfill (2026-08-17)
 
