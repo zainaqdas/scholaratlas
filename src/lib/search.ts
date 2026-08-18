@@ -122,6 +122,14 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
           ],
         },
       ];
+    } else {
+      // Unknown field slug — match nothing so the empty state shows instead of
+      // silently returning every record (which would imply they're all in the
+      // requested field). An impossible filter is more honest than no filter.
+      where.AND = [
+        ...(Array.isArray(where.AND) ? where.AND : []),
+        { fields: { contains: "__no_such_field__" } },
+      ];
     }
   }
 
