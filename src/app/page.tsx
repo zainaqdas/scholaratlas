@@ -41,7 +41,7 @@ const FLOAT_CARDS = [
 ];
 
 const getHomeData = cachedData(
-  ["homepage-data-v4"],
+  ["homepage-data-v5"],
   async () => {
     const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows, globalCount] =
       await Promise.all([
@@ -92,15 +92,32 @@ const getHomeData = cachedData(
 
     // Featured/trending are admin-curated flags; fall back to real verified/recent
     // data when none are set so the home feed never shows an empty section.
+    // When falling back, VERIFIED records (checked against an official source)
+    // lead the Featured section — trust first — with remaining slots filled by
+    // the most-viewed records so the section never looks sparse.
     const featuredList =
       featured.length > 0
         ? featured
-        : await prisma.scholarship.findMany({
-            where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
-            include: { university: true },
-            orderBy: { lastVerifiedAt: "desc" },
-            take: 6,
-          });
+        : await (async () => {
+            const verified = await prisma.scholarship.findMany({
+              where: { status: "ACTIVE", recordType: "SCHOLARSHIP", verificationStatus: "VERIFIED" },
+              include: { university: true },
+              orderBy: [{ lastVerifiedAt: "desc" }, { views: "desc" }],
+              take: 6,
+            });
+            if (verified.length >= 6) return verified;
+            const fill = await prisma.scholarship.findMany({
+              where: {
+                status: "ACTIVE",
+                recordType: "SCHOLARSHIP",
+                verificationStatus: { not: "VERIFIED" },
+              },
+              include: { university: true },
+              orderBy: [{ views: "desc" }, { createdAt: "desc" }],
+              take: 6 - verified.length,
+            });
+            return [...verified, ...fill];
+          })();
     const trendingList =
       trending.length > 0
         ? trending
