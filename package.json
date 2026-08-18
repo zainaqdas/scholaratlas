@@ -46,6 +46,8 @@
     "backfill:wms-countries": "tsx scripts/backfill-wms-countries-university.ts",
     "backfill:wms-levels": "tsx scripts/backfill-wms-levels.ts",
     "backfill:global-countries": "tsx scripts/backfill-global-countries.ts",
+    "backfill:verification": "tsx scripts/backfill-verification.ts",
+    "approve:pending": "tsx scripts/approve-pending.ts",
     "import:pts": "tsx scripts/import-pathwaystoscience.ts",
     "fix:wms-countries": "tsx scripts/fix-wms-countries.ts",
     "import:cscouncil": "tsx scripts/import-cscouncil.ts",

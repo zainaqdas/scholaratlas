@@ -41,7 +41,7 @@ const FLOAT_CARDS = [
 ];
 
 const getHomeData = cachedData(
-  ["homepage-data-v3"],
+  ["homepage-data-v4"],
   async () => {
     const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows, globalCount] =
       await Promise.all([

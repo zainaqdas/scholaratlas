@@ -16,7 +16,7 @@ export const dynamic = "force-dynamic";
 // sitemap always advertises the domain that serves it. lastModified values are
 // ISO strings (MetadataRoute.Sitemap accepts string | Date).
 const getSitemapData = cachedData(
-  ["sitemap-rows"],
+  ["sitemap-rows-v2"],
   async () => {
     const [countryScholarships, countryUniversities, universities, scholarships] = await Promise.all([
       prisma.scholarship.groupBy({
