@@ -249,7 +249,7 @@ npm run fix:wms-countries            # re-assign countryCode from the detail pag
   - `npm run backfill:wms-levels` — backfills study levels for records the parser missed ("Post Doc", "High/Secondary School", college diplomas…), resumable checkpoint in `data/wms-levels-backfill.jsonl`
   - `npm run import:pts` — [pathwaystoscience.org](https://www.pathwaystoscience.org) importer (1,049 US STEM research programs: REUs, fellowships, summer research). Phases: `--listing-only` → `--detail-only` → `--insert-only` (all checkpointed + idempotent)
 - All demo/seed records were deleted — the catalogue is 100% sourced data.
-- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 9,306 genuinely-open scholarships (including the 156 DAAD programmes, 135 scholars4dev listings, 368 Campus Bourses grants, 60 Study in Sweden listings and 20 direct university records). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
+- **Expired handling:** wms's own "Deadline: Expired" status is now captured — 15,710 records are `EXPIRED` (kept for history, shown "Closed", excluded from open search). The visible catalogue is 9,314 genuinely-open scholarships (including the 156 DAAD programmes, 135 scholars4dev listings, 368 Campus Bourses grants, 60 Study in Sweden listings and 28 direct university records). Closed records are browsable publicly via `/scholarships?status=expired` (or `status=all` for both) — cards and detail pages show a "Closed" badge.
 - **Rich-field backfills (all derived from source text, never fabricated):**
   - `npm run backfill:universities` — 1,559 University rows created, 96% of scholarships linked
   - `npm run backfill:wms-benefits` — amounts/currency/benefits parsed from cached descriptions
@@ -325,19 +325,21 @@ npm run import:studyinsweden          # -> 60 records, countryCode SE (dry-run s
 
 ### Direct university crawl — thin-coverage countries (2026-08-18)
 
-For the destinations where aggregator coverage was thinnest (Italy, Spain, Japan, Korea, Switzerland) we crawl the **official university scholarship pages directly** instead of relying on aggregators. The crawler renders each page with Playwright (many are JS/WAF-protected) and saves the text; records are then hand-curated so amounts, deadlines, eligibility and ages reflect only what the page states:
+For the destinations where aggregator coverage was thinnest (Italy, Spain, Japan, Korea, Switzerland, then Turkey, Norway, Mexico, Brazil) we crawl the **official university scholarship pages directly** instead of relying on aggregators. The crawler renders each page with Playwright (many are JS/WAF-protected) and saves the text; records are then hand-curated so amounts, deadlines, eligibility and ages reflect only what the page states:
 
 ```bash
-python3 scripts/crawl-uni-direct.py            # -> data/uni_direct/*.txt (24 pages)
+python3 scripts/crawl-uni-direct.py            # -> data/uni_direct/*.txt (33 pages incl. TR/NO/MX/BR targets)
 npm run import:uni-direct -- --dry-run          # preview
-npm run import:uni-direct                       # -> 20 ACTIVE records
+npm run import:uni-direct                       # -> 28 ACTIVE records (20 + 8)
 ```
 
 - **Italy:** Padua (Excellence €8k/yr + fee exemption, 100 fee waivers, departmental, MAECI €900/mo, Invest Your Talent €1k/mo, Galilean School), Sapienza (Post-degree €1,290/mo, Thesis €2,821, IUPALS, Meritorious), Bologna (Unibo Action 1&2 — €11k grant / fee waiver).
 - **Japan:** UTokyo Fellowship (¥200k/mo), Kyoto iUP (full waivers + ¥120k/mo), Nagoya MEXT stipends, Waseda partial tuition waiver.
 - **Korea:** SNU GKS (₩1.2M/mo), SNU President Fellowship, GSFS. **Switzerland:** ETH ESOP (full costs), EPFL Master Excellence (CHF 10k/semester). **Spain:** UPF-BSM, UC3M.
-- Dedupe is exact (sourceUrl / title+provider) **plus fuzzy** (normalized-title containment vs ACTIVE records) — e.g. MEXT editions and the already-covered Padua Excellence are skipped; EXPIRED editions don't block the current one.
-- Country coverage: IT 8→18, ES 3→5, JP 21→24, KR 22→25, CH 17→19. **Honest blockers:** Politecnico di Milano (timeout), La Statale Milano & Trento (Cloudflare), Bocconi (WAF), most Spanish universities (WAF/404), KAIST (Korean-only), Yonsei/Hanyang (404).
+- **Turkey:** Bilkent (20–100% tuition waivers + accommodation), Koç (25/50/75/100% merit tuition), TOBB ETÜ (full scholarship + monthly stipend, Special Achievement 150%).
+- **Norway:** Anglo-Norse Society at NTNU (£3,000/yr, British citizens), GSEP Sustainable Energy at NTNU (developing countries). **Mexico:** Tec de Monterrey Campus Monterrey (Gallagher/Zaber foundations, Domínguez-Rivas, CEMYD). **Brazil:** USP Statistics (CNPq/CAPES R$1,500–2,200/mo), UNICAMP GRE-FAPESP Direct Doctorate (30 scholarships, 60 months).
+- Dedupe is exact (sourceUrl / title+provider) **plus fuzzy** (normalized-title containment vs ACTIVE records) — e.g. MEXT editions and the already-covered Padua Excellence are skipped; EXPIRED editions don't block the current one (the existing UiO ISS record blocked a duplicate ISS re-import).
+- Country coverage: IT 8→18, ES 3→5, JP 21→24, KR 22→25, CH 17→19, TR 2→5, NO 2→4, BR 1→3, MX 0→1. **Honest blockers:** Politecnico di Milano (timeout), La Statale Milano & Trento (Cloudflare), Bocconi (WAF), most Spanish universities (WAF/404), KAIST (Korean-only), Yonsei/Hanyang (404), Koç (CloudFront), EGADE/ITAM/UNAM/FGV (unreachable), and the Norwegian honest ceiling (UiO/UiB/UiT offer no scholarships for full-degree international students).
 
 ### Non-China university language backfill (2026-08-17)
 

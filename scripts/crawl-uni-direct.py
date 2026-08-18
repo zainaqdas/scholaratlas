@@ -49,6 +49,23 @@ TARGETS = {
     # --- Switzerland ---
     "eth-esop": ("ETH Excellence Scholarship & Opportunity Programme", "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html", "CH"),
     "epfl-mef": ("EPFL Master Excellence Fellowships", "https://www.epfl.ch/education/master/master-excellence-fellowships/", "CH"),
+    # --- Turkey ---
+    "koc-ug": ("Koç University International Undergraduate Scholarships", "https://international.ku.edu.tr/scholarships/overview/", "TR"),
+    "koc-grad": ("Koç University Graduate Tuition and Scholarships", "https://international.ku.edu.tr/graduate-programs/tuition-and-scholarships/", "TR"),
+    "bilkent-intl": ("Bilkent Scholarships for International Students", "https://w3.bilkent.edu.tr/international/scholarships-for-international-students/", "TR"),
+    "bilkent-scholarships": ("Bilkent University Scholarships", "https://w3.bilkent.edu.tr/bilkent/scholarships/", "TR"),
+    # --- Norway ---
+    "uio-iss": ("University of Oslo International Summer School Scholarships", "https://www.uio.no/english/studies/summerschool/admission/scholarships/", "NO"),
+    "uib-cabute": ("UiB CABUTE Master's Scholarships", "https://www.uib.no/en/cabute/167375/cabute-masters-scholarships-20242026", "NO"),
+    "ntnu-financing": ("NTNU Financing and Scholarships", "https://www.ntnu.edu/studies/financing-and-scholarships", "NO"),
+    # --- Mexico ---
+    "tec-monterrey": ("Tec de Monterrey Campus Monterrey Scholarships", "https://tec.mx/en/becas/scholarships-campus-monterrey", "MX"),
+    "egade-financial": ("EGADE Business School Financial Aid", "https://egade.tec.mx/en/financial-aid", "MX"),
+    # --- Brazil ---
+    "usp-ime-stats": ("USP IME Statistics Scholarships", "https://www.ime.usp.br/en/graduate/statistics/scholarships-assistance/", "BR"),
+    "unicamp-gre-fapesp": ("UNICAMP GRE-FAPESP Direct Doctorate Scholarships", "https://prpg.unicamp.br/en/internacionalizacao/gre-fapesp-unicamp/", "BR"),
+    "fgv-eaesp-master": ("FGV EAESP Master's Degree Scholarships", "https://eaesp.fgv.br/en/courses/master", "BR"),
+    "fgv-eaesp-ug": ("FGV EAESP Undergraduate Scholarships", "https://eaesp.fgv.br/en/courses/undergraduate-program-public-administration", "BR"),
 }
 
 
