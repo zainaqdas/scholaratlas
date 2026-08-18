@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, FIELD_GROUPS } from "@/lib/constants";
+import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
 
 export const metadata: Metadata = {
   title: "Explore Fields of Study",
@@ -10,43 +11,64 @@ export const metadata: Metadata = {
   alternates: { canonical: "/fields" },
 };
 
-export default async function FieldsPage() {
-  const rows = await prisma.scholarship.findMany({
-    where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
-    select: { fields: true },
-  });
+// Heavy read: scans the `fields` column of every ACTIVE scholarship (~9,300
+// rows) per view. Field counts only change on the weekly re-crawl, so the whole
+// computation is cached across requests.
+const getFieldCounts = cachedData(
+  ["field-counts"],
+  async () => {
+    const rows = await prisma.scholarship.findMany({
+      where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+      select: { fields: true },
+    });
 
-  const counts = new Map<string, number>();
-  for (const row of rows) {
-    try {
-      const fields = JSON.parse(row.fields) as string[];
-      for (const f of fields) {
-        if (f === "ALL") continue;
-        counts.set(f, (counts.get(f) ?? 0) + 1);
-      }
-    } catch {
-      // ignore
-    }
-  }
-
-  // A group's count is the union of its children (a record tagged with several
-  // children of the same group is counted once).
-  const groups = FIELD_GROUPS.map((g) => {
-    const children = new Set(g.children);
-    let n = 0;
+    const counts = new Map<string, number>();
     for (const row of rows) {
       try {
-        const f = JSON.parse(row.fields) as string[];
-        if (f.some((x) => children.has(x))) n++;
+        const fields = JSON.parse(row.fields) as string[];
+        for (const f of fields) {
+          if (f === "ALL") continue;
+          counts.set(f, (counts.get(f) ?? 0) + 1);
+        }
       } catch {
         // ignore
       }
     }
-    return { ...g, count: n };
-  });
 
-  const fields = FIELDS.map((f) => ({ ...f, count: counts.get(f.slug) ?? 0 }))
-    .sort((a, b) => b.count - a.count);
+    // A group's count is the union of its children (a record tagged with several
+    // children of the same group is counted once).
+    const groups = FIELD_GROUPS.map((g) => {
+      const children = new Set(g.children);
+      let n = 0;
+      for (const row of rows) {
+        try {
+          const f = JSON.parse(row.fields) as string[];
+          if (f.some((x) => children.has(x))) n++;
+        } catch {
+          // ignore
+        }
+      }
+      return { slug: g.slug, count: n };
+    });
+
+    const fieldCounts = FIELDS.map((f) => ({ slug: f.slug, count: counts.get(f.slug) ?? 0 }))
+      .sort((a, b) => b.count - a.count);
+
+    return {
+      fieldCounts: fieldCounts.map((f) => ({ slug: f.slug, count: f.count })),
+      groupCounts: groups.map((g) => ({ slug: g.slug, count: g.count })),
+    };
+  },
+  CATALOGUE_TTL
+);
+
+export default async function FieldsPage() {
+  const { fieldCounts, groupCounts } = await getFieldCounts();
+
+  const groupCount = new Map(groupCounts.map((g) => [g.slug, g.count]));
+  const fieldCount = new Map(fieldCounts.map((f) => [f.slug, f.count]));
+  const groups = FIELD_GROUPS.map((g) => ({ ...g, count: groupCount.get(g.slug) ?? 0 }));
+  const fields = FIELDS.map((f) => ({ ...f, count: fieldCount.get(f.slug) ?? 0 }));
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">

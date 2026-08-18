@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FIELD_GROUPS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
 import { formatCount, relativeTime } from "@/lib/format";
+import { HOMEPAGE_TTL, cachedData } from "@/lib/data-cache";
 
 const HERO_QUICK_FILTERS = [
   { label: "Fully Funded", href: "/scholarships?funding=FULLY_FUNDED,FULLY_FUNDED_STIPEND" },
@@ -39,9 +40,11 @@ const FLOAT_CARDS = [
   { flag: "🇬🇧", text: "UK", sub: "Undergraduate" },
 ];
 
-async function getHomeData() {
-  const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows] =
-    await Promise.all([
+const getHomeData = cachedData(
+  ["homepage-data"],
+  async () => {
+    const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, topCountries, allCountryRows] =
+      await Promise.all([
       prisma.scholarship.count({ where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } }),
       prisma.scholarship.findMany({
         where: { status: "ACTIVE", recordType: "SCHOLARSHIP", isFeatured: true },
@@ -84,47 +87,49 @@ async function getHomeData() {
       }),
     ]);
 
-  // Featured/trending are admin-curated flags; fall back to real verified/recent
-  // data when none are set so the home feed never shows an empty section.
-  const featuredList =
-    featured.length > 0
-      ? featured
-      : await prisma.scholarship.findMany({
-          where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
-          include: { university: true },
-          orderBy: { lastVerifiedAt: "desc" },
-          take: 6,
-        });
-  const trendingList =
-    trending.length > 0
-      ? trending
-      : await prisma.scholarship.findMany({
-          where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
-          include: { university: true },
-          orderBy: [{ views: "desc" }, { createdAt: "desc" }],
-          take: 6,
-        });
+    // Featured/trending are admin-curated flags; fall back to real verified/recent
+    // data when none are set so the home feed never shows an empty section.
+    const featuredList =
+      featured.length > 0
+        ? featured
+        : await prisma.scholarship.findMany({
+            where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+            include: { university: true },
+            orderBy: { lastVerifiedAt: "desc" },
+            take: 6,
+          });
+    const trendingList =
+      trending.length > 0
+        ? trending
+        : await prisma.scholarship.findMany({
+            where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+            include: { university: true },
+            orderBy: [{ views: "desc" }, { createdAt: "desc" }],
+            take: 6,
+          });
 
-  const countryStats = new Map<string, number>();
-  for (const c of topCountries) {
-    if (c.countryCode) countryStats.set(c.countryCode, c._count._all);
-  }
-  // Distinct destination countries with at least one active scholarship
-  const countryCount = allCountryRows.filter((r) => r.countryCode).length;
+    const countryStats: Record<string, number> = {};
+    for (const c of topCountries) {
+      if (c.countryCode) countryStats[c.countryCode] = c._count._all;
+    }
+    // Distinct destination countries with at least one active scholarship
+    const countryCount = allCountryRows.filter((r) => r.countryCode).length;
 
-  return {
-    stats,
-    featured: featuredList,
-    trending: trendingList,
-    recent,
-    deadlines,
-    universities,
-    resources,
-    activeDeadlines,
-    countryStats,
-    countryCount,
-  };
-}
+    return {
+      stats,
+      featured: featuredList,
+      trending: trendingList,
+      recent,
+      deadlines,
+      universities,
+      resources,
+      activeDeadlines,
+      countryStats,
+      countryCount,
+    };
+  },
+  HOMEPAGE_TTL
+);
 
 export const dynamic = "force-dynamic";
 
@@ -351,7 +356,7 @@ export default async function HomePage() {
         action={{ href: "/countries", label: "All countries" }}
       >
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {[...data.countryStats.entries()].map(([code, count]) => (
+          {Object.entries(data.countryStats).map(([code, count]) => (
             <Link
               key={code}
               href={`/countries/${code.toLowerCase()}`}

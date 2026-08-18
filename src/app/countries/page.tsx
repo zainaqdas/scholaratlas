@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { COUNTRIES, countryFlag, countryName } from "@/lib/constants";
+import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
 
 export const metadata: Metadata = {
   title: "Explore Scholarships by Country",
@@ -10,26 +11,41 @@ export const metadata: Metadata = {
   alternates: { canonical: "/countries" },
 };
 
+// Heavy read: three aggregate scans over the ACTIVE scholarship table per view.
+// Counts only change on the weekly re-crawl, so they're cached across requests.
+const getCountryCounts = cachedData(
+  ["country-counts"],
+  async () => {
+    const [rows, fullyFunded, unis] = await Promise.all([
+      prisma.scholarship.groupBy({
+        by: ["countryCode"],
+        where: { status: "ACTIVE" },
+        _count: { _all: true },
+      }),
+      prisma.scholarship.groupBy({
+        by: ["countryCode"],
+        where: { status: "ACTIVE", fundingType: { in: ["FULLY_FUNDED", "FULLY_FUNDED_STIPEND"] } },
+        _count: { _all: true },
+      }),
+      prisma.university.groupBy({
+        by: ["countryCode"],
+        _count: { _all: true },
+      }),
+    ]);
+    return {
+      counts: rows.map((r) => [r.countryCode, r._count._all] as const),
+      ffCounts: fullyFunded.map((r) => [r.countryCode, r._count._all] as const),
+      uniCounts: unis.map((r) => [r.countryCode, r._count._all] as const),
+    };
+  },
+  CATALOGUE_TTL
+);
+
 export default async function CountriesPage() {
-  const rows = await prisma.scholarship.groupBy({
-    by: ["countryCode"],
-    where: { status: "ACTIVE" },
-    _count: { _all: true },
-  });
-  const counts = new Map(rows.map((r) => [r.countryCode, r._count._all]));
-
-  const fullyFunded = await prisma.scholarship.groupBy({
-    by: ["countryCode"],
-    where: { status: "ACTIVE", fundingType: { in: ["FULLY_FUNDED", "FULLY_FUNDED_STIPEND"] } },
-    _count: { _all: true },
-  });
-  const ffCounts = new Map(fullyFunded.map((r) => [r.countryCode, r._count._all]));
-
-  const unis = await prisma.university.groupBy({
-    by: ["countryCode"],
-    _count: { _all: true },
-  });
-  const uniCounts = new Map(unis.map((r) => [r.countryCode, r._count._all]));
+  const { counts: countRows, ffCounts: ffRows, uniCounts: uniRows } = await getCountryCounts();
+  const counts = new Map(countRows);
+  const ffCounts = new Map(ffRows);
+  const uniCounts = new Map(uniRows);
 
   const countries = COUNTRIES.filter((c) => counts.has(c.code) || uniCounts.has(c.code))
     .map((c) => ({

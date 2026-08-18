@@ -3,6 +3,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
 import { countryFlag, countryName } from "@/lib/constants";
+import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
 
 export const metadata: Metadata = {
   title: "Explore Universities",
@@ -11,16 +12,35 @@ export const metadata: Metadata = {
   alternates: { canonical: "/universities" },
 };
 
+// Full read of the universities table (~1,670 rows) per view; only changes on
+// the weekly re-crawl, so it's cached. Projected to the fields the page uses.
+const getUniversities = cachedData(
+  ["universities-list"],
+  async () => {
+    const universities = await prisma.university.findMany({
+      include: {
+        country: { select: { name: true } },
+        // Scholarships only — job listings (EURAXESS research positions) are a
+        // separate record type and must not inflate "N scholarships" counts.
+        _count: { select: { scholarships: { where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } } } },
+      },
+      orderBy: { name: "asc" },
+    });
+    return universities.map((u) => ({
+      slug: u.slug,
+      name: u.name,
+      countryCode: u.countryCode,
+      logoText: u.logoText,
+      color: u.color,
+      countryName: u.country?.name ?? null,
+      scholarshipCount: u._count.scholarships,
+    }));
+  },
+  CATALOGUE_TTL
+);
+
 export default async function UniversitiesPage() {
-  const universities = await prisma.university.findMany({
-    include: {
-      country: true,
-      // Scholarships only — job listings (EURAXESS research positions) are a
-      // separate record type and must not inflate "N scholarships" counts.
-      _count: { select: { scholarships: { where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } } } },
-    },
-    orderBy: { name: "asc" },
-  });
+  const universities = await getUniversities();
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -35,7 +55,7 @@ export default async function UniversitiesPage() {
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {universities.map((u) => (
           <Link
-            key={u.id}
+            key={u.slug}
             href={`/universities/${u.slug}`}
             className="lift flex items-center gap-4 rounded-2xl border bg-card p-5"
           >
@@ -43,10 +63,10 @@ export default async function UniversitiesPage() {
             <div className="min-w-0">
               <h2 className="truncate font-display font-bold">{u.name}</h2>
               <p className="text-xs text-muted-foreground">
-                {countryFlag(u.countryCode)} {u.country?.name ?? countryName(u.countryCode)}
+                {countryFlag(u.countryCode)} {u.countryName ?? countryName(u.countryCode)}
               </p>
               <p className="mt-1 text-xs font-medium text-primary">
-                {u._count.scholarships} scholarships
+                {u.scholarshipCount} scholarships
               </p>
             </div>
           </Link>
