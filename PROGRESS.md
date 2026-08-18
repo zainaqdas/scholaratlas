@@ -356,6 +356,20 @@ Key findings:
 13. **✅ Non-China university language backfill — DONE (2026-08-17)** — 34 universities' official English-requirements pages crawled; IELTS/TOEFL/alt-proof flags + scores set on 2,120 records (non-China coverage 157 → 2,132 of 5,845 active). Remaining honest gaps: JS-rendered pages without embedded data (Lewis/ANU/Adelaide/Curtin), WAF-blocked sites (Melbourne needed a real browser; Brock/Monash/Griffith/Deakin/Otago 403), and the long tail of small universities.
 13b. **✅ Non-China language backfill round 2 — DONE (2026-08-18)** — next tier of 20 universities verified from their official sites (NYIT, Monash, UPenn, Nottingham Trent, UTS, Lancaster, UW–Madison, CMU, Macquarie, MSU, Central Missouri, Ottawa, Algoma, Sheffield, Calgary, Lethbridge, Windsor, NJIT, WSU, Essex): +441 records → language coverage 4,159 → **4,600 (49.9% of ACTIVE)**. Scores recorded in description notes with source URLs (`scripts/backfill-uni-language2.ts`).
 
+9i. **✅ End-to-end codebase & data audit — DONE (2026-08-18, `0ebfa16` + `e1b10f3` + `e6102be`)** — systematic audit of every route, component, filter and live number. **Bugs found & fixed:**
+    1. **Homepage country count showed "8+"** — it was derived from the top-8 display list, not all destinations. Now counts all **57** distinct countries with active scholarships (hero badge + stats strip).
+    2. **Study-level filters missed display-name records** — 415 Master's / 430 Undergraduate / 272 PhD records stored `["Master's"]` (display names) instead of slugs, so `level=masters` never matched them and cards showed no level badge (`studyLevelFromSlug` returned undefined). Normalized all 1,219 affected records to slug format (`scripts/normalize-study-levels.ts`); `level=masters` 3,273→3,688, `undergraduate` 4,784→5,214, `phd` 1,339→1,611.
+    3. **`fee=free` filter returned 0** — the `applicationFee: null` OR-branch was dead code ANDed against `{in: ["Free","free"]}`. Restructured into a single OR; now returns **8,374** (free + unspecified). `fee=required` confirmed correct (947).
+    4. **`/countries` hid 16 countries (31 records)** and their `/countries/[code]` pages 404'd — the page filtered against a 51-country static list while the DB had 90. Expanded the static list to cover all 90 (HK, TW, SI, AD, AL, DZ, …); `/countries` now shows 78 cards and `/countries/hk` renders.
+    5. **Card "International" badge was inverted** — US-only records (e.g. Palmetto) got the badge while open-to-all records didn't, contradicting the International-Students category filter. Now `["ALL"]`-only.
+    6. **Field pages missed `fields=["ALL"]` records (90)** — the OR branch was missing vs the search page; added.
+    7. **University pages/counts included JOB listings** (3 EURAXESS positions on Tilburg/Delft) — now scholarships-only.
+    8. **Detail-page JSON-LD hardcoded `scholaratlas.dev`** while the live site is `scholaratlas.vercel.app` — now uses the configured app URL.
+    9. **`setScholarshipStatusAction` revalidated `/scholarships/{id}`** (internal id, not the public slug path) — fixed to use the returned slug.
+    10. **Search suggestions could return JOB listings** — now `recordType: SCHOLARSHIP` like the main search.
+    11. **Field/country detail pages showed paginated counts as totals** — "24 matching opportunities" for a field with 793; both pages now run a real `count()`.
+    **Audited & confirmed correct:** all stats are live DB counts (9.3K scholarships, 57 countries, 1,670 universities, 7.2K active deadlines — verified against the DB); no demo/placeholder data remains; `eligibleNationalities` values are all valid ISO codes/arrays (the S360 malformed-value crash was already fixed in `a1e0e6d`); AI-search zeros are honest data gaps, not bugs; legal pages accurately state the platform is an info/discovery service; `.env` is untracked (no secrets in the repo).
+
 ### Long term (from the original spec)
 7. AI scholarship assistant + personalized recommendations (Phase 3).
 8. Comparison tool, deadline alerts, PWA install, email notifications.
