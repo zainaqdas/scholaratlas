@@ -257,7 +257,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
                 </span>
               }
             />
-            <OverviewRow icon={<Users className="h-4 w-4" />} label="Eligible Nationalities" value={isOpenToAll(s) ? "All nationalities" : eligible.length > 8 ? `${eligible.length} countries` : eligible.map((c) => countryName(c)).join(", ")} />
+            <OverviewRow icon={<Users className="h-4 w-4" />} label="Eligible Nationalities" value={isOpenToAll(s) ? "All nationalities" : eligible.length > 8 ? `${eligible.length} countries` : eligible.length ? eligible.map((c) => countryName(c)).join(", ") : "Not specified"} />
             <OverviewRow icon={<CircleDollarSign className="h-4 w-4" />} label="Application Fee" value={s.applicationFee || "Free"} />
             <OverviewRow
               icon={<ExternalLink className="h-4 w-4" />}
@@ -303,7 +303,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
           <EligibilityCard
             icon={<Users className="h-5 w-5" />}
             title="Nationality"
-            lines={isOpenToAll(s) ? ["Open to all nationalities"] : eligible.map((c) => `${countryFlag(c)} ${countryName(c)}`)}
+            lines={isOpenToAll(s) ? ["Open to all nationalities"] : eligible.length ? eligible.map((c) => `${countryFlag(c)} ${countryName(c)}`) : ["Not specified — check the official provider."]}
           />
           <EligibilityCard
             icon={<GraduationCap className="h-5 w-5" />}

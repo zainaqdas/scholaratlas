@@ -92,7 +92,7 @@ async function main() {
       studyLevels: JSON.stringify(rec.levels || []),
       fields: JSON.stringify(rec.fields || []),
       degrees: "[]",
-      eligibleNationalities: JSON.stringify(rec.eligible || []),
+      eligibleNationalities: JSON.stringify(rec.nationalities || []),
       fundingType: rec.funding || "PARTIAL",
       benefits: JSON.stringify(rec.benefits || []),
       amount: rec.amount || null,
@@ -103,6 +103,8 @@ async function main() {
       applicationFee: null,
       languageRequirements: JSON.stringify(lang),
       academicRequirements: rec.eligible ? rec.eligible.slice(0, 2000) : null,
+      // NOTE: rec.eligible is the eligibility PROSE (shown under "Who Can Apply");
+      // rec.nationalities is the ISO country-code list for eligibleNationalities.
       ageRequirements: null,
       workExperience: null,
       requiredDocuments: "[]",

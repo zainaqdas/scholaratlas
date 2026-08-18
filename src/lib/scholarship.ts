@@ -25,8 +25,12 @@ export const stepsOf = (s: Scholarship): string[] | null => {
   const steps = parseJSON<string[]>(s.applicationSteps, []);
   return steps.length ? steps : null;
 };
-export const eligibleOf = (s: Scholarship): string[] =>
-  parseJSON<string[]>(s.eligibleNationalities, ["ALL"]);
+export const eligibleOf = (s: Scholarship): string[] => {
+  // Guard against legacy/malformed values (e.g. prose stored instead of a
+  // JSON array) — never let a non-array reach UI code that calls .map().
+  const v: unknown = parseJSON<unknown>(s.eligibleNationalities, ["ALL"]);
+  return Array.isArray(v) ? (v as string[]) : [];
+};
 export const isOpenToAll = (s: Scholarship): boolean => eligibleOf(s).includes("ALL");
 
 export interface LanguageReq {
