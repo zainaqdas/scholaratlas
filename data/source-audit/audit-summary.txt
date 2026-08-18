@@ -1,0 +1,203 @@
+SCHOLARATLAS SOURCE AUDIT
+======================================================================
+Tested: 178 candidates
+
+Verdict counts:
+  OK          93
+  GUIDE       22
+  JS_SHELL    2
+  LANG        0
+  WAF         33
+  UNREACHABLE 12
+  ERROR       0
+  DEAD        16
+
+--- OK (93) ---
+  anahuac                  Universidad Anáhuac  https://www.anahuac.mx/
+  buddydrive               Buddy4Study (India)  https://www.buddy4study.com/
+  campusbourses            Campus Bourses - Campus France official (web)  https://www.campusbourses.campusfrance.org/
+  campusbourses-api        Campus France official grants API  https://bourses-api.campusfrance.org/sgetgrants/en
+  collegescholarships      CollegeScholarships.org (US)  https://www.collegescholarships.org/
+  cscouncil                chinesescholarshipcouncil.com  https://www.chinesescholarshipcouncil.com/
+  educationusa             EducationUSA (US official guide)  https://educationusa.state.gov/
+  epfl                     EPFL master excellence fellowships  https://www.epfl.ch/education/master/master-excellence-fellowships/
+  erudera                  Erudera scholarships  https://erudera.com/scholarships/
+  esade                    ESADE Business School  https://www.esade.edu/en
+  ethz                     ETH Zurich excellence scholarships  https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html
+  euraxess                 EURAXESS (EU research opportunities)  https://euraxess.ec.europa.eu/
+  ewha                     Ewha Womans University  https://www.ewha.ac.kr/ewhaen/index.do
+  fastweb                  Fastweb (US)  https://www.fastweb.com/
+  gist                     GIST scholarships  https://www.gist.ac.kr/en/
+  goabroad                 GoAbroad scholarships  https://www.goabroad.com/scholarships
+  grantsat                 OeAD grants.at (Austria official)  https://grants.at/en/
+  hacettepe                Hacettepe University  https://www.hacettepe.edu.tr/english/
+  hanyang                  Hanyang University scholarships  https://www.hanyang.ac.kr/web/eng
+  hiroshima-u              Hiroshima University scholarships  https://www.hiroshima-u.ac.jp/en
+  hokkaido                 Hokkaido University (Global)  https://www.global.hokudai.ac.jp/
+  iese                     IESE Business School  https://www.iese.edu/
+  ipn                      IPN Instituto Politécnico Nacional  https://www.ipn.mx/
+  itu                      Istanbul Technical University (ITU)  https://www.itu.edu.tr/en
+  kaist                    KAIST scholarships  https://www.kaist.ac.kr/en/
+  keio                     Keio University scholarships  https://www.keio.ac.jp/en/
+  kobe-u                   Kobe University scholarships  https://www.kobe-u.ac.jp/en/
+  kyoto                    Kyoto University scholarships  https://www.iup.kyoto-u.ac.jp/student-support/
+  kyushu                   Kyushu University scholarships  https://www.kyushu-u.ac.jp/en/
+  nagoya                   Nagoya University scholarships  https://www.nagoya-u.ac.jp/en/admissions/scholarships/
+  nspindia                 National Scholarship Portal (India)  https://scholarships.gov.in/
+  ntnu                     NTNU scholarships  https://www.ntnu.edu/studies/financing-and-scholarships
+  pathwaystoscience        PathwaysToScience (US STEM programs)  https://www.pathwaystoscience.org/programs.aspx
+  postech                  POSTECH scholarships  https://www.postech.ac.kr/eng/
+  postgrad                 Postgrad.com (UK)  https://www.postgrad.com/
+  pucrio                   PUC-Rio  https://www.puc-rio.br/english/
+  s4africans               ScholarshipsForAfricans.com  https://www.scholarshipsforafricans.com/
+  sabanci                  Sabancı University scholarships  https://www.sabanciuniv.edu/en/scholarships
+  scholars4dev             scholars4dev.com (human-curated listings)  https://www.scholars4dev.com/
+  scholarshipamerica       Scholarship America  https://scholarshipamerica.org/
+  scholarshipjamaica       ScholarshipJamaica.com  https://www.scholarshipjamaica.com/
+  scholarshipowl           ScholarshipOwl (US)  https://scholarshipowl.com/
+  scholarships360          Scholarships360  https://scholarships360.org/
+  skku                     Sungkyunkwan University (SKKU)  https://www.skku.edu/eng/
+  snu                      Seoul National University financial aid  https://en.snu.ac.kr/admission/undergraduate/scholarships/before_admission
+  sophia                   Sophia University scholarships  https://www.sophia.ac.jp/eng/
+  studyinbelgium           Study in Belgium (official)  https://www.studyinbelgium.be/
+  studyindenmark           Study in Denmark (official)  https://studyindenmark.dk/
+  studyinfinland           Study in Finland (official)  https://studyinfinland.fi/
+  studyinireland           Study in Ireland (official)  https://www.educationinireland.com/en/
+  studyinjapan             Study in Japan - MEXT (Japan official)  https://www.studyinjapan.go.jp/en/
+  studyinkorea             Study in Korea (official)  https://www.studyinkorea.go.kr/en/main.do
+  studyinnl                Study in NL (official)  https://www.studyinnl.org/
+  studyinnorway            Study in Norway (official)  https://studyinnorway.no/
+  studyinsweden            Study in Sweden (official)  https://studyinsweden.se/scholarships/
+  tec                      Tecnológico de Monterrey scholarships  https://tec.mx/en/becas/scholarships-campus-monterrey
+  tobb                     TOBB ETÜ scholarships  https://www.etu.edu.tr/en/enstitu/graduate-school-of-engineering-and-science/basvuru-bilgileri
+  tohoku                   Tohoku University scholarships  https://www.tohoku.ac.jp/en/
+  tsukuba                  University of Tsukuba scholarships  https://www.tsukuba.ac.jp/en/
+  uab                      Autonomous University of Barcelona  https://www.uab.cat/en/
+  uam                      Autonomous University of Madrid  https://www.uam.es/uam/en/internacional
+  uc3m                     Carlos III University of Madrid  https://www.uc3m.es/postgraduate/aid
+  uib                      University of Bergen  https://www.uib.no/en/cabute/167375/cabute-masters-scholarships-20242026
+  uio                      University of Oslo  https://www.uio.no/english/studies/summerschool/admission/scholarships/
+  uis                      University of Stavanger  https://www.uis.no/en
+  unav                     University of Navarra  https://en.unav.edu/
+  unibas                   University of Basel  https://www.unibas.ch/en.html
+  unibo                    University of Bologna study grants  https://www.unibo.it/en/study/study-grants-and-subsidies
+  unibocconi               Bocconi University scholarships  https://www.unibocconi.eu/wps/wcm/connect/bocconi/sitopubblico_en/navigation+tree/home/
+  unicatt                  Catholic University of Milan  https://www.ucsc.it/en/
+  unige                    University of Geneva  https://www.unige.ch/en/
+  unige-it                 University of Genoa  https://unige.it/en
+  unil                     University of Lausanne  https://www.unil.ch/central/en/home.html
+  unina                    University of Naples Federico II  https://www.internazionali.unina.it/en/
+  unipd                    University of Padua scholarships  https://www.unipd.it/en/padua-international-excellence-scholarship-programme
+  unipi                    University of Pisa scholarships  https://www.unipi.it/index.php/english-version
+  uniroma1                 Sapienza Rome scholarships  https://www.uniroma1.it/en/pagina/international-post-degree-scholarship
+  unischolars              UniScholars (India)  https://unischolars.com/scholarships
+  unisg                    University of St. Gallen (HSG)  https://www.unisg.ch/en
+  unist                    UNIST scholarships  https://www.unist.ac.kr/
+  univariety               Univariety scholarships  https://www.univariety.com/scholarships
+  univr                    University of Verona  https://www.univr.it/en
+  unizar                   University of Zaragoza  https://www.unizar.es/
+  upf                      Pompeu Fabra University (UPF)  https://www.bsm.upf.edu/en/talent-scholarship
+  upv                      Polytechnic University of Valencia  https://www.upv.es/en
+  usal                     University of Salamanca  https://www.usal.es/en
+  usi                      Università della Svizzera italiana (USI)  https://www.usi.ch/en
+  usp                      University of São Paulo (USP)  https://www.ime.usp.br/en/graduate/statistics/scholarships-assistance/
+  utokyo                   University of Tokyo scholarships  https://www.u-tokyo.ac.jp/en/prospective-students/fellowship.html
+  uv                       University of Valencia  https://www.uv.es/uvweb/universitat/en/universitat-valencia-1285845048380.html
+  uzh                      University of Zurich  https://www.uzh.ch/en.html
+  waseda                   Waseda University scholarships  https://www.waseda.jp/inst/scholarship/en/for-international-students
+  wemakescholars           wemakescholars.com (global aggregator)  https://www.wemakescholars.com/scholarships
+
+--- GUIDE (22) ---
+  bogazici                 Boğaziçi University  https://www.bogazici.edu.tr/en
+  cau                      Chung-Ang University  https://neweng.cau.ac.kr/
+  educanada                EduCanada (official)  https://www.educanada.ca/
+  hitotsubashi             Hitotsubashi University  https://www.hit-u.ac.jp/eng/
+  hufs                     Hankuk University of Foreign Studies  https://www.hufs.ac.kr/english/main.do
+  ie                       IE University / IE Business School  https://www.ie.edu/
+  istanbul-u               Istanbul University  https://www.istanbul.edu.tr/en/
+  metu                     Middle East Technical University (METU)  https://www.metu.edu.tr/
+  nhh                      NHH Norwegian School of Economics  https://www.nhh.no/en/
+  nmbu                     NMBU Norwegian University of Life Sciences  https://www.nmbu.no/en
+  scholarshipfellow        ScholarshipFellow  https://www.scholarshipfellow.com/
+  scholarshippositions     Scholarship-Positions.com  https://scholarship-positions.com/
+  studyinluxembourg        Study in Luxembourg (official)  https://www.luxembourg.lu/en
+  titech                   Tokyo Institute of Technology (Science Tokyo)  https://www.titech.ac.jp/english/
+  uanl                     UANL Universidad Autónoma de Nuevo León  https://www.uanl.mx/en/
+  ucm                      Complutense University of Madrid  https://www.ucm.es/english
+  ufmg                     UFMG Federal University of Minas Gerais  https://www.ufmg.br/
+  ufrgs                    UFRGS Federal University of Rio Grande do Sul  https://www.ufrgs.br/
+  ufrj                     UFRJ Federal University of Rio de Janeiro  https://www.ufrj.br/
+  ugr                      University of Granada  https://www.ugr.es/en
+  uit                      UiT The Arctic University of Norway  https://en.uit.no/education
+  unibe                    University of Bern  https://www.unibe.ch/index_eng.html
+
+--- JS_SHELL (2) ---
+  korea-u                  Korea University scholarships  https://www.korea.ac.kr/en/
+  yonsei                   Yonsei University scholarships  https://www.yonsei.ac.kr/en_academics/scholarship
+
+--- WAF (33) ---
+  bachelorsportal          Bachelorsportal scholarships  https://www.bachelorsportal.com/scholarships/
+  bilkent                  Bilkent University scholarships  https://w3.bilkent.edu.tr/international/scholarships-for-international-students/
+  campuschina              CampusChina / CSC official  https://www.campuschina.org/
+  cucas                    CUCAS (China program portal)  https://www.cucas.cn/
+  edarabia                 Edarabia scholarships (Middle East)  https://www.edarabia.com/scholarships/
+  freescholarships         Free-Scholarships.com  https://www.free-scholarships.com/
+  intlscholarships         InternationalScholarships.com  https://www.internationalscholarships.com/
+  jasso                    JASSO scholarships (Japan)  https://www.jasso.go.jp/en/study_j/scholarships/
+  koc                      Koç University scholarships  https://international.ku.edu.tr/scholarships/overview/
+  mastersportal            Mastersportal scholarships  https://www.mastersportal.com/scholarships/
+  osaka-u                  Osaka University scholarships  https://www.osaka-u.ac.jp/en
+  phdportal                PhDportal scholarships  https://www.phdportal.com/scholarships/
+  scholarshipportal        ScholarshipPortal.com  https://www.scholarshipportal.com/
+  scholarships.com         Scholarships.com (US)  https://www.scholarships.com/
+  scholarships4us          Scholarships4us  https://www.scholarships4us.com/
+  scholarshipscanada       ScholarshipsCanada.com  https://www.scholarshipscanada.com/
+  scholarshipsplus         Scholarships.plus  https://scholarships.plus/
+  studiareinitalia         studiare-in-italia.it (Italy official)  https://www.studiare-in-italia.it/
+  studyinnewzealand        Study in New Zealand (official)  https://studyinnewzealand.govt.nz/
+  studyinsingapore         Study in Singapore (official)  https://www.studyinsingapore.com/
+  studyportals             Studyportals scholarships  https://www.studyportals.com/scholarships/
+  topuniversities          TopUniversities scholarships  https://www.topuniversities.com/scholarships
+  ub                       University of Barcelona  https://www.ub.edu/web/ub/en/
+  udlap                    UDLAP Universidad de las Américas Puebla  https://www.udlap.mx/en/
+  unam                     UNAM scholarships  https://www.unam.mx/
+  unesp                    UNESP São Paulo State University  https://www.unesp.br/
+  unicamp                  UNICAMP scholarships  https://prpg.unicamp.br/en/internacionalizacao/gre-fapesp-unicamp/
+  unifi                    University of Florence  https://www.unifi.it/en
+  unigo                    Unigo scholarships (US)  https://www.unigo.com/scholarships
+  unimi                    University of Milan (La Statale)  https://www.unimi.it/en/international/fees-and-scholarships
+  unipv                    University of Pavia scholarships  https://www.unipv.it/en
+  unitn                    University of Trento scholarships  https://www.unitn.it/en/ateneo/servizi-studenti/borse-studio
+  unito                    University of Turin scholarships  https://en.unito.it/studying-unito/scholarships-and-benefits
+
+--- UNREACHABLE (12) ---
+  daad                     DAAD Scholarship Database (Germany)  https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/
+  fgv                      FGV Fundação Getulio Vargas  https://eaesp.fgv.br/en/courses/master
+  fundingforstudy          Funding for Study (UK)  https://www.funding-for-study.co.uk/
+  hecpakistan              HEC Pakistan scholarships  https://www.hec.gov.pk/english/scholarshipsgrants/Pages/default.aspx
+  itam                     ITAM scholarships  https://www.itam.mx/en/
+  polimi                   Politecnico di Milano scholarships  https://www.polimi.it/en/international-prospective-students/scholarships
+  polito                   Politecnico di Torino scholarships  https://international.polito.it/admission/scholarships
+  studyinaustralia         Study in Australia (official)  https://www.studyinaustralia.gov.au/
+  studyinswitzerland       Study in Switzerland (official)  https://www.studyinswitzerland.com/
+  studyinturkey            Study in Turkey (official)  https://www.studyinturkey.gov.tr/
+  units                    University of Trieste  https://www.units.it/en
+  up                       Universidad Panamericana  https://www.up.edu.mx/en/
+
+--- DEAD (16) ---
+  africascholarships       AfricaScholarships.net  https://www.africascholarships.net/
+  euroscholarships         EuroScholarships.eu  https://www.euroscholarships.eu/
+  gks                      GKS Global Korea Scholarship  https://www.gks.go.kr/
+  goscholarship            GoScholarship.org  https://www.goscholarship.org/
+  scholarshipcat           ScholarshipCat.com  https://scholarshipcat.com/
+  scholarshipdb            scholarshipdb.net  https://www.scholarshipdb.net/scholarships
+  scholarshipking          ScholarshipKing.net  https://www.scholarshipking.net/
+  scholarshipscanda        ScholarshipsCanda.com  https://www.scholarshipscanda.com/
+  scholarshipscat          ScholarshipsCat  https://scholarshipscat.com/
+  scholarshipsearchuk      Scholarship-Search.org.uk (UK)  https://www.scholarship-search.org.uk/
+  scholarshipsinindia      ScholarshipsInIndia.com  https://www.scholarshipsinindia.com/
+  studyingermany           Study in Germany (official guide)  https://www.study-in-germany.de/en/
+  studyinmalaysia          Study in Malaysia (official)  https://www.studyinmalaysia.com/
+  the                      Times Higher Education scholarships  https://www.timeshighereducation.com/student/scholarships
+  thescholarshiphub        The Scholarship Hub (UK)  https://www.thescholarshiphub.org.uk/
+  tuftsscholarships        Tufts international scholarships listing  https://internationalscholarships.tufts.edu/

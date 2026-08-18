@@ -297,6 +297,34 @@ Backfill script: `npm run backfill:cucas-urls` (idempotent — only touches reco
 
 ---
 
+## 4b. Source Accessibility Audit (2026-08-18)
+
+A single-swoop sweep of **every candidate data source** — aggregators, official country databases, and direct university pages (used, tried, and never-tried) — was run to determine what is reachable from the build environment and what must be extracted manually.
+
+**Scripts:** `scripts/audit-sources.py` (HTTP sweep + optional Playwright retry) and `scripts/build-inaccessible-list.py` (generates the manual-extraction list). **Data:** `data/source-audit/audit-results.jsonl` (178 rows) + `audit-summary.txt`. **Deliverable:** `INACCESSIBLE-SOURCES.md` at the repo root.
+
+### Verdict (178 candidates)
+| Verdict | Count | Meaning |
+|---|---|---|
+| OK | 93 | HTTP 200 with real scholarship content |
+| Guide | 22 | Accessible guide pages, no structured listings |
+| **Accessible total** | **115 (65%)** | |
+| WAF | 31 | Bot-protection block (Cloudflare/Akamai/WAF) |
+| Unreachable | 12 | Connection timeout/refused from this env (likely fine from your network) |
+| Dead | 15 | Gone (404 / no response / removed) |
+| JS shell | 2 | Loads but empty (may render in a browser) |
+
+Key findings:
+- **Biggest accessible-but-unused aggregators** (already imported sources aside): CollegeScholarships.org, Fastweb, ScholarshipOwl, Scholarships360, Buddy4Study, Postgrad.com (UK), Erudera, UniScholars, ScholarshipsForAfricans, ScholarshipJamaica, Scholarship America, EducationUSA, and official country guides (Study in NL, Study in Finland, Study in Ireland, Study in Belgium, Study in Norway, Study in Japan/MEXT, Study in Korea) — all HTTP 200.
+- **Newly accessible universities found by the sweep** (not yet crawled): Sabancı (TR), ITU (TR), Hacettepe (TR), Hokkaido, Tsukuba, Kobe, Sophia, Tohoku, Kyushu, Keio, POSTECH, UNIST, GIST, SKKU, Ewha, Hanyang, KAIST (partial), UZH, Geneva, Basel, St. Gallen, USI, IESE, ESADE, Navarra, UAB, Valencia, Salamanca, Zaragoza, UPV, Catholic Milan, Verona, Genoa, Stavanger, IPN, Anáhuac, PUC-Rio — potential next crawl targets.
+- **WAF-blocked aggregators** (even stealth browser): studyportals, mastersportal/bachelorsportal/phdportal, scholarships.com, unigo, topuniversities, scholarshipscanada, intlscholarships, edarabia, studyinsingapore, studyinnewzealand, scholarships.plus, jasso (section blocked).
+- **Unreachable from this env** (likely fine from a home network — in `INACCESSIBLE-SOURCES.md` §B): Polimi, Polito, DAAD web, studyinturkey, studyinswitzerland, studyinaustralia, funding-for-study, ITAM, Panamericana, FGV, HEC Pakistan, Trieste, study-in-germany.
+- **Dead**: scholarshipdb (SSL/blocked), thescholarshiphub (Blackbullion removed DB), funding-for-study, scholarshipking, goscholarship, africascholarships, euroscholarships, scholarshipcat(s), studyinmalaysia (soft 404), THE /scholarships (path gone), tuftsscholarships.
+
+`INACCESSIBLE-SOURCES.md` groups the 60 non-accessible candidates into WAF / Unreachable / Dead / JS-shell with URLs + what was tried, so they can be extracted manually and fed into the existing importers.
+
+---
+
 ## 5. What's Next (recommended order)
 
 ### Short term
