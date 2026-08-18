@@ -35,6 +35,7 @@
     "import:campusbourses": "tsx scripts/import-campusbourses.ts",
     "import:studyinsweden": "tsx scripts/import-studyinsweden.ts",
     "import:uni-direct": "tsx scripts/import-uni-direct.ts",
+    "import:s360": "tsx scripts/import-s360.ts",
     "crawl:uni-direct": "python3 scripts/crawl-uni-direct.py",
     "enrich:cucas": "tsx scripts/enrich-cucas.ts",
     "dedupe": "tsx scripts/dedupe.ts",

@@ -342,6 +342,16 @@ npm run import:uni-direct                       # -> 47 ACTIVE records (20 + 8 +
 - Dedupe is exact (sourceUrl / title+provider) **plus fuzzy** (normalized-title containment vs ACTIVE records) — e.g. MEXT editions and the already-covered Padua Excellence are skipped; EXPIRED editions don't block the current one (the existing UiO ISS record blocked a duplicate ISS re-import).
 - Country coverage: IT 8→18, ES 3→9, JP 21→28, KR 22→30, CH 17→23, TR 2→7, NO 2→4, BR 1→3, MX 0→1 (round 3: ES 5→9, JP 24→28, KR 25→30, CH 19→23, TR 5→7). **Honest blockers:** Politecnico di Milano (timeout), La Statale Milano & Trento (Cloudflare), Bocconi (WAF), most Spanish universities (WAF/404), KAIST (Korean-only), Yonsei/Hanyang (404), Koç (CloudFront), EGADE/ITAM/UNAM/FGV (unreachable), and the Norwegian honest ceiling (UiO/UiB/UiT offer no scholarships for full-degree international students).
 
+### Scholarships360 editorial database (2026-08-18)
+
+From the source-audit's accessible-aggregator list, **Scholarships360** was the only one of the five biggest (Fastweb, ScholarshipOwl, Scholarships360, Buddy4Study, Postgrad.com) with genuinely scrapable data — the others are login-walled (Fastweb, ScholarshipOwl), JS-app-only (Buddy4Study), or hub pages (Postgrad.com). Scholarships360 is WordPress: its "Scholarships" category is 273 listicles + 77 editorial guides + JS-only platform scholarships. We hand-curated the 8 genuinely-missing named scholarships from the guide prose (amounts/deadlines as stated): Palmetto Fellows (SC), Florida Benacquisto, CalKIDS (CA), NHSC, NCAA Postgraduate, Posse, Skechers Foundation, Gates Cambridge.
+
+```bash
+python3 scripts/crawl-s360.py            # -> data/s360/records.jsonl (381 posts via REST API)
+npx tsx scripts/import-s360.ts --dry-run # preview
+npx tsx scripts/import-s360.ts           # -> 8 ACTIVE records
+```
+
 ### Non-China university language backfill (2026-08-17)
 
 The wms/PTS/DAAD sources rarely publish IELTS/TOEFL requirements, so for the highest-value non-China universities we crawl the **official English-language-requirements page** of each school and set the IELTS/TOEFL/alt-proof flags from what the university itself publishes (two rounds: 34 schools on 2026-08-17, 20 more on 2026-08-18 — `scripts/backfill-uni-language.ts` / `scripts/backfill-uni-language2.ts`):
