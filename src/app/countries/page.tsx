@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const getCountryCounts = cachedData(
   ["country-counts"],
   async () => {
-    const [rows, fullyFunded, unis] = await Promise.all([
+    const [rows, fullyFunded, unis, globalCount, globalFF] = await Promise.all([
       prisma.scholarship.groupBy({
         by: ["countryCode"],
         where: { status: "ACTIVE" },
@@ -31,18 +31,29 @@ const getCountryCounts = cachedData(
         by: ["countryCode"],
         _count: { _all: true },
       }),
+      prisma.scholarship.count({ where: { status: "ACTIVE", countryCode: null } }),
+      prisma.scholarship.count({
+        where: {
+          status: "ACTIVE",
+          countryCode: null,
+          fundingType: { in: ["FULLY_FUNDED", "FULLY_FUNDED_STIPEND"] },
+        },
+      }),
     ]);
     return {
       counts: rows.map((r) => [r.countryCode, r._count._all] as const),
       ffCounts: fullyFunded.map((r) => [r.countryCode, r._count._all] as const),
       uniCounts: unis.map((r) => [r.countryCode, r._count._all] as const),
+      globalCount,
+      globalFF,
     };
   },
   CATALOGUE_TTL
 );
 
 export default async function CountriesPage() {
-  const { counts: countRows, ffCounts: ffRows, uniCounts: uniRows } = await getCountryCounts();
+  const { counts: countRows, ffCounts: ffRows, uniCounts: uniRows, globalCount, globalFF } =
+    await getCountryCounts();
   const counts = new Map(countRows);
   const ffCounts = new Map(ffRows);
   const uniCounts = new Map(uniRows);
@@ -67,6 +78,26 @@ export default async function CountriesPage() {
       </div>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {globalCount > 0 && (
+          <Link
+            href="/scholarships/global"
+            className="lift flex flex-col rounded-2xl border bg-card p-5"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-3xl" aria-hidden="true">🪐</span>
+              <div>
+                <h2 className="font-display font-bold">Global &amp; Multi-Country</h2>
+                <p className="text-xs text-muted-foreground">Multiple destinations</p>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center gap-4 text-sm">
+              <span className="font-semibold">{globalCount} scholarships</span>
+              {globalFF > 0 && (
+                <span className="text-emerald-600 dark:text-emerald-400">{globalFF} fully funded</span>
+              )}
+            </div>
+          </Link>
+        )}
         {countries.map((c) => (
           <Link
             key={c.code}
