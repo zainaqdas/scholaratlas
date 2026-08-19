@@ -9,9 +9,10 @@ A modern, production-quality web application for discovering, searching, filteri
 - **Frontend:** Next.js (App Router) + React 19 + TypeScript
 - **Styling:** Tailwind CSS v4 + shadcn-style UI primitives (Radix)
 - **Backend:** Next.js Server Actions + API routes
-- **Database:** PostgreSQL (serverless, e.g. Neon) via Prisma ORM
+- **Database:** Turso (serverless SQLite / libSQL) via Prisma + the libSQL driver adapter
+- **Email:** Resend (transactional — deadline reminders; see "Deadline alerts" below)
 - **Auth:** Session-based (hashed passwords with bcryptjs, cookie sessions)
-- **Search:** PostgreSQL-ready filter abstraction over Prisma (in-memory ranking for the current dataset; move ranking to pg_trgm/full-text at scale)
+- **Search:** filter abstraction over Prisma (in-memory ranking for the current dataset; move ranking to full-text at scale)
 
 ## Getting Started
 
@@ -27,6 +28,8 @@ npm run dev             # http://localhost:3000
 For local dev, point `DATABASE_URL` at a SQLite file — use `file:./dev.db` so
 `prisma db push`, the seed and the app all resolve to the same `prisma/dev.db`
 (relative `file:` URLs are resolved from `prisma/` everywhere, matching the CLI).
+See `.env.example` for the full set of variables. Email is optional locally:
+without `RESEND_API_KEY` the app runs fine and reminder sends are logged skips.
 
 ## Demo accounts
 
@@ -57,6 +60,8 @@ src/
 - **Scholarship detail pages** — overview, funding coverage, eligibility, application steps, required documents, "Before You Apply" verification section, similar scholarships, official-link emphasis
 - **AI assistant ("Ask ScholarAtlas")** — deterministic natural-language → structured-search parser (`src/lib/ai-search.ts`); drop in a real LLM later without UI changes
 - **Accounts** — email/password auth, saved scholarships, personalised dashboard with match scoring, deadline tracking
+- **Deadline alerts** — saving a scholarship with a deadline opts the user into an email reminder (default 7 days before, adjustable 3/7/14 on the saved page); the daily hygiene cron emails each alert once, with a token-based unsubscribe link. Requires `RESEND_API_KEY` + `RESEND_EMAIL_FROM` (verify your sending domain in Resend for real recipients).
+- **Contact form** — submissions are stored in the database (`ContactMessage`) and reviewed in the admin dashboard (no mailer configured for the contact form itself)
 - **Comparison** — add scholarships to a tray and compare side-by-side
 - **Moderation** — public submission form → pending queue → admin review/verify/feature
 - **Trust & safety** — verification badges, "Report incorrect information", scam-safety guidance, expired/deadline states
@@ -73,8 +78,17 @@ src/
 
 1. Push the repo to GitHub (already done for this project).
 2. In Vercel: **Import Project** from the GitHub repo.
-3. Add env vars: `DATABASE_URL` (PostgreSQL connection string), `SESSION_SECRET`, `NEXT_PUBLIC_APP_URL`.
+3. Add env vars (see `.env.example`):
+   - `DATABASE_URL` — the Turso `libsql://…` URL
+   - `TURSO_AUTH_TOKEN` — required for remote Turso databases
+   - `RESEND_API_KEY` + `RESEND_EMAIL_FROM` — for deadline reminder emails (verify your sending domain at resend.com/domains; until then Resend only delivers to the account owner's email)
+   - `NEXT_PUBLIC_APP_URL` — optional canonical origin override
 4. Deploy. The `postinstall` script runs `prisma generate` during the Vercel build.
+
+Schema changes to Turso can't use `prisma db push` (the CLI doesn't speak
+`libsql://`), so new tables/columns are applied with a small libsql script
+(`CREATE TABLE IF NOT EXISTS` / guarded `ALTER TABLE`) — see the migration
+notes in `PROGRESS.md` for the pattern.
 
 ## Importing real data (EURAXESS)
 
