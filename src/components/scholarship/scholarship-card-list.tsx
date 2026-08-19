@@ -3,7 +3,7 @@ import type { Scholarship } from "@prisma/client";
 import { ArrowRight, CalendarDays, Wallet } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { UniversityLogo } from "./university-logo";
-import { DeadlineBadge } from "./deadline-badge";
+import { LiveDeadlineBadge } from "./live-deadline-badge";
 import { VerificationBadge } from "./verification-badge";
 import { SaveButton } from "./save-button";
 import { countryFlag, countryName, studyLevelFromSlug } from "@/lib/constants";
@@ -78,7 +78,7 @@ export function ScholarshipCardList({ scholarship: s, saved = false }: CardProps
           <CalendarDays className="h-3.5 w-3.5" />
           {s.status === "EXPIRED" ? "Closed" : s.deadline ? formatShortDate(s.deadline) : "Open / rolling"}
         </span>
-        <DeadlineBadge scholarship={s} />
+        <LiveDeadlineBadge scholarship={s} />
         <div className="flex items-center gap-2">
           <SaveButton scholarshipId={s.id} initialSaved={saved} />
           <Link

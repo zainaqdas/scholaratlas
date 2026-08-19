@@ -25,18 +25,17 @@ export function formatDateTime(date: Date | string | null | undefined, timezone?
   return timezone ? `${datePart}, ${timePart} ${timezone}` : `${datePart}, ${timePart}`;
 }
 
-export function daysUntil(date: Date | string | null | undefined): number | null {
+export function daysUntil(date: Date | string | null | undefined, now: Date = new Date()): number | null {
   if (!date) return null;
   const d = typeof date === "string" ? new Date(date) : date;
-  const now = new Date();
   const ms = d.getTime() - now.getTime();
   return Math.ceil(ms / (1000 * 60 * 60 * 24));
 }
 
-export function isExpired(date: Date | string | null | undefined): boolean {
+export function isExpired(date: Date | string | null | undefined, now: Date = new Date()): boolean {
   if (!date) return false;
   const d = typeof date === "string" ? new Date(date) : date;
-  return d.getTime() < Date.now();
+  return d.getTime() < now.getTime();
 }
 
 export function relativeTime(date: Date | string): string {

@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 import { FIELDS, FIELD_GROUPS, fieldBySlug, fieldGroupBySlug, fieldSlugsForFilter } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { SavedStateProvider } from "@/components/saved-state";
+import { withOpenDeadline } from "@/lib/scholarship";
 
 // ISR: cached for a week; saved-state hydrates client-side per user.
 export const revalidate = 604800;
@@ -39,7 +40,7 @@ export default async function FieldPage({ params }: PageProps) {
   const filterSlugs = fieldSlugsForFilter(slug);
   const isGroup = !!fieldGroupBySlug(slug);
 
-  const where: Prisma.ScholarshipWhereInput = {
+  const where: Prisma.ScholarshipWhereInput = withOpenDeadline({
     status: "ACTIVE",
     recordType: "SCHOLARSHIP",
     // Match every leaf slug in the group (or the leaf itself) plus the "ALL"
@@ -48,7 +49,7 @@ export default async function FieldPage({ params }: PageProps) {
       ...(filterSlugs ?? []).map((s) => ({ fields: { contains: `"${s}"` } })),
       { fields: { contains: '"ALL"' } },
     ],
-  };
+  });
   const [scholarships, total] = await Promise.all([
     prisma.scholarship.findMany({
       where,

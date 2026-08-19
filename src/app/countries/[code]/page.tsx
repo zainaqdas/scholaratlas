@@ -8,6 +8,7 @@ import { FIELDS, countryByCode, countryFlag, countryName, studyLevelFromSlug } f
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
 import { SavedStateProvider } from "@/components/saved-state";
+import { withOpenDeadline } from "@/lib/scholarship";
 
 // ISR: cached for a week; saved-state hydrates client-side per user.
 export const revalidate = 604800;
@@ -40,11 +41,11 @@ export default async function CountryPage({ params }: PageProps) {
   // A country page shows records hosted there — either by single countryCode or
   // by appearing in a multi-country programme's hostCountries list (SEARCA has
   // a Philippine partner university, so it belongs on /countries/ph too).
-  const scholarshipWhere: Prisma.ScholarshipWhereInput = {
+  const scholarshipWhere: Prisma.ScholarshipWhereInput = withOpenDeadline({
     status: "ACTIVE",
     recordType: "SCHOLARSHIP",
     OR: [{ countryCode: country.code }, { hostCountries: { contains: `"${country.code}"` } }],
-  };
+  });
   const [scholarships, total, universities] = await Promise.all([
     prisma.scholarship.findMany({
       where: scholarshipWhere,

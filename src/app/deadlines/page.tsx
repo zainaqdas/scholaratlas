@@ -3,8 +3,7 @@ import Link from "next/link";
 import { CalendarClock } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { countryFlag, countryName } from "@/lib/constants";
-import { DeadlineBadge } from "@/components/scholarship/deadline-badge";
-import { daysUntil } from "@/lib/format";
+import { LiveDeadlineBadge, LiveDeadlineLabel } from "@/components/scholarship/live-deadline-badge";
 
 export const metadata: Metadata = {
   title: "Scholarship Deadlines",
@@ -78,7 +77,6 @@ function DeadlineSection({
       </h2>
       <ul className="mt-4 divide-y rounded-2xl border bg-card">
         {items.map((s) => {
-          const days = daysUntil(s.deadline);
           return (
             <li key={s.id}>
               <Link
@@ -92,12 +90,11 @@ function DeadlineSection({
                   </p>
                 </div>
                 <div className="flex shrink-0 items-center gap-3">
-                  {days !== null && days >= 0 && (
-                    <span className="hidden text-xs text-muted-foreground sm:inline">
-                      {days === 0 ? "Today" : days === 1 ? "Tomorrow" : `${days} days left`}
-                    </span>
-                  )}
-                  <DeadlineBadge scholarship={s} />
+                  <LiveDeadlineLabel
+                    deadline={s.deadline}
+                    className="hidden text-xs text-muted-foreground sm:inline"
+                  />
+                  <LiveDeadlineBadge scholarship={s} />
                 </div>
               </Link>
             </li>

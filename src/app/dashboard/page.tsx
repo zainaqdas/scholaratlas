@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowRight, Bookmark, CalendarClock, Sparkles } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth";
-import { matchScholarship } from "@/lib/scholarship";
+import { matchScholarship, withOpenDeadline } from "@/lib/scholarship";
 import { countryFlag, countryName, studyLevelFromSlug } from "@/lib/constants";
-import { DeadlineBadge } from "@/components/scholarship/deadline-badge";
+import { LiveDeadlineBadge } from "@/components/scholarship/live-deadline-badge";
 import { ProfileForm } from "@/components/dashboard/profile-form";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +23,7 @@ export default async function DashboardPage() {
       take: 8,
     }),
     prisma.scholarship.findMany({
-      where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+      where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }),
       include: { university: true },
       take: 60,
     }),
@@ -153,7 +153,7 @@ export default async function DashboardPage() {
                     <Link href={`/scholarships/${s.slug}`} className="truncate text-sm font-medium hover:text-primary">
                       {s.title}
                     </Link>
-                    <DeadlineBadge scholarship={s} className="shrink-0" />
+                    <LiveDeadlineBadge scholarship={s} className="shrink-0" />
                   </li>
                 ))}
               </ul>

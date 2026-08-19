@@ -14,12 +14,13 @@ import {
 import { prisma } from "@/lib/prisma";
 import { SearchBar } from "@/components/search-bar";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
-import { DeadlineBadge } from "@/components/scholarship/deadline-badge";
+import { LiveDeadlineBadge } from "@/components/scholarship/live-deadline-badge";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FIELD_GROUPS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
 import { formatCount, relativeTime } from "@/lib/format";
 import { HOMEPAGE_TTL, cachedData } from "@/lib/data-cache";
+import { withOpenDeadline } from "@/lib/scholarship";
 
 const HERO_QUICK_FILTERS = [
   { label: "Fully Funded", href: "/scholarships?funding=FULLY_FUNDED,FULLY_FUNDED_STIPEND" },
@@ -45,19 +46,19 @@ const getHomeData = cachedData(
   async () => {
     const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, allCountryRows] =
       await Promise.all([
-      prisma.scholarship.count({ where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } }),
+      prisma.scholarship.count({ where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }) }),
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", isFeatured: true },
+        where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP", isFeatured: true }),
         include: { university: true },
         take: 6,
       }),
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", isTrending: true },
+        where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP", isTrending: true }),
         include: { university: true },
         take: 6,
       }),
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+        where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }),
         include: { university: true },
         orderBy: { createdAt: "desc" },
         take: 6,
@@ -77,7 +78,7 @@ const getHomeData = cachedData(
       // belong to several countries via hostCountries (SEARCA → ID/MY/TH/PH),
       // so the top-country grid and the distinct-country count are tallied in JS.
       prisma.scholarship.findMany({
-        where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+        where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }),
         select: { countryCode: true, hostCountries: true },
       }),
     ]);
@@ -92,18 +93,18 @@ const getHomeData = cachedData(
         ? featured
         : await (async () => {
             const verified = await prisma.scholarship.findMany({
-              where: { status: "ACTIVE", recordType: "SCHOLARSHIP", verificationStatus: "VERIFIED" },
+              where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP", verificationStatus: "VERIFIED" }),
               include: { university: true },
               orderBy: [{ lastVerifiedAt: "desc" }, { views: "desc" }],
               take: 6,
             });
             if (verified.length >= 6) return verified;
             const fill = await prisma.scholarship.findMany({
-              where: {
+              where: withOpenDeadline({
                 status: "ACTIVE",
                 recordType: "SCHOLARSHIP",
                 verificationStatus: { not: "VERIFIED" },
-              },
+              }),
               include: { university: true },
               orderBy: [{ views: "desc" }, { createdAt: "desc" }],
               take: 6 - verified.length,
@@ -114,7 +115,7 @@ const getHomeData = cachedData(
       trending.length > 0
         ? trending
         : await prisma.scholarship.findMany({
-            where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+            where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }),
             include: { university: true },
             orderBy: [{ views: "desc" }, { createdAt: "desc" }],
             take: 6,
@@ -473,7 +474,7 @@ export default async function HomePage() {
                   {countryFlag(s.countryCode)} {countryName(s.countryCode)} · {s.provider}
                 </p>
               </div>
-              <DeadlineBadge scholarship={s} className="shrink-0" />
+              <LiveDeadlineBadge scholarship={s} className="shrink-0" />
             </Link>
           ))}
         </div>

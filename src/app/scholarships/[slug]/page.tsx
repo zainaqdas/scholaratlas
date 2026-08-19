@@ -35,7 +35,7 @@ import { SaveButton } from "@/components/scholarship/save-button";
 import { ShareButton } from "@/components/scholarship/share-button";
 import { ReportDialog } from "@/components/scholarship/report-dialog";
 import { ViewTracker } from "@/components/scholarship/view-tracker";
-import { DeadlineBadge, DeadlineDot } from "@/components/scholarship/deadline-badge";
+import { LiveDeadlineBadge } from "@/components/scholarship/live-deadline-badge";
 import { VerificationBadge } from "@/components/scholarship/verification-badge";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
 import {
@@ -59,6 +59,7 @@ import {
   languageOf,
   stepsOf,
   studyLevelNamesOf,
+  withOpenDeadline,
 } from "@/lib/scholarship";
 import { formatDateTime, formatDate, formatShortDate } from "@/lib/format";
 import { SavedStateProvider } from "@/components/saved-state";
@@ -146,12 +147,12 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
   if (!s) notFound();
 
   const similar = await prisma.scholarship.findMany({
-    where: {
+    where: withOpenDeadline({
       status: "ACTIVE",
       recordType: "SCHOLARSHIP",
       id: { not: s.id },
       OR: [{ countryCode: s.countryCode }, { fundingType: s.fundingType }],
-    },
+    }),
     include: { university: true },
     take: 6,
   });
@@ -164,7 +165,6 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
   const lang = languageOf(s);
   const eligible = eligibleOf(s);
   const hostCountries = hostCountriesOf(s);
-  const expired = s.status === "EXPIRED" || (s.deadline && s.deadline < new Date());
 
   return (
     <SavedStateProvider ids={[s.id, ...similar.map((i) => i.id)]}>
@@ -198,14 +198,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             {s.verificationStatus === "VERIFIED" && <VerificationBadge status={s.verificationStatus} />}
             {hasNoIelts(s) && <Badge variant="info">No IELTS</Badge>}
             {isOpenToAll(s) && <Badge variant="accent">Open to all nationalities</Badge>}
-            {expired ? (
-              <Badge variant="danger">Closed</Badge>
-            ) : (
-              <Badge variant="secondary">
-                <DeadlineDot scholarship={s} />
-                <span className="ml-1">Open</span>
-              </Badge>
-            )}
+            <LiveDeadlineBadge scholarship={s} />
           </div>
 
           <h1 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
@@ -314,7 +307,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
               value={
                 <span className="inline-flex items-center gap-2">
                   {s.deadline ? formatShortDate(s.deadline) : "Open / rolling"}
-                  <DeadlineBadge scholarship={s} />
+                  <LiveDeadlineBadge scholarship={s} />
                 </span>
               }
             />

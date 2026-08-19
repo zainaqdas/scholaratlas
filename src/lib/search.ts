@@ -7,6 +7,7 @@ import { Prisma, type Scholarship } from "@prisma/client";
 import { prisma } from "./prisma";
 import { SCHOLARSHIPS_PER_PAGE, fieldSlugsForFilter, studyLevelFromSlug } from "./constants";
 import { daysUntil } from "./format";
+import { withOpenDeadline } from "./scholarship";
 
 export type SortKey = "relevance" | "deadline" | "recent" | "funding" | "popular";
 
@@ -63,7 +64,7 @@ function deadlineWindowRange(deadline: string): { gte?: Date; lte?: Date } | nul
 }
 
 export async function searchScholarships(filters: SearchFilters = {}): Promise<SearchResult> {
-  const where: Prisma.ScholarshipWhereInput = {
+  let where: Prisma.ScholarshipWhereInput = {
     // status defaults to ACTIVE (open opportunities); "ALL" includes expired
     // records kept for history/SEO. PENDING/ARCHIVED are never shown publicly.
     status:
@@ -239,6 +240,16 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
 
   if (filters.featuredOnly) {
     where.isFeatured = true;
+  }
+
+  // Self-maintaining expiry: the default open view (status ACTIVE, no explicit
+  // deadline window) also excludes records whose deadline has already passed,
+  // so search never shows a closed opportunity as open. Records without a
+  // deadline are treated as open. Skipped when the user picked a deadline
+  // window (that choice already expresses intent) or requested ALL statuses.
+  const statusActive = !filters.status || filters.status === "ACTIVE";
+  if (statusActive && !filters.deadline) {
+    where = withOpenDeadline(where);
   }
 
   const items = await prisma.scholarship.findMany({

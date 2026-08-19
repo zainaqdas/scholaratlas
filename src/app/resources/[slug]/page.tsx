@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { formatDate } from "@/lib/format";
 import { getCurrentUser } from "@/lib/auth";
+import { withOpenDeadline } from "@/lib/scholarship";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -40,7 +41,7 @@ export default async function ArticlePage({ params }: PageProps) {
   const [related, user] = await Promise.all([
     relatedSlugs.length
       ? prisma.scholarship.findMany({
-          where: { slug: { in: relatedSlugs }, status: "ACTIVE", recordType: "SCHOLARSHIP" },
+          where: withOpenDeadline({ slug: { in: relatedSlugs }, status: "ACTIVE", recordType: "SCHOLARSHIP" }),
           include: { university: true },
         })
       : Promise.resolve([]),

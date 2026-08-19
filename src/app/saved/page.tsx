@@ -4,7 +4,7 @@ import { ArrowRight, Bookmark } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth";
 import { countryFlag, countryName } from "@/lib/constants";
-import { DeadlineBadge, DeadlineDot } from "@/components/scholarship/deadline-badge";
+import { LiveDeadlineBadge, LiveDeadlineDot } from "@/components/scholarship/live-deadline-badge";
 import { EmptyState } from "@/components/empty-state";
 import { Button } from "@/components/ui/button";
 import { RemoveSavedButton } from "@/components/dashboard/remove-saved-button";
@@ -61,10 +61,10 @@ export default async function SavedPage() {
                   </p>
                   <div className="mt-2 flex flex-wrap items-center gap-2">
                     <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <DeadlineDot scholarship={s} />
+                      <LiveDeadlineDot scholarship={s} />
                       {expired ? "Closed" : "Deadline"}
                     </span>
-                    <DeadlineBadge scholarship={s} />
+                    <LiveDeadlineBadge scholarship={s} />
                   </div>
                 </div>
                 <div className="flex shrink-0 items-center gap-2">

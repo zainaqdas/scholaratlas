@@ -2,9 +2,26 @@
 // the model are parsed here; UI code should use these helpers rather than
 // touching raw strings.
 
-import type { Scholarship } from "@prisma/client";
+import type { Prisma, Scholarship } from "@prisma/client";
 import { studyLevelFromSlug } from "./constants";
 import { daysUntil, isExpired } from "./format";
+
+// Conjunct that restricts a query to currently-open opportunities: the stored
+// status is ACTIVE AND the deadline has not passed (records with no deadline
+// are treated as open, per the "unknown = open" principle). Keeps listings
+// honest as deadlines pass without needing a periodic status-flip job.
+export function withOpenDeadline(
+  where: Prisma.ScholarshipWhereInput = {}
+): Prisma.ScholarshipWhereInput {
+  const open: Prisma.ScholarshipWhereInput = {
+    OR: [{ deadline: { gte: new Date() } }, { deadline: null }],
+  };
+  if (where.AND) {
+    const existing = Array.isArray(where.AND) ? where.AND : [where.AND];
+    return { ...where, AND: [...existing, open] };
+  }
+  return { ...where, AND: [open] };
+}
 
 export function parseJSON<T>(value: string | null | undefined, fallback: T): T {
   if (!value) return fallback;
@@ -78,10 +95,10 @@ export const isNationalityEligible = (s: Scholarship, nationalityCode?: string |
 
 export type DeadlineState = "closed" | "urgent" | "soon" | "ok" | "open" | "none";
 
-export function deadlineState(s: Scholarship): DeadlineState {
-  if (isExpired(s.deadline)) return "closed";
+export function deadlineState(s: Scholarship, now: Date = new Date()): DeadlineState {
+  if (isExpired(s.deadline, now)) return "closed";
   if (!s.deadline) return "none";
-  const days = daysUntil(s.deadline) ?? 999;
+  const days = daysUntil(s.deadline, now) ?? 999;
   if (days <= 7) return "urgent";
   if (days <= 30) return "soon";
   return "ok";
@@ -104,9 +121,9 @@ export function deadlineStateLabel(state: DeadlineState): string {
   }
 }
 
-export function deadlineDaysLabel(s: Scholarship): string {
+export function deadlineDaysLabel(s: Scholarship, now: Date = new Date()): string {
   if (!s.deadline) return "Open / rolling";
-  const days = daysUntil(s.deadline);
+  const days = daysUntil(s.deadline, now);
   if (days === null) return "Not specified";
   if (days < 0) return "Closed";
   if (days === 0) return "Today";
