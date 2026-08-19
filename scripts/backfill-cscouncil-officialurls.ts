@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // chinesescholarshipcouncil.com officialUrl backfill.
 //

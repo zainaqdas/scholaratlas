@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ScholarAtlas demo seed.
 // All scholarship records are DEMO data for development and are clearly marked as such
 // in the UI. No fabricated listings are presented as real opportunities.

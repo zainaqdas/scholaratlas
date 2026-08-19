@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { COUNTRIES, countryFlag, countryName } from "@/lib/constants";
+import { COUNTRIES } from "@/lib/constants";
 import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
 
 export const metadata: Metadata = {

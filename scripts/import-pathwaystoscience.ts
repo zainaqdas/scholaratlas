@@ -1,5 +1,4 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // pathwaystoscience.org importer — US STEM research/fellowship opportunities.
 //

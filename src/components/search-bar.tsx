@@ -28,7 +28,6 @@ export function SearchBar({
   const [q, setQ] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const [suggestions, setSuggestions] = useState<SuggestionData | null>(null);
-  const [loading, setLoading] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -41,12 +40,7 @@ export function SearchBar({
   }, []);
 
   useEffect(() => {
-    if (!q.trim()) {
-      setSuggestions(null);
-      setLoading(false);
-      return;
-    }
-    setLoading(true);
+    if (!q.trim()) return;
     clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(async () => {
       try {
@@ -58,8 +52,6 @@ export function SearchBar({
         }
       } catch {
         // ignore
-      } finally {
-        setLoading(false);
       }
     }, 180);
     return () => clearTimeout(debounceRef.current);
@@ -72,7 +64,9 @@ export function SearchBar({
     router.push(query ? `/scholarships?q=${encodeURIComponent(query)}` : "/scholarships");
   }
 
-  const hasSuggestions = suggestions && (
+  // The dropdown is hidden whenever the query is empty, so stale suggestions
+  // from a previous query never surface (no effect-time state reset needed).
+  const hasSuggestions = q.trim() && suggestions && (
     suggestions.scholarships.length ||
     suggestions.universities.length ||
     suggestions.countries.length ||
@@ -194,7 +188,7 @@ export function SearchBar({
               onClick={() => submit()}
               className="mt-1 flex w-full items-center justify-between rounded-lg bg-muted/60 px-3 py-2.5 text-sm font-medium text-primary hover:bg-muted"
             >
-              Search for "{q}"
+              Search for &quot;{q}&quot;
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // wms deadline backfill from the crawled "Deadline:" spec
 // (data/wms-deadlines.jsonl — all 20,451 detail pages).

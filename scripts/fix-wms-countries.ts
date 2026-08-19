@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Re-assign countryCode for wemakescholars imports from the detail page's
 // "Scholarship can be taken at" field.

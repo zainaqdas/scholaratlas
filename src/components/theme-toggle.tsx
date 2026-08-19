@@ -1,25 +1,35 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function ThemeToggle() {
-  const [dark, setDark] = useState<boolean>(false);
+// The theme lives in the <html> class (set by the inline script in layout.tsx
+// before hydration). useSyncExternalStore reads it without an effect, so the
+// button always reflects the applied theme and there's no setState-in-effect.
+const THEME_EVENT = "sa-theme-change";
 
-  useEffect(() => {
-    setDark(document.documentElement.classList.contains("dark"));
-  }, []);
+function getDark(): boolean {
+  return typeof document !== "undefined" && document.documentElement.classList.contains("dark");
+}
+
+function subscribe(callback: () => void): () => void {
+  window.addEventListener(THEME_EVENT, callback);
+  return () => window.removeEventListener(THEME_EVENT, callback);
+}
+
+export function ThemeToggle() {
+  const dark = useSyncExternalStore(subscribe, getDark, () => false);
 
   function toggle() {
-    const next = !dark;
-    setDark(next);
+    const next = !getDark();
     document.documentElement.classList.toggle("dark", next);
     try {
       localStorage.setItem("sa-theme", next ? "dark" : "light");
     } catch {
       // ignore
     }
+    window.dispatchEvent(new Event(THEME_EVENT));
   }
 
   return (

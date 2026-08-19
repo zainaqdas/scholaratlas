@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // ---------------------------------------------------------------------------
 // createMany with skip-duplicates semantics that works on SQLite (Turso).
 //

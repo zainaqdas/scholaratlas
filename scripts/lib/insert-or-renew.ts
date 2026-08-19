@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 // ---------------------------------------------------------------------------
 // Renew-in-place for re-crawled sources.
 //

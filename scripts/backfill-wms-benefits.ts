@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Fill amount / currency / benefits for wemakescholars records from the
 // cached detail-page descriptions (data/wms-global-details.jsonl).

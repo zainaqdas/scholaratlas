@@ -1,5 +1,4 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // wemakescholars.com US/UK/EU scholarship importer.
 //

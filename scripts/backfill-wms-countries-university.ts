@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Backfill destination countries for wemakescholars.com records.
 //

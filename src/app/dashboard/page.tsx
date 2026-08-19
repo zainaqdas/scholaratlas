@@ -4,7 +4,7 @@ import { ArrowRight, Bookmark, CalendarClock, Sparkles } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth";
 import { matchScholarship, withOpenDeadline } from "@/lib/scholarship";
-import { countryFlag, countryName, studyLevelFromSlug } from "@/lib/constants";
+import { countryFlag, countryName } from "@/lib/constants";
 import { LiveDeadlineBadge } from "@/components/scholarship/live-deadline-badge";
 import { ProfileForm } from "@/components/dashboard/profile-form";
 import { Button } from "@/components/ui/button";

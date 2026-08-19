@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Fill eligibility-derived fields for wemakescholars records from the crawled
 // "Eligibility Criteria" + "Application Process" free-text sections

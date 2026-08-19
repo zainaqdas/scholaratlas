@@ -1,5 +1,4 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Create University records from scholarship providers and link scholarships.
 //

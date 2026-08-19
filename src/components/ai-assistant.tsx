@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Bot, Loader2, Send, Sparkles, X } from "lucide-react";
+import { ArrowRight, Bot, Loader2, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
@@ -77,8 +77,8 @@ export function AiAssistant() {
               Ask ScholarAtlas
             </DialogTitle>
             <DialogDescription>
-              Describe what you're looking for — e.g. "a fully funded PhD in Japan for computer
-              science" — and we'll find potentially relevant opportunities.
+              Describe what you&apos;re looking for — e.g. &quot;a fully funded PhD in Japan for computer
+              science&quot; — and we&apos;ll find potentially relevant opportunities.
             </DialogDescription>
           </DialogHeader>
 

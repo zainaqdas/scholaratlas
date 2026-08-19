@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Fill eligibleNationalities for wemakescholars records from the crawled
 // "Eligible Nationalities" spec (data/wms-nationalities.jsonl).

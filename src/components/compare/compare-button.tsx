@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { Columns3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const KEY = "sa-compare";
+const CHANGE_EVENT = "sa-compare-change";
 
 export function getCompareIds(): string[] {
   try {
@@ -14,19 +15,24 @@ export function getCompareIds(): string[] {
   }
 }
 
-export function CompareButton({ scholarshipId, className }: { scholarshipId: string; className?: string }) {
-  const [active, setActive] = useState(false);
+// The compare set lives in localStorage; the button mirrors it reactively.
+function subscribe(callback: () => void): () => void {
+  window.addEventListener(CHANGE_EVENT, callback);
+  return () => window.removeEventListener(CHANGE_EVENT, callback);
+}
 
-  useEffect(() => {
-    setActive(getCompareIds().includes(scholarshipId));
-  }, [scholarshipId]);
+export function CompareButton({ scholarshipId, className }: { scholarshipId: string; className?: string }) {
+  const active = useSyncExternalStore(
+    subscribe,
+    () => getCompareIds().includes(scholarshipId),
+    () => false
+  );
 
   function toggle() {
     const ids = getCompareIds();
     const next = ids.includes(scholarshipId) ? ids.filter((i) => i !== scholarshipId) : [...ids, scholarshipId];
     localStorage.setItem(KEY, JSON.stringify(next.slice(0, 6)));
-    window.dispatchEvent(new Event("sa-compare-change"));
-    setActive(next.includes(scholarshipId));
+    window.dispatchEvent(new Event(CHANGE_EVENT));
   }
 
   return (

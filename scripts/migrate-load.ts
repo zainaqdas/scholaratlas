@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Turso migration — step 2: load the JSONL dump into the Turso database.
 //

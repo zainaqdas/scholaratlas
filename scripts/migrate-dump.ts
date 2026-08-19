@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Turso migration — step 1: dump the live Neon database to JSONL.
 //

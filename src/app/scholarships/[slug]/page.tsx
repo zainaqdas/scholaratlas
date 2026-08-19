@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  ArrowRight,
-  Bookmark,
   Building2,
   CalendarDays,
   CheckCircle2,
@@ -43,10 +41,8 @@ import {
   DOCUMENTS,
   DEFAULT_APPLICATION_STEPS,
   FUNDING_TYPES,
-  PROVIDER_TYPES,
   countryFlag,
   countryName,
-  studyLevelFromSlug,
 } from "@/lib/constants";
 import {
   benefitsOf,
@@ -207,6 +203,11 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
                 Job Listing
               </Badge>
             )}
+            {s.recordType === "CONTEST" && (
+              <Badge variant="outline" title="Competition / prize, not a scholarship">
+                Contest / Prize
+              </Badge>
+            )}
             {s.verificationStatus === "VERIFIED" && <VerificationBadge status={s.verificationStatus} />}
             {hasNoIelts(s) && <Badge variant="info">No IELTS</Badge>}
             {isOpenToAll(s) && <Badge variant="accent">Open to all nationalities</Badge>}
@@ -246,12 +247,38 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             <p className="mt-6 leading-relaxed text-muted-foreground">{s.description}</p>
           )}
 
+          {s.status === "EXPIRED" && (
+            <div className="mt-6 flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900 dark:border-red-900 dark:bg-red-950/50 dark:text-red-200">
+              <CalendarDays className="mt-0.5 h-4 w-4 shrink-0" />
+              <p>
+                <strong>This scholarship is currently closed.</strong> It is kept in the catalogue
+                for reference — deadlines, requirements and funding can change. Check the provider
+                website for the next cycle, or see similar active opportunities below.
+              </p>
+            </div>
+          )}
+
           <div className="mt-6 flex flex-wrap items-center gap-2">
-            {s.officialUrl ? (
+            {s.status === "EXPIRED" ? (
+              <>
+                <Button size="lg" className="gap-2" disabled>
+                  <CalendarDays className="h-4 w-4" />
+                  Applications Closed
+                </Button>
+                {s.officialUrl && (
+                  <Button asChild size="lg" variant="outline" className="gap-2">
+                    <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-4 w-4" />
+                      View Provider Website
+                    </a>
+                  </Button>
+                )}
+              </>
+            ) : s.officialUrl ? (
               <Button asChild size="lg" className="gap-2">
                 <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="h-4 w-4" />
-                  Visit Official Scholarship Website
+                  {s.recordType === "CONTEST" ? "Visit Official Website" : "Visit Official Scholarship Website"}
                 </a>
               </Button>
             ) : (

@@ -1,6 +1,5 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
 import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // chinesescholarshipcouncil.com importer — per-university CSC scholarship pages.
 //

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Apply PathwaysToScience deadlines from data/pts-deadlines.jsonl.
 // Only machine-readable dates ("8/1/2026") and explicit cycle lists

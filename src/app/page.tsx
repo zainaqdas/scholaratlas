@@ -5,7 +5,6 @@ import {
   CalendarClock,
   CheckCircle2,
   Globe2,
-  Landmark,
   Search,
   ShieldCheck,
   Sparkles,
@@ -486,7 +485,7 @@ export default async function HomePage() {
           <div className="text-center">
             <h2 className="font-display text-3xl font-extrabold tracking-tight">How It Works</h2>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              From "what should I study?" to "where do I apply?" — in three steps.
+              From &quot;what should I study?&quot; to &quot;where do I apply?&quot; — in three steps.
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -631,7 +630,7 @@ export default async function HomePage() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-blue/90 to-brand-indigo" />
         <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Education Shouldn't Be Limited by Borders
+            Education Shouldn&apos;t Be Limited by Borders
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-blue-100">
             Join thousands of students discovering opportunities that fit their goals — and take the

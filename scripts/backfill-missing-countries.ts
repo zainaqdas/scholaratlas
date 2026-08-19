@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Backfill: assign a destination country to ACTIVE scholarship records that
 // have none — but ONLY when the title names a single unambiguous host country.

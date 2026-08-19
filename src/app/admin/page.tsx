@@ -115,7 +115,7 @@ export default async function AdminPage() {
                     {s.submittedEmail ? `Submitted by ${s.submittedEmail}` : "Community submission"}
                   </p>
                   {s.submittedNote && (
-                    <p className="mt-1 text-xs italic text-muted-foreground">"{s.submittedNote}"</p>
+                    <p className="mt-1 text-xs italic text-muted-foreground">&quot;{s.submittedNote}&quot;</p>
                   )}
                 </div>
                 <div className="flex gap-2">

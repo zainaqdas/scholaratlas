@@ -24,7 +24,7 @@ export interface SearchFilters {
   fee?: string; // "free" | "required"
   verifiedOnly?: boolean; // only records checked against an official source
   featuredOnly?: boolean;
-  recordType?: "SCHOLARSHIP" | "JOB" | "ALL"; // default SCHOLARSHIP (jobs excluded from the catalogue)
+  recordType?: "SCHOLARSHIP" | "JOB" | "CONTEST" | "ALL"; // default SCHOLARSHIP (jobs/contests excluded from the catalogue)
   sort?: SortKey;
   page?: number;
   status?: string; // default ACTIVE
@@ -38,7 +38,6 @@ export interface SearchResult {
 }
 
 const MIN_DATE = new Date(0);
-const MAX_DATE = new Date(8640000000000000);
 
 function deadlineWindowRange(deadline: string): { gte?: Date; lte?: Date } | null {
   const now = new Date();

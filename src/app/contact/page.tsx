@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Mail, MessageSquareText, Newspaper, ShieldCheck, Wrench } from "lucide-react";
+import { MessageSquareText, Newspaper, ShieldCheck, Wrench } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { CONTACT_EMAIL } from "@/lib/constants";
 

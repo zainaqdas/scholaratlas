@@ -170,6 +170,21 @@ export const VERIFICATION_TONES: Record<string, "green" | "blue" | "amber" | "gr
   UNVERIFIED: "gray",
 };
 
+// --- Record types -----------------------------------------------------------
+// SCHOLARSHIP = funding/application opportunities in the catalogue.
+// JOB = research positions / PhD vacancies / postdocs (e.g. EURAXESS) — kept
+//       out of the scholarship UI, visible only via direct URL.
+// CONTEST = competitions, prizes, contests (e.g. university awards, hackathons)
+//       — kept in their own section at /contests, never mixed into the
+//       scholarship catalogue.
+export type RecordType = "SCHOLARSHIP" | "JOB" | "CONTEST";
+
+export const RECORD_TYPE_LABELS: Record<string, string> = {
+  SCHOLARSHIP: "Scholarship",
+  JOB: "Job Listing",
+  CONTEST: "Contest / Prize",
+};
+
 // --- Scholarship status -----------------------------------------------------
 export type ScholarshipStatus =
   | "ACTIVE"

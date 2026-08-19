@@ -248,7 +248,6 @@ export async function submitScholarshipAction(_prevState: ActionResult, formData
     },
   });
 
-  // eslint-disable-next-line no-console
   console.log("New scholarship submission:", scholarship.id);
   return { ok: true, id: scholarship.id };
 }

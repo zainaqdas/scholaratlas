@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Globe2 } from "lucide-react";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { FIELDS, countryByCode, countryFlag, countryName, studyLevelFromSlug } from "@/lib/constants";
+import { FIELDS, countryByCode, studyLevelFromSlug } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
 import { SavedStateProvider } from "@/components/saved-state";
@@ -176,7 +176,7 @@ export default async function CountryPage({ params }: PageProps) {
               </li>
               <li>
                 <Link href={`/scholarships?country=${country.code}&level=masters`} className="flex items-center gap-2 text-muted-foreground hover:text-primary">
-                  <Globe2 className="h-4 w-4" /> Master's in {country.name}
+                  <Globe2 className="h-4 w-4" /> Master&apos;s in {country.name}
                 </Link>
               </li>
               <li>

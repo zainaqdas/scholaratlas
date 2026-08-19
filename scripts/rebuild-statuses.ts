@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Rebuild statuses: replicate the live catalogue's moderation state after a
 // fresh import. Importers write PENDING/UNVERIFIED by design (nothing public

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Backfill study levels for wemakescholars records that currently show
 // "Not specified".

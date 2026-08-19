@@ -6,7 +6,6 @@ import { Columns3, Loader2 } from "lucide-react";
 import { getCompareIds } from "@/components/compare/compare-button";
 import { EmptyState } from "@/components/empty-state";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { countryFlag, countryName, fundingLabel, studyLevelFromSlug } from "@/lib/constants";
 import { studyLevelsOf, hasNoIelts, isOpenToAll, eligibleOf, languageOf } from "@/lib/scholarship";
 import { formatShortDate } from "@/lib/format";
@@ -20,10 +19,8 @@ export default function ComparePage() {
 
   useEffect(() => {
     const ids = getCompareIds();
-    if (ids.length === 0) {
-      setLoading(false);
-      return;
-    }
+    // An empty id list fetches [] and lands on the empty state — no local
+    // state is set synchronously in the effect body.
     fetch(`/api/scholarships?ids=${ids.join(",")}`)
       .then((r) => r.json())
       .then((data: Row[]) => setItems(data))
