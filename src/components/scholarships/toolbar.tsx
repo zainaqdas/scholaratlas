@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { History, LayoutGrid, List, Sparkles } from "lucide-react";
+import { History, LayoutGrid, List, Sparkles, Trophy } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
@@ -70,6 +71,14 @@ export function ResultsToolbar({
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
+        <Link
+          href="/contests"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <Trophy className="h-3.5 w-3.5" />
+          Contests &amp; Prizes
+        </Link>
+
         <button
           type="button"
           onClick={() => setParam("featured", featured ? null : "1")}
