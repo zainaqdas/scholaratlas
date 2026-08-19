@@ -1,0 +1,125 @@
+# Weekly source crawl + renew
+#
+# Re-crawls the live scholarship sources and runs the importers, which now
+# RENEW expired scholarships in place (status ACTIVE, fresh deadline + fields)
+# when a source reopens them — so the catalogue self-refreshes every cycle
+# instead of treating re-crawls as duplicates.
+#
+# Runs on Mondays 04:30 UTC (GitHub Actions schedules are UTC) and can be
+# triggered manually via the "Run workflow" button.
+#
+# Required repo secrets (Settings → Secrets and variables → Actions):
+#   TURSO_DATABASE_URL  — the libsql:// URL (same value the app uses as DATABASE_URL)
+#   TURSO_AUTH_TOKEN    — the Turso auth token
+#
+# Excluded by design:
+#   - Study in Sweden  — no crawler exists (one-time manual crawl; file committed)
+#   - Scholarships360  — records are hand-curated (data/s360/curated.jsonl)
+#   - wemakescholars / CUCAS — static Kaggle snapshots, not live re-crawls
+#   - PathwaystoScience — no deadline field, so records can't expire/renew
+
+name: Weekly source crawl + renew
+
+on:
+  schedule:
+    - cron: "30 4 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  crawl-and-renew:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check DB secrets
+        run: |
+          if [ -z "$DATABASE_URL" ] || [ -z "$TURSO_AUTH_TOKEN" ]; then
+            echo "::error::Missing secrets — add TURSO_DATABASE_URL and TURSO_AUTH_TOKEN under Settings → Secrets and variables → Actions (same values the app uses)."
+            exit 1
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: npm ci (tsx + prisma client)
+        run: npm ci
+
+      - name: Install Python crawler deps
+        run: pip install requests urllib3 scrapling playwright patchright
+
+      - name: Install browser runtimes
+        run: |
+          python -m playwright install --with-deps chromium
+          python -m patchright install chromium
+
+      # Each source is independent: continue-on-error keeps a broken site from
+      # blocking the rest, and failures stay visible in the Actions UI.
+
+      - name: Crawl + import scholars4dev
+        continue-on-error: true
+        run: |
+          python scripts/crawl-scholars4dev.py
+          npx tsx scripts/import-scholars4dev.ts
+
+      - name: Crawl + import Campus Bourses
+        continue-on-error: true
+        run: |
+          python scripts/crawl-campusbourses.py
+          npx tsx scripts/import-campusbourses.ts
+
+      - name: Import CSC Council (self-crawls its sitemap)
+        continue-on-error: true
+        run: npx tsx scripts/import-cscouncil.ts
+
+      - name: Crawl + import CampusChina
+        continue-on-error: true
+        run: |
+          python scrapers/campuschina/scrape.py
+          npx tsx scripts/import-campuschina.ts
+
+      - name: Crawl + import uni-direct
+        continue-on-error: true
+        run: |
+          python scripts/crawl-uni-direct.py
+          npx tsx scripts/import-uni-direct.ts
+
+      - name: DAAD — fetch seed, crawl + import
+        continue-on-error: true
+        run: |
+          set -e
+          # The DAAD crawler needs the search page's scholarships.js payload as seed.
+          curl -fsSL --max-time 90 "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/" -o /tmp/daad-search.html
+          JS=$(grep -oE 'src="[^"]*scholarships[^"]*\.js"' /tmp/daad-search.html | head -1 | sed -E 's/^src="//; s/"$//')
+          case "$JS" in
+            http*) curl -fsSL --max-time 90 "$JS" -o /tmp/daad-scholarships.js ;;
+            /*)    curl -fsSL --max-time 90 "https://www2.daad.de$JS" -o /tmp/daad-scholarships.js ;;
+            *)     echo "scholarships.js not found on the DAAD search page — skipping DAAD this week"; exit 0 ;;
+          esac
+          test -s /tmp/daad-scholarships.js
+          python scripts/crawl-daad-details.py
+          npx tsx scripts/import-daad.ts
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "scholaratlas-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A data scrapers/campuschina
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Weekly source crawl: refresh data + renew expired scholarships"
+            git push
+          fi
