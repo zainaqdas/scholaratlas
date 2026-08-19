@@ -7,7 +7,8 @@ export async function GET(request: Request) {
   if (ids.length === 0) return NextResponse.json([]);
 
   const items = await prisma.scholarship.findMany({
-    where: { id: { in: ids }, recordType: "SCHOLARSHIP" },
+    // Public API: never return unapproved submissions (PENDING/REJECTED).
+    where: { id: { in: ids }, recordType: "SCHOLARSHIP", status: { in: ["ACTIVE", "EXPIRED"] } },
     include: { university: true, country: true },
   });
   // preserve requested order

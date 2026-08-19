@@ -107,9 +107,9 @@ export default async function AdminPage() {
             {pendingList.map((s) => (
               <li key={s.id} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border p-4">
                 <div className="min-w-0">
-                  <Link href={`/scholarships/${s.slug}`} className="font-semibold hover:text-primary">
-                    {s.title}
-                  </Link>
+                  {/* Not linked: PENDING detail pages are intentionally private until
+                      approved (unverified submissions must never be public). */}
+                  <p className="font-semibold">{s.title}</p>
                   <p className="text-xs text-muted-foreground">
                     {s.provider} · {countryFlag(s.countryCode)} {countryName(s.countryCode)} ·{" "}
                     {s.submittedEmail ? `Submitted by ${s.submittedEmail}` : "Community submission"}

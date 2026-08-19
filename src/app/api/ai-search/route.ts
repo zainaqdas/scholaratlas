@@ -12,16 +12,32 @@ export async function POST(request: Request) {
     }
 
     const criteria = parseAiQuery(query);
-    const filters = criteriaToFilters(criteria);
-    const result = await searchScholarships({ ...filters, sort: "relevance", page: 1 });
+
+    // Graceful broadening: many catalogue records have an unspecified field list
+    // ("fields": []), so a strict field filter can return 0 even when strong
+    // opportunities exist (e.g. a fully-funded PhD in Japan with no field tag).
+    // If strict criteria find nothing, retry without the field, then also
+    // without the nationality — the loosest search still honours level, funding,
+    // destination and keywords. The summary reflects what actually ran.
+    let effective = criteria;
+    let result = await searchScholarships({ ...criteriaToFilters(criteria), sort: "relevance", page: 1 });
+    if (result.total === 0 && criteria.field) {
+      effective = { ...criteria, field: undefined };
+      result = await searchScholarships({ ...criteriaToFilters(effective), sort: "relevance", page: 1 });
+    }
+    if (result.total === 0 && effective.nationality) {
+      effective = { ...effective, nationality: undefined };
+      result = await searchScholarships({ ...criteriaToFilters(effective), sort: "relevance", page: 1 });
+    }
+
     const limit = Math.min(12, result.items.length);
 
     const items = result.items.slice(0, limit).map((s) => {
       const match = matchScholarship(s, {
-        nationality: criteria.nationality,
-        degreeLevel: criteria.levels?.[0],
-        fieldOfStudy: criteria.field,
-        preferredDestination: criteria.countries?.[0],
+        nationality: effective.nationality,
+        degreeLevel: effective.levels?.[0],
+        fieldOfStudy: effective.field,
+        preferredDestination: effective.countries?.[0],
       });
       return { scholarship: s, match };
     });
@@ -29,7 +45,7 @@ export async function POST(request: Request) {
     items.sort((a, b) => b.match.score - a.match.score);
 
     return NextResponse.json({
-      summary: criteriaSummary(criteria),
+      summary: criteriaSummary(effective),
       count: result.total,
       items,
     });

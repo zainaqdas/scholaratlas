@@ -70,7 +70,9 @@ export async function signinAction(_prevState: ActionResult, formData: FormData)
   await setSessionCookie(token);
 
   const next = String(formData.get("next") ?? "");
-  redirect(next && next.startsWith("/") ? next : "/dashboard");
+  // Only same-site paths are allowed (starts with "/" but not "//" — the
+  // latter is a protocol-relative URL and would be an open redirect).
+  redirect(next && next.startsWith("/") && !next.startsWith("//") ? next : "/dashboard");
 }
 
 export async function signoutAction(): Promise<void> {
@@ -204,7 +206,7 @@ export async function submitScholarshipAction(_prevState: ActionResult, formData
   const deadlineRaw = String(formData.get("deadline") ?? "").trim();
   const deadline = deadlineRaw ? new Date(deadlineRaw) : null;
 
-  const base = slugify(title);
+  const base = slugify(title) || "scholarship"; // never allow an empty slug
   let slug = base;
   let n = 2;
   while (await prisma.scholarship.findUnique({ where: { slug } })) {
@@ -348,24 +350,6 @@ export async function recordViewAction(scholarshipId: string): Promise<void> {
   }
 }
 
-export async function recordOutboundClickAction(scholarshipId: string): Promise<void> {
-  try {
-    await prisma.scholarship.update({
-      where: { id: scholarshipId },
-      data: { views: { increment: 1 } },
-    });
-  } catch {
-    // non-critical
-  }
-}
-
-export async function incrementSavesAction(scholarshipId: string): Promise<void> {
-  try {
-    await prisma.scholarship.update({
-      where: { id: scholarshipId },
-      data: { views: { increment: 1 } },
-    });
-  } catch {
-    // non-critical
-  }
-}
+// NOTE: outbound-click and save analytics are intentionally NOT recorded as
+// view increments — doing so would misrepresent the view count. If dedicated
+// analytics columns are added later, wire real counters here.

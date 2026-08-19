@@ -115,7 +115,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const s = await getScholarship(slug);
-  if (!s) return { title: "Scholarship not found" };
+  // PENDING/REJECTED records are never published (see the page gate) — their
+  // metadata must not advertise the record title to crawlers either.
+  if (!s || s.status === "PENDING" || s.status === "REJECTED") {
+    return { title: "Scholarship not found" };
+  }
 
   const level = studyLevelNamesOf(s)[0] ?? "";
   const funding = FUNDING_TYPES.find((f) => f.value === s.fundingType)?.label ?? "";
@@ -145,6 +149,14 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
 
   const s = await getScholarship(slug);
   if (!s) notFound();
+
+  // Never publish unverified submissions: community submissions sit in a
+  // moderation queue (PENDING) until an admin approves or rejects them. Their
+  // detail pages must not be publicly reachable by direct URL — search and the
+  // sitemap already exclude them, this closes the last exposure.
+  if (s.status === "PENDING" || s.status === "REJECTED") {
+    notFound();
+  }
 
   const similar = await prisma.scholarship.findMany({
     where: withOpenDeadline({

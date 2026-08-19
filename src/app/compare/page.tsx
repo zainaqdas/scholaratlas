@@ -8,7 +8,7 @@ import { EmptyState } from "@/components/empty-state";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { countryFlag, countryName, fundingLabel, studyLevelFromSlug } from "@/lib/constants";
-import { studyLevelsOf, hasNoIelts, isOpenToAll, eligibleOf } from "@/lib/scholarship";
+import { studyLevelsOf, hasNoIelts, isOpenToAll, eligibleOf, languageOf } from "@/lib/scholarship";
 import { formatShortDate } from "@/lib/format";
 import type { Scholarship } from "@prisma/client";
 
@@ -60,7 +60,15 @@ export default function ComparePage() {
     { label: "Stipend", value: (s) => (s.benefits.includes("stipend") ? "Covered" : "—") },
     { label: "Accommodation", value: (s) => (s.benefits.includes("accommodation") ? "Covered" : "—") },
     { label: "Airfare", value: (s) => (s.benefits.includes("airfare") ? "Covered" : "—") },
-    { label: "IELTS", value: (s) => (hasNoIelts(s) ? "Not required" : "May be required") },
+    {
+      label: "IELTS",
+      value: (s) => {
+        const l = languageOf(s);
+        if (l.ielts) return "Required";
+        if (hasNoIelts(s)) return "Not required";
+        return "Not specified"; // unknown ≠ required — never assume
+      },
+    },
     { label: "Deadline", value: (s) => (s.deadline ? formatShortDate(s.deadline) : "Open / rolling") },
     { label: "Eligibility", value: (s) => (isOpenToAll(s) ? "All nationalities" : `${eligibleOf(s).length} countries` ) },
     { label: "Application fee", value: (s) => s.applicationFee || "Free" },
