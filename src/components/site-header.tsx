@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Bookmark, ChevronDown, Menu, Search, Sparkles } from "lucide-react";
+import { Bookmark, ChevronDown, Menu, Search } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -161,12 +161,6 @@ export function SiteHeader() {
             <>
               <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
                 <Link href="/signin">Sign In</Link>
-              </Button>
-              <Button asChild size="sm" className="hidden md:inline-flex">
-                <Link href="/scholarships">
-                  <Sparkles className="h-4 w-4" />
-                  Find Scholarships
-                </Link>
               </Button>
             </>
           )}
