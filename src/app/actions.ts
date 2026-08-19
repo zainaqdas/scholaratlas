@@ -14,6 +14,7 @@ import {
   isAdminRole,
 } from "@/lib/auth";
 import { slugify } from "@/lib/utils";
+import { isHoneypotHit, rateLimitError } from "@/lib/spam-guard";
 
 // ---------------------------------------------------------------------------
 // Auth
@@ -313,6 +314,11 @@ export async function reportScholarshipAction(formData: FormData): Promise<Actio
 // ---------------------------------------------------------------------------
 
 export async function submitScholarshipAction(_prevState: ActionResult, formData: FormData): Promise<ActionResult> {
+  // Anti-spam: silently drop bots, refuse IPs over the limit.
+  if (isHoneypotHit(formData)) return { ok: true }; // fake success — don't teach the bot
+  const rateError = await rateLimitError("submit-scholarship");
+  if (rateError) return { ok: false, error: rateError };
+
   const title = String(formData.get("title") ?? "").trim();
   const provider = String(formData.get("provider") ?? "").trim();
   const countryCode = String(formData.get("countryCode") ?? "").trim().toUpperCase();
@@ -482,6 +488,11 @@ export async function setUserRoleAction(id: string, role: string): Promise<void>
 // configured (see README), so messages are reviewed in the admin dashboard
 // instead of being silently discarded.
 export async function submitContactAction(_prevState: ActionResult, formData: FormData): Promise<ActionResult> {
+  // Anti-spam: silently drop bots, refuse IPs over the limit.
+  if (isHoneypotHit(formData)) return { ok: true }; // fake success — don't teach the bot
+  const rateError = await rateLimitError("contact");
+  if (rateError) return { ok: false, error: rateError };
+
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const message = String(formData.get("message") ?? "").trim();
   const name = String(formData.get("name") ?? "").trim();

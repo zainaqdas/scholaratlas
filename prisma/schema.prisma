@@ -246,3 +246,15 @@ model ContactMessage {
 
   @@index([status])
 }
+
+// Anti-spam: records each public form submission (contact, submit-scholarship)
+// keyed by client IP so the server actions can rate-limit bots. Rows older than
+// the rate-limit window are pruned opportunistically on each write.
+model RateLimitEntry {
+  id        String   @id @default(cuid())
+  action    String // e.g. "contact" | "submit-scholarship"
+  ip        String // client IP from x-forwarded-for ("unknown" when absent)
+  createdAt DateTime @default(now())
+
+  @@index([action, ip, createdAt])
+}

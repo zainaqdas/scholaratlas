@@ -628,4 +628,8 @@ export const SCHOLARSHIPS_PER_PAGE = 12;
 // --- Admin contact email ----------------------------------------------------
 export const CONTACT_EMAIL = "hello@scholaratlas.dev";
 
+// Anti-spam honeypot field name — shared so client forms and server actions
+// agree on the same invisible field without importing server-only modules.
+export const HONEYPOT_FIELD = "companyWebsite";
+
 

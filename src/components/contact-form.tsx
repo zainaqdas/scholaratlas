@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { submitContactAction, type ActionResult } from "@/app/actions";
+import { HONEYPOT_FIELD } from "@/lib/constants";
 
 const TOPICS = [
   "General question",
@@ -34,6 +35,11 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-4">
+      {/* Honeypot: hidden from humans (off-screen + aria-hidden), only bots fill it */}
+      <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="hp-website">Leave this field empty</label>
+        <input id="hp-website" name={HONEYPOT_FIELD} type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       {state.error && (
         <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700 dark:bg-red-950/60 dark:text-red-300" role="alert">
           {state.error}
