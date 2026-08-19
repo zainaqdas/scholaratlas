@@ -75,6 +75,86 @@ export async function signinAction(_prevState: ActionResult, formData: FormData)
   redirect(next && next.startsWith("/") && !next.startsWith("//") ? next : "/dashboard");
 }
 
+// ---------------------------------------------------------------------------
+// Password reset
+// ---------------------------------------------------------------------------
+
+// SHA-256 of the raw token — the DB never stores the bearer value.
+async function hashResetToken(rawToken: string): Promise<string> {
+  const crypto = await import("crypto");
+  return crypto.createHash("sha256").update(rawToken).digest("hex");
+}
+
+export async function requestPasswordResetAction(
+  _prevState: ActionResult,
+  formData: FormData
+): Promise<ActionResult> {
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { ok: false, error: "Please enter a valid email address." };
+  }
+
+  const user = await prisma.user.findUnique({ where: { email } });
+  // Always return success — never reveal whether an account exists.
+  if (!user) {
+    return { ok: true };
+  }
+
+  // One active token per user: drop any previous resets for this account.
+  await prisma.passwordResetToken.deleteMany({ where: { userId: user.id } });
+
+  const crypto = await import("crypto");
+  const rawToken = crypto.randomBytes(32).toString("hex");
+  await prisma.passwordResetToken.create({
+    data: {
+      userId: user.id,
+      tokenHash: await hashResetToken(rawToken),
+      expiresAt: new Date(Date.now() + 60 * 60 * 1000), // 1 hour
+    },
+  });
+
+  const { getStaticBaseUrl } = await import("@/lib/app-url");
+  const { sendPasswordResetEmail } = await import("@/lib/email");
+  const sent = await sendPasswordResetEmail({
+    to: user.email,
+    userName: user.name,
+    resetUrl: `${getStaticBaseUrl()}/reset-password/${rawToken}`,
+  });
+  if (!sent.sent) {
+    console.warn(`[auth] password-reset email skipped for ${user.email}: ${sent.skippedReason}`);
+  }
+  return { ok: true };
+}
+
+export async function resetPasswordAction(
+  _prevState: ActionResult,
+  formData: FormData
+): Promise<ActionResult> {
+  const rawToken = String(formData.get("token") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
+
+  if (password.length < 8) {
+    return { ok: false, error: "Password must be at least 8 characters long." };
+  }
+
+  const token = await prisma.passwordResetToken.findUnique({
+    where: { tokenHash: await hashResetToken(rawToken) },
+    include: { user: true },
+  });
+  if (!token || token.expiresAt < new Date()) {
+    return { ok: false, error: "This reset link is invalid or has expired. Request a new one." };
+  }
+
+  const passwordHash = await hashPassword(password);
+  await prisma.$transaction([
+    prisma.user.update({ where: { id: token.userId }, data: { passwordHash } }),
+    // One-time use + revoke existing sessions so stolen sessions die too.
+    prisma.passwordResetToken.delete({ where: { id: token.id } }),
+    prisma.session.deleteMany({ where: { userId: token.userId } }),
+  ]);
+  return { ok: true };
+}
+
 export async function signoutAction(): Promise<void> {
   const store = await import("next/headers").then((m) => m.cookies());
   const token = store.get("sa_session")?.value;

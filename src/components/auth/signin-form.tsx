@@ -24,7 +24,12 @@ export function SignInForm({ next }: { next?: string }) {
         <Input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="password">Password</Label>
+        <div className="flex items-center justify-between">
+          <Label htmlFor="password">Password</Label>
+          <Link href="/forgot-password" className="text-xs font-medium text-primary hover:underline">
+            Forgot password?
+          </Link>
+        </div>
         <Input id="password" name="password" type="password" required autoComplete="current-password" placeholder="••••••••" />
       </div>
       <Button type="submit" className="w-full gap-2" disabled={pending}>

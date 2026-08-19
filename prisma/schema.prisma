@@ -143,6 +143,7 @@ model User {
   reports           Report[]
   sessions          Session[]
   alerts            Alert[]
+  passwordResets    PasswordResetToken[]
 
   // Email preferences for deadline reminders
   alertUnsubscribed Boolean  @default(false)
@@ -216,6 +217,20 @@ model Alert {
 
   @@unique([userId, scholarshipId])
   @@index([lastSentAt])
+}
+
+// One-time password-reset tokens. The token column stores a SHA-256 hash of
+// the raw token sent by email (the DB never holds the bearer value). Expires
+// after an hour; used tokens are deleted on successful reset.
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
 }
 
 // Contact-form submissions (no mailer configured — messages land here and are
