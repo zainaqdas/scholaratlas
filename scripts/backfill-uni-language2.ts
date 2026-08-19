@@ -11,8 +11,7 @@
  * Usage:
  *   npx tsx scripts/backfill-uni-language2.ts
  */
-import { PrismaClient } from "@prisma/client";
-const p = new PrismaClient();
+import { prisma as p } from "../src/lib/prisma";
 
 interface Policy {
   match: string[]; // university-name ILIKE patterns

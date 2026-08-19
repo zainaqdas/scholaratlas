@@ -15,10 +15,8 @@
  *
  * Only fills fields that are currently empty.
  */
-import { PrismaClient } from "@prisma/client";
 import * as fs from "fs";
-
-const prisma = new PrismaClient();
+import { prisma } from "../src/lib/prisma";
 
 function mapDocuments(docs: string[]): string[] {
   const keys = new Set<string>();
@@ -53,11 +51,12 @@ function mapBenefits(benefits: string[]): { benefits: string[]; fundingType: str
 }
 
 function mapLevel(level: string): string[] {
+  // Canonical slugs — display names like "Master's" never match the level filter.
   const l = (level || "").toLowerCase();
-  if (/bachelor|undergraduate/.test(l)) return ["Undergraduate"];
-  if (/master/.test(l)) return ["Master's"];
-  if (/doctoral|ph\.?d/.test(l)) return ["PhD"];
-  if (/postdoctoral|post-doctoral/.test(l)) return ["Postdoctoral"];
+  if (/bachelor|undergraduate/.test(l)) return ["undergraduate"];
+  if (/master/.test(l)) return ["masters"];
+  if (/doctoral|ph\.?d/.test(l)) return ["phd"];
+  if (/postdoctoral|post-doctoral/.test(l)) return ["postdoctoral"];
   return [];
 }
 

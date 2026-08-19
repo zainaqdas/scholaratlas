@@ -48,20 +48,31 @@ jobs:
       # 1. Refresh wms deadlines: capture new dates + mark records the source
       #    now lists as "Deadline: Expired". Uses the committed slug list
       #    (data/wms-global-slugs.json) so no listing crawl is needed.
+      #
+      # Each step is independent (a source being briefly down shouldn't block
+      # the rest), but failures are surfaced with continue-on-error so they
+      # show up red in the Actions UI instead of being swallowed by `|| true`.
       - name: Refresh wms deadlines
-        run: npm run backfill:wms-deadlines || true
+        continue-on-error: true
+        run: npm run backfill:wms-deadlines
 
       # 2. Import new wemakescholars listings (crawl + insert, idempotent).
       - name: Import new wms listings
-        run: npm run import:wms-full || true
+        continue-on-error: true
+        run: npm run import:wms-full
 
-      # 3. Keep China enrichment applied (idempotent backfills).
+      # 3. Keep China enrichment applied (idempotent backfills). These scripts
+      #    use the libSQL adapter (same client as the app), so they run against
+      #    the Turso DATABASE_URL — not a local file.
       - name: Refresh CUCAS enrichment
-        run: npm run backfill:cucas-rich || true
+        continue-on-error: true
+        run: npm run backfill:cucas-rich
       - name: Refresh CSC enrichment
-        run: npm run backfill:csc-rich || true
+        continue-on-error: true
+        run: npm run backfill:csc-rich
       - name: Refresh field classification
-        run: npm run backfill:fields || true
+        continue-on-error: true
+        run: npm run backfill:fields
 
       # 4. Report what changed (commit hash for traceability).
       - name: Summary

@@ -6,9 +6,7 @@
  * Skipped honestly: ZZULI (policy published only in Chinese), CCUT/NBU/ZUT
  * (no reachable English international-student site), BFA (WAF 412).
  */
-import { PrismaClient } from "@prisma/client";
-
-const p = new PrismaClient();
+import { prisma as p } from "../src/lib/prisma";
 
 interface UniPolicy {
   match: string[];

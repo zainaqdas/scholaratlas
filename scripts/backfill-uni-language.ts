@@ -8,8 +8,7 @@
  * So the flags are ielts:true, toefl:true, altProof:true, noIelts:false.
  * The specific scores are recorded in the note with the source URL.
  */
-import { PrismaClient } from "@prisma/client";
-const p = new PrismaClient();
+import { prisma as p } from "../src/lib/prisma";
 
 interface Policy {
   match: string[]; // university-name LIKE patterns

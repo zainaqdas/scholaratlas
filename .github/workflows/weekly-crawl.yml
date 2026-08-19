@@ -112,6 +112,14 @@ jobs:
           python scripts/crawl-daad-details.py
           npx tsx scripts/import-daad.ts
 
+      # Safety net: normalize any display-name study levels / field tags that a
+      # source parser wrote this cycle back to canonical slugs (idempotent).
+      - name: Normalize study levels + field tags
+        continue-on-error: true
+        run: |
+          npm run normalize:study-levels
+          npm run normalize:field-tags
+
       - name: Commit refreshed data
         run: |
           git config user.name "scholaratlas-bot"

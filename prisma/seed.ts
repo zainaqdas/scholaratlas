@@ -2,11 +2,9 @@
 // All scholarship records are DEMO data for development and are clearly marked as such
 // in the UI. No fabricated listings are presented as real opportunities.
 
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { prisma } from "../src/lib/prisma";
 import { COUNTRIES, FIELDS, STUDY_LEVELS, studyLevelSlug } from "../src/lib/constants";
-
-const prisma = new PrismaClient();
 
 const daysFromNow = (days: number, hour = 23, minute = 59) => {
   const d = new Date();

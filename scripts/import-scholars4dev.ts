@@ -121,15 +121,17 @@ function countryCode(raw: string | undefined): string | null {
 }
 
 // ---------------------------------------------------------------------------
-// Degree level -> studyLevels (app uses human-readable StudyLevel names)
+// Degree level -> studyLevels (canonical slugs: the level filter and card
+// rendering match slugs, so display names like "Master's" would be invisible
+// to the "masters" filter)
 // ---------------------------------------------------------------------------
 const LEVEL_RULES: [RegExp, string[]][] = [
-  [/ph\.?d|doctor|doctoral/i, ["PhD"]],
-  [/postgrad|master/i, ["Master's"]],
-  [/mba|mphil/i, ["MBA"]],
-  [/bachelor|undergraduate|\bbs\b|\bms\b/i, ["Undergraduate"]],
-  [/associate/i, ["Undergraduate"]],
-  [/training|short course/i, ["Short Course"]],
+  [/ph\.?d|doctor|doctoral/i, ["phd"]],
+  [/postgrad|master/i, ["masters"]],
+  [/mba|mphil/i, ["mba"]],
+  [/bachelor|undergraduate|\bbs\b|\bms\b/i, ["undergraduate"]],
+  [/associate/i, ["undergraduate"]],
+  [/training|short course/i, ["short-course"]],
 ];
 
 function studyLevels(degreeLevel: string | undefined): string[] {

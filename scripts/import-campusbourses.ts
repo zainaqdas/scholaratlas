@@ -35,12 +35,13 @@ import { prisma } from "../src/lib/prisma";
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
 
-// --- Study levels: Campus Bourses names -> app StudyLevel names -------------
+// --- Study levels: Campus Bourses names -> app study-level slugs ------------
+// (slugs are what the level filter and card rendering match)
 const LEVEL_MAP: Record<string, string> = {
-  Bachelor: "Undergraduate",
-  Master: "Master's",
-  PhD: "PhD",
-  Postdoctoral: "Postdoctoral",
+  Bachelor: "undergraduate",
+  Master: "masters",
+  PhD: "phd",
+  Postdoctoral: "postdoctoral",
 };
 
 // --- Fields of study: domain label -> app field slugs ------------------------

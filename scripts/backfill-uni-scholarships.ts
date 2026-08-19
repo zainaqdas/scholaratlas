@@ -13,9 +13,7 @@
  *    the generic homepage root
  *  - description: append a factual "Campus scholarships" note (source-backed)
  */
-import { PrismaClient } from "@prisma/client";
-
-const p = new PrismaClient();
+import { prisma as p } from "../src/lib/prisma";
 
 interface UniPolicy {
   match: string[]; // URL substrings to identify the university's records

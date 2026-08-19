@@ -14,6 +14,7 @@
 import { readFileSync } from "node:fs";
 import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
 import { prisma } from "../src/lib/prisma";
+import { studyLevelSlug } from "../src/lib/constants";
 
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
@@ -81,7 +82,9 @@ async function main() {
 
     const fp = `${title.toLowerCase().slice(0, 80)}|${(rec.provider || "").toLowerCase().slice(0, 60)}`;
 
-    const levels = Array.isArray(rec.levels) ? rec.levels : [];
+    // Hand-curated records may carry display-name levels (["Master's"], ["PhD"])
+    // — normalize to canonical slugs so the level filter and cards match them.
+    const levels = Array.isArray(rec.levels) ? rec.levels.map((l: string) => studyLevelSlug(l as never)).filter(Boolean) : [];
     const fields = Array.isArray(rec.fields) ? rec.fields : [];
     const benefits = Array.isArray(rec.benefits) ? rec.benefits : [];
     const docs = Array.isArray(rec.docs) ? rec.docs : [];

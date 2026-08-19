@@ -40,6 +40,8 @@
     "crawl:uni-direct": "python3 scripts/crawl-uni-direct.py",
     "enrich:cucas": "tsx scripts/enrich-cucas.ts",
     "dedupe": "tsx scripts/dedupe.ts",
+    "normalize:study-levels": "tsx scripts/normalize-study-levels.ts",
+    "normalize:field-tags": "tsx scripts/normalize-field-tags.ts",
     "import:wemakescholars": "tsx scripts/import-wemakescholars.ts",
     "import:wms-global": "tsx scripts/import-wemakescholars-global.ts",
     "import:wms-full": "tsx scripts/import-wemakescholars-full.ts",

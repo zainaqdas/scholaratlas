@@ -22,7 +22,11 @@ npm run seed            # loads demo data (72 scholarships, 52 countries, 42 uni
 npm run dev             # http://localhost:3000
 ```
 
-`DATABASE_URL` is read from `.env` (PostgreSQL connection string — Neon, Vercel Postgres, etc.).
+`DATABASE_URL` is read from `.env`. Production uses **Turso** (serverless SQLite):
+`DATABASE_URL` is the `libsql://…` URL and `TURSO_AUTH_TOKEN` is required.
+For local dev, point `DATABASE_URL` at a SQLite file — use `file:./dev.db` so
+`prisma db push`, the seed and the app all resolve to the same `prisma/dev.db`
+(relative `file:` URLs are resolved from `prisma/` everywhere, matching the CLI).
 
 ## Demo accounts
 

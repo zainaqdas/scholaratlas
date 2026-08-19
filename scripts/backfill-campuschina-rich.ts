@@ -24,13 +24,14 @@ function parseBenefits(text: string): string[] {
 }
 
 function parseLevels(text: string): string[] {
+  // Canonical slugs — display names like "Master's" never match the level filter.
   const t = text.toLowerCase();
   const out: string[] = [];
-  if (/\bpost[- ]?doctoral|post-doc\b/.test(t)) out.push("Postdoctoral");
-  if (/\bph\.?d|doctoral|doctorate/.test(t)) out.push("PhD");
-  if (/\bmaster|postgraduate/.test(t)) out.push("Master's");
-  if (/\bundergraduate|bachelor|undergrad/.test(t)) out.push("Undergraduate");
-  if (/\bexchange|short[- ]term|training course/.test(t)) out.push("Exchange Program");
+  if (/\bpost[- ]?doctoral|post-doc\b/.test(t)) out.push("postdoctoral");
+  if (/\bph\.?d|doctoral|doctorate/.test(t)) out.push("phd");
+  if (/\bmaster|postgraduate/.test(t)) out.push("masters");
+  if (/\bundergraduate|bachelor|undergrad/.test(t)) out.push("undergraduate");
+  if (/\bexchange|short[- ]term|training course/.test(t)) out.push("exchange-program");
   return out;
 }
 

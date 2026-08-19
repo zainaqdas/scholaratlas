@@ -14,10 +14,8 @@
  * Only fills fields that are currently empty (except benefits/amount/fundingType
  * which are refreshed from the live crawl when the crawl has data).
  */
-import { PrismaClient } from "@prisma/client";
 import * as fs from "fs";
-
-const prisma = new PrismaClient();
+import { prisma } from "../src/lib/prisma";
 
 const normUrl = (u: string) => u.replace(/&lang=en$/, "").trim();
 

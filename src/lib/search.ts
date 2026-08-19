@@ -87,14 +87,14 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
   }
 
   if (filters.levels?.length) {
-    where.studyLevels = { contains: filters.levels[0] };
-    // handle multiple levels with AND on raw JSON string via array of contains
-    if (filters.levels.length > 1) {
-      where.AND = [
-        { studyLevels: { contains: filters.levels[0] } },
-        ...filters.levels.slice(1).map((l) => ({ studyLevels: { contains: l } })),
-      ];
-    }
+    // A record matches when it contains ANY of the selected study levels —
+    // selecting "Undergraduate + Master's" must return both, not only records
+    // that happen to carry every level (which is almost none). All branches
+    // sit inside a single OR so each level matches independently.
+    where.AND = [
+      ...(Array.isArray(where.AND) ? where.AND : []),
+      { OR: filters.levels.map((l) => ({ studyLevels: { contains: l } })) },
+    ];
   }
 
   if (filters.funding?.length) {
@@ -360,6 +360,8 @@ export function buildSearchUrl(filters: SearchFilters): string {
   if (filters.providers?.length) params.set("provider", filters.providers.join(","));
   if (filters.languages?.length) params.set("language", filters.languages.join(","));
   if (filters.fee) params.set("fee", filters.fee);
+  if (filters.verifiedOnly) params.set("verified", "true");
+  if (filters.featuredOnly) params.set("featured", "1");
   if (filters.status && filters.status !== "ACTIVE") params.set("status", filters.status);
   if (filters.sort && filters.sort !== "relevance") params.set("sort", filters.sort);
   if (filters.page && filters.page > 1) params.set("page", String(filters.page));
@@ -382,6 +384,7 @@ export function parseFiltersFromUrl(searchParams: URLSearchParams): SearchFilter
     languages: toArray(searchParams.get("language")),
     fee: searchParams.get("fee") ?? undefined,
     verifiedOnly: searchParams.get("verified") === "true",
+    featuredOnly: searchParams.get("featured") === "1",
     status: (searchParams.get("status") ?? undefined)?.toUpperCase(),
     sort: (searchParams.get("sort") as SortKey) ?? undefined,
     page: Number(searchParams.get("page")) || undefined,

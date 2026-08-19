@@ -23,6 +23,7 @@ import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
  */
 import { readFileSync } from "node:fs";
 import { prisma } from "../src/lib/prisma";
+import { studyLevelSlug } from "../src/lib/constants";
 
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
@@ -138,13 +139,20 @@ async function main() {
       provider: titleCaseName(rec),
       providerType: rec.isDaad === 1 ? "GOVERNMENT" : "FOUNDATION",
       countryCode: "DE",
-      studyLevels: JSON.stringify(["PhD", "Master's", "Postdoctoral"].filter((l) => {
-        const t = (rec.target_group || "").toLowerCase() + " " + (rec.academic_req || "").toLowerCase();
-        if (l === "PhD") return /doctor|ph\.?d|doctoral/.test(t);
-        if (l === "Master's") return /master/.test(t);
-        if (l === "Postdoctoral") return /post[- ]?doc|postdoctoral/.test(t);
-        return false;
-      })),
+      studyLevels: JSON.stringify(
+        // Store canonical slugs (["phd"], ["masters"]…) — the level filter and
+        // card rendering match slugs; display-name values like "Master's" are
+        // invisible to the "masters" filter (apostrophe breaks the LIKE).
+        (["PhD", "Master's", "Postdoctoral"] as const)
+          .filter((l) => {
+            const t = (rec.target_group || "").toLowerCase() + " " + (rec.academic_req || "").toLowerCase();
+            if (l === "PhD") return /doctor|ph\.?d|doctoral/.test(t);
+            if (l === "Master's") return /master/.test(t);
+            if (l === "Postdoctoral") return /post[- ]?doc|postdoctoral/.test(t);
+            return false;
+          })
+          .map((l) => studyLevelSlug(l))
+      ),
       fields: JSON.stringify(fields),
       fundingType,
       benefits: JSON.stringify(benefits),
