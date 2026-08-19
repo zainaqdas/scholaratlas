@@ -305,7 +305,19 @@ export default async function HomePage() {
       {/* ----------------------------------------------------- Quick categories */}
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {QUICK_CATEGORIES.map((cat) => (
+          {/* Contests lives at /contests (not under /scholarships/), so it is
+              appended here rather than added to QUICK_CATEGORIES — the sitemap
+              derives /scholarships/{slug} from that list. */}
+          {[
+            ...QUICK_CATEGORIES,
+            {
+              slug: "contests",
+              title: "Contests & Prizes",
+              description: "Competitions, awards and prize opportunities.",
+              icon: "🏆",
+              href: "/contests",
+            },
+          ].map((cat) => (
             <Link
               key={cat.slug}
               href={cat.href}
