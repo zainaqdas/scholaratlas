@@ -6,9 +6,11 @@ import { STATUS_LABELS, VERIFICATION_LABELS, countryFlag, countryName } from "@/
 import { formatShortDate } from "@/lib/format";
 import {
   ApproveButton,
+  BulkApproveButton,
   DeleteButton,
   FeatureButton,
   RejectButton,
+  RemoveDuplicateButton,
   ResolveButton,
   ResolveContactButton,
   RoleSelect,
@@ -16,8 +18,48 @@ import {
   VerifyButton,
 } from "@/components/admin/admin-actions";
 import { Badge } from "@/components/ui/badge";
+import { duplicateKey, normalizeText, richnessScore } from "@/lib/dedupe";
+import type { DuplicateRow } from "@/lib/dedupe";
 
 export const metadata: Metadata = { title: "Admin Dashboard", robots: { index: false } };
+
+/**
+ * Candidate duplicate groups among live (ACTIVE/PENDING) scholarship records,
+ * keyed on normalized title + provider + country — the same key the offline
+ * `scripts/dedupe.ts` pass uses, so the panel and the script agree. Only
+ * SCHOLARSHIP records are considered (jobs/contests live in their own
+ * sections). Each group lists its richest record first.
+ */
+async function findDuplicateGroups(limit = 10): Promise<DuplicateRow[][]> {
+  const rows = (await prisma.scholarship.findMany({
+    where: { recordType: "SCHOLARSHIP", status: { in: ["ACTIVE", "PENDING"] } },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      provider: true,
+      countryCode: true,
+      officialUrl: true,
+      deadline: true,
+      status: true,
+      updatedAt: true,
+    },
+    orderBy: { updatedAt: "desc" },
+  })) as DuplicateRow[];
+
+  const byKey = new Map<string, DuplicateRow[]>();
+  for (const r of rows) {
+    const k = duplicateKey(r.title, r.provider, r.countryCode);
+    if (!byKey.has(k)) byKey.set(k, []);
+    byKey.get(k)!.push(r);
+  }
+
+  const groups = [...byKey.values()]
+    .filter((g) => g.length > 1)
+    .map((g) => [...g].sort((a, b) => richnessScore(b) - richnessScore(a)));
+  groups.sort((a, b) => b.length - a.length);
+  return groups.slice(0, limit);
+}
 
 export default async function AdminPage() {
   const admin = await requireAdmin();
@@ -37,6 +79,7 @@ export default async function AdminPage() {
     users,
     contactMessages,
     dataQuality,
+    duplicateGroupsResult,
   ] = await Promise.all([
     prisma.scholarship.count(),
     prisma.scholarship.count({ where: { status: "ACTIVE" } }),
@@ -68,9 +111,11 @@ export default async function AdminPage() {
       }),
       prisma.scholarship.count({ where: { status: "ACTIVE", deadline: { lt: now } } }),
     ]),
+    findDuplicateGroups(),
   ]);
 
   const [missingDeadline, missingUrl, staleActive] = dataQuality;
+  const duplicateGroups = duplicateGroupsResult;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -106,7 +151,10 @@ export default async function AdminPage() {
 
       {/* Pending submissions */}
       <section className="mt-8 rounded-2xl border bg-card p-6">
-        <h2 className="font-display text-lg font-bold">Pending Submissions</h2>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="font-display text-lg font-bold">Pending Submissions</h2>
+          {pending > 0 && <BulkApproveButton count={pending} />}
+        </div>
         {pendingList.length === 0 ? (
           <p className="mt-3 text-sm text-muted-foreground">Nothing waiting for review. 🎉</p>
         ) : (
@@ -129,6 +177,48 @@ export default async function AdminPage() {
                   <ApproveButton id={s.id} />
                   <RejectButton id={s.id} />
                 </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      {/* Potential duplicates */}
+      <section className="mt-8 rounded-2xl border bg-card p-6">
+        <div className="flex items-center justify-between">
+          <h2 className="font-display text-lg font-bold">Potential Duplicates</h2>
+          <span className="text-xs text-muted-foreground">matching title + provider + country</span>
+        </div>
+        {duplicateGroups.length === 0 ? (
+          <p className="mt-3 text-sm text-muted-foreground">No exact-duplicate candidates. 🎉</p>
+        ) : (
+          <ul className="mt-4 space-y-3">
+            {duplicateGroups.map((group) => (
+              <li key={group[0].id} className="rounded-xl border p-4">
+                <p className="text-xs font-medium text-muted-foreground">
+                  {group.length} records · {group[0].provider}{" "}
+                  {group[0].countryCode ? `· ${countryFlag(group[0].countryCode)} ${countryName(group[0].countryCode)}` : ""}
+                </p>
+                <ul className="mt-2 space-y-2">
+                  {group.map((r, i) => (
+                    <li key={r.id} className="flex flex-wrap items-center justify-between gap-3 rounded-lg bg-muted/40 px-3 py-2">
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <Link href={`/scholarships/${r.slug}`} className="truncate font-medium hover:text-primary">
+                            {r.title}
+                          </Link>
+                          {i === 0 && <Badge variant="navy">Keep (richest)</Badge>}
+                          {r.status !== "ACTIVE" && <Badge variant="secondary">{r.status}</Badge>}
+                        </div>
+                        <p className="truncate text-xs text-muted-foreground">
+                          {normalizeText(r.title) === normalizeText(group[0].title) ? "same title" : "similar title"} ·{" "}
+                          {r.officialUrl ? "has URL" : "no URL"} · {r.deadline ? "has deadline" : "no deadline"}
+                        </p>
+                      </div>
+                      {i > 0 && <RemoveDuplicateButton id={r.id} />}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>

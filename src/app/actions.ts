@@ -422,6 +422,21 @@ export async function approveSubmissionAction(id: string): Promise<void> {
   revalidatePath("/scholarships");
 }
 
+export async function bulkApproveSubmissionsAction(): Promise<number> {
+  await requireAdminUser();
+  const res = await prisma.scholarship.updateMany({
+    where: { status: "PENDING" },
+    data: {
+      status: "ACTIVE",
+      verificationStatus: "RECENTLY_UPDATED",
+      lastVerifiedAt: new Date(),
+    },
+  });
+  revalidatePath("/admin");
+  revalidatePath("/scholarships");
+  return res.count;
+}
+
 export async function rejectSubmissionAction(id: string): Promise<void> {
   await requireAdminUser();
   await prisma.scholarship.update({ where: { id }, data: { status: "REJECTED" } });

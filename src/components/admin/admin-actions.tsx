@@ -1,10 +1,11 @@
 "use client";
 
-import { useTransition } from "react";
-import { Check, Loader2, Star, Trash2, X } from "lucide-react";
+import { useState, useTransition } from "react";
+import { Check, Copy, Loader2, Star, Trash2, X } from "lucide-react";
 import {
   approveSubmissionAction,
   rejectSubmissionAction,
+  bulkApproveSubmissionsAction,
   deleteScholarshipAction,
   resolveReportAction,
   resolveContactAction,
@@ -50,6 +51,46 @@ export function ApproveButton({ id }: { id: string }) {
       <Check className="h-3.5 w-3.5" />
       Approve
     </ActionButton>
+  );
+}
+
+export function BulkApproveButton({ count }: { count: number }) {
+  const [confirming, setConfirming] = useState(false);
+  const [pending, startTransition] = useTransition();
+
+  if (confirming) {
+    return (
+      <span className="flex items-center gap-2">
+        <span className="text-xs font-medium text-muted-foreground">Approve all {count} pending?</span>
+        <Button
+          variant="default"
+          size="sm"
+          className="gap-1 bg-emerald-600 text-white hover:bg-emerald-700"
+          disabled={pending}
+          onClick={() => startTransition(async () => {
+            const n = await bulkApproveSubmissionsAction();
+            setConfirming(false);
+            // Surface the result for non-JS-clear feedback; the page revalidates.
+            if (typeof window !== "undefined") window.location.reload();
+            void n;
+          })}
+        >
+          {pending && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
+          <Check className="h-3.5 w-3.5" />
+          Confirm
+        </Button>
+        <Button variant="ghost" size="sm" disabled={pending} onClick={() => setConfirming(false)}>
+          Cancel
+        </Button>
+      </span>
+    );
+  }
+
+  return (
+    <Button variant="outline" size="sm" className="gap-1 text-emerald-600" onClick={() => setConfirming(true)}>
+      <Copy className="h-3.5 w-3.5" />
+      Approve all {count}
+    </Button>
   );
 }
 
@@ -106,6 +147,42 @@ export function DeleteButton({ id }: { id: string }) {
       <Trash2 className="h-3.5 w-3.5" />
       Delete
     </ActionButton>
+  );
+}
+
+export function RemoveDuplicateButton({ id }: { id: string }) {
+  const [confirming, setConfirming] = useState(false);
+  const [pending, startTransition] = useTransition();
+
+  if (confirming) {
+    return (
+      <span className="flex items-center gap-2">
+        <Button
+          variant="destructive"
+          size="sm"
+          className="gap-1"
+          disabled={pending}
+          onClick={() => startTransition(async () => {
+            await deleteScholarshipAction(id);
+            setConfirming(false);
+            if (typeof window !== "undefined") window.location.reload();
+          })}
+        >
+          {pending && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
+          Remove
+        </Button>
+        <Button variant="ghost" size="sm" disabled={pending} onClick={() => setConfirming(false)}>
+          Cancel
+        </Button>
+      </span>
+    );
+  }
+
+  return (
+    <Button variant="ghost" size="sm" className="gap-1 text-red-600" onClick={() => setConfirming(true)}>
+      <Trash2 className="h-3.5 w-3.5" />
+      Remove duplicate
+    </Button>
   );
 }
 

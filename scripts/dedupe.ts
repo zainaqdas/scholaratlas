@@ -21,17 +21,11 @@
 // ---------------------------------------------------------------------------
 
 import { prisma } from "../src/lib/prisma";
+import { duplicateKey, normalizeText } from "../src/lib/dedupe";
 
 const DRY_RUN = process.argv.includes("--dry-run");
 
-const norm = (s: string): string =>
-  (s || "")
-    .toLowerCase()
-    .replace(/&amp;/g, "&")
-    .replace(/&/g, " and ")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ");
+const norm = normalizeText;
 
 /** Program part of an imported title like "{Program} — {University} ({Level})". */
 function programPart(title: string): string {
@@ -76,7 +70,7 @@ async function main() {
   // --- Pass 1: exact duplicates -------------------------------------------
   const byKey = new Map<string, Row[]>();
   for (const r of rows) {
-    const k = `${norm(r.title)}|${norm(r.provider)}|${r.countryCode ?? ""}`;
+    const k = duplicateKey(r.title, r.provider, r.countryCode);
     if (!byKey.has(k)) byKey.set(k, []);
     byKey.get(k)!.push(r);
   }
