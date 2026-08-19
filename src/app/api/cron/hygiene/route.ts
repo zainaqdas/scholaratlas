@@ -15,6 +15,7 @@ const AGGREGATE_PATHS = [
   "/fields",
   "/universities",
   "/deadlines",
+  "/resources",
   "/scholarships/fully-funded",
   "/scholarships/undergraduate",
   "/scholarships/masters",
