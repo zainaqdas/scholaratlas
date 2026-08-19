@@ -16,10 +16,12 @@ import { prisma } from "../../src/lib/prisma";
 
 export interface ExistingLite {
   id: string;
-  slug: string;
-  sourceUrl: string | null;
-  title: string | null;
-  provider: string | null;
+  // slug/title/provider are not used by the decision — kept optional so
+  // importers can run a lean select (id, sourceUrl, status, deadline).
+  slug?: string;
+  sourceUrl?: string | null;
+  title?: string | null;
+  provider?: string | null;
   status: string;
   deadline: Date | null;
 }
