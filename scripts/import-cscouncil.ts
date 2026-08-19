@@ -1,4 +1,5 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
+import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // chinesescholarshipcouncil.com importer — per-university CSC scholarship pages.
@@ -225,38 +226,54 @@ async function main() {
 
   const existing = await prisma.scholarship.findMany({
     where: { sourceUrl: { in: records.map((r) => r.sourceUrl) } },
-    select: { sourceUrl: true },
+    select: { id: true, sourceUrl: true, status: true, deadline: true },
   });
-  const seen = new Set(existing.map((e) => e.sourceUrl));
-  const fresh = withUniversity.filter((r) => !seen.has(r.sourceUrl));
+  const existingByUrl = new Map(existing.map((e) => [e.sourceUrl as string, e]));
+
+  // Dedupe by source URL; re-crawled expired records are renewed in place so
+  // they come back to the catalogue instead of being skipped as duplicates.
+  const fresh: any[] = [];
+  const renewals: { id: string; data: any }[] = [];
+  const deadlineUpdates: { id: string; deadline: Date }[] = [];
+  let unchanged = 0;
+  for (const r of withUniversity) {
+    const row = {
+      title: r.title,
+      slug: r.slug,
+      description: r.description,
+      provider: r.provider,
+      providerType: "GOVERNMENT",
+      countryCode: "CN",
+      universityId: r.university?.id ?? null,
+      fundingType: r.fundingType,
+      amount: r.amount,
+      deadline: r.deadline,
+      deadlineTimezone: r.deadline ? "UTC" : null,
+      eligibleNationalities: '["ALL"]',
+      officialUrl: r.officialUrl,
+      sourceUrl: r.sourceUrl,
+      status: "PENDING",
+      verificationStatus: "UNVERIFIED",
+      recordType: "SCHOLARSHIP",
+      submittedNote: `Imported from chinesescholarshipcouncil.com (third-party, unverified) on ${new Date().toISOString().slice(0, 10)}`,
+    };
+    const match = existingByUrl.get(r.sourceUrl);
+    if (!match) {
+      fresh.push(row);
+      continue;
+    }
+    const decision = renewalDecision(match, row);
+    if (decision.kind === "renew") renewals.push(decision);
+    else if (decision.kind === "update-deadline") deadlineUpdates.push(decision);
+    else unchanged++;
+  }
 
   let inserted = 0;
   if (fresh.length) {
-    inserted = await createManySkipDuplicates(
-      prisma.scholarship,
-      fresh.map((r) => ({
-        title: r.title,
-        slug: r.slug,
-        description: r.description,
-        provider: r.provider,
-        providerType: "GOVERNMENT",
-        countryCode: "CN",
-        universityId: r.university?.id ?? null,
-        fundingType: r.fundingType,
-        amount: r.amount,
-        deadline: r.deadline,
-        deadlineTimezone: r.deadline ? "UTC" : null,
-        eligibleNationalities: '["ALL"]',
-        officialUrl: r.officialUrl,
-        sourceUrl: r.sourceUrl,
-        status: "PENDING",
-        verificationStatus: "UNVERIFIED",
-        recordType: "SCHOLARSHIP",
-        submittedNote: `Imported from chinesescholarshipcouncil.com (third-party, unverified) on ${new Date().toISOString().slice(0, 10)}`,
-      }))
-    );
+    inserted = await createManySkipDuplicates(prisma.scholarship, fresh);
   }
-  console.log(`New: ${fresh.length} | Already imported: ${records.length - fresh.length} | Inserted: ${inserted}`);
+  const { renewed: rn, deadlineUpdated: du } = await applyRenewals(renewals, deadlineUpdates);
+  console.log(`New: ${fresh.length} | Already imported (unchanged): ${unchanged} | Renewed: ${rn} | Deadlines updated: ${du} | Inserted: ${inserted}`);
 }
 
 main()

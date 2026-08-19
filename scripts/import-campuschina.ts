@@ -1,4 +1,5 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
+import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
 /* eslint-disable no-console */
 // ---------------------------------------------------------------------------
 // Campus China importer.
@@ -85,15 +86,30 @@ async function main() {
     return;
   }
 
-  // Dedupe by source URL
+  // Dedupe by source URL; re-crawled expired records are renewed in place so
+  // they come back to the catalogue instead of being skipped as duplicates.
   const urls = normalized.map((r) => r.sourceUrl);
   const existing = await prisma.scholarship.findMany({
     where: { sourceUrl: { in: urls } },
-    select: { sourceUrl: true },
+    select: { id: true, sourceUrl: true, status: true, deadline: true },
   });
-  const seen = new Set(existing.map((e) => e.sourceUrl));
-  const fresh = normalized.filter((r) => !seen.has(r.sourceUrl));
-  const skipped = normalized.length - fresh.length;
+  const existingByUrl = new Map(existing.map((e) => [e.sourceUrl as string, e]));
+  const fresh: any[] = [];
+  const renewals: { id: string; data: any }[] = [];
+  const deadlineUpdates: { id: string; deadline: Date }[] = [];
+  let unchanged = 0;
+  for (const r of normalized) {
+    const match = existingByUrl.get(r.sourceUrl);
+    if (!match) {
+      fresh.push(r);
+      continue;
+    }
+    const decision = renewalDecision(match, r);
+    if (decision.kind === "renew") renewals.push(decision);
+    else if (decision.kind === "update-deadline") deadlineUpdates.push(decision);
+    else unchanged++;
+  }
+  const skipped = unchanged;
 
   let toInsert = fresh;
   if (LIMIT > 0) toInsert = fresh.slice(0, LIMIT);
@@ -120,7 +136,8 @@ async function main() {
     inserted = await createManySkipDuplicates(prisma.scholarship, finalData);
   }
 
-  console.log(`New: ${toInsert.length} | Skipped (already imported): ${skipped} | Inserted: ${inserted}`);
+  const { renewed: rn, deadlineUpdated: du } = await applyRenewals(renewals, deadlineUpdates);
+  console.log(`New: ${toInsert.length} | Skipped (already imported): ${skipped} | Inserted: ${inserted} | Renewed: ${rn} | Deadlines updated: ${du}`);
   console.log(inserted > 0 ? "Imported records are PENDING — review them at /admin." : "Nothing new to import.");
 }
 

@@ -12,6 +12,7 @@
  *   npx tsx scripts/import-uni-direct.ts
  */
 import { readFileSync } from "node:fs";
+import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
 import { prisma } from "../src/lib/prisma";
 
 const args = process.argv.slice(2);
@@ -35,12 +36,15 @@ async function main() {
   console.log(`Direct university records: ${rows.length}`);
 
   const existing = await prisma.scholarship.findMany({
-    select: { slug: true, sourceUrl: true, title: true, provider: true, status: true },
+    select: { id: true, slug: true, sourceUrl: true, title: true, provider: true, status: true, deadline: true },
   });
   const existingSlugs = new Set(existing.map((r) => r.slug));
   const existingUrls = new Set(existing.map((r) => r.sourceUrl).filter(Boolean) as string[]);
   const existingFp = new Set(
     existing.map((r) => `${(r.title || "").toLowerCase().slice(0, 80)}|${(r.provider || "").toLowerCase().slice(0, 60)}`)
+  );
+  const existingByUrl = new Map(
+    existing.filter((r) => r.sourceUrl).map((r) => [r.sourceUrl as string, r])
   );
 
   // Normalized title for fuzzy dedupe: lowercase, strip years and noise words.
@@ -56,7 +60,11 @@ async function main() {
 
   let created = 0;
   let dup = 0;
+  let renewed = 0;
+  let deadlineUpdated = 0;
   const toCreate: any[] = [];
+  const renewals: { id: string; data: any }[] = [];
+  const deadlineUpdates: { id: string; deadline: Date }[] = [];
   for (const rec of rows) {
     const title = (rec.title || "").trim();
     if (!title || !rec.officialUrl) {
@@ -72,31 +80,6 @@ async function main() {
     while (existingSlugs.has(uniqueSlug) || inBatch.has(uniqueSlug)) uniqueSlug = `${baseSlug}-${i++}`;
 
     const fp = `${title.toLowerCase().slice(0, 80)}|${(rec.provider || "").toLowerCase().slice(0, 60)}`;
-    if (existingUrls.has(rec.sourceUrl) || existingFp.has(fp)) {
-      dup++;
-      console.log(`dup skip (exact): ${title}`);
-      continue;
-    }
-
-    // Fuzzy dedupe: if an ACTIVE record's normalized title contains ours (or
-    // vice versa) with sufficient length, the program is already covered.
-    // EXPIRED records don't block — the current edition is still useful.
-    const myNorm = normalizeTitle(title);
-    let fuzzyDup = false;
-    for (const e of existingNorm) {
-      if (!e.norm || e.norm.length < 18) continue;
-      if (e.status !== "ACTIVE") continue;
-      const a = e.norm, b = myNorm;
-      if (a.length >= 18 && b.length >= 18 && (a.includes(b) || b.includes(a))) {
-        fuzzyDup = true;
-        console.log(`dup skip (fuzzy): ${title} ~ ${e.norm.slice(0, 60)}`);
-        break;
-      }
-    }
-    if (fuzzyDup) {
-      dup++;
-      continue;
-    }
 
     const levels = Array.isArray(rec.levels) ? rec.levels : [];
     const fields = Array.isArray(rec.fields) ? rec.fields : [];
@@ -114,7 +97,7 @@ async function main() {
       ? `${rec.desc} Source: official ${rec.provider} page (${rec.sourceUrl}). Verify current value, eligibility and deadlines on the official website before applying.`
       : `Imported from the official ${rec.provider} page (${rec.sourceUrl}). Verify details on the official website before applying.`;
 
-    toCreate.push({
+    const row = {
       slug: uniqueSlug,
       title,
       description: desc,
@@ -148,7 +131,53 @@ async function main() {
       lastVerifiedAt: new Date(),
       submittedNote: `Imported from the official university page (${rec.sourceUrl}).`,
       createdAt: new Date(),
-    });
+    };
+
+    // Re-crawl of an already-imported record: renew it if it expired and the
+    // source reopened it; correct the deadline if it changed mid-cycle.
+    const urlMatch = existingByUrl.get(rec.sourceUrl);
+    if (urlMatch) {
+      const decision = renewalDecision(urlMatch, row);
+      if (decision.kind === "renew") {
+        renewals.push(decision);
+        renewed++;
+        console.log(`renew: ${title}`);
+      } else if (decision.kind === "update-deadline") {
+        deadlineUpdates.push(decision);
+        deadlineUpdated++;
+      } else {
+        dup++;
+        console.log(`dup skip (exact): ${title}`);
+      }
+      continue;
+    }
+    if (existingFp.has(fp)) {
+      dup++;
+      console.log(`dup skip (exact): ${title}`);
+      continue;
+    }
+
+    // Fuzzy dedupe: if an ACTIVE record's normalized title contains ours (or
+    // vice versa) with sufficient length, the program is already covered.
+    // EXPIRED records don't block — the current edition is still useful.
+    const myNorm = normalizeTitle(title);
+    let fuzzyDup = false;
+    for (const e of existingNorm) {
+      if (!e.norm || e.norm.length < 18) continue;
+      if (e.status !== "ACTIVE") continue;
+      const a = e.norm, b = myNorm;
+      if (a.length >= 18 && b.length >= 18 && (a.includes(b) || b.includes(a))) {
+        fuzzyDup = true;
+        console.log(`dup skip (fuzzy): ${title} ~ ${e.norm.slice(0, 60)}`);
+        break;
+      }
+    }
+    if (fuzzyDup) {
+      dup++;
+      continue;
+    }
+
+    toCreate.push(row);
     created++;
   }
 
@@ -165,6 +194,9 @@ async function main() {
     await prisma.scholarship.createMany({ data: toCreate.slice(i, i + 10) });
   }
   console.log(`inserted ${toCreate.length} scholarships`);
+
+  const { renewed: rn, deadlineUpdated: du } = await applyRenewals(renewals, deadlineUpdates);
+  console.log(`renewals applied: ${rn}, deadline updates applied: ${du}`);
   await prisma.$disconnect();
 }
 

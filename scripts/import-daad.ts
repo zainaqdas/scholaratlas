@@ -1,4 +1,5 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
+import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
 /* Import DAAD scholarship database (156 programs) from data/daad-details.jsonl.
  *
  * Maps DAAD detail fields to the Scholarship schema:
@@ -89,14 +90,23 @@ async function main() {
   }
   console.log(`DAAD records: ${rows.length}`);
 
-  // Existing slugs for dedupe
-  const existing = await prisma.scholarship.findMany({ select: { slug: true, sourceUrl: true } });
+  // Existing records for dedupe + renewal
+  const existing = await prisma.scholarship.findMany({
+    select: { id: true, slug: true, sourceUrl: true, status: true, deadline: true },
+  });
   const existingSlugs = new Set(existing.map((r) => r.slug));
-  const existingUrls = new Set(existing.map((r) => r.sourceUrl).filter(Boolean));
+  const existingUrls = new Set(existing.map((r) => r.sourceUrl).filter(Boolean) as string[]);
+  const existingByUrl = new Map(
+    existing.filter((r) => r.sourceUrl).map((r) => [r.sourceUrl as string, r])
+  );
 
   let created = 0;
   let dup = 0;
+  let renewed = 0;
+  let deadlineUpdated = 0;
   const toCreate: any[] = [];
+  const renewals: { id: string; data: any }[] = [];
+  const deadlineUpdates: { id: string; deadline: Date }[] = [];
   for (const rec of rows) {
     const title = rec.title || "";
     if (!title) continue;
@@ -118,15 +128,10 @@ async function main() {
     let i = 2;
     while (existingSlugs.has(uniqueSlug)) uniqueSlug = `${slug}-${i++}`;
 
-    if (existingUrls.has(detailUrl) || existingSlugs.has(slug)) {
-      dup++;
-      continue;
-    }
-
     const fundingType = benefits.includes("stipend") ? "FULLY_FUNDED_STIPEND" : benefits.includes("tuition") ? "FULLY_FUNDED" : "PARTIAL";
     const academicParts = [rec.academic_req, rec.target_group].filter(Boolean).join(" | ");
 
-    toCreate.push({
+    const row = {
       slug: uniqueSlug,
       title,
       description: rec.description || null,
@@ -158,11 +163,34 @@ async function main() {
       recordType: "SCHOLARSHIP",
       verificationStatus: "UNVERIFIED",
       status: "ACTIVE",
-    });
+    };
+
+    // Re-crawl of an already-imported record: renew it if it expired and the
+    // source reopened it; correct the deadline if it changed mid-cycle.
+    const urlMatch = existingByUrl.get(detailUrl);
+    if (urlMatch) {
+      const decision = renewalDecision(urlMatch, row);
+      if (decision.kind === "renew") {
+        renewals.push(decision);
+        renewed++;
+      } else if (decision.kind === "update-deadline") {
+        deadlineUpdates.push(decision);
+        deadlineUpdated++;
+      } else {
+        dup++;
+      }
+      continue;
+    }
+    if (existingSlugs.has(slug)) {
+      dup++;
+      continue;
+    }
+
+    toCreate.push(row);
     created++;
   }
 
-  console.log(`created: ${created}, duplicates skipped: ${dup}`);
+  console.log(`created: ${created}, duplicates skipped: ${dup}, renewed: ${renewed}, deadlines updated: ${deadlineUpdated}`);
   if (DRY_RUN) {
     console.log("dry run — no writes");
     await prisma.$disconnect();
@@ -174,6 +202,9 @@ async function main() {
     await createManySkipDuplicates(prisma.scholarship, toCreate.slice(i, i + CHUNK), CHUNK);
     console.log(`inserted ${Math.min(i + CHUNK, toCreate.length)}/${toCreate.length}`);
   }
+
+  const { renewed: rn, deadlineUpdated: du } = await applyRenewals(renewals, deadlineUpdates);
+  console.log(`renewals applied: ${rn}, deadline updates applied: ${du}`);
   await prisma.$disconnect();
 }
 

@@ -1,4 +1,5 @@
 import { createManySkipDuplicates } from "./lib/insert-many";
+import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
 /* Import the official Study in Sweden scholarship database (60 scholarships)
  * from data/studyinsweden/scholarships.jsonl (extracted from the site's
  * embedded Next.js data — cms.studyinsweden.se is the official Swedish
@@ -48,17 +49,24 @@ async function main() {
   console.log(`usable (with official URL): ${usable.length}`);
 
   const existing = await prisma.scholarship.findMany({
-    select: { slug: true, sourceUrl: true, title: true, provider: true },
+    select: { id: true, slug: true, sourceUrl: true, title: true, provider: true, status: true, deadline: true },
   });
   const existingSlugs = new Set(existing.map((r) => r.slug));
   const existingUrls = new Set(existing.map((r) => r.sourceUrl).filter(Boolean) as string[]);
   const existingFp = new Set(
     existing.map((r) => `${(r.title || "").toLowerCase().slice(0, 80)}|${(r.provider || "").toLowerCase().slice(0, 60)}`)
   );
+  const existingByUrl = new Map(
+    existing.filter((r) => r.sourceUrl).map((r) => [r.sourceUrl as string, r])
+  );
 
   let created = 0;
   let dup = 0;
+  let renewed = 0;
+  let deadlineUpdated = 0;
   const toCreate: any[] = [];
+  const renewals: { id: string; data: any }[] = [];
+  const deadlineUpdates: { id: string; deadline: Date }[] = [];
   for (const rec of usable) {
     const title = (rec.title || "").trim();
     const sourceUrlFull = `https://studyinsweden.se/scholarships/${rec.slug}/`;
@@ -86,14 +94,10 @@ async function main() {
     if (!provider) provider = "Swedish organisation";
 
     const fp = `${title.toLowerCase().slice(0, 80)}|${provider.toLowerCase().slice(0, 60)}`;
-    if (existingUrls.has(sourceUrlFull) || existingFp.has(fp)) {
-      dup++;
-      continue;
-    }
 
     const desc = `${title} — scholarship listed in the official Study in Sweden database (studyinsweden.se), the Swedish government's guide for international students. Destination: Sweden. Verify current value, eligibility, level and deadline on the official provider website before applying.`;
 
-    toCreate.push({
+    const row = {
       slug: uniqueSlug,
       title,
       description: desc,
@@ -127,11 +131,34 @@ async function main() {
       lastVerifiedAt: new Date(),
       submittedNote: `Imported from the official Study in Sweden database (studyinsweden.se/scholarships).`,
       createdAt: new Date(),
-    });
+    };
+
+    // Re-crawl of an already-imported record: renew it if it expired and the
+    // source still lists it; correct the deadline if it changed mid-cycle.
+    const urlMatch = existingByUrl.get(sourceUrlFull);
+    if (urlMatch) {
+      const decision = renewalDecision(urlMatch, row);
+      if (decision.kind === "renew") {
+        renewals.push(decision);
+        renewed++;
+      } else if (decision.kind === "update-deadline") {
+        deadlineUpdates.push(decision);
+        deadlineUpdated++;
+      } else {
+        dup++;
+      }
+      continue;
+    }
+    if (existingFp.has(fp) || existingSlugs.has(slug)) {
+      dup++;
+      continue;
+    }
+
+    toCreate.push(row);
     created++;
   }
 
-  console.log(`created: ${created}, duplicates skipped: ${dup}`);
+  console.log(`created: ${created}, duplicates skipped: ${dup}, renewed: ${renewed}, deadlines updated: ${deadlineUpdated}`);
   if (DRY_RUN) {
     console.log("dry run — no writes");
     await prisma.$disconnect();
@@ -143,6 +170,9 @@ async function main() {
     await createManySkipDuplicates(prisma.scholarship, toCreate.slice(i, i + CHUNK), CHUNK);
     console.log(`inserted ${Math.min(i + CHUNK, toCreate.length)}/${toCreate.length}`);
   }
+
+  const { renewed: rn, deadlineUpdated: du } = await applyRenewals(renewals, deadlineUpdates);
+  console.log(`renewals applied: ${rn}, deadline updates applied: ${du}`);
 
   const inserted = await prisma.scholarship.count({
     where: { sourceUrl: { contains: "studyinsweden.se" } },

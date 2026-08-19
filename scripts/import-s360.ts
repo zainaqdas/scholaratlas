@@ -14,6 +14,7 @@
  */
 import { readFileSync } from "node:fs";
 import { prisma } from "../src/lib/prisma";
+import { renewalDecision, applyRenewals } from "./lib/insert-or-renew";
 
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
@@ -38,7 +39,7 @@ async function main() {
   console.log(`S360 curated records: ${rows.length}`);
 
   const existing = await prisma.scholarship.findMany({
-    select: { slug: true, sourceUrl: true, title: true, provider: true, status: true },
+    select: { id: true, slug: true, sourceUrl: true, title: true, provider: true, status: true, deadline: true },
   });
   const existingSlugs = new Set(existing.map((r) => r.slug));
   const existingUrls = new Set(existing.map((r) => r.sourceUrl).filter(Boolean) as string[]);
@@ -46,9 +47,14 @@ async function main() {
     existing.map((r) => `${(r.title || "").toLowerCase().slice(0, 80)}|${(r.provider || "").toLowerCase().slice(0, 60)}`)
   );
   const existingNorm = existing.map((r) => ({ norm: normalizeTitle(r.title || ""), status: r.status }));
+  const existingByUrl = new Map(
+    existing.filter((r) => r.sourceUrl).map((r) => [r.sourceUrl as string, r])
+  );
 
-  let created = 0, dup = 0;
+  let created = 0, dup = 0, renewed = 0, deadlineUpdated = 0;
   const toCreate: any[] = [];
+  const renewals: { id: string; data: any }[] = [];
+  const deadlineUpdates: { id: string; deadline: Date }[] = [];
   for (const rec of rows) {
     const title = (rec.title || "").trim();
     if (!title || !rec.officialUrl) continue;
@@ -60,28 +66,11 @@ async function main() {
     while (existingSlugs.has(uniqueSlug) || inBatch.has(uniqueSlug)) uniqueSlug = `${baseSlug}-${i++}`;
 
     const fp = `${title.toLowerCase().slice(0, 80)}|${(rec.provider || "").toLowerCase().slice(0, 60)}`;
-    if (existingUrls.has(rec.sourceUrl) || existingFp.has(fp)) {
-      dup++;
-      console.log(`dup skip (exact): ${title}`);
-      continue;
-    }
-    const myNorm = normalizeTitle(title);
-    let fuzzyDup = false;
-    for (const e of existingNorm) {
-      if (!e.norm || e.norm.length < 18 || e.status !== "ACTIVE") continue;
-      const a = e.norm, b = myNorm;
-      if (a.length >= 18 && b.length >= 18 && (a.includes(b) || b.includes(a))) {
-        fuzzyDup = true;
-        console.log(`dup skip (fuzzy): ${title} ~ ${e.norm.slice(0, 60)}`);
-        break;
-      }
-    }
-    if (fuzzyDup) { dup++; continue; }
 
     const lang: any = rec.lang ? { altProof: true } : {};
     const desc = `${rec.desc} Source: Scholarships360 editorial guide (${rec.sourceUrl}). Verify current value, eligibility and deadlines on the official provider website before applying.`;
 
-    toCreate.push({
+    const row = {
       slug: uniqueSlug,
       title,
       description: desc,
@@ -114,7 +103,45 @@ async function main() {
       verificationStatus: "RECENTLY_UPDATED",
       status: "ACTIVE",
       recordType: "SCHOLARSHIP",
-    });
+    };
+
+    // Re-crawl of an already-imported record: renew it if it expired and the
+    // source still lists it; correct the deadline if it changed mid-cycle.
+    const urlMatch = existingByUrl.get(rec.sourceUrl);
+    if (urlMatch) {
+      const decision = renewalDecision(urlMatch, row);
+      if (decision.kind === "renew") {
+        renewals.push(decision);
+        renewed++;
+        console.log(`renew: ${title}`);
+      } else if (decision.kind === "update-deadline") {
+        deadlineUpdates.push(decision);
+        deadlineUpdated++;
+      } else {
+        dup++;
+        console.log(`dup skip (exact): ${title}`);
+      }
+      continue;
+    }
+    if (existingFp.has(fp)) {
+      dup++;
+      console.log(`dup skip (exact): ${title}`);
+      continue;
+    }
+    const myNorm = normalizeTitle(title);
+    let fuzzyDup = false;
+    for (const e of existingNorm) {
+      if (!e.norm || e.norm.length < 18 || e.status !== "ACTIVE") continue;
+      const a = e.norm, b = myNorm;
+      if (a.length >= 18 && b.length >= 18 && (a.includes(b) || b.includes(a))) {
+        fuzzyDup = true;
+        console.log(`dup skip (fuzzy): ${title} ~ ${e.norm.slice(0, 60)}`);
+        break;
+      }
+    }
+    if (fuzzyDup) { dup++; continue; }
+
+    toCreate.push(row);
     created++;
   }
 
@@ -127,6 +154,9 @@ async function main() {
     await prisma.scholarship.create({ data: c });
   }
   console.log(`inserted ${toCreate.length} scholarships`);
+
+  const { renewed: rn, deadlineUpdated: du } = await applyRenewals(renewals, deadlineUpdates);
+  console.log(`renewals applied: ${rn}, deadline updates applied: ${du}`);
 }
 
 main().finally(() => prisma.$disconnect());
