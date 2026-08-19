@@ -110,6 +110,7 @@ model Scholarship {
 
   savedBy               SavedScholarship[]
   reports               Report[]
+  alerts                Alert[]
 
   @@index([countryCode])
   @@index([fundingType])
@@ -141,6 +142,11 @@ model User {
   saved             SavedScholarship[]
   reports           Report[]
   sessions          Session[]
+  alerts            Alert[]
+
+  // Email preferences for deadline reminders
+  alertUnsubscribed Boolean  @default(false)
+  unsubscribeToken  String? // random token used in email unsubscribe links
 }
 
 model SavedScholarship {
@@ -193,6 +199,23 @@ model Session {
 
   @@index([token])
   @@index([userId])
+}
+
+// Deadline reminder emails. One row per (user, scholarship) the user opted
+// into; the daily hygiene cron sends the email when the deadline enters the
+// daysBefore window and marks lastSentAt so each alert fires once.
+model Alert {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scholarshipId String
+  scholarship   Scholarship @relation(fields: [scholarshipId], references: [id], onDelete: Cascade)
+  daysBefore    Int         @default(7) // remind this many days before the deadline
+  lastSentAt    DateTime?
+  createdAt     DateTime    @default(now())
+
+  @@unique([userId, scholarshipId])
+  @@index([lastSentAt])
 }
 
 // Contact-form submissions (no mailer configured — messages land here and are

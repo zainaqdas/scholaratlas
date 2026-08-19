@@ -109,14 +109,74 @@ export async function toggleSaveAction(scholarshipId: string): Promise<{ saved: 
   });
   if (existing) {
     await prisma.savedScholarship.delete({ where: { id: existing.id } });
+    // Un-saving also cancels the deadline reminder — they're no longer tracking it.
+    await prisma.alert.deleteMany({ where: { userId: user.id, scholarshipId } });
     revalidatePath("/saved");
     revalidatePath("/dashboard");
     return { saved: false };
   }
   await prisma.savedScholarship.create({ data: { userId: user.id, scholarshipId } });
+  // Saving opts into a deadline reminder by default (the sign-in page promises
+  // "get deadline alerts"); users can tune or disable it on the saved page.
+  const scholarship = await prisma.scholarship.findUnique({
+    where: { id: scholarshipId },
+    select: { deadline: true },
+  });
+  if (scholarship?.deadline) {
+    await prisma.alert.upsert({
+      where: { userId_scholarshipId: { userId: user.id, scholarshipId } },
+      update: {},
+      create: { userId: user.id, scholarshipId, daysBefore: 7 },
+    });
+    await ensureUnsubscribeToken(user.id);
+  }
   revalidatePath("/saved");
   revalidatePath("/dashboard");
   return { saved: true };
+}
+
+// Random per-user token used in email unsubscribe links (never guessable from
+// the user id). Created lazily on the first alert.
+async function ensureUnsubscribeToken(userId: string): Promise<void> {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: { unsubscribeToken: true },
+  });
+  if (user?.unsubscribeToken) return;
+  const crypto = await import("crypto");
+  await prisma.user.update({
+    where: { id: userId },
+    data: { unsubscribeToken: crypto.randomBytes(24).toString("hex") },
+  });
+}
+
+// Toggle/configure the deadline reminder for a saved scholarship.
+// daysBefore: null disables the alert; otherwise one of 3/7/14 days.
+export async function setAlertAction(
+  scholarshipId: string,
+  daysBefore: number | null
+): Promise<{ ok: boolean }> {
+  const user = await getCurrentUser();
+  if (!user) redirect("/signin?next=/saved");
+
+  const saved = await prisma.savedScholarship.findUnique({
+    where: { userId_scholarshipId: { userId: user.id, scholarshipId } },
+  });
+  if (!saved) return { ok: false }; // only saved scholarships can be alerted
+
+  if (daysBefore === null) {
+    await prisma.alert.deleteMany({ where: { userId: user.id, scholarshipId } });
+  } else {
+    const valid = [3, 7, 14].includes(daysBefore) ? daysBefore : 7;
+    await prisma.alert.upsert({
+      where: { userId_scholarshipId: { userId: user.id, scholarshipId } },
+      update: { daysBefore: valid },
+      create: { userId: user.id, scholarshipId, daysBefore: valid },
+    });
+    await ensureUnsubscribeToken(user.id);
+  }
+  revalidatePath("/saved");
+  return { ok: true };
 }
 
 // ---------------------------------------------------------------------------

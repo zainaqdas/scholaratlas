@@ -8,6 +8,7 @@ import { LiveDeadlineBadge, LiveDeadlineDot } from "@/components/scholarship/liv
 import { EmptyState } from "@/components/empty-state";
 import { Button } from "@/components/ui/button";
 import { RemoveSavedButton } from "@/components/dashboard/remove-saved-button";
+import { AlertToggle } from "@/components/dashboard/alert-toggle";
 
 export const metadata: Metadata = { title: "My Saved Scholarships", robots: { index: false } };
 
@@ -21,6 +22,12 @@ export default async function SavedPage() {
     },
     orderBy: { createdAt: "desc" },
   });
+
+  const alerts = await prisma.alert.findMany({
+    where: { userId: user.id },
+    select: { scholarshipId: true, daysBefore: true },
+  });
+  const alertByScholarship = new Map(alerts.map((a) => [a.scholarshipId, a.daysBefore]));
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
@@ -67,13 +74,16 @@ export default async function SavedPage() {
                     <LiveDeadlineBadge scholarship={s} />
                   </div>
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
+                <div className="flex shrink-0 flex-wrap items-center gap-2">
                   <Button asChild variant="outline" size="sm">
                     <Link href={`/scholarships/${s.slug}`}>
                       View
                       <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
                   </Button>
+                  {s.deadline ? (
+                    <AlertToggle scholarshipId={s.id} initialDaysBefore={alertByScholarship.get(s.id) ?? null} />
+                  ) : null}
                   <RemoveSavedButton scholarshipId={s.id} />
                 </div>
               </li>

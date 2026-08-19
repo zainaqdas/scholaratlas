@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
+import { runDueAlerts } from "@/lib/alerts";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +45,12 @@ export async function GET(req: NextRequest) {
     data: { status: "EXPIRED", updatedAt: now },
   });
 
+  // Deadline reminder emails: any alert whose deadline entered its window
+  // (deadline - daysBefore) gets emailed once. Runs on the same daily cron —
+  // the free Vercel plan allows a single scheduled job, so this piggybacks on
+  // the hygiene run.
+  const alerts = await runDueAlerts();
+
   // Mark the aggregate pages for re-render on their next request so counts and
   // lists reflect the flip immediately instead of waiting out their TTLs.
   for (const path of AGGREGATE_PATHS) {
@@ -58,6 +65,7 @@ export async function GET(req: NextRequest) {
     ok: true,
     flipped: flipped.count,
     revalidated: AGGREGATE_PATHS.length,
+    alerts: alerts,
     schedule,
   });
 }
