@@ -188,7 +188,13 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
           </li>
           <li aria-hidden="true"><ChevronRight className="h-3.5 w-3.5" /></li>
           <li>
-            <Link href="/scholarships" className="hover:text-primary">Scholarships</Link>
+            {s.recordType === "JOB" ? (
+              <Link href="/jobs" className="hover:text-primary">Jobs</Link>
+            ) : s.recordType === "CONTEST" ? (
+              <Link href="/contests" className="hover:text-primary">Contests &amp; Prizes</Link>
+            ) : (
+              <Link href="/scholarships" className="hover:text-primary">Scholarships</Link>
+            )}
           </li>
           <li aria-hidden="true"><ChevronRight className="h-3.5 w-3.5" /></li>
           <li aria-current="page" className="max-w-[16rem] truncate text-foreground">{s.title}</li>
@@ -279,7 +285,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
               <Button asChild size="lg" className="gap-2">
                 <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="h-4 w-4" />
-                  {s.recordType === "CONTEST" ? "Visit Official Website" : "Visit Official Scholarship Website"}
+                  {s.recordType === "JOB" ? "Apply for Position" : s.recordType === "CONTEST" ? "Visit Official Website" : "Visit Official Scholarship Website"}
                 </a>
               </Button>
             ) : (

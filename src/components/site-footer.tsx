@@ -12,6 +12,7 @@ const COLUMNS: { title: string; links: { href: string; label: string }[] }[] = [
       { href: "/scholarships/masters", label: "Master's" },
       { href: "/scholarships/phd", label: "PhD" },
       { href: "/contests", label: "Contests & Prizes" },
+      { href: "/jobs", label: "Jobs & Positions" },
       { href: "/deadlines", label: "Deadlines" },
     ],
   },

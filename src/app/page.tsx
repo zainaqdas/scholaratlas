@@ -317,6 +317,13 @@ export default async function HomePage() {
               icon: "🏆",
               href: "/contests",
             },
+            {
+              slug: "jobs",
+              title: "Jobs & Positions",
+              description: "PhD positions, postdocs and research roles.",
+              icon: "💼",
+              href: "/jobs",
+            },
           ].map((cat) => (
             <Link
               key={cat.slug}

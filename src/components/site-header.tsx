@@ -85,6 +85,9 @@ export function SiteHeader() {
                   <Link href="/contests">Contests &amp; Prizes</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
+                  <Link href="/jobs">Jobs &amp; Positions</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link href="/deadlines">Deadlines</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -199,6 +202,12 @@ export function SiteHeader() {
                   className="rounded-lg px-3 py-2.5 text-base font-medium text-foreground/90 transition-colors hover:bg-muted"
                 >
                   Contests &amp; Prizes
+                </Link>
+                <Link
+                  href="/jobs"
+                  className="rounded-lg px-3 py-2.5 text-base font-medium text-foreground/90 transition-colors hover:bg-muted"
+                >
+                  Jobs &amp; Positions
                 </Link>
                 <Link
                   href="/saved"
