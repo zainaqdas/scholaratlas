@@ -26,6 +26,7 @@
     "backfill:medicine-fields": "tsx scripts/backfill-medicine-fields.ts",
     "backfill:missing-countries": "tsx scripts/backfill-missing-countries.ts",
     "backfill:cucas-rich": "tsx scripts/backfill-cucas-rich.ts",
+    "backfill:enrichment": "tsx scripts/backfill-enrichment.ts",
     "backfill:engineering-subfields": "tsx scripts/backfill-engineering-subfields.ts",
     "backfill:csc-rich": "tsx scripts/backfill-csc-rich.ts",
     "backfill:articles": "tsx scripts/backfill-articles.ts",
