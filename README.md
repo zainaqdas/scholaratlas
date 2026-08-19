@@ -59,7 +59,7 @@ src/
 - **Search & filters** — keyword, study level, funding, destination, nationality, field, deadline window, provider, language, application fee; shareable URL-based filters; grid/list views; sorting
 - **Scholarship detail pages** — overview, funding coverage, eligibility, application steps, required documents, "Before You Apply" verification section, similar scholarships, official-link emphasis
 - **AI assistant ("Ask ScholarAtlas")** — deterministic natural-language → structured-search parser (`src/lib/ai-search.ts`); drop in a real LLM later without UI changes
-- **Accounts** — email/password auth, saved scholarships, personalised dashboard with match scoring, deadline tracking
+- **Accounts** — email/password auth, saved scholarships, personalised dashboard with match scoring, deadline tracking, password reset (one-time emailed link, hashed tokens, revokes sessions)
 - **Deadline alerts** — saving a scholarship with a deadline opts the user into an email reminder (default 7 days before, adjustable 3/7/14 on the saved page); the daily hygiene cron emails each alert once, with a token-based unsubscribe link. Requires `RESEND_API_KEY` + `RESEND_EMAIL_FROM` (verify your sending domain in Resend for real recipients).
 - **Contact form** — submissions are stored in the database (`ContactMessage`) and reviewed in the admin dashboard (no mailer configured for the contact form itself)
 - **Comparison** — add scholarships to a tray and compare side-by-side
