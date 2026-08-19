@@ -7,7 +7,21 @@ import { countryFlag, countryName } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
 import { Button } from "@/components/ui/button";
-import { getCurrentUser } from "@/lib/auth";
+import { SavedStateProvider } from "@/components/saved-state";
+
+// ISR: cached for a week; saved-state hydrates client-side per user.
+export const revalidate = 604800;
+
+export async function generateStaticParams() {
+  // Pre-warm a sample of universities at build; the remainder are cached on
+  // first request (on-demand ISR) for the same week.
+  const rows = await prisma.university.findMany({
+    select: { slug: true },
+    orderBy: { name: "asc" },
+    take: 100,
+  });
+  return rows.map((r) => ({ slug: r.slug }));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -37,17 +51,8 @@ export default async function UniversityPage({ params }: PageProps) {
   });
   if (!university) notFound();
 
-  const user = await getCurrentUser();
-  let savedIds = new Set<string>();
-  if (user && university.scholarships.length) {
-    const saved = await prisma.savedScholarship.findMany({
-      where: { userId: user.id, scholarshipId: { in: university.scholarships.map((s) => s.id) } },
-      select: { scholarshipId: true },
-    });
-    savedIds = new Set(saved.map((s) => s.scholarshipId));
-  }
-
   return (
+    <SavedStateProvider ids={university.scholarships.map((s) => s.id)}>
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <p className="text-sm text-muted-foreground">
         <Link href="/universities" className="hover:text-primary">Universities</Link> / {university.name}
@@ -85,7 +90,7 @@ export default async function UniversityPage({ params }: PageProps) {
         ) : (
           <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {university.scholarships.map((s) => (
-              <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
+              <ScholarshipCard key={s.id} scholarship={s} />
             ))}
           </div>
         )}
@@ -109,5 +114,6 @@ export default async function UniversityPage({ params }: PageProps) {
         </div>
       </section>
     </div>
+    </SavedStateProvider>
   );
 }

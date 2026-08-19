@@ -7,7 +7,15 @@ import { prisma } from "@/lib/prisma";
 import { FIELDS, countryByCode, countryFlag, countryName, studyLevelFromSlug } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
-import { getCurrentUser } from "@/lib/auth";
+import { SavedStateProvider } from "@/components/saved-state";
+
+// ISR: cached for a week; saved-state hydrates client-side per user.
+export const revalidate = 604800;
+
+export async function generateStaticParams() {
+  const rows = await prisma.country.findMany({ select: { code: true } });
+  return rows.map((r) => ({ code: r.code.toLowerCase() }));
+}
 
 interface PageProps {
   params: Promise<{ code: string }>;
@@ -37,7 +45,7 @@ export default async function CountryPage({ params }: PageProps) {
     recordType: "SCHOLARSHIP",
     OR: [{ countryCode: country.code }, { hostCountries: { contains: `"${country.code}"` } }],
   };
-  const [scholarships, total, universities, user] = await Promise.all([
+  const [scholarships, total, universities] = await Promise.all([
     prisma.scholarship.findMany({
       where: scholarshipWhere,
       include: { university: true },
@@ -49,17 +57,7 @@ export default async function CountryPage({ params }: PageProps) {
       where: { countryCode: country.code },
       orderBy: { name: "asc" },
     }),
-    getCurrentUser(),
   ]);
-
-  let savedIds = new Set<string>();
-  if (user && scholarships.length) {
-    const saved = await prisma.savedScholarship.findMany({
-      where: { userId: user.id, scholarshipId: { in: scholarships.map((s) => s.id) } },
-      select: { scholarshipId: true },
-    });
-    savedIds = new Set(saved.map((s) => s.scholarshipId));
-  }
 
   // Popular fields in this country
   const fieldCounts = new Map<string, number>();
@@ -76,6 +74,7 @@ export default async function CountryPage({ params }: PageProps) {
   const topFields = [...fieldCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
 
   return (
+    <SavedStateProvider ids={scholarships.map((s) => s.id)}>
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -114,7 +113,7 @@ export default async function CountryPage({ params }: PageProps) {
           ) : (
             <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
               {scholarships.map((s) => (
-                <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
+                <ScholarshipCard key={s.id} scholarship={s} />
               ))}
             </div>
           )}
@@ -207,5 +206,6 @@ export default async function CountryPage({ params }: PageProps) {
         </aside>
       </div>
     </div>
+    </SavedStateProvider>
   );
 }

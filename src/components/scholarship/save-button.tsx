@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { Bookmark } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toggleSaveAction } from "@/app/actions";
+import { useSavedIds } from "@/components/saved-state";
 
 interface SaveButtonProps {
   scholarshipId: string;
@@ -14,9 +15,19 @@ interface SaveButtonProps {
 
 export function SaveButton({ scholarshipId, initialSaved = false, className, label = false }: SaveButtonProps) {
   const [pending, startTransition] = useTransition();
-  const [saved, setSaved] = useState(initialSaved);
+  // Static pages can't know the per-user saved set at render time — hydrate it
+  // from the SavedStateProvider when present; dynamic pages pass initialSaved.
+  // Keep syncing until the user interacts so the provider's async fetch lands.
+  const savedIds = useSavedIds();
+  const touched = useRef(false);
+  const [saved, setSaved] = useState(initialSaved || savedIds.has(scholarshipId));
+
+  useEffect(() => {
+    if (!touched.current) setSaved(initialSaved || savedIds.has(scholarshipId));
+  }, [savedIds, scholarshipId, initialSaved]);
 
   function onClick() {
+    touched.current = true;
     startTransition(async () => {
       const res = await toggleSaveAction(scholarshipId);
       setSaved(res.saved);

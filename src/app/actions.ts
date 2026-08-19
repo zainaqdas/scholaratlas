@@ -85,6 +85,20 @@ export async function signoutAction(): Promise<void> {
 // Saved scholarships
 // ---------------------------------------------------------------------------
 
+// Returns which of the given scholarship ids the current user has saved. Used
+// by static (ISR-cached) pages to hydrate SaveButtons client-side — the page
+// shell is shared HTML, so the per-user saved set is fetched once per page.
+// Anonymous users short-circuit with an empty list (no DB read).
+export async function getSavedIdsAction(scholarshipIds: string[]): Promise<string[]> {
+  const user = await getCurrentUser();
+  if (!user || !scholarshipIds.length) return [];
+  const saved = await prisma.savedScholarship.findMany({
+    where: { userId: user.id, scholarshipId: { in: scholarshipIds } },
+    select: { scholarshipId: true },
+  });
+  return saved.map((s) => s.scholarshipId);
+}
+
 export async function toggleSaveAction(scholarshipId: string): Promise<{ saved: boolean }> {
   const user = await getCurrentUser();
   if (!user) redirect(`/signin?next=/scholarships/${scholarshipId}`);

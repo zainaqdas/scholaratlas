@@ -1,33 +1,21 @@
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { prisma } from "@/lib/prisma";
 import { searchScholarships, buildSearchUrl } from "@/lib/search";
 import type { CategoryPageDef } from "@/lib/categories";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
+import { SavedStateProvider } from "@/components/saved-state";
 import { SearchBar } from "@/components/search-bar";
 import { Badge } from "@/components/ui/badge";
-import { getBaseUrl } from "@/lib/app-url";
-import { getCurrentUser } from "@/lib/auth";
+import { getStaticBaseUrl } from "@/lib/app-url";
 
 export async function CategoryPage({ category }: { category: CategoryPageDef }) {
-  const appUrl = await getBaseUrl();
-  const [result, user] = await Promise.all([
-    searchScholarships({ ...category.filters, sort: "recent" }),
-    getCurrentUser(),
-  ]);
-
-  let savedIds = new Set<string>();
-  if (user && result.items.length) {
-    const saved = await prisma.savedScholarship.findMany({
-      where: { userId: user.id, scholarshipId: { in: result.items.map((i) => i.id) } },
-      select: { scholarshipId: true },
-    });
-    savedIds = new Set(saved.map((s) => s.scholarshipId));
-  }
+  const appUrl = getStaticBaseUrl();
+  const result = await searchScholarships({ ...category.filters, sort: "recent" });
 
   const refineUrl = buildSearchUrl(category.filters);
 
   return (
+    <SavedStateProvider ids={result.items.map((i) => i.id)}>
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <nav aria-label="Breadcrumb" className="mb-6 text-sm text-muted-foreground">
         <ol className="flex items-center gap-1.5">
@@ -64,7 +52,7 @@ export async function CategoryPage({ category }: { category: CategoryPageDef }) 
 
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {result.items.map((s) => (
-          <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
+          <ScholarshipCard key={s.id} scholarship={s} />
         ))}
       </div>
 
@@ -127,5 +115,6 @@ export async function CategoryPage({ category }: { category: CategoryPageDef }) 
         }}
       />
     </div>
+    </SavedStateProvider>
   );
 }

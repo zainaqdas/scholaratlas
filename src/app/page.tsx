@@ -163,7 +163,10 @@ const getHomeData = cachedData(
   HOMEPAGE_TTL
 );
 
-export const dynamic = "force-dynamic";
+// ISR: the homepage HTML is cached for an hour on the CDN; its heavy aggregate
+// data is separately cached (homepage-data-v6). Visitors and crawlers hit the
+// cached page instead of the DB.
+export const revalidate = 3600;
 
 export default async function HomePage() {
   const data = await getHomeData();

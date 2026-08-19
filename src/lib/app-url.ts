@@ -36,3 +36,15 @@ export async function getBaseUrl(): Promise<string> {
 
   return FALLBACK_ORIGIN;
 }
+
+/**
+ * Sync base URL for statically-cached pages (ISR). Calling `headers()` inside
+ * a page opts it out of the data/HTML cache, so cached pages resolve the
+ * origin from configuration instead: NEXT_PUBLIC_APP_URL (set this when a
+ * canonical domain is added) or the fallback. Sitemap/robots stay fully
+ * request-host aware (they remain dynamic), and the search page stays dynamic.
+ */
+export function getStaticBaseUrl(): string {
+  const configured = process.env.NEXT_PUBLIC_APP_URL;
+  return configured ? configured.replace(/\/+$/, "") : FALLBACK_ORIGIN;
+}

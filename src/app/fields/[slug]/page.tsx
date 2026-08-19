@@ -6,7 +6,15 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, FIELD_GROUPS, fieldBySlug, fieldGroupBySlug, fieldSlugsForFilter } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
-import { getCurrentUser } from "@/lib/auth";
+import { SavedStateProvider } from "@/components/saved-state";
+
+// ISR: cached for a week; saved-state hydrates client-side per user.
+export const revalidate = 604800;
+
+export async function generateStaticParams() {
+  // Every field and umbrella group gets a static landing page.
+  return [...FIELDS, ...FIELD_GROUPS].map((f) => ({ slug: f.slug }));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -41,7 +49,7 @@ export default async function FieldPage({ params }: PageProps) {
       { fields: { contains: '"ALL"' } },
     ],
   };
-  const [scholarships, total, user] = await Promise.all([
+  const [scholarships, total] = await Promise.all([
     prisma.scholarship.findMany({
       where,
       include: { university: true },
@@ -49,17 +57,7 @@ export default async function FieldPage({ params }: PageProps) {
       take: 24,
     }),
     prisma.scholarship.count({ where }),
-    getCurrentUser(),
   ]);
-
-  let savedIds = new Set<string>();
-  if (user && scholarships.length) {
-    const saved = await prisma.savedScholarship.findMany({
-      where: { userId: user.id, scholarshipId: { in: scholarships.map((s) => s.id) } },
-      select: { scholarshipId: true },
-    });
-    savedIds = new Set(saved.map((s) => s.scholarshipId));
-  }
 
   // Sub-fields for group pages (with their own counts); other categories for
   // group pages' bottom section; related fields for leaf pages.
@@ -71,6 +69,7 @@ export default async function FieldPage({ params }: PageProps) {
     : FIELDS.filter((f) => f.slug !== slug).slice(0, 10);
 
   return (
+    <SavedStateProvider ids={scholarships.map((s) => s.id)}>
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <p className="text-sm text-muted-foreground">
         <Link href="/fields" className="hover:text-primary">Fields of Study</Link> / {field.name}
@@ -127,7 +126,7 @@ export default async function FieldPage({ params }: PageProps) {
       ) : (
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {scholarships.map((s) => (
-            <ScholarshipCard key={s.id} scholarship={s} saved={savedIds.has(s.id)} />
+            <ScholarshipCard key={s.id} scholarship={s} />
           ))}
         </div>
       )}
@@ -147,5 +146,6 @@ export default async function FieldPage({ params }: PageProps) {
         </div>
       </section>
     </div>
+    </SavedStateProvider>
   );
 }

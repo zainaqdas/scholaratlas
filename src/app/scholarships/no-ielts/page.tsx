@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/scholarships/no-ielts" },
 };
 
+export const revalidate = 604800;
+
 export default function Page() {
   return <CategoryPage category={category} />;
 }

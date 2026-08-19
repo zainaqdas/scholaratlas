@@ -23,7 +23,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { getBaseUrl } from "@/lib/app-url";
+import { getStaticBaseUrl } from "@/lib/app-url";
 import { fieldGroupBySlug } from "@/lib/constants";
 import { fieldGroupCategory } from "@/lib/categories";
 import { CategoryPage } from "@/components/category-page";
@@ -61,7 +61,25 @@ import {
   studyLevelNamesOf,
 } from "@/lib/scholarship";
 import { formatDateTime, formatDate, formatShortDate } from "@/lib/format";
-import { getCurrentUser } from "@/lib/auth";
+import { SavedStateProvider } from "@/components/saved-state";
+
+// ISR: the catalogue only changes on the weekly re-crawl, so detail pages are
+// cached as static HTML on the CDN for a week. Saved-state is hydrated
+// client-side per user (SavedStateProvider); views still track client-side.
+export const revalidate = 604800;
+
+export async function generateStaticParams() {
+  // Pre-warm the most-linked ACTIVE records at build; the rest of the
+  // catalogue is cached on first request (on-demand ISR) for the same week,
+  // so every detail page is served from the CDN after its first hit.
+  const rows = await prisma.scholarship.findMany({
+    where: { status: "ACTIVE" },
+    select: { slug: true },
+    orderBy: { views: "desc" },
+    take: 100,
+  });
+  return rows.map((r) => ({ slug: r.slug }));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -127,13 +145,6 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
   const s = await getScholarship(slug);
   if (!s) notFound();
 
-  const user = await getCurrentUser();
-  const saved = user
-    ? !!(await prisma.savedScholarship.findUnique({
-        where: { userId_scholarshipId: { userId: user.id, scholarshipId: s.id } },
-      }))
-    : false;
-
   const similar = await prisma.scholarship.findMany({
     where: {
       status: "ACTIVE",
@@ -156,6 +167,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
   const expired = s.status === "EXPIRED" || (s.deadline && s.deadline < new Date());
 
   return (
+    <SavedStateProvider ids={[s.id, ...similar.map((i) => i.id)]}>
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
       <ViewTracker scholarshipId={s.id} />
 
@@ -243,7 +255,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
                 Check Official Provider
               </Button>
             )}
-            <SaveButton scholarshipId={s.id} initialSaved={saved} label className="h-12 px-5 text-sm" />
+            <SaveButton scholarshipId={s.id} label className="h-12 px-5 text-sm" />
             <ShareButton title={s.title} />
           </div>
 
@@ -471,7 +483,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
             "@type": "EducationalOccupationalProgram",
             name: s.title,
             description: s.description,
-            url: `${await getBaseUrl()}/scholarships/${s.slug}`,
+            url: `${getStaticBaseUrl()}/scholarships/${s.slug}`,
             provider: {
               "@type": "EducationalOrganization",
               name: s.provider,
@@ -486,6 +498,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
         }}
       />
     </div>
+    </SavedStateProvider>
   );
 }
 

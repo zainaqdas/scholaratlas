@@ -1,9 +1,11 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Bookmark, Menu, Search, Sparkles } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { getCurrentUser } from "@/lib/auth";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,8 +25,37 @@ const NAV_ITEMS = [
   { href: "/about", label: "About" },
 ];
 
-export async function SiteHeader() {
-  const user = await getCurrentUser();
+interface MeUser {
+  name?: string | null;
+  email?: string | null;
+  role?: string;
+}
+
+function useCurrentUser() {
+  const [user, setUser] = useState<MeUser | null>(null);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    let active = true;
+    fetch("/api/me", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : { user: null }))
+      .then((data: { user?: MeUser | null }) => {
+        if (active) setUser(data.user ?? null);
+      })
+      .catch(() => {
+        if (active) setUser(null);
+      })
+      .finally(() => {
+        if (active) setLoaded(true);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+  return { user, loaded };
+}
+
+export function SiteHeader() {
+  const { user } = useCurrentUser();
   const name = user?.name || user?.email?.split("@")[0] || "Account";
 
   return (
@@ -89,7 +120,7 @@ export async function SiteHeader() {
                 <DropdownMenuItem asChild>
                   <Link href="/submit-scholarship">Submit a Scholarship</Link>
                 </DropdownMenuItem>
-                {["ADMIN", "SUPER_ADMIN", "MODERATOR"].includes(user.role) && (
+                {["ADMIN", "SUPER_ADMIN", "MODERATOR"].includes(user.role ?? "") && (
                   <>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
@@ -166,7 +197,7 @@ export async function SiteHeader() {
                     >
                       Submit a Scholarship
                     </Link>
-                    {["ADMIN", "SUPER_ADMIN", "MODERATOR"].includes(user.role) && (
+                    {["ADMIN", "SUPER_ADMIN", "MODERATOR"].includes(user.role ?? "") && (
                       <Link
                         href="/admin"
                         className="rounded-lg px-3 py-2.5 text-base font-medium text-foreground/90 transition-colors hover:bg-muted"

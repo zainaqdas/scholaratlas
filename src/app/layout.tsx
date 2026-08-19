@@ -4,7 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AiAssistant } from "@/components/ai-assistant";
-import { getBaseUrl } from "@/lib/app-url";
+import { getStaticBaseUrl } from "@/lib/app-url";
 import { APP_NAME, TAGLINE } from "@/lib/constants";
 
 const inter = Inter({
@@ -20,11 +20,13 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 // metadataBase must be absolute and is used to resolve the relative canonical/
-// OG URLs each page emits. getBaseUrl() resolves it from the request host so
-// the site works on any domain/server; NEXT_PUBLIC_APP_URL pins a canonical
-// origin when one is desired.
-export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = await getBaseUrl();
+// OG URLs each page emits. getStaticBaseUrl() resolves it from configuration
+// (NEXT_PUBLIC_APP_URL ?? fallback) rather than request headers — reading
+// headers() in the layout would opt every page out of the static HTML cache
+// that keeps DB reads near zero. Set NEXT_PUBLIC_APP_URL when a canonical
+// domain is added; sitemap/robots remain request-host aware (dynamic).
+export function generateMetadata(): Metadata {
+  const baseUrl = getStaticBaseUrl();
   return {
     metadataBase: new URL(baseUrl),
     title: {
