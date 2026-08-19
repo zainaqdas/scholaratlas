@@ -7,6 +7,7 @@ import {
   rejectSubmissionAction,
   deleteScholarshipAction,
   resolveReportAction,
+  resolveContactAction,
   setScholarshipStatusAction,
   toggleFeaturedAction,
   verifyScholarshipAction,
@@ -113,6 +114,15 @@ export function ResolveButton({ id }: { id: string }) {
     <ActionButton onClick={() => resolveReportAction(id)} className="gap-1">
       <Check className="h-3.5 w-3.5" />
       Resolve
+    </ActionButton>
+  );
+}
+
+export function ResolveContactButton({ id }: { id: string }) {
+  return (
+    <ActionButton onClick={() => resolveContactAction(id)} className="gap-1">
+      <Check className="h-3.5 w-3.5" />
+      Mark Resolved
     </ActionButton>
   );
 }

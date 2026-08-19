@@ -10,6 +10,7 @@ import {
   FeatureButton,
   RejectButton,
   ResolveButton,
+  ResolveContactButton,
   RoleSelect,
   StatusSelect,
   VerifyButton,
@@ -34,6 +35,7 @@ export default async function AdminPage() {
     recentList,
     reports,
     users,
+    contactMessages,
     dataQuality,
   ] = await Promise.all([
     prisma.scholarship.count(),
@@ -54,6 +56,11 @@ export default async function AdminPage() {
     }),
     prisma.report.findMany({ where: { status: "OPEN" }, include: { scholarship: true, user: true }, orderBy: { createdAt: "desc" }, take: 20 }),
     prisma.user.findMany({ orderBy: { createdAt: "desc" }, take: 20 }),
+    prisma.contactMessage.findMany({
+      where: { status: "NEW" },
+      orderBy: { createdAt: "desc" },
+      take: 20,
+    }),
     Promise.all([
       prisma.scholarship.count({ where: { deadline: null, status: "ACTIVE" } }),
       prisma.scholarship.count({
@@ -193,6 +200,35 @@ export default async function AdminPage() {
                   </p>
                 </div>
                 <ResolveButton id={r.id} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      {/* Contact messages */}
+      <section className="mt-8 rounded-2xl border bg-card p-6">
+        <div className="flex items-center justify-between">
+          <h2 className="font-display text-lg font-bold">Contact Messages</h2>
+          <Badge variant={contactMessages.length ? "navy" : "secondary"}>{contactMessages.length} new</Badge>
+        </div>
+        {contactMessages.length === 0 ? (
+          <p className="mt-3 text-sm text-muted-foreground">No new messages. 🎉</p>
+        ) : (
+          <ul className="mt-4 space-y-3">
+            {contactMessages.map((m) => (
+              <li key={m.id} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border p-4">
+                <div className="min-w-0">
+                  <p className="font-medium">
+                    {m.topic}
+                    {m.name ? ` — ${m.name}` : ""}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {m.email} · {formatShortDate(m.createdAt)}
+                  </p>
+                  <p className="mt-1 text-sm whitespace-pre-wrap">{m.message}</p>
+                </div>
+                <ResolveContactButton id={m.id} />
               </li>
             ))}
           </ul>

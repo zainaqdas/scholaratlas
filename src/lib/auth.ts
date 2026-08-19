@@ -65,9 +65,9 @@ export async function clearSessionCookie(): Promise<void> {
   store.delete(SESSION_COOKIE);
 }
 
-export async function requireUser(): Promise<User> {
+export async function requireUser(next = "/dashboard"): Promise<User> {
   const user = await getCurrentUser();
-  if (!user) redirect("/signin?next=/saved");
+  if (!user) redirect(`/signin?next=${next}`);
   return user;
 }
 

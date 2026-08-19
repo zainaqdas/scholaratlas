@@ -335,6 +335,38 @@ export async function setUserRoleAction(id: string, role: string): Promise<void>
 }
 
 // ---------------------------------------------------------------------------
+// Contact form
+// ---------------------------------------------------------------------------
+
+// Persists contact-form submissions to the ContactMessage table. No mailer is
+// configured (see README), so messages are reviewed in the admin dashboard
+// instead of being silently discarded.
+export async function submitContactAction(_prevState: ActionResult, formData: FormData): Promise<ActionResult> {
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
+  const message = String(formData.get("message") ?? "").trim();
+  const name = String(formData.get("name") ?? "").trim();
+  const topic = String(formData.get("topic") ?? "General question").trim();
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return { ok: false, error: "Please enter a valid email address." };
+  }
+  if (message.length < 5) {
+    return { ok: false, error: "Please write a short message so we know how to help." };
+  }
+
+  await prisma.contactMessage.create({
+    data: { name: name || null, email, topic: topic || "General question", message },
+  });
+  return { ok: true };
+}
+
+export async function resolveContactAction(id: string): Promise<void> {
+  await requireAdminUser();
+  await prisma.contactMessage.update({ where: { id }, data: { status: "RESOLVED" } });
+  revalidatePath("/admin");
+}
+
+// ---------------------------------------------------------------------------
 // Analytics
 // ---------------------------------------------------------------------------
 

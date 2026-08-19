@@ -12,7 +12,7 @@ import { RemoveSavedButton } from "@/components/dashboard/remove-saved-button";
 export const metadata: Metadata = { title: "My Saved Scholarships", robots: { index: false } };
 
 export default async function SavedPage() {
-  const user = await requireUser();
+  const user = await requireUser("/saved");
 
   const saved = await prisma.savedScholarship.findMany({
     where: { userId: user.id },

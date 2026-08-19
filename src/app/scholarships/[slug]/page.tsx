@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { getStaticBaseUrl } from "@/lib/app-url";
+import { isSafeExternalUrl, safeHostname } from "@/lib/utils";
 import { fieldGroupBySlug } from "@/lib/constants";
 import { fieldGroupCategory } from "@/lib/categories";
 import { CategoryPage } from "@/components/category-page";
@@ -265,7 +266,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
                   <CalendarDays className="h-4 w-4" />
                   Applications Closed
                 </Button>
-                {s.officialUrl && (
+                {isSafeExternalUrl(s.officialUrl) && (
                   <Button asChild size="lg" variant="outline" className="gap-2">
                     <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4" />
@@ -274,7 +275,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
                   </Button>
                 )}
               </>
-            ) : s.officialUrl ? (
+            ) : isSafeExternalUrl(s.officialUrl) ? (
               <Button asChild size="lg" className="gap-2">
                 <a href={s.officialUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="h-4 w-4" />
@@ -356,10 +357,12 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
               icon={<ExternalLink className="h-4 w-4" />}
               label="Official Website"
               value={
-                s.officialUrl ? (
+                isSafeExternalUrl(s.officialUrl) ? (
                   <a href={s.officialUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">
-                    {new URL(s.officialUrl).hostname}
+                    {safeHostname(s.officialUrl) ?? "Visit official website"}
                   </a>
+                ) : s.officialUrl ? (
+                  <span className="text-muted-foreground">Visit official provider</span>
                 ) : (
                   "Check official provider"
                 )

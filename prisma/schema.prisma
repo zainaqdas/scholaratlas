@@ -194,3 +194,17 @@ model Session {
   @@index([token])
   @@index([userId])
 }
+
+// Contact-form submissions (no mailer configured — messages land here and are
+// reviewed in the admin dashboard instead of being silently discarded).
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String
+  topic     String   @default("General question")
+  message   String
+  status    String   @default("NEW") // NEW | RESOLVED
+  createdAt DateTime @default(now())
+
+  @@index([status])
+}

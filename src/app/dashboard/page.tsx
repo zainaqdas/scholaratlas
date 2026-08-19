@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 export const metadata: Metadata = { title: "Dashboard", robots: { index: false } };
 
 export default async function DashboardPage() {
-  const user = await requireUser();
+  const user = await requireUser("/dashboard");
 
   const [savedRows, recommended] = await Promise.all([
     prisma.savedScholarship.findMany({
