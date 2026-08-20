@@ -49,9 +49,11 @@ prisma/
 src/
   app/                  # routes: /, /scholarships, /countries, /universities, /fields,
                         #   /deadlines, /compare, /saved, /dashboard, /admin, /resources,
-                        #   /submit-scholarship, /signin, /signup, legal pages, APIs
+                        #   /jobs, /contests, /submit-scholarship, /signin, /signup,
+                        #   /forgot-password, /reset-password, /alerts/unsubscribe,
+                        #   legal pages, cron + API routes
   components/           # UI kit (ui/), layout, scholarship cards, filters, AI assistant
-  lib/                  # constants, search engine, ai-search parser, auth, utils
+  lib/                  # constants, search engine, ai-search parser, auth, dedupe, utils
 ```
 
 ## Features
@@ -60,10 +62,14 @@ src/
 - **Scholarship detail pages** — overview, funding coverage, eligibility, application steps, required documents, "Before You Apply" verification section, similar scholarships, official-link emphasis
 - **AI assistant ("Ask ScholarAtlas")** — deterministic natural-language → structured-search parser (`src/lib/ai-search.ts`); drop in a real LLM later without UI changes
 - **Accounts** — email/password auth, saved scholarships, personalised dashboard with match scoring, deadline tracking, password reset (one-time emailed link, hashed tokens, revokes sessions)
-- **Deadline alerts** — saving a scholarship with a deadline opts the user into an email reminder (default 7 days before, adjustable 3/7/14 on the saved page); the daily hygiene cron emails each alert once, with a token-based unsubscribe link. Requires `RESEND_API_KEY` + `RESEND_EMAIL_FROM` (verify your sending domain in Resend for real recipients).
-- **Contact form** — submissions are stored in the database (`ContactMessage`) and reviewed in the admin dashboard (no mailer configured for the contact form itself)
+- **Deadline alerts** — saving a scholarship with a deadline opts the user into an email reminder (default 7 days before, adjustable 3/7/14 on the saved page); the daily hygiene cron emails each alert once, with a token-based unsubscribe link. Requires `RESEND_API_KEY` + `RESEND_EMAIL_FROM` (verify your sending domain in Resend for real recipients)
+- **Specialised sections** — **Contests & Prizes** (`/contests`) and **Jobs & Positions** (`/jobs` — EURAXESS research roles: PhD positions, postdocs) each with their own browsable page, search, Open/All status filters and detail pages, wired into the nav, footer, sitemap and homepage
+- **Personalised recommendations** — the dashboard scores scholarships against your profile (nationality, level, field, destination); **"More Like Your Saved"** on the saved page scores the catalogue against what you've saved (country, funding, field, level, provider) so recommendations work even without a profile
+- **Admin tooling** — bulk-approve the whole pending queue in one click, plus a **Potential Duplicates** panel (same normalized title+provider+country key as the offline `npm run dedupe`) with one-click removal
+- **Contact form** — submissions are stored in the database (`ContactMessage`) and reviewed in the admin dashboard; **spam-protected** with a honeypot field + per-IP rate limiting (no mailer configured for the contact form itself)
 - **Comparison** — add scholarships to a tray and compare side-by-side
-- **Moderation** — public submission form → pending queue → admin review/verify/feature
+- **Moderation** — public submission form (also spam-protected) → pending queue → admin review/verify/feature, bulk-approve, duplicate detection
+- **Resources** — editorial articles on the homepage and `/resources` (seeded demo content, clearly labelled)
 - **Trust & safety** — verification badges, "Report incorrect information", scam-safety guidance, expired/deadline states
 - **SEO** — per-record metadata, Open Graph, Schema.org structured data, SEO landing pages for categories, countries, fields
 - **i18n-ready** — text is centralised; no hardcoded UI strings scattered through components
@@ -102,7 +108,7 @@ npm run import:euraxess -- --dry-run   # fetch + report only, no writes
 
 Run it on a schedule (e.g. daily) to grow the catalogue with new postings. Imported records appear in the admin dashboard under **Pending** — approve or enrich them there. Fields the feed doesn't provide (country, deadline, funding) stay "Not specified" rather than being invented.
 
-**EURAXESS is a jobs feed, not scholarships** (PhD positions, postdocs, professorships). Imported records are tagged `recordType: "JOB"` and are **kept out of the scholarship catalogue**: public pages (home, search, countries, fields, deadlines, recommendations) filter `recordType = "SCHOLARSHIP"` by default, and job records get a **"Job Listing"** badge if they ever surface. Admins still see them in `/admin`. This separation is deliberate — a research vacancy is a different product than a funding opportunity.
+**EURAXESS is a jobs feed, not scholarships** (PhD positions, postdocs, professorships). Imported records are tagged `recordType: "JOB"` and are **kept out of the scholarship catalogue** — public pages (home, search, countries, fields, deadlines, recommendations) filter `recordType = "SCHOLARSHIP"` by default. Instead they get their own public section: **`/jobs`** (linked from the footer, header dropdown, mobile menu and homepage) with a searchable, paginated grid, status chips, job detail pages ("Apply for Position" CTA) and a sitemap entry. Imported records land as PENDING and only appear on `/jobs` once an admin approves them (the EURAXESS feed is the EU's official researcher-mobility portal, so approved listings carry a source URL on `euraxess.ec.europa.eu`).
 
 ## Importing real data (Campus China)
 
@@ -242,7 +248,7 @@ npm run import:cscouncil         # ~260 per-university CSC scholarship pages; UN
 ```
 
 - **wemakescholars.com** — structured fields (deadline, provider, funding type) and a real official link when the page carries one (e.g. `english.beijing.gov.cn`, `sie.tju.edu.cn`, `mofcom.gov.cn`, `campuschina.org`).
-- **chinesescholarshipcouncil.com** — third-party per-university CSC pages. Deadlines are generic ("30 April Each Year") and content is SEO-style, so these are strictly UNVERIFIED with `sourceUrl` preserved; ~27 carry the official `studyinchina.csc.edu.cn` application portal as `officialUrl`.
+- **chinesescholarshipcouncil.com** — third-party per-university CSC pages. Deadlines are generic ("30 April Each Year") and content is SEO-style, so these are strictly UNVERIFIED with `sourceUrl` preserved. All 224 carry the official `studyinchina.csc.edu.cn` application portal as `officialUrl` (`npm run fix:csc-official-urls` — replaced junk translation-CDN/ad-consent links that an earlier extraction pass attached).
 - Both importers dedupe by source URL (idempotent) and skip non-scholarship pages (results, guides, postdoc vacancies).
 
 ### Full global catalogue (wemakescholars.com)
@@ -391,4 +397,5 @@ npm run backfill:uni-language             # -> 2,120 records: ielts/toefl/altPro
 ## Scaling notes
 
 - Enable `pg_trgm` on PostgreSQL for fuzzy search, and move ranking/pagination into SQL (see notes in `src/lib/search.ts`).
-- Wire real email (alerts/verification) and object storage for logos.
+- Email is wired (deadline alerts + password reset via Resend); next steps are contact-form notifications and a fully verified sending domain so emails reach real recipients.
+- Object storage for logos/avatars when those need to be user-uploaded.
