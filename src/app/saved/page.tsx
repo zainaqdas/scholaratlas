@@ -3,12 +3,14 @@ import Link from "next/link";
 import { ArrowRight, Bookmark } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth";
+import { recommendFromSaved, withOpenDeadline } from "@/lib/scholarship";
 import { countryFlag, countryName } from "@/lib/constants";
 import { LiveDeadlineBadge, LiveDeadlineDot } from "@/components/scholarship/live-deadline-badge";
 import { EmptyState } from "@/components/empty-state";
 import { Button } from "@/components/ui/button";
 import { RemoveSavedButton } from "@/components/dashboard/remove-saved-button";
 import { AlertToggle } from "@/components/dashboard/alert-toggle";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = { title: "My Saved Scholarships", robots: { index: false } };
 
@@ -28,6 +30,20 @@ export default async function SavedPage() {
     select: { scholarshipId: true, daysBefore: true },
   });
   const alertByScholarship = new Map(alerts.map((a) => [a.scholarshipId, a.daysBefore]));
+
+  // "More Like Your Saved": score open scholarships by overlap with the saved
+  // set (country / funding / field / level / provider). Works even with an
+  // empty profile — the saved set is the signal.
+  const candidates = await prisma.scholarship.findMany({
+    where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }),
+    include: { university: true },
+    take: 60,
+  });
+  const moreLikeSaved = recommendFromSaved(
+    saved.map((r) => r.scholarship),
+    candidates,
+    { excludeIds: saved.map((r) => r.scholarship.id), limit: 6 }
+  );
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
@@ -90,6 +106,38 @@ export default async function SavedPage() {
             );
           })}
         </ul>
+      )}
+
+      {moreLikeSaved.length > 0 && (
+        <section className="mt-12">
+          <h2 className="font-display text-xl font-bold">More Like Your Saved</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Based on the scholarships you&apos;ve saved, these may also interest you.
+          </p>
+          <ul className="mt-4 space-y-3">
+            {moreLikeSaved.map(({ s, match }) => (
+              <li key={s.id} className="rounded-2xl border bg-card p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <Link href={`/scholarships/${s.slug}`} className="font-semibold leading-snug hover:text-primary">
+                    {s.title}
+                  </Link>
+                  <Badge variant={match.score >= 80 ? "success" : "info"}>{match.score}% Match</Badge>
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  {countryFlag(s.countryCode)} {countryName(s.countryCode)} · {s.provider}
+                </p>
+                <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-0.5">
+                  {match.reasons.map((r) => (
+                    <li key={r} className="text-xs text-emerald-700 dark:text-emerald-400">✓ {r}</li>
+                  ))}
+                </ul>
+                <div className="mt-2">
+                  <LiveDeadlineBadge scholarship={s} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
     </div>
   );

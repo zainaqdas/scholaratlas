@@ -230,3 +230,98 @@ export function matchScholarship(s: Scholarship, profile: StudentProfile): Match
 }
 
 export const COUNTRY_ELIGIBILITY_REASON = COUNTRY_REASONS;
+
+// --- Saved-based recommendations ("More Like Your Saved") -------------------
+// Scores open scholarships by overlap with the user's saved set across
+// country, funding type, field, study level and provider. Unlike profile-based
+// matching, this works even with an empty profile — the saved set IS the
+// signal. Complements matchScholarship on the dashboard.
+
+export interface SavedMatch {
+  score: number; // 0–100, same scale as matchScholarship
+  reasons: string[];
+}
+
+const SAVED_SIGNALS: {
+  key: string;
+  points: number;
+  reason: string;
+}[] = [
+  { key: "country", points: 30, reason: "Same country as a saved scholarship" },
+  { key: "funding", points: 15, reason: "Same funding type as a saved scholarship" },
+  { key: "field", points: 20, reason: "Same field of study as a saved scholarship" },
+  { key: "level", points: 15, reason: "Same study level as a saved scholarship" },
+  { key: "provider", points: 10, reason: "Same provider as a saved scholarship" },
+];
+
+/**
+ * Score each candidate against the user's saved scholarships. Returns the
+ * ranked subset scoring >= threshold, excluding ids in `excludeIds` (the
+ * saved set itself) and closed/expired records. Deterministic: ties break on
+ * newest deadline first, then title.
+ */
+export function recommendFromSaved(
+  saved: Pick<
+    Scholarship,
+    "id" | "countryCode" | "fundingType" | "provider" | "fields" | "studyLevels"
+  >[],
+  candidates: Scholarship[],
+  opts: { excludeIds?: Iterable<string>; threshold?: number; limit?: number } = {}
+): { s: Scholarship; match: SavedMatch }[] {
+  const { threshold = 40, limit = 6 } = opts;
+  const exclude = new Set(opts.excludeIds ?? []);
+  if (saved.length === 0) return [];
+
+  // Aggregate signals from the saved set (deduped).
+  const countries = new Set(saved.map((s) => s.countryCode).filter(Boolean));
+  const fundings = new Set(saved.map((s) => s.fundingType).filter(Boolean));
+  const fields = new Set<string>();
+  const levels = new Set<string>();
+  const providers = new Set(saved.map((s) => s.provider).filter(Boolean));
+  for (const s of saved) {
+    for (const f of fieldsOf(s as Scholarship)) fields.add(f);
+    for (const l of studyLevelsOf(s as Scholarship)) levels.add(l);
+  }
+
+  const scored: { s: Scholarship; match: SavedMatch }[] = [];
+  for (const c of candidates) {
+    if (exclude.has(c.id)) continue;
+
+    const reasons: string[] = [];
+    let score = 40; // baseline, same as matchScholarship
+
+    const countryHit = c.countryCode && countries.has(c.countryCode);
+    const fundingHit = c.fundingType && fundings.has(c.fundingType);
+    const fieldHits = fieldsOf(c).filter((f) => fields.has(f));
+    const levelHits = studyLevelsOf(c).filter((l) => levels.has(l));
+    const providerHit = c.provider && providers.has(c.provider);
+
+    for (const { key, points, reason } of SAVED_SIGNALS) {
+      const hit =
+        (key === "country" && countryHit) ||
+        (key === "funding" && fundingHit) ||
+        (key === "field" && fieldHits.length > 0) ||
+        (key === "level" && levelHits.length > 0) ||
+        (key === "provider" && providerHit);
+      if (hit) {
+        score += points;
+        reasons.push(reason);
+      }
+    }
+
+    score = Math.min(100, Math.max(0, score));
+    if (score >= threshold && reasons.length > 0) {
+      scored.push({ s: c, match: { score, reasons } });
+    }
+  }
+
+  return scored
+    .sort((a, b) => {
+      if (b.match.score !== a.match.score) return b.match.score - a.match.score;
+      const da = a.s.deadline?.getTime() ?? Infinity;
+      const db = b.s.deadline?.getTime() ?? Infinity;
+      if (da !== db) return da - db;
+      return a.s.title.localeCompare(b.s.title);
+    })
+    .slice(0, limit);
+}
