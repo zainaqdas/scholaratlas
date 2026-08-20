@@ -27,6 +27,11 @@ export interface ActionResult {
 }
 
 export async function signupAction(_prevState: ActionResult, formData: FormData): Promise<ActionResult> {
+  // Throttle account creation per IP (spam/abuse guard).
+  const signupRateError = await rateLimitError("signup");
+  if (signupRateError) {
+    return { ok: false, error: signupRateError };
+  }
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const password = String(formData.get("password") ?? "");
   const name = String(formData.get("name") ?? "").trim();
@@ -59,6 +64,11 @@ export async function signupAction(_prevState: ActionResult, formData: FormData)
 }
 
 export async function signinAction(_prevState: ActionResult, formData: FormData): Promise<ActionResult> {
+  // Brute-force guard: limit sign-in attempts per IP.
+  const signinRateError = await rateLimitError("signin");
+  if (signinRateError) {
+    return { ok: false, error: "Too many attempts. Please wait a few minutes and try again." };
+  }
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const password = String(formData.get("password") ?? "");
 

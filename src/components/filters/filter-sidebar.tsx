@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { RotateCcw, Search, X } from "lucide-react";
+import { CategoryIcon } from "@/components/category-icon";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -180,7 +181,7 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
               active={selectedCountries.includes("GLOBAL")}
               onClick={() => toggleList("country", "GLOBAL")}
             >
-              🪐 Global / Multiple countries
+              Global / Multiple countries
             </Chip>
           )}
           {visibleCountries.map((c) => (
@@ -241,7 +242,7 @@ export function FilterSidebar({ searchParams, onClose, showNationality = true }:
                 active={params.get("field") === g.slug}
                 onClick={() => update({ field: params.get("field") === g.slug ? null : g.slug })}
               >
-                {g.icon} {g.name}
+                <CategoryIcon slug={g.slug} className="mr-1.5 inline h-4 w-4" />{g.name}
               </Chip>
               <div className="flex flex-wrap gap-1.5 pl-1">
                 {g.children.map((slug) => {

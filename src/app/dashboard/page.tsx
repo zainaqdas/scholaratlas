@@ -58,7 +58,7 @@ export default async function DashboardPage() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="font-display text-3xl font-extrabold tracking-tight">
-            Hi, {user.name?.split(" ")[0] || "there"} 👋
+            Hi, {user.name?.split(" ")[0] || "there"}
           </h1>
           <p className="mt-1 text-muted-foreground">
             Your personalized scholarship dashboard.

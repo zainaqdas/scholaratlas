@@ -156,7 +156,7 @@ export default async function AdminPage() {
           {pending > 0 && <BulkApproveButton count={pending} />}
         </div>
         {pendingList.length === 0 ? (
-          <p className="mt-3 text-sm text-muted-foreground">Nothing waiting for review. 🎉</p>
+          <p className="mt-3 text-sm text-muted-foreground">Nothing waiting for review.</p>
         ) : (
           <ul className="mt-4 space-y-3">
             {pendingList.map((s) => (
@@ -190,7 +190,7 @@ export default async function AdminPage() {
           <span className="text-xs text-muted-foreground">matching title + provider + country</span>
         </div>
         {duplicateGroups.length === 0 ? (
-          <p className="mt-3 text-sm text-muted-foreground">No exact-duplicate candidates. 🎉</p>
+          <p className="mt-3 text-sm text-muted-foreground">No exact-duplicate candidates.</p>
         ) : (
           <ul className="mt-4 space-y-3">
             {duplicateGroups.map((group) => (
@@ -303,7 +303,7 @@ export default async function AdminPage() {
           <Badge variant={contactMessages.length ? "navy" : "secondary"}>{contactMessages.length} new</Badge>
         </div>
         {contactMessages.length === 0 ? (
-          <p className="mt-3 text-sm text-muted-foreground">No new messages. 🎉</p>
+          <p className="mt-3 text-sm text-muted-foreground">No new messages.</p>
         ) : (
           <ul className="mt-4 space-y-3">
             {contactMessages.map((m) => (

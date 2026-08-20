@@ -6,6 +6,7 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, FIELD_GROUPS, fieldBySlug, fieldGroupBySlug, fieldSlugsForFilter } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
+import { FieldIcon } from "@/components/category-icon";
 import { SavedStateProvider } from "@/components/saved-state";
 import { withOpenDeadline } from "@/lib/scholarship";
 
@@ -77,8 +78,8 @@ export default async function FieldPage({ params }: PageProps) {
       </p>
 
       <div className="mt-4 flex items-center gap-4">
-        <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue/15 to-brand-indigo/15 text-3xl">
-          {field.icon}
+        <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue/15 to-brand-indigo/15">
+          <FieldIcon slug={field.slug} className="h-8 w-8" />
         </span>
         <div>
           <h1 className="font-display text-4xl font-extrabold tracking-tight">{field.name} Scholarships</h1>
@@ -107,7 +108,7 @@ export default async function FieldPage({ params }: PageProps) {
                 href={`/fields/${f.slug}`}
                 className="inline-flex items-center gap-1.5 rounded-full border bg-card px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
               >
-                <span aria-hidden="true">{f.icon}</span>
+                <FieldIcon slug={f.slug} className="h-4 w-4" />
                 {f.name}
               </Link>
             ))}
@@ -141,7 +142,7 @@ export default async function FieldPage({ params }: PageProps) {
               href={`/fields/${f.slug}`}
               className="rounded-full border bg-card px-4 py-2 text-sm font-medium transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
             >
-              {f.icon} {f.name}
+              <FieldIcon slug={f.slug} className="mr-1.5 inline h-4 w-4" />{f.name}
             </Link>
           ))}
         </div>

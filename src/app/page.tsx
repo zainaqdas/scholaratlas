@@ -10,6 +10,7 @@ import {
   Sparkles,
   TrendingUp,
 } from "lucide-react";
+import { CategoryIcon } from "@/components/category-icon";
 import { prisma } from "@/lib/prisma";
 import { SearchBar } from "@/components/search-bar";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
@@ -34,10 +35,10 @@ const HERO_QUICK_FILTERS = [
 ];
 
 const FLOAT_CARDS = [
-  { flag: "🇩🇪", text: "Germany", sub: "Fully Funded" },
-  { flag: "🇯🇵", text: "Japan", sub: "PhD" },
-  { flag: "🇨🇦", text: "Canada", sub: "Master's" },
-  { flag: "🇬🇧", text: "UK", sub: "Undergraduate" },
+  { code: "DE", text: "Germany", sub: "Fully Funded" },
+  { code: "JP", text: "Japan", sub: "PhD" },
+  { code: "CA", text: "Canada", sub: "Master's" },
+  { code: "GB", text: "UK", sub: "Undergraduate" },
 ];
 
 const getHomeData = cachedData(
@@ -176,14 +177,11 @@ export default async function HomePage() {
   return (
     <>
       {/* ---------------------------------------------------------------- Hero */}
-      <section className="hero-grid relative overflow-hidden">
-        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 top-40 h-80 w-80 rounded-full bg-brand-indigo/10 blur-3xl" />
-
-        <div className="relative mx-auto grid grid-cols-1 max-w-7xl gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
-          <div>
-            <Badge variant="secondary" className="mb-5 gap-1.5 px-3 py-1">
-              <Globe2 className="h-3.5 w-3.5 text-primary" />
+      <section className="hero-ink grain relative overflow-hidden">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
+          <div className="stagger">
+            <Badge className="mb-5 gap-1.5 border-brand-gold/30 bg-brand-gold/10 px-3 py-1 text-brand-gold">
+              <Globe2 className="h-3.5 w-3.5" />
               {formatCount(data.stats)}+ opportunities across {countryCount} countries
             </Badge>
             <h1 className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
@@ -202,7 +200,7 @@ export default async function HomePage() {
                   <Link
                     key={f.label}
                     href={f.href}
-                    className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
+                    className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-brand-gold/50 hover:text-brand-gold"
                   >
                     {f.label}
                   </Link>
@@ -217,8 +215,8 @@ export default async function HomePage() {
               <svg viewBox="0 0 400 400" className="h-full w-full">
                 <defs>
                   <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="var(--brand-blue)" stopOpacity="0.16" />
-                    <stop offset="100%" stopColor="var(--brand-blue)" stopOpacity="0" />
+                    <stop offset="0%" stopColor="var(--brand-gold)" stopOpacity="0.18" />
+                    <stop offset="100%" stopColor="var(--brand-gold)" stopOpacity="0" />
                   </radialGradient>
                 </defs>
                 <circle cx="200" cy="200" r="170" fill="url(#globeGlow)" />
@@ -227,8 +225,8 @@ export default async function HomePage() {
                   cy="200"
                   r="120"
                   fill="none"
-                  stroke="var(--brand-blue)"
-                  strokeOpacity="0.25"
+                  stroke="var(--brand-gold)"
+                  strokeOpacity="0.35"
                   strokeWidth="1.5"
                 />
                 <ellipse
@@ -237,8 +235,8 @@ export default async function HomePage() {
                   rx="120"
                   ry="42"
                   fill="none"
-                  stroke="var(--brand-blue)"
-                  strokeOpacity="0.18"
+                  stroke="var(--brand-gold)"
+                  strokeOpacity="0.22"
                   strokeWidth="1.5"
                 />
                 <ellipse
@@ -248,7 +246,7 @@ export default async function HomePage() {
                   ry="120"
                   fill="none"
                   stroke="var(--brand-indigo)"
-                  strokeOpacity="0.18"
+                  strokeOpacity="0.3"
                   strokeWidth="1.5"
                 />
                 {/* connection points */}
@@ -256,10 +254,10 @@ export default async function HomePage() {
                   [120, 110], [270, 90], [300, 210], [250, 300], [120, 280], [90, 200],
                 ].map(([x, y], i) => (
                   <g key={i}>
-                    <circle cx={x} cy={y} r="5" fill="var(--brand-blue)" opacity="0.7" />
-                    <circle cx={x} cy={y} r="11" fill="var(--brand-blue)" opacity="0.15">
+                    <circle cx={x} cy={y} r="5" fill="var(--brand-gold)" opacity="0.85" />
+                    <circle cx={x} cy={y} r="11" fill="var(--brand-gold)" opacity="0.2">
                       <animate attributeName="r" values="8;14;8" dur="3s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.25;0.05;0.25" dur="3s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.3;0.06;0.3" dur="3s" repeatCount="indefinite" />
                     </circle>
                   </g>
                 ))}
@@ -277,8 +275,8 @@ export default async function HomePage() {
                     y1={y1}
                     x2={x2}
                     y2={y2}
-                    stroke="var(--brand-indigo)"
-                    strokeOpacity="0.25"
+                    stroke="var(--brand-gold)"
+                    strokeOpacity="0.3"
                     strokeWidth="1"
                     strokeDasharray="3 4"
                   />
@@ -287,14 +285,19 @@ export default async function HomePage() {
               {FLOAT_CARDS.map((card, i) => (
                 <div
                   key={card.text}
-                  className="absolute rounded-2xl border bg-card/95 p-3 shadow-lg"
+                  className="absolute flex items-center gap-2.5 rounded-2xl border border-brand-gold/25 bg-card/95 p-3 pr-4 shadow-xl backdrop-blur"
                   style={{
                     top: `${[12, 62, 68, 18][i]}%`,
                     left: `${[62, 58, 6, 8][i]}%`,
                   }}
                 >
-                  <p className="text-sm font-bold">{card.flag} {card.text}</p>
-                  <p className="text-xs text-muted-foreground">{card.sub}</p>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-brand-gold to-amber-600 font-display text-sm font-bold text-white">
+                    {card.code}
+                  </span>
+                  <span>
+                    <p className="text-sm font-bold">{card.text}</p>
+                    <p className="text-xs text-muted-foreground">{card.sub}</p>
+                  </span>
                 </div>
               ))}
             </div>
@@ -314,14 +317,12 @@ export default async function HomePage() {
               slug: "contests",
               title: "Contests & Prizes",
               description: "Competitions, awards and prize opportunities.",
-              icon: "🏆",
               href: "/contests",
             },
             {
               slug: "jobs",
               title: "Jobs & Positions",
               description: "PhD positions, postdocs and research roles.",
-              icon: "💼",
               href: "/jobs",
             },
           ].map((cat) => (
@@ -330,8 +331,8 @@ export default async function HomePage() {
               href={cat.href}
               className="lift group flex items-start gap-4 rounded-2xl border bg-card p-5"
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue/15 to-brand-indigo/15 text-xl">
-                {cat.icon}
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-gold/20 to-brand-indigo/10 text-brand-gold ring-1 ring-inset ring-brand-gold/25 transition-transform duration-200 group-hover:scale-110">
+                <CategoryIcon slug={cat.slug} />
               </span>
               <div>
                 <h3 className="font-display font-bold leading-snug group-hover:text-primary">
@@ -415,7 +416,9 @@ export default async function HomePage() {
               href="/scholarships/global"
               className="lift flex items-center gap-3 rounded-2xl border bg-card p-4"
             >
-              <span className="text-2xl" aria-hidden="true">🪐</span>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-indigo/15 to-brand-cyan/10 text-brand-indigo ring-1 ring-inset ring-brand-indigo/20">
+                <Globe2 className="h-5 w-5" />
+              </span>
               <div className="min-w-0">
                 <p className="truncate font-semibold">Global &amp; Multi-Country</p>
                 <p className="text-xs text-muted-foreground">{data.globalCount} scholarships</p>
@@ -457,9 +460,9 @@ export default async function HomePage() {
                 // /scholarships/[slug] (full SEO: title, description, canonical,
                 // FAQs, latest scholarships) — link the chips straight there.
                 href={`/scholarships/${f.slug}`}
-                className="inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm font-medium transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
+                className="inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm font-medium transition-colors hover:border-brand-gold/50 hover:text-brand-gold"
               >
-                <span aria-hidden="true">{f.icon}</span>
+                <CategoryIcon slug={f.slug} className="h-4 w-4" />
                 {f.name}
               </Link>
             ))}
@@ -651,12 +654,12 @@ export default async function HomePage() {
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Education Shouldn&apos;t Be Limited by Borders
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-blue-100">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-white/75">
             Join thousands of students discovering opportunities that fit their goals — and take the
             first step toward your future today.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" variant="secondary" className="gap-2 bg-white text-brand-navy hover:bg-blue-50">
+            <Button asChild size="lg" className="gap-2 bg-brand-gold text-brand-navy shadow-lg shadow-brand-gold/25 hover:brightness-110">
               <Link href="/scholarships">
                 Find Your Scholarship
                 <ArrowRight className="h-4 w-4" />

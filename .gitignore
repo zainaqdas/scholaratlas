@@ -58,3 +58,7 @@ next-env.d.ts
 # sqlite dev database (regenerate with: npm run seed)
 /prisma/dev.db
 /prisma/dev.db-journal
+
+# Local agent tooling (installed skills)
+.agents/
+skills-lock.json

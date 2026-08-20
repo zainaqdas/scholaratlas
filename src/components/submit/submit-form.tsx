@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { submitScholarshipAction } from "@/app/actions";
 import { HONEYPOT_FIELD } from "@/lib/constants";
+import { FieldIcon } from "@/components/category-icon";
 import { COUNTRIES, FIELDS, FUNDING_TYPES, PROVIDER_TYPES, STUDY_LEVELS, studyLevelSlug } from "@/lib/constants";
 
 export function SubmitForm() {
@@ -141,7 +142,7 @@ export function SubmitForm() {
                       : "text-foreground/80 hover:bg-muted"
                   }`}
                 >
-                  {f.icon} {f.name}
+                  <FieldIcon slug={f.slug} className="mr-1.5 inline h-4 w-4" />{f.name}
                 </button>
               );
             })}

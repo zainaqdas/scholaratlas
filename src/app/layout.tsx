@@ -1,21 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AiAssistant } from "@/components/ai-assistant";
+import { Analytics } from "@/components/analytics";
+import { CookieConsent } from "@/components/cookie-consent";
+import { RouteProgress } from "@/components/route-progress";
 import { getStaticBaseUrl } from "@/lib/app-url";
 import { APP_NAME, TAGLINE } from "@/lib/constants";
 
-const inter = Inter({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -72,14 +75,17 @@ const themeScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jakarta.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${manrope.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="flex min-h-screen flex-col antialiased">
+        <RouteProgress />
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 page-enter">{children}</main>
         <SiteFooter />
+        <CookieConsent />
+        <Analytics />
         <AiAssistant />
       </body>
     </html>

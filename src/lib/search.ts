@@ -340,7 +340,7 @@ export async function searchSuggestions(q: string, limit = 5) {
   const { FIELDS, FIELD_GROUPS } = await import("./constants");
   const lq = query.toLowerCase();
   const fields = [...FIELD_GROUPS, ...FIELDS]
-    .map((f) => ({ slug: f.slug, name: f.name, icon: f.icon }))
+    .map((f) => ({ slug: f.slug, name: f.name }))
     .filter((f) => f.name.toLowerCase().includes(lq))
     .slice(0, limit);
 

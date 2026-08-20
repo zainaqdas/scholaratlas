@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, FIELD_GROUPS } from "@/lib/constants";
+import { CategoryIcon, FieldIcon } from "@/components/category-icon";
 import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
 
 export const metadata: Metadata = {
@@ -87,8 +88,8 @@ export default async function FieldsPage() {
             href={`/fields/${g.slug}`}
             className="lift group flex items-start gap-4 rounded-2xl border bg-card p-5"
           >
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue/15 to-brand-indigo/15 text-2xl">
-              {g.icon}
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue/15 to-brand-indigo/15">
+              <CategoryIcon slug={g.slug} className="h-6 w-6" />
             </span>
             <div className="min-w-0">
               <h2 className="font-display font-bold group-hover:text-brand-blue">{g.name}</h2>
@@ -114,8 +115,8 @@ export default async function FieldsPage() {
             href={`/fields/${f.slug}`}
             className="lift flex items-center gap-4 rounded-2xl border bg-card p-5"
           >
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue/15 to-brand-indigo/15 text-2xl">
-              {f.icon}
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue/15 to-brand-indigo/15">
+              <FieldIcon slug={f.slug} className="h-6 w-6" />
             </span>
             <div className="min-w-0">
               <h3 className="truncate font-display font-bold">{f.name}</h3>

@@ -22,6 +22,8 @@ import { HONEYPOT_FIELD } from "@/lib/constants";
 const LIMITS: Record<string, { limit: number; windowMs: number }> = {
   contact: { limit: 3, windowMs: 60 * 60 * 1000 }, // 3 / hour / IP
   "submit-scholarship": { limit: 2, windowMs: 60 * 60 * 1000 }, // 2 / hour / IP
+  signin: { limit: 10, windowMs: 15 * 60 * 1000 }, // 10 attempts / 15 min / IP (brute-force guard)
+  signup: { limit: 5, windowMs: 60 * 60 * 1000 }, // 5 accounts / hour / IP
 };
 
 const DEFAULT_LIMIT = { limit: 3, windowMs: 60 * 60 * 1000 };

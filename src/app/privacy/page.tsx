@@ -28,7 +28,23 @@ export default function PrivacyPage() {
       <h2>Cookies</h2>
       <p>
         We use a session cookie to keep you signed in and a local preference for the theme you
-        choose. You can browse all public content without cookies.
+        choose. You can browse all public content without cookies. When you first visit, we ask for
+        your consent before enabling optional cookies (analytics and, once enabled, advertising).
+        You can change your choice anytime via the consent banner.
+      </p>
+      <h2>Analytics &amp; advertising</h2>
+      <p>
+        With your consent, we use privacy-friendly analytics to understand aggregate traffic — which
+        pages are visited and how the site is used — so we can improve it. If we later display
+        advertising, third-party ad networks (such as Google AdSense) may set their own cookies to
+        serve and measure relevant ads, and to report aggregate impressions and clicks. You can opt
+        out of these cookies at any time from the consent banner, or through your browser settings.
+      </p>
+      <h2>Third-party services</h2>
+      <p>
+        We use a few service providers to operate the site — hosting, email delivery (Resend) and
+        database services (Turso). These providers process data only on our behalf, and each has
+        its own privacy policy governing that processing. We never sell your personal data.
       </p>
       <h2>Your rights</h2>
       <p>

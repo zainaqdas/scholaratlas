@@ -137,7 +137,7 @@ export function SearchBar({
                   <SuggestionRow
                     key={f.slug}
                     href={`/fields/${f.slug}`}
-                    title={`${f.icon} ${f.name}`}
+                    title={f.name}
                     sub="Explore scholarships in this field"
                     onClick={() => setOpen(false)}
                   />

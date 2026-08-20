@@ -6,6 +6,7 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, countryByCode, studyLevelFromSlug } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
+import { FieldIcon } from "@/components/category-icon";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
 import { SavedStateProvider } from "@/components/saved-state";
 import { withOpenDeadline } from "@/lib/scholarship";
@@ -132,7 +133,7 @@ export default async function CountryPage({ params }: PageProps) {
                       href={`/fields/${slug}`}
                       className="inline-flex items-center gap-1.5 rounded-full border bg-card px-3.5 py-1.5 text-sm transition-colors hover:border-brand-blue/40 hover:text-brand-blue"
                     >
-                      {field.icon} {field.name}
+                      <FieldIcon slug={field.slug} className="mr-1.5 inline h-4 w-4" />{field.name}
                       <span className="text-xs text-muted-foreground">({count})</span>
                     </Link>
                   );

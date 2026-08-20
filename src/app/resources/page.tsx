@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { BookOpen, FileText, Globe2, GraduationCap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/format";
 
@@ -45,9 +46,15 @@ export default async function ResourcesPage() {
           return (
             <Link key={a.id} href={`/resources/${a.slug}`} className="lift group overflow-hidden rounded-2xl border bg-card">
               <div className={`flex h-36 items-center justify-center bg-gradient-to-br ${gradient}`}>
-                <span className="text-4xl opacity-90" aria-hidden="true">
-                  {a.category === "Scholarships" ? "🎓" : a.category === "Study Abroad" ? "🌍" : a.category === "Applications" ? "📝" : "📚"}
-                </span>
+                {a.category === "Scholarships" ? (
+                  <GraduationCap className="h-14 w-14 text-white opacity-90" aria-hidden />
+                ) : a.category === "Study Abroad" ? (
+                  <Globe2 className="h-14 w-14 text-white opacity-90" aria-hidden />
+                ) : a.category === "Applications" ? (
+                  <FileText className="h-14 w-14 text-white opacity-90" aria-hidden />
+                ) : (
+                  <BookOpen className="h-14 w-14 text-white opacity-90" aria-hidden />
+                )}
               </div>
               <div className="p-5">
                 <div className="flex items-center gap-2">

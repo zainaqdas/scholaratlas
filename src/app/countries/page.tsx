@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Globe2 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { COUNTRIES } from "@/lib/constants";
 import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
@@ -100,7 +101,9 @@ export default async function CountriesPage() {
             className="lift flex flex-col rounded-2xl border bg-card p-5"
           >
             <div className="flex items-center gap-3">
-              <span className="text-3xl" aria-hidden="true">🪐</span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-indigo/15 to-brand-cyan/10 text-brand-indigo ring-1 ring-inset ring-brand-indigo/20" aria-hidden="true">
+                <Globe2 className="h-5 w-5" />
+              </span>
               <div>
                 <h2 className="font-display font-bold">Global &amp; Multi-Country</h2>
                 <p className="text-xs text-muted-foreground">Multiple destinations</p>

@@ -32,63 +32,70 @@
   --color-brand-emerald: var(--brand-emerald);
   --color-brand-cyan: var(--brand-cyan);
   --color-brand-navy: var(--brand-navy);
+  --color-brand-gold: var(--brand-gold);
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-jakarta), var(--font-sans);
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-fraunces), var(--font-sans);
 }
 
+/* ---------------------------------------------------------------------------
+   Palette — "editorial scholarly": warm paper + deep ink navy, with a
+   scholar-gold accent. Dark mode inverts to navy-black with gold primary.
+--------------------------------------------------------------------------- */
 :root {
-  --background: #f7f8fc;
-  --foreground: #0f172a;
+  --background: #faf9f4;
+  --foreground: #101828;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #101828;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #5b6b84;
-  --border: #e3e8f0;
-  --input: #e3e8f0;
-  --primary: #1e3a8a; /* deep navy */
+  --popover-foreground: #101828;
+  --muted: #f2efe7;
+  --muted-foreground: #64708a;
+  --border: #e6e2d4;
+  --input: #e6e2d4;
+  --primary: #0f1e3d; /* deep ink navy */
   --primary-foreground: #ffffff;
-  --secondary: #eef2ff;
-  --secondary-foreground: #3730a3;
-  --accent: #10b981; /* emerald */
-  --accent-foreground: #ffffff;
-  --ring: #2563eb;
-  --success: #059669;
-  --warning: #d97706;
+  --secondary: #efebe0;
+  --secondary-foreground: #403a2b;
+  --accent: #a16207; /* scholar gold */
+  --accent-foreground: #fffaf0;
+  --ring: #c9a13b;
+  --success: #15803d;
+  --warning: #b45309;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
-  --brand-blue: #2563eb;
-  --brand-indigo: #4f46e5;
-  --brand-emerald: #10b981;
-  --brand-cyan: #06b6d4;
+  --brand-blue: #1e40af;
+  --brand-indigo: #4338ca;
+  --brand-emerald: #059669;
+  --brand-cyan: #0891b2;
   --brand-navy: #0b1b3d;
+  --brand-gold: #c9a13b;
 }
 
 .dark {
-  --background: #0a101f;
-  --foreground: #e2e8f0;
-  --card: #101828;
-  --card-foreground: #e2e8f0;
-  --popover: #101828;
-  --popover-foreground: #e2e8f0;
-  --muted: #1b2437;
-  --muted-foreground: #94a3b8;
-  --border: #233048;
-  --input: #233048;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #1b2437;
-  --secondary-foreground: #c7d2fe;
-  --accent: #10b981;
-  --accent-foreground: #052e1b;
-  --ring: #3b82f6;
+  --background: #0a0f1e;
+  --foreground: #e8ebf4;
+  --card: #111a2e;
+  --card-foreground: #e8ebf4;
+  --popover: #111a2e;
+  --popover-foreground: #e8ebf4;
+  --muted: #182238;
+  --muted-foreground: #9aa8bf;
+  --border: #22304a;
+  --input: #22304a;
+  --primary: #f2c14e; /* gold */
+  --primary-foreground: #1a1203;
+  --secondary: #182238;
+  --secondary-foreground: #e9dcae;
+  --accent: #f2c14e;
+  --accent-foreground: #1a1203;
+  --ring: #f2c14e;
   --success: #34d399;
   --warning: #fbbf24;
   --destructive: #f87171;
   --destructive-foreground: #450a0a;
   --brand-navy: #0b1b3d;
+  --brand-gold: #f2c14e;
 }
 
 * {
@@ -107,8 +114,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
 ::selection {
-  background: color-mix(in srgb, var(--brand-blue) 25%, transparent);
+  background: color-mix(in srgb, var(--brand-gold) 30%, transparent);
 }
 
 :root {
@@ -133,8 +146,53 @@ body {
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 60%, transparent 100%);
 }
 
+/* Hero on the homepage: dark ink panel with grid, radial gold glow + grain.
+   Uses the same ::before/::after technique so content stays on top. */
+.hero-ink {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--brand-navy) 42%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg, color-mix(in srgb, var(--brand-navy) 8%, transparent) 0%, transparent 100%);
+}
+.hero-ink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--hero-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hero-grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 55%, transparent 100%);
+}
+.hero-ink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(600px 260px at 50% -40px, color-mix(in srgb, var(--brand-gold) 26%, transparent), transparent 70%),
+    radial-gradient(420px 220px at 12% 30%, color-mix(in srgb, var(--brand-indigo) 20%, transparent), transparent 70%),
+    radial-gradient(420px 220px at 88% 20%, color-mix(in srgb, var(--brand-cyan) 12%, transparent), transparent 70%);
+}
+
+/* Fine film grain over the hero for an editorial, printed feel. */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
 .text-gradient {
-  background: linear-gradient(100deg, var(--brand-blue), var(--brand-indigo) 55%, var(--brand-cyan));
+  background: linear-gradient(105deg, var(--brand-navy) 0%, var(--brand-indigo) 55%, var(--brand-gold) 120%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -142,20 +200,79 @@ body {
 
 /* Brighter gradient text on dark backgrounds for contrast */
 .dark .text-gradient {
-  background: linear-gradient(100deg, #60a5fa, #818cf8 55%, #22d3ee);
+  background: linear-gradient(100deg, #f2c14e 0%, #c7bff7 55%, #7fa3ff 120%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Card hover lift */
+/* Card hover lift — polished with a gold-tinted border and deeper shadow */
 .lift {
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px -12px rgb(2 12 40 / 0.18);
-  border-color: color-mix(in srgb, var(--brand-blue) 35%, var(--border));
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -16px rgb(10 20 50 / 0.22);
+  border-color: color-mix(in srgb, var(--brand-gold) 45%, var(--border));
+}
+
+/* ---------------------------------------------------------------------------
+   Motion — page entrance, staggered reveals, interactive feedback.
+--------------------------------------------------------------------------- */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Applied to <main> on every route — a soft fade + rise on mount. */
+.page-enter {
+  animation: page-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered reveals: children with --i (0,1,2…) animate in sequence. */
+.stagger > * {
+  animation: rise-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+/* Skeleton shimmer used by loading.tsx placeholders. */
+.skeleton-shimmer {
+  background: linear-gradient(90deg, var(--muted) 25%, color-mix(in srgb, var(--muted) 40%, var(--border)) 37%, var(--muted) 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* Buttons and interactive controls get a consistent, snappy transition. */
+a, button {
+  transition-property: color, background-color, border-color, transform, box-shadow, opacity;
+  transition-duration: 0.16s;
+  transition-timing-function: ease;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { updateProfileAction } from "@/app/actions";
+import { FieldIcon } from "@/components/category-icon";
 import { COUNTRIES, FIELDS, STUDY_LEVELS, studyLevelSlug } from "@/lib/constants";
 import type { User } from "@prisma/client";
 
@@ -73,7 +74,7 @@ export function ProfileForm({ user }: { user: User }) {
             <SelectContent>
               <SelectItem value="">Not specified</SelectItem>
               {FIELDS.map((f) => (
-                <SelectItem key={f.slug} value={f.slug}>{f.icon} {f.name}</SelectItem>
+                <SelectItem key={f.slug} value={f.slug}><FieldIcon slug={f.slug} className="mr-1.5 inline h-4 w-4" />{f.name}</SelectItem>
               ))}
             </SelectContent>
           </Select>

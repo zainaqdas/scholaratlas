@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import {
   Building2,
   CalendarDays,
-  CheckCircle2,
   ChevronRight,
   CircleDollarSign,
   Clock3,
@@ -37,6 +36,7 @@ import { ViewTracker } from "@/components/scholarship/view-tracker";
 import { LiveDeadlineBadge } from "@/components/scholarship/live-deadline-badge";
 import { VerificationBadge } from "@/components/scholarship/verification-badge";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
+import { BenefitIcon } from "@/components/category-icon";
 import {
   BENEFITS,
   DOCUMENTS,
@@ -390,8 +390,8 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
           <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {BENEFITS.filter((b) => benefits.includes(b.key)).map((b) => (
               <div key={b.key} className="flex items-center gap-3 rounded-xl border bg-card px-4 py-3">
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-sm font-medium">{b.icon} {b.label}</span>
+                <BenefitIcon benefit={b.key} className="h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-sm font-medium">{b.label}</span>
               </div>
             ))}
           </div>
