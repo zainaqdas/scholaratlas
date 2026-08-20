@@ -14,7 +14,8 @@ import { prisma } from "../src/lib/prisma";
 import fs from "fs";
 import path from "path";
 
-const CHECKPOINT = path.resolve("data/url-verification.jsonl");
+const args = process.argv.slice(2);
+const CHECKPOINT = path.resolve(args[args.indexOf("--checkpoint") + 1] ?? "data/url-verification.jsonl");
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
 
