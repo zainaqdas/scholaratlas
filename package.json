@@ -59,7 +59,9 @@
     "import:cscouncil": "tsx scripts/import-cscouncil.ts",
     "postinstall": "prisma generate",
     "fix:csc-official-urls": "tsx scripts/fix-csc-official-urls.ts",
-    "fix:wms-provider-misattribution": "tsx scripts/fix-wms-provider-misattribution.ts"
+    "fix:wms-provider-misattribution": "tsx scripts/fix-wms-provider-misattribution.ts",
+    "verify:university-pages": "tsx scripts/verify-university-pages.ts",
+    "fix:dead-official-urls": "tsx scripts/fix-dead-official-urls.ts"
   },
   "engines": {
     "node": ">=22"
