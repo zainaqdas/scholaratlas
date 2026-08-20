@@ -25,6 +25,8 @@ const HOSTS_ARG = args[args.indexOf("--hosts") + 1] ?? "60";
 const CAP = Number(args[args.indexOf("--cap") + 1] ?? 0) || 0;
 const DRY_RUN = args.includes("--dry-run");
 const RESUME = !args.includes("--no-resume");
+const DELAY = Number(args[args.indexOf("--delay") + 1] ?? 300) || 300; // ms between requests
+const TIMEOUT = Number(args[args.indexOf("--timeout-ms") + 1] ?? 25000) || 25000;
 
 const CHECKPOINT = path.resolve("data/url-verification.jsonl");
 const OK_LIST = path.resolve("data/verified-ok.tsv");
@@ -85,7 +87,7 @@ async function checkOne(rec: {
   }
 
   const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), 25000);
+  const t = setTimeout(() => ctrl.abort(), TIMEOUT);
   try {
     const res = await fetch(rec.url, {
       redirect: "follow",
@@ -199,7 +201,7 @@ async function main() {
         console.log(`  ...${doneInRun} checked (ok=${ok} warn=${warn} fail=${fail})`);
       }
       // Polite pacing — one request at a time, no burst.
-      await new Promise((r) => setTimeout(r, 300));
+      await new Promise((r) => setTimeout(r, DELAY));
     }
   }
   fs.closeSync(out);
