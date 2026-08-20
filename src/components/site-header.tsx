@@ -61,26 +61,35 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <Logo />
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-            {NAV_ITEMS.map((item) => (
+          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main navigation">
+            {/* Top-level keeps the five core sections; Resources + About live in
+                the More menu so the bar fits without crowding at laptop widths. */}
+            {NAV_ITEMS.filter((i) => !["/resources", "/about"].includes(i.href)).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-lg px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
                 {item.label}
               </Link>
             ))}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
+                <button className="inline-flex items-center gap-1 rounded-lg px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
                   More
                   <ChevronDown className="h-3.5 w-3.5" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link href="/resources">Resources</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/about">About</Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
                   <Link href="/contests">Contests &amp; Prizes</Link>
                 </DropdownMenuItem>
@@ -103,13 +112,13 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-1.5">
-          <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+          <Button asChild variant="ghost" size="sm" className="hidden xl:inline-flex">
             <Link href="/scholarships">
               <Search className="h-4 w-4" />
               Search
             </Link>
           </Button>
-          <Button asChild variant="ghost" size="iconSm" className="sm:hidden" aria-label="Search scholarships">
+          <Button asChild variant="ghost" size="iconSm" className="xl:hidden" aria-label="Search scholarships">
             <Link href="/scholarships">
               <Search className="h-5 w-5" />
             </Link>

@@ -180,11 +180,11 @@ export default async function HomePage() {
       <section className="hero-ink grain relative overflow-hidden">
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
           <div className="stagger">
-            <Badge className="mb-5 gap-1.5 border-brand-gold/30 bg-brand-gold/10 px-3 py-1 text-brand-gold">
+            <Badge className="mb-5 gap-1.5 border-brand-gold/30 bg-brand-gold/10 px-3 py-1 text-accent dark:text-brand-gold">
               <Globe2 className="h-3.5 w-3.5" />
               {formatCount(data.stats)}+ opportunities across {countryCount} countries
             </Badge>
-            <h1 className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-5xl xl:text-6xl">
               Find Scholarships That Can{" "}
               <span className="text-gradient">Change Your Future</span>
             </h1>
