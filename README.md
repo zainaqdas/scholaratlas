@@ -79,6 +79,7 @@ src/
 - Demo data never presents fabricated information as real opportunities — listings are labelled **Demo Data** and unknown values render "Not specified" / "Check official provider".
 - Statistics on the homepage are computed from the database, not hardcoded.
 - Deadlines preserve the original date/time/timezone; countdowns are computed from actual timestamps.
+- Site photography (hero + resource cards) is self-hosted in `public/images/` under the **Unsplash License** (free for commercial use, no attribution required). Swap files in place to rebrand; the category→image map lives in `src/lib/images.ts`.
 
 ## Deploying to Vercel
 

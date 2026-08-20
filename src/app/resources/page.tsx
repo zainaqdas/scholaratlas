@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { BookOpen, FileText, Globe2, GraduationCap } from "lucide-react";
+import { resourceImage } from "@/lib/images";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/format";
 
@@ -10,13 +12,6 @@ export const metadata: Metadata = {
   description:
     "Guides on finding scholarships, writing applications, preparing for IELTS/TOEFL and studying abroad.",
   alternates: { canonical: "/resources" },
-};
-
-const CATEGORY_COLORS: Record<string, string> = {
-  Scholarships: "from-brand-blue to-brand-indigo",
-  "Study Abroad": "from-brand-emerald to-brand-cyan",
-  Applications: "from-brand-indigo to-brand-cyan",
-  Tests: "from-amber-500 to-orange-500",
 };
 
 export default async function ResourcesPage() {
@@ -42,19 +37,28 @@ export default async function ResourcesPage() {
 
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {articles.map((a) => {
-          const gradient = CATEGORY_COLORS[a.category] ?? "from-brand-blue to-brand-indigo";
           return (
             <Link key={a.id} href={`/resources/${a.slug}`} className="lift group overflow-hidden rounded-2xl border bg-card">
-              <div className={`flex h-36 items-center justify-center bg-gradient-to-br ${gradient}`}>
-                {a.category === "Scholarships" ? (
-                  <GraduationCap className="h-14 w-14 text-white opacity-90" aria-hidden />
-                ) : a.category === "Study Abroad" ? (
-                  <Globe2 className="h-14 w-14 text-white opacity-90" aria-hidden />
-                ) : a.category === "Applications" ? (
-                  <FileText className="h-14 w-14 text-white opacity-90" aria-hidden />
-                ) : (
-                  <BookOpen className="h-14 w-14 text-white opacity-90" aria-hidden />
-                )}
+              <div className="relative h-36 overflow-hidden">
+                <Image
+                  src={resourceImage(a.category)}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" aria-hidden="true" />
+                <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg bg-white/90 text-brand-navy shadow backdrop-blur">
+                  {a.category === "Scholarships" ? (
+                    <GraduationCap className="h-4.5 w-4.5" aria-hidden />
+                  ) : a.category === "Study Abroad" ? (
+                    <Globe2 className="h-4.5 w-4.5" aria-hidden />
+                  ) : a.category === "Applications" ? (
+                    <FileText className="h-4.5 w-4.5" aria-hidden />
+                  ) : (
+                    <BookOpen className="h-4.5 w-4.5" aria-hidden />
+                  )}
+                </span>
               </div>
               <div className="p-5">
                 <div className="flex items-center gap-2">

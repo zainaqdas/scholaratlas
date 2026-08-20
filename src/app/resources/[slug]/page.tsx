@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
+import { resourceImage } from "@/lib/images";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
@@ -66,6 +68,17 @@ export default async function ArticlePage({ params }: PageProps) {
           <li aria-current="page" className="truncate text-foreground">{article.title}</li>
         </ol>
       </nav>
+
+      <div className="relative mb-6 h-52 overflow-hidden rounded-2xl shadow-lg sm:h-64">
+        <Image
+          src={resourceImage(article.category)}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, 48rem"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" aria-hidden="true" />
+      </div>
 
       <Badge variant="secondary">{article.category}</Badge>
       <h1 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">

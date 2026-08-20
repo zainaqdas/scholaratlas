@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BadgeCheck,
@@ -15,6 +16,7 @@ import { prisma } from "@/lib/prisma";
 import { SearchBar } from "@/components/search-bar";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { LiveDeadlineBadge } from "@/components/scholarship/live-deadline-badge";
+import { resourceImage } from "@/lib/images";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FIELD_GROUPS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
@@ -209,87 +211,48 @@ export default async function HomePage() {
             </div>
           </div>
 
-          {/* Decorative world visual */}
-          <div className="relative hidden lg:block" aria-hidden="true">
-            <div className="relative mx-auto aspect-square max-w-md">
-              <svg viewBox="0 0 400 400" className="h-full w-full">
-                <defs>
-                  <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="var(--brand-gold)" stopOpacity="0.18" />
-                    <stop offset="100%" stopColor="var(--brand-gold)" stopOpacity="0" />
-                  </radialGradient>
-                </defs>
-                <circle cx="200" cy="200" r="170" fill="url(#globeGlow)" />
-                <circle
-                  cx="200"
-                  cy="200"
-                  r="120"
-                  fill="none"
-                  stroke="var(--brand-gold)"
-                  strokeOpacity="0.35"
-                  strokeWidth="1.5"
+          {/* Hero visual — real photography */}
+          <div className="relative hidden lg:block">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
+              {/* Main photo */}
+              <div className="absolute inset-0 overflow-hidden rounded-[1.75rem] shadow-2xl ring-1 ring-black/10">
+                <Image
+                  src="/images/hero-students.jpg"
+                  alt="Students collaborating on a scholarship application"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 40vw, 0vw"
+                  className="object-cover"
                 />
-                <ellipse
-                  cx="200"
-                  cy="200"
-                  rx="120"
-                  ry="42"
-                  fill="none"
-                  stroke="var(--brand-gold)"
-                  strokeOpacity="0.22"
-                  strokeWidth="1.5"
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent"
+                  aria-hidden="true"
                 />
-                <ellipse
-                  cx="200"
-                  cy="200"
-                  rx="42"
-                  ry="120"
-                  fill="none"
-                  stroke="var(--brand-indigo)"
-                  strokeOpacity="0.3"
-                  strokeWidth="1.5"
-                />
-                {/* connection points */}
-                {[
-                  [120, 110], [270, 90], [300, 210], [250, 300], [120, 280], [90, 200],
-                ].map(([x, y], i) => (
-                  <g key={i}>
-                    <circle cx={x} cy={y} r="5" fill="var(--brand-gold)" opacity="0.85" />
-                    <circle cx={x} cy={y} r="11" fill="var(--brand-gold)" opacity="0.2">
-                      <animate attributeName="r" values="8;14;8" dur="3s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.3;0.06;0.3" dur="3s" repeatCount="indefinite" />
-                    </circle>
-                  </g>
-                ))}
-                {[
-                  [120, 110, 300, 90],
-                  [300, 90, 300, 210],
-                  [300, 210, 250, 300],
-                  [250, 300, 120, 280],
-                  [120, 280, 90, 200],
-                  [90, 200, 120, 110],
-                ].map(([x1, y1, x2, y2], i) => (
-                  <line
-                    key={`l${i}`}
-                    x1={x1}
-                    y1={y1}
-                    x2={x2}
-                    y2={y2}
-                    stroke="var(--brand-gold)"
-                    strokeOpacity="0.3"
-                    strokeWidth="1"
-                    strokeDasharray="3 4"
+              </div>
+
+              {/* Secondary photo */}
+              <div className="absolute -bottom-10 -left-8 w-44 overflow-hidden rounded-2xl shadow-xl ring-4 ring-card">
+                <div className="aspect-[3/2]">
+                  <Image
+                    src="/images/hero-graduation.jpg"
+                    alt="Graduates celebrating"
+                    fill
+                    sizes="176px"
+                    className="object-cover"
                   />
-                ))}
-              </svg>
+                </div>
+              </div>
+
+              {/* Floating country cards */}
               {FLOAT_CARDS.map((card, i) => (
                 <div
                   key={card.text}
                   className="absolute flex items-center gap-2.5 rounded-2xl border border-brand-gold/25 bg-card/95 p-3 pr-4 shadow-xl backdrop-blur"
                   style={{
-                    top: `${[12, 62, 68, 18][i]}%`,
-                    left: `${[62, 58, 6, 8][i]}%`,
+                    top: `${[6, 78, 44, 5][i]}%`,
+                    left: `${[54, 50, -2, -2][i]}%`,
                   }}
+                  aria-hidden="true"
                 >
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-brand-gold to-amber-600 font-display text-sm font-bold text-white">
                     {card.code}
@@ -631,14 +594,19 @@ export default async function HomePage() {
                   <Link
                     key={a.id}
                     href={`/resources/${a.slug}`}
-                    className="lift block rounded-2xl border bg-card p-5"
+                    className="lift flex gap-4 rounded-2xl border bg-card p-4"
                   >
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary">{a.category}</Badge>
-                      <span className="text-xs text-muted-foreground">{a.readingTime} min read</span>
+                    <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
+                      <Image src={resourceImage(a.category)} alt="" fill sizes="64px" className="object-cover" />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary">{a.category}</Badge>
+                        <span className="text-xs text-muted-foreground">{a.readingTime} min read</span>
+                      </div>
+                      <h3 className="mt-1.5 font-semibold leading-snug">{a.title}</h3>
+                      <p className="mt-0.5 line-clamp-2 text-sm text-muted-foreground">{a.excerpt}</p>
                     </div>
-                    <h3 className="mt-2.5 font-semibold leading-snug">{a.title}</h3>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{a.excerpt}</p>
                   </Link>
                 ))}
               </div>
