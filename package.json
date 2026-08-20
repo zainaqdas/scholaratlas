@@ -58,7 +58,8 @@
     "fix:wms-countries": "tsx scripts/fix-wms-countries.ts",
     "import:cscouncil": "tsx scripts/import-cscouncil.ts",
     "postinstall": "prisma generate",
-    "fix:csc-official-urls": "tsx scripts/fix-csc-official-urls.ts"
+    "fix:csc-official-urls": "tsx scripts/fix-csc-official-urls.ts",
+    "fix:wms-provider-misattribution": "tsx scripts/fix-wms-provider-misattribution.ts"
   },
   "engines": {
     "node": ">=22"
