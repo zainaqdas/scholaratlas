@@ -39,10 +39,13 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Palette — "editorial scholarly": warm paper + deep ink navy, with a
-   scholar-gold accent. Dark mode inverts to navy-black with gold primary.
+   Palette — "editorial scholarly", dark-only: navy-black surfaces with a
+   scholar-gold primary. The `dark` class is always applied (see layout.tsx),
+   so the .dark block below is the active palette; :root holds light fallback
+   values purely so tokens resolve before the class mounts.
 --------------------------------------------------------------------------- */
 :root {
+  color-scheme: dark;
   --background: #faf9f4;
   --foreground: #101828;
   --card: #ffffff;

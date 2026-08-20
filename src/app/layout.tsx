@@ -57,28 +57,15 @@ export function generateMetadata(): Metadata {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0b1b3d" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a101f" },
-  ],
+  // Dark-only site — themeColor stays the dark navy in every scheme.
+  themeColor: "#0a101f",
 };
-
-const themeScript = `
-(function () {
-  try {
-    var stored = localStorage.getItem('sa-theme');
-    var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (dark) document.documentElement.classList.add('dark');
-  } catch (e) {}
-})();
-`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${manrope.variable}`}>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
+    // Dark-only: the `dark` class is always applied, so every dark: variant
+    // and the .dark palette below stay active. No client theme switching.
+    <html lang="en" className={`dark ${fraunces.variable} ${manrope.variable}`}>
       <body className="flex min-h-screen flex-col antialiased">
         <RouteProgress />
         <SiteHeader />

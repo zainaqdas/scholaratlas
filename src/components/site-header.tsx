@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Bookmark, ChevronDown, Menu, Search } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -128,7 +127,6 @@ export function SiteHeader() {
               <Bookmark className="h-5 w-5" />
             </Link>
           </Button>
-          <ThemeToggle />
 
           {user ? (
             <DropdownMenu>
