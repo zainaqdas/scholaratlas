@@ -396,7 +396,7 @@ export function searchSuggestions(q: string, limit = 5) {
 
   return { scholarships, universities, countries, fields, articles };
     },
-    [`suggest-${query}-${limit}`],
+    [`suggest-${createHash("sha1").update(query).digest("hex").slice(0, 12)}-${limit}`],
     { revalidate: 60 }
   )();
 }
