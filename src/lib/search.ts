@@ -3,11 +3,34 @@
 // the current dataset size. Production note: when moving to large-scale
 // PostgreSQL, move ranking to pg_trgm / full-text and pagination to SQL.
 
+import { createHash } from "crypto";
+import { unstable_cache } from "next/cache";
 import { Prisma, type Scholarship } from "@prisma/client";
 import { prisma } from "./prisma";
 import { SCHOLARSHIPS_PER_PAGE, fieldSlugsForFilter, studyLevelFromSlug } from "./constants";
 import { daysUntil } from "./format";
 import { withOpenDeadline } from "./scholarship";
+
+/**
+ * Total counts for a filter set are cached across requests (Turso bills per
+ * row read — COUNT over the status index is ~9k row reads, and crawlers hit
+ * the list page with many URL variants). Date windows are normalized out of
+ * the key: the ACTIVE+open-deadline count only changes when a deadline passes,
+ * so a few minutes of staleness is invisible.
+ */
+function whereCacheKey(where: Prisma.ScholarshipWhereInput): string {
+  const json = JSON.stringify(where, (_k, v) => (v instanceof Date ? "__NOW__" : v));
+  return createHash("sha1").update(json).digest("hex").slice(0, 20);
+}
+
+function cachedCount(where: Prisma.ScholarshipWhereInput): Promise<number> {
+  const key = whereCacheKey(where);
+  return unstable_cache(
+    async () => prisma.scholarship.count({ where }),
+    [`scholarship-count-${key}`],
+    { revalidate: 300 }
+  )();
+}
 
 export type SortKey = "relevance" | "deadline" | "recent" | "funding" | "popular";
 
@@ -251,30 +274,55 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
     where = withOpenDeadline(where);
   }
 
+  const q = filters.q?.trim().toLowerCase();
+  const sort = filters.sort ?? "relevance";
+  const page = Math.max(1, filters.page ?? 1);
+
+  // Sorts that can be pushed into SQL (the overwhelming majority of traffic:
+  // default/filtered views hit repeatedly by crawlers). Only relevance-with-a
+  // query and the funding ranking need the full result set in memory — those
+  // are user-initiated, so volume is low.
+  const needsInMemorySort = sort === "funding" || (sort === "relevance" && !!q);
+
+  if (!needsInMemorySort) {
+    const orderBy: Prisma.ScholarshipOrderByWithRelationInput[] =
+      sort === "deadline"
+        ? [{ deadline: { sort: "asc", nulls: "last" } }]
+        : sort === "recent"
+          ? [{ createdAt: "desc" }]
+          : [{ views: "desc" }, { createdAt: "desc" }];
+
+    // Only the current page is fetched (was: every matching row + joins read
+    // on every render ≈ 9k+ row reads per request). The total is cached.
+    const [total, itemsPage] = await Promise.all([
+      cachedCount(where),
+      prisma.scholarship.findMany({
+        where,
+        include: { university: true, country: true },
+        orderBy,
+        take: SCHOLARSHIPS_PER_PAGE,
+        skip: (page - 1) * SCHOLARSHIPS_PER_PAGE,
+      }),
+    ]);
+
+    return {
+      items: itemsPage,
+      total,
+      page,
+      pageCount: Math.max(1, Math.ceil(total / SCHOLARSHIPS_PER_PAGE)),
+    };
+  }
+
+  // --- in-memory ranking (relevance with a query / funding sort) ------------
   const items = await prisma.scholarship.findMany({
     where,
     include: { university: true, country: true },
   });
-
-  // Relevance ranking
   let sorted = items;
-  const q = filters.q?.trim().toLowerCase();
-  const sort = filters.sort ?? "relevance";
-
-  if (sort === "deadline") {
-    sorted = [...items].sort((a, b) => {
-      if (!a.deadline) return 1;
-      if (!b.deadline) return -1;
-      return a.deadline.getTime() - b.deadline.getTime();
-    });
-  } else if (sort === "recent") {
-    sorted = [...items].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
-  } else if (sort === "funding") {
+  if (sort === "funding") {
     const rank = (f: string) =>
       f === "FULLY_FUNDED" ? 0 : f === "FULLY_FUNDED_STIPEND" ? 1 : f === "TUITION_WAIVER" ? 2 : 3;
     sorted = [...items].sort((a, b) => rank(a.fundingType) - rank(b.fundingType));
-  } else if (sort === "popular") {
-    sorted = [...items].sort((a, b) => b.views - a.views);
   } else if (q) {
     // relevance: exact title hits first, then recency
     sorted = [...items].sort((a, b) => {
@@ -283,12 +331,9 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
       if (at !== bt) return at - bt;
       return b.views - a.views;
     });
-  } else {
-    sorted = [...items].sort((a, b) => b.views - a.views);
   }
 
   const total = sorted.length;
-  const page = Math.max(1, filters.page ?? 1);
   const pageCount = Math.max(1, Math.ceil(total / SCHOLARSHIPS_PER_PAGE));
   const start = (page - 1) * SCHOLARSHIPS_PER_PAGE;
   const itemsPage = sorted.slice(start, start + SCHOLARSHIPS_PER_PAGE);
@@ -296,10 +341,16 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
   return { items: itemsPage, total, page, pageCount };
 }
 
-// Lightweight suggestion lookup used by the search box.
-export async function searchSuggestions(q: string, limit = 5) {
-  const query = q.trim();
-  if (!query) return { scholarships: [], universities: [], countries: [], fields: [], articles: [] };
+// Lightweight suggestion lookup used by the search box. Every keystroke fires
+// a request here, and %term% LIKE scans read the full table (~25k rows × 4
+// tables) — so results are cached for 60s per query string.
+export function searchSuggestions(q: string, limit = 5) {
+  const query = q.trim().toLowerCase();
+  if (!query) {
+    return Promise.resolve({ scholarships: [], universities: [], countries: [], fields: [], articles: [] });
+  }
+  return unstable_cache(
+    async () => {
 
   const [scholarships, universities, countries, articles] = await Promise.all([
     prisma.scholarship.findMany({
@@ -338,13 +389,16 @@ export async function searchSuggestions(q: string, limit = 5) {
   // Fields are static — filter client-side data (groups + leaves, so typing
   // "health" surfaces the Medicine & Health category too)
   const { FIELDS, FIELD_GROUPS } = await import("./constants");
-  const lq = query.toLowerCase();
   const fields = [...FIELD_GROUPS, ...FIELDS]
     .map((f) => ({ slug: f.slug, name: f.name }))
-    .filter((f) => f.name.toLowerCase().includes(lq))
+    .filter((f) => f.name.toLowerCase().includes(query))
     .slice(0, limit);
 
   return { scholarships, universities, countries, fields, articles };
+    },
+    [`suggest-${query}-${limit}`],
+    { revalidate: 60 }
+  )();
 }
 
 // Convenience for building URL query strings from filters (shareable filters).
