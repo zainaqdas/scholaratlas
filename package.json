@@ -28,6 +28,7 @@
     "backfill:cucas-rich": "tsx scripts/backfill-cucas-rich.ts",
     "backfill:enrichment": "tsx scripts/backfill-enrichment.ts",
     "backfill:engineering-subfields": "tsx scripts/backfill-engineering-subfields.ts",
+    "retag:all-fields": "tsx scripts/retag-all-fields.ts",
     "backfill:csc-rich": "tsx scripts/backfill-csc-rich.ts",
     "backfill:articles": "tsx scripts/backfill-articles.ts",
     "backfill:campuschina-rich": "tsx scripts/backfill-campuschina-rich.ts",
