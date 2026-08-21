@@ -255,16 +255,28 @@ h1, h2, h3, h4, .font-display {
   animation-delay: calc(var(--i, 0) * 70ms);
 }
 
-/* Scroll-driven reveals: cards fade + rise as they enter the viewport while
-   scrolling, so the page feels alive instead of static. Guarded by @supports
-   so browsers without animation-timeline (and no-JS crawlers) get the plain
-   static layout — nothing is ever permanently hidden. */
-@supports (animation-timeline: view()) {
-  .reveal-on-scroll {
-    animation: rise-in 0.5s linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 40%;
-  }
+/* Scroll-driven reveals (JS via <ScrollReveal/>): sections start hidden below
+   the fold and roll up into view as you scroll down. The `.reveal-ready` class
+   is applied from JS only AFTER hydration — so no-JS visitors and crawlers
+   always see the full static layout, and elements already on screen at load
+   are revealed immediately (no flash of hidden content). */
+.reveal-on-scroll.reveal-ready {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.reveal-ready.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+/* Gentle cascade within grids: later cards lag a beat behind the first row. */
+.reveal-stagger > .reveal-on-scroll.reveal-ready:nth-child(3n + 2) {
+  transition-delay: 80ms;
+}
+.reveal-stagger > .reveal-on-scroll.reveal-ready:nth-child(3n + 3) {
+  transition-delay: 160ms;
 }
 
 @keyframes shimmer {
@@ -301,9 +313,10 @@ a, button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  /* Scroll-timeline animations ignore duration, so kill them explicitly. */
-  .reveal-on-scroll {
-    animation: none !important;
+  /* Safety net: even if .reveal-ready was applied, never hide content. */
+  .reveal-on-scroll.reveal-ready {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

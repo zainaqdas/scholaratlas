@@ -174,7 +174,7 @@ export default async function HomePage() {
 
       {/* ----------------------------------------------------- Quick categories */}
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="reveal-stagger grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* Contests lives at /contests (not under /scholarships/), so it is
               appended here rather than added to QUICK_CATEGORIES — the sitemap
               derives /scholarships/{slug} from that list. */}
@@ -231,12 +231,13 @@ export default async function HomePage() {
         title="Explore Scholarships by Country"
         subtitle="From fully funded government programmes to university awards."
         action={{ href: "/countries", label: "All countries" }}
+        reveal
       >
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {data.globalCount > 0 && (
             <Link
               href="/scholarships/global"
-              className="reveal-on-scroll lift flex items-center gap-3 rounded-2xl border bg-card p-4"
+              className="lift flex items-center gap-3 rounded-2xl border bg-card p-4"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-indigo/15 to-brand-cyan/10 text-brand-indigo ring-1 ring-inset ring-brand-indigo/20">
                 <Globe2 className="h-5 w-5" />
@@ -251,7 +252,7 @@ export default async function HomePage() {
             <Link
               key={code}
               href={`/countries/${code.toLowerCase()}`}
-              className="reveal-on-scroll lift flex items-center gap-3 rounded-2xl border bg-card p-4"
+              className="lift flex items-center gap-3 rounded-2xl border bg-card p-4"
             >
               <span className="text-2xl" aria-hidden="true">
                 {countryFlag(code)}
@@ -275,6 +276,7 @@ export default async function HomePage() {
           </span>
         }
         subtitle="We take data quality seriously — but always verify before you apply."
+        reveal
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
@@ -290,10 +292,8 @@ export default async function HomePage() {
               title: "You can report errors",
               text: "Spot something wrong? Report it and our moderation team will review the listing.",
             },
-          ].map((item) => (            <div
-              key={item.title}
-              className="reveal-on-scroll rounded-2xl border bg-card p-5"
-            >
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl border bg-card p-5">
               <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
               <h3 className="mt-3 font-semibold">{item.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{item.text}</p>
@@ -336,24 +336,26 @@ export default async function HomePage() {
 
       {/* ------------------------------------------------ Live stats strip */}
       <section className="border-t bg-card">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            { value: formatCount(data.stats), label: "Scholarships" },
-            { value: `${countryCount}+`, label: "Countries" },
-            { value: `${universityCount}+`, label: "Universities" },
-            { value: formatCount(data.activeDeadlines), label: "Active Deadlines" },
-          ].map((stat) => (
-            <div key={stat.label} className="reveal-on-scroll text-center">
-              <p className="font-display text-3xl font-extrabold tracking-tight text-gradient sm:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
+        <div className="reveal-on-scroll">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
+            {[
+              { value: formatCount(data.stats), label: "Scholarships" },
+              { value: `${countryCount}+`, label: "Countries" },
+              { value: `${universityCount}+`, label: "Universities" },
+              { value: formatCount(data.activeDeadlines), label: "Active Deadlines" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="font-display text-3xl font-extrabold tracking-tight text-gradient sm:text-4xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="pb-4 text-center text-xs text-muted-foreground">
+            Live counts from the ScholarAtlas database.
+          </p>
         </div>
-        <p className="pb-4 text-center text-xs text-muted-foreground">
-          Live counts from the ScholarAtlas database.
-        </p>
       </section>
     </>
   );
@@ -365,16 +367,20 @@ function SectionShell({
   subtitle,
   action,
   children,
+  reveal = false,
 }: {
   id: string;
   title: React.ReactNode;
   subtitle?: string;
   action?: { href: string; label: string };
   children: React.ReactNode;
+  reveal?: boolean;
 }) {
   return (
     <section id={id}>
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div
+        className={`mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8${reveal ? " reveal-on-scroll" : ""}`}
+      >
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="font-display text-2xl font-extrabold tracking-tight sm:text-3xl">{title}</h2>

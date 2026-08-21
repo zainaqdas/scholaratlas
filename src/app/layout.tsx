@@ -7,6 +7,7 @@ import { AiAssistant } from "@/components/ai-assistant";
 import { Analytics } from "@/components/analytics";
 import { CookieConsent } from "@/components/cookie-consent";
 import { RouteProgress } from "@/components/route-progress";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { getStaticBaseUrl } from "@/lib/app-url";
 import { APP_NAME, TAGLINE } from "@/lib/constants";
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`dark ${fraunces.variable} ${manrope.variable}`}>
       <body className="flex min-h-screen flex-col antialiased">
         <RouteProgress />
+        <ScrollReveal />
         <SiteHeader />
         <main className="flex-1 page-enter">{children}</main>
         <SiteFooter />
