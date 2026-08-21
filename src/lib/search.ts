@@ -23,12 +23,36 @@ function whereCacheKey(where: Prisma.ScholarshipWhereInput): string {
   return createHash("sha1").update(json).digest("hex").slice(0, 20);
 }
 
-function cachedCount(where: Prisma.ScholarshipWhereInput): Promise<number> {
-  const key = whereCacheKey(where);
+/**
+ * The sorted ID list + total for a filter set, cached across requests — the
+ * "fetch once, serve everyone" behaviour: the whole filtered set is read and
+ * sorted once per revalidate window (~8.7k row reads, no joins), then every
+ * request — any page number, any user, any crawler — is served from the cache
+ * and only fetches its own page of rows by primary key. The catalogue only
+ * changes when deadlines pass, so 6h of staleness is invisible in practice;
+ * lower the revalidate value to tighten it (1h matches the homepage ISR).
+ */
+interface ListPlan {
+  ids: string[];
+  total: number;
+}
+
+function cachedListPlan(
+  where: Prisma.ScholarshipWhereInput,
+  orderBy: Prisma.ScholarshipOrderByWithRelationInput[]
+): Promise<ListPlan> {
+  const key = `${whereCacheKey(where)}-${orderBy.map((o) => JSON.stringify(o)).join("|")}`;
   return unstable_cache(
-    async () => prisma.scholarship.count({ where }),
-    [`scholarship-count-${key}`],
-    { revalidate: 300 }
+    async () => {
+      const rows = await prisma.scholarship.findMany({
+        where,
+        select: { id: true },
+        orderBy,
+      });
+      return { ids: rows.map((r) => r.id), total: rows.length };
+    },
+    [`scholarship-list-${key}`],
+    { revalidate: 21600 }
   )();
 }
 
@@ -292,24 +316,28 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
           ? [{ createdAt: "desc" }]
           : [{ views: "desc" }, { createdAt: "desc" }];
 
-    // Only the current page is fetched (was: every matching row + joins read
-    // on every render ≈ 9k+ row reads per request). The total is cached.
-    const [total, itemsPage] = await Promise.all([
-      cachedCount(where),
-      prisma.scholarship.findMany({
-        where,
-        include: { university: true, country: true },
-        orderBy,
-        take: SCHOLARSHIPS_PER_PAGE,
-        skip: (page - 1) * SCHOLARSHIPS_PER_PAGE,
-      }),
-    ]);
+    // The sorted ID list + total come from the cache (recomputed at most once
+    // per revalidate window per filter set); only the current page's 12 rows
+    // are fetched from Turso, by primary key (~36 row reads). Pagination is
+    // free: page numbers are not part of the cache key, so all pagination URLs
+    // for a filter set share one cached plan.
+    const plan = await cachedListPlan(where, orderBy);
+    const start = (page - 1) * SCHOLARSHIPS_PER_PAGE;
+    const ids = plan.ids.slice(start, start + SCHOLARSHIPS_PER_PAGE);
+    const itemsPage = ids.length
+      ? (await prisma.scholarship.findMany({
+          where: { id: { in: ids } },
+          include: { university: true, country: true },
+        }))
+          .filter((s) => ids.includes(s.id))
+          .sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id))
+      : [];
 
     return {
       items: itemsPage,
-      total,
+      total: plan.total,
       page,
-      pageCount: Math.max(1, Math.ceil(total / SCHOLARSHIPS_PER_PAGE)),
+      pageCount: Math.max(1, Math.ceil(plan.total / SCHOLARSHIPS_PER_PAGE)),
     };
   }
 
