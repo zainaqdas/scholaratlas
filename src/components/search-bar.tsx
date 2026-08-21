@@ -18,11 +18,14 @@ export function SearchBar({
   defaultValue = "",
   autoFocus = false,
   className,
+  onNavigate,
 }: {
   variant?: "hero" | "compact";
   defaultValue?: string;
   autoFocus?: boolean;
   className?: string;
+  /** Called after the search navigates (e.g. so a header panel can close). */
+  onNavigate?: () => void;
 }) {
   const router = useRouter();
   const [q, setQ] = useState(defaultValue);
@@ -62,6 +65,7 @@ export function SearchBar({
     const query = q.trim();
     setOpen(false);
     router.push(query ? `/scholarships?q=${encodeURIComponent(query)}` : "/scholarships");
+    onNavigate?.();
   }
 
   // The dropdown is hidden whenever the query is empty, so stale suggestions

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Bookmark, ChevronDown, Menu, Search } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { SearchBar } from "@/components/search-bar";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -56,9 +57,29 @@ function useCurrentUser() {
 export function SiteHeader() {
   const { user } = useCurrentUser();
   const name = user?.name || user?.email?.split("@")[0] || "Account";
+  const [searchOpen, setSearchOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Close the expandable search panel when clicking outside the header or
+  // pressing Escape (the panel itself lives inside the header element).
+  useEffect(() => {
+    if (!searchOpen) return;
+    const onDown = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setSearchOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSearchOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [searchOpen]);
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-lg">
+    <header ref={headerRef} className="relative sticky top-0 z-40 border-b bg-background/85 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <Logo />
@@ -111,16 +132,20 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-1.5">
-          <Button asChild variant="ghost" size="sm" className="hidden xl:inline-flex">
-            <Link href="/scholarships">
-              <Search className="h-4 w-4" />
-              Search
-            </Link>
-          </Button>
-          <Button asChild variant="ghost" size="iconSm" className="xl:hidden" aria-label="Search scholarships">
-            <Link href="/scholarships">
-              <Search className="h-5 w-5" />
-            </Link>
+          {/* Live search — inline on xl+, expandable panel below (the SearchBar
+              component handles suggestions + submit). */}
+          <div className="hidden xl:block">
+            <SearchBar variant="compact" className="w-52" />
+          </div>
+          <Button
+            variant="ghost"
+            size="iconSm"
+            className="xl:hidden"
+            aria-label="Search scholarships"
+            aria-expanded={searchOpen}
+            onClick={() => setSearchOpen((v) => !v)}
+          >
+            <Search className="h-5 w-5" />
           </Button>
           <Button asChild variant="ghost" size="iconSm" aria-label="Saved scholarships">
             <Link href="/saved">
@@ -267,6 +292,13 @@ export function SiteHeader() {
           </Sheet>
         </div>
       </div>
+
+      {/* Expandable search panel (below xl) — drops under the sticky header */}
+      {searchOpen && (
+        <div className="absolute inset-x-0 top-full border-b bg-background/95 px-4 py-3 backdrop-blur-lg sm:px-6 xl:hidden">
+          <SearchBar variant="compact" autoFocus onNavigate={() => setSearchOpen(false)} />
+        </div>
+      )}
     </header>
   );
 }

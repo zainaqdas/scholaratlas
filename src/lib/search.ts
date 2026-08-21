@@ -432,6 +432,76 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
   };
 }
 
+// --- Homepage-style highlight sections (featured / trending / closing soon) ---
+// Rendered on the scholarships list page's clean first page. Cached in the DB
+// for the same reason as list plans: the queries scan the whole catalogue, so
+// they must run at most once per TTL and be shared by every visitor/crawler.
+
+export interface HighlightSections {
+  featured: Scholarship[];
+  trending: Scholarship[];
+  closingSoon: Scholarship[];
+}
+
+export function cachedHighlightSections(): Promise<HighlightSections> {
+  return dbCached("highlight-sections-v1", PLAN_TTL_MS, async () => {
+    const open = { status: "ACTIVE", recordType: "SCHOLARSHIP" as const };
+    const [featured, trending, closingSoon] = await Promise.all([
+      prisma.scholarship.findMany({
+        where: withOpenDeadline({ ...open, isFeatured: true }),
+        include: { university: true },
+        take: 6,
+      }),
+      prisma.scholarship.findMany({
+        where: withOpenDeadline({ ...open, isTrending: true }),
+        include: { university: true },
+        orderBy: [{ views: "desc" }, { createdAt: "desc" }],
+        take: 6,
+      }),
+      prisma.scholarship.findMany({
+        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", deadline: { gte: new Date() } },
+        include: { university: true },
+        orderBy: { deadline: "asc" },
+        take: 8,
+      }),
+    ]);
+
+    // Featured/trending are admin-curated flags; fall back to real data when
+    // none are set so the section never shows empty. Verified records lead the
+    // featured fallback (trust first), filled by most-viewed if needed.
+    const featuredList =
+      featured.length > 0
+        ? featured
+        : await (async () => {
+            const verified = await prisma.scholarship.findMany({
+              where: withOpenDeadline({ ...open, verificationStatus: "VERIFIED" }),
+              include: { university: true },
+              orderBy: [{ lastVerifiedAt: "desc" }, { views: "desc" }],
+              take: 6,
+            });
+            if (verified.length >= 6) return verified;
+            const fill = await prisma.scholarship.findMany({
+              where: withOpenDeadline({ ...open, verificationStatus: { not: "VERIFIED" } }),
+              include: { university: true },
+              orderBy: [{ views: "desc" }, { createdAt: "desc" }],
+              take: 6 - verified.length,
+            });
+            return [...verified, ...fill];
+          })();
+    const trendingList =
+      trending.length > 0
+        ? trending
+        : await prisma.scholarship.findMany({
+            where: withOpenDeadline(open),
+            include: { university: true },
+            orderBy: [{ views: "desc" }, { createdAt: "desc" }],
+            take: 6,
+          });
+
+    return { featured: featuredList, trending: trendingList, closingSoon };
+  });
+}
+
 // Lightweight suggestion lookup used by the search box. Every keystroke fires
 // a request here, and %term% LIKE scans read the full table (~25k rows × 4
 // tables) — so results are cached for 60s per query string (DB-backed; see

@@ -3,38 +3,21 @@ import Image from "next/image";
 import {
   ArrowRight,
   BadgeCheck,
-  CalendarClock,
   CheckCircle2,
   Globe2,
   Search,
   ShieldCheck,
   Sparkles,
-  TrendingUp,
 } from "lucide-react";
 import { CategoryIcon } from "@/components/category-icon";
 import { prisma } from "@/lib/prisma";
-import { SearchBar } from "@/components/search-bar";
-import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
-import { LiveDeadlineBadge } from "@/components/scholarship/live-deadline-badge";
-import { resourceImage } from "@/lib/images";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FIELD_GROUPS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
-import { formatCount, relativeTime } from "@/lib/format";
+import { formatCount } from "@/lib/format";
 import { HOMEPAGE_TTL, cachedData } from "@/lib/data-cache";
 import { withOpenDeadline } from "@/lib/scholarship";
-
-const HERO_QUICK_FILTERS = [
-  { label: "Fully Funded", href: "/scholarships?funding=FULLY_FUNDED,FULLY_FUNDED_STIPEND" },
-  { label: "Undergraduate", href: "/scholarships?level=undergraduate" },
-  { label: "Master's", href: "/scholarships?level=masters" },
-  { label: "PhD", href: "/scholarships?level=phd" },
-  { label: "No IELTS", href: "/scholarships?language=no-ielts" },
-  { label: "International Students", href: "/scholarships?nationality=international" },
-  { label: "Scholarships in USA", href: "/scholarships?country=US" },
-  { label: "Scholarships in UK", href: "/scholarships?country=GB" },
-  { label: "Scholarships in Europe", href: "/scholarships?country=DE,FR,NL,IT,ES,SE,CH,NO,DK,FI,IE,BE,AT,PT,PL" },
-];
+import { quickCategoryImage } from "@/lib/images";
 
 const FLOAT_CARDS = [
   { code: "DE", text: "Germany", sub: "Fully Funded" },
@@ -44,35 +27,11 @@ const FLOAT_CARDS = [
 ];
 
 const getHomeData = cachedData(
-  ["homepage-data-v6"],
+  ["homepage-data-v7"],
   async () => {
-    const [stats, featured, trending, recent, deadlines, universities, resources, activeDeadlines, allCountryRows] =
-      await Promise.all([
+    const [stats, universities, activeDeadlines, allCountryRows] = await Promise.all([
       prisma.scholarship.count({ where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }) }),
-      prisma.scholarship.findMany({
-        where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP", isFeatured: true }),
-        include: { university: true },
-        take: 6,
-      }),
-      prisma.scholarship.findMany({
-        where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP", isTrending: true }),
-        include: { university: true },
-        take: 6,
-      }),
-      prisma.scholarship.findMany({
-        where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }),
-        include: { university: true },
-        orderBy: { createdAt: "desc" },
-        take: 6,
-      }),
-      prisma.scholarship.findMany({
-        where: { status: "ACTIVE", recordType: "SCHOLARSHIP", deadline: { gte: new Date() } },
-        orderBy: { deadline: "asc" },
-        take: 8,
-        include: { university: true },
-      }),
       prisma.university.count(),
-      prisma.article.findMany({ orderBy: { publishedAt: "desc" }, take: 3 }),
       prisma.scholarship.count({
         where: { status: "ACTIVE", recordType: "SCHOLARSHIP", deadline: { gte: new Date() } },
       }),
@@ -84,44 +43,6 @@ const getHomeData = cachedData(
         select: { countryCode: true, hostCountries: true },
       }),
     ]);
-
-    // Featured/trending are admin-curated flags; fall back to real verified/recent
-    // data when none are set so the home feed never shows an empty section.
-    // When falling back, VERIFIED records (checked against an official source)
-    // lead the Featured section — trust first — with remaining slots filled by
-    // the most-viewed records so the section never looks sparse.
-    const featuredList =
-      featured.length > 0
-        ? featured
-        : await (async () => {
-            const verified = await prisma.scholarship.findMany({
-              where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP", verificationStatus: "VERIFIED" }),
-              include: { university: true },
-              orderBy: [{ lastVerifiedAt: "desc" }, { views: "desc" }],
-              take: 6,
-            });
-            if (verified.length >= 6) return verified;
-            const fill = await prisma.scholarship.findMany({
-              where: withOpenDeadline({
-                status: "ACTIVE",
-                recordType: "SCHOLARSHIP",
-                verificationStatus: { not: "VERIFIED" },
-              }),
-              include: { university: true },
-              orderBy: [{ views: "desc" }, { createdAt: "desc" }],
-              take: 6 - verified.length,
-            });
-            return [...verified, ...fill];
-          })();
-    const trendingList =
-      trending.length > 0
-        ? trending
-        : await prisma.scholarship.findMany({
-            where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }),
-            include: { university: true },
-            orderBy: [{ views: "desc" }, { createdAt: "desc" }],
-            take: 6,
-          });
 
     // Tallies include hostCountries: a multi-country programme counts toward
     // every country it lists (SEARCA counts toward ID/MY/TH/PH as well as being
@@ -151,12 +72,7 @@ const getHomeData = cachedData(
 
     return {
       stats,
-      featured: featuredList,
-      trending: trendingList,
-      recent,
-      deadlines,
       universities,
-      resources,
       activeDeadlines,
       countryStats,
       countryCount,
@@ -167,7 +83,7 @@ const getHomeData = cachedData(
 );
 
 // ISR: the homepage HTML is cached for an hour on the CDN; its heavy aggregate
-// data is separately cached (homepage-data-v6). Visitors and crawlers hit the
+// data is separately cached (homepage-data-v7). Visitors and crawlers hit the
 // cached page instead of the DB.
 export const revalidate = 3600;
 
@@ -194,20 +110,16 @@ export default async function HomePage() {
               Explore thousands of scholarships, fellowships, and fully funded opportunities from
               universities, governments, and organizations around the world.
             </p>
-
-            <div className="mt-8">
-              <SearchBar variant="hero" />
-              <div className="mt-4 flex flex-wrap gap-2">
-                {HERO_QUICK_FILTERS.map((f) => (
-                  <Link
-                    key={f.label}
-                    href={f.href}
-                    className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-brand-gold/50 hover:text-brand-gold"
-                  >
-                    {f.label}
-                  </Link>
-                ))}
-              </div>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Button asChild size="lg" className="gap-2">
+                <Link href="/scholarships">
+                  Browse Scholarships
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/fields">Explore by Field</Link>
+              </Button>
             </div>
           </div>
 
@@ -292,78 +204,33 @@ export default async function HomePage() {
             <Link
               key={cat.slug}
               href={cat.href}
-              className="lift group flex items-start gap-4 rounded-2xl border bg-card p-5"
+              className="lift group relative flex min-h-[11rem] flex-col justify-end overflow-hidden rounded-2xl border bg-card p-5 shadow-sm"
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-gold/20 to-brand-indigo/10 text-brand-gold ring-1 ring-inset ring-brand-gold/25 transition-transform duration-200 group-hover:scale-110">
-                <CategoryIcon slug={cat.slug} />
-              </span>
-              <div>
-                <h3 className="font-display font-bold leading-snug group-hover:text-primary">
-                  {cat.title}
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground">{cat.description}</p>
+              <Image
+                src={quickCategoryImage(cat.slug)}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/15 transition-colors duration-300 group-hover:from-black/90"
+                aria-hidden="true"
+              />
+              <div className="relative flex items-start gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-inset ring-white/30 backdrop-blur transition-transform duration-200 group-hover:scale-110">
+                  <CategoryIcon slug={cat.slug} />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-display font-bold leading-snug text-white">
+                    {cat.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-white/75">{cat.description}</p>
+                </div>
               </div>
             </Link>
           ))}
         </div>
-      </section>
-
-      {/* ------------------------------------------------------- Stats strip */}
-      <section className="border-y bg-card">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
-          {[
-            { value: formatCount(data.stats), label: "Scholarships" },
-            { value: `${countryCount}+`, label: "Countries" },
-            { value: `${universityCount}+`, label: "Universities" },
-            { value: formatCount(data.activeDeadlines), label: "Active Deadlines" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-display text-3xl font-extrabold tracking-tight text-gradient sm:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-        <p className="pb-4 text-center text-xs text-muted-foreground">
-          Live counts from the ScholarAtlas database.
-        </p>
-      </section>
-
-      {/* ------------------------------------------------ Featured opportunities */}
-      <SectionShell
-        id="featured"
-        title="Featured Opportunities"
-        subtitle="Hand-picked, verified scholarships from trusted providers."
-        action={{ href: "/scholarships?featured=1", label: "View all featured" }}
-      >
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {data.featured.map((s) => (
-            <ScholarshipCard key={s.id} scholarship={s} />
-          ))}
-        </div>
-      </SectionShell>
-
-      {/* ----------------------------------------------------- Trending section */}
-      <section className="bg-card/60">
-        <SectionShell
-          id="trending"
-          title={
-            <span className="inline-flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-primary" />
-              Trending This Week
-            </span>
-          }
-          subtitle="Ranked by views, saves and recency — updated automatically."
-          action={{ href: "/scholarships?sort=popular", label: "Most popular" }}
-          inset={false}
-        >
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {data.trending.map((s) => (
-              <ScholarshipCard key={s.id} scholarship={s} />
-            ))}
-          </div>
-        </SectionShell>
       </section>
 
       {/* --------------------------------------------------- Explore by country */}
@@ -432,37 +299,6 @@ export default async function HomePage() {
           </div>
         </SectionShell>
       </section>
-
-      {/* --------------------------------------------------------- Deadlines */}
-      <SectionShell
-        id="deadlines"
-        title={
-          <span className="inline-flex items-center gap-2">
-            <CalendarClock className="h-5 w-5 text-primary" />
-            Closing Soon
-          </span>
-        }
-        subtitle="Don't miss a deadline — these opportunities close first."
-        action={{ href: "/deadlines", label: "All deadlines" }}
-      >
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {data.deadlines.map((s) => (
-            <Link
-              key={s.id}
-              href={`/scholarships/${s.slug}`}
-              className="lift flex items-center justify-between gap-4 rounded-2xl border bg-card p-4"
-            >
-              <div className="min-w-0">
-                <p className="truncate font-semibold">{s.title}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {countryFlag(s.countryCode)} {countryName(s.countryCode)} · {s.provider}
-                </p>
-              </div>
-              <LiveDeadlineBadge scholarship={s} className="shrink-0" />
-            </Link>
-          ))}
-        </div>
-      </SectionShell>
 
       {/* -------------------------------------------------------- How it works */}
       <section className="bg-card/60">
@@ -559,62 +395,6 @@ export default async function HomePage() {
         </p>
       </SectionShell>
 
-      {/* ------------------------------------------------------ Recent + resources */}
-      <section className="border-t bg-card/60">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div className="min-w-0">
-              <h2 className="font-display text-2xl font-extrabold tracking-tight">Recently Added</h2>
-              <p className="mt-1 text-sm text-muted-foreground">The latest opportunities in the catalogue.</p>
-              <div className="mt-6 space-y-3">
-                {data.recent.map((s) => (
-                  <Link
-                    key={s.id}
-                    href={`/scholarships/${s.slug}`}
-                    className="lift flex items-center justify-between gap-4 rounded-2xl border bg-card p-4"
-                  >
-                    <div className="min-w-0">
-                      <p className="truncate font-semibold">{s.title}</p>
-                      <p className="mt-0.5 text-xs text-muted-foreground">
-                        {countryFlag(s.countryCode)} {countryName(s.countryCode)} · Added{" "}
-                        {relativeTime(s.createdAt)}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h2 className="font-display text-2xl font-extrabold tracking-tight">Latest Resources</h2>
-              <p className="mt-1 text-sm text-muted-foreground">Guides to help you apply with confidence.</p>
-              <div className="mt-6 space-y-3">
-                {data.resources.map((a) => (
-                  <Link
-                    key={a.id}
-                    href={`/resources/${a.slug}`}
-                    className="lift flex gap-4 rounded-2xl border bg-card p-4"
-                  >
-                    <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
-                      <Image src={resourceImage(a.category)} alt="" fill sizes="64px" className="object-cover" />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="secondary">{a.category}</Badge>
-                        <span className="text-xs text-muted-foreground">{a.readingTime} min read</span>
-                      </div>
-                      <h3 className="mt-1.5 font-semibold leading-snug">{a.title}</h3>
-                      <p className="mt-0.5 line-clamp-2 text-sm text-muted-foreground">{a.excerpt}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ---------------------------------------------------------------- CTA */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-blue/90 to-brand-indigo" />
@@ -638,6 +418,28 @@ export default async function HomePage() {
             </Button>
           </div>
         </div>
+      </section>
+
+      {/* ------------------------------------------------ Live stats strip */}
+      <section className="border-t bg-card">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
+          {[
+            { value: formatCount(data.stats), label: "Scholarships" },
+            { value: `${countryCount}+`, label: "Countries" },
+            { value: `${universityCount}+`, label: "Universities" },
+            { value: formatCount(data.activeDeadlines), label: "Active Deadlines" },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="font-display text-3xl font-extrabold tracking-tight text-gradient sm:text-4xl">
+                {stat.value}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <p className="pb-4 text-center text-xs text-muted-foreground">
+          Live counts from the ScholarAtlas database.
+        </p>
       </section>
     </>
   );
