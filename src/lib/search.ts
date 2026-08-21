@@ -14,9 +14,24 @@ import { withOpenDeadline } from "./scholarship";
  * The cache key for a filter set. Date windows are normalized out of the key
  * (the open-deadline filter embeds a fresh `new Date()` per request) so that
  * a filter set always maps to the same cache entry.
+ *
+ * NOTE: the Date must be replaced BEFORE JSON.stringify — JSON.stringify runs
+ * Date.prototype.toJSON (producing an ISO string with millisecond precision)
+ * before the replacer sees the value, so a replacer-based approach silently
+ * embeds a fresh timestamp in the key and the cache misses on every request.
  */
 function whereCacheKey(where: Prisma.ScholarshipWhereInput): string {
-  const json = JSON.stringify(where, (_k, v) => (v instanceof Date ? "__NOW__" : v));
+  const normalize = (v: unknown): unknown => {
+    if (v instanceof Date) return "__NOW__";
+    if (Array.isArray(v)) return v.map(normalize);
+    if (v && typeof v === "object") {
+      const out: Record<string, unknown> = {};
+      for (const [k, val] of Object.entries(v)) out[k] = normalize(val);
+      return out;
+    }
+    return v;
+  };
+  const json = JSON.stringify(normalize(where));
   return createHash("sha1").update(json).digest("hex").slice(0, 20);
 }
 
