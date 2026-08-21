@@ -33,6 +33,8 @@
     "backfill:articles": "tsx scripts/backfill-articles.ts",
     "backfill:campuschina-rich": "tsx scripts/backfill-campuschina-rich.ts",
     "backfill:uni-scholarships": "tsx scripts/backfill-uni-scholarships.ts",
+    "import:missing-cn-universities": "tsx scripts/import-missing-cn-universities.ts",
+    "import:remaining-cn-colleges": "tsx scripts/import-remaining-cn-colleges.ts",
     "backfill:uni-scholarships2": "tsx scripts/backfill-uni-scholarships2.ts",
     "backfill:uni-language": "tsx scripts/backfill-uni-language.ts",
     "backfill:uni-language2": "tsx scripts/backfill-uni-language2.ts",
