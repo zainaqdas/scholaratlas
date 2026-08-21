@@ -173,7 +173,7 @@ export default async function HomePage() {
       </section>
 
       {/* ----------------------------------------------------- Quick categories */}
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="reveal-stagger grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {/* Contests lives at /contests (not under /scholarships/), so it is
               appended here rather than added to QUICK_CATEGORIES — the sitemap
@@ -232,6 +232,7 @@ export default async function HomePage() {
         subtitle="From fully funded government programmes to university awards."
         action={{ href: "/countries", label: "All countries" }}
         reveal
+        band
       >
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {data.globalCount > 0 && (
@@ -310,9 +311,9 @@ export default async function HomePage() {
       </SectionShell>
 
       {/* ---------------------------------------------------------------- CTA */}
-      <section className="relative overflow-hidden">
+      <section className="reveal-on-scroll relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-blue/90 to-brand-indigo" />
-        <div className="reveal-on-scroll relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
+        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Education Shouldn&apos;t Be Limited by Borders
           </h2>
@@ -335,8 +336,8 @@ export default async function HomePage() {
       </section>
 
       {/* ------------------------------------------------ Live stats strip */}
-      <section className="border-t bg-card">
-        <div className="reveal-on-scroll">
+      <section className="reveal-on-scroll border-y bg-card">
+        <div>
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
             {[
               { value: formatCount(data.stats), label: "Scholarships" },
@@ -368,6 +369,7 @@ function SectionShell({
   action,
   children,
   reveal = false,
+  band = false,
 }: {
   id: string;
   title: React.ReactNode;
@@ -375,11 +377,19 @@ function SectionShell({
   action?: { href: string; label: string };
   children: React.ReactNode;
   reveal?: boolean;
+  band?: boolean;
 }) {
   return (
-    <section id={id}>
+    // `band` gives the section its own full-width canvas (raised background +
+    // top/bottom border edges) so adjacent sections read as separate blocks
+    // and the scroll reveal is obvious. When banded, the reveal animates the
+    // whole band — background and border included.
+    <section
+      id={id}
+      className={`${band ? "border-y border-border/60 bg-card/40" : ""}${reveal && band ? " reveal-on-scroll" : ""}`}
+    >
       <div
-        className={`mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8${reveal ? " reveal-on-scroll" : ""}`}
+        className={`mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8${reveal && !band ? " reveal-on-scroll" : ""}`}
       >
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
