@@ -4,7 +4,6 @@
 // PostgreSQL, move ranking to pg_trgm / full-text and pagination to SQL.
 
 import { createHash } from "crypto";
-import { unstable_cache } from "next/cache";
 import { Prisma, type Scholarship } from "@prisma/client";
 import { prisma } from "./prisma";
 import { SCHOLARSHIPS_PER_PAGE, fieldSlugsForFilter, studyLevelFromSlug } from "./constants";
@@ -12,37 +11,71 @@ import { daysUntil } from "./format";
 import { withOpenDeadline } from "./scholarship";
 
 /**
- * Total counts for a filter set are cached across requests (Turso bills per
- * row read — COUNT over the status index is ~9k row reads, and crawlers hit
- * the list page with many URL variants). Date windows are normalized out of
- * the key: the ACTIVE+open-deadline count only changes when a deadline passes,
- * so a few minutes of staleness is invisible.
+ * The cache key for a filter set. Date windows are normalized out of the key
+ * (the open-deadline filter embeds a fresh `new Date()` per request) so that
+ * a filter set always maps to the same cache entry.
  */
 function whereCacheKey(where: Prisma.ScholarshipWhereInput): string {
   const json = JSON.stringify(where, (_k, v) => (v instanceof Date ? "__NOW__" : v));
   return createHash("sha1").update(json).digest("hex").slice(0, 20);
 }
 
-/**
- * The sorted ID list + total for a filter set, cached across requests — the
- * "fetch once, serve everyone" behaviour: the whole filtered set is read and
- * sorted once per revalidate window (~8.7k row reads, no joins), then every
- * request — any page number, any user, any crawler — is served from the cache
- * and only fetches its own page of rows by primary key. The catalogue only
- * changes when deadlines pass, so 6h of staleness is invisible in practice;
- * lower the revalidate value to tighten it (1h matches the homepage ISR).
- */
+// --- DB-backed cache (Turso) -------------------------------------------------
+// Next 16's unstable_cache does NOT persist across requests in dynamic routes
+// on Vercel — verified empirically: 60 warm list requests each re-ran the full
+// 8.7k-row plan (17,441 row-reads apiece) because the data cache was never
+// hit. So the sorted-ID plans and suggest results live in a tiny Turso table
+// instead: one primary-key lookup (~2 row-reads) per request, recomputed at
+// most once per TTL per key. The catalogue only changes when deadlines pass or
+// the weekly re-crawl lands, so these TTLs are invisible in practice.
+
+const PLAN_TTL_MS = 6 * 60 * 60 * 1000; // list pages: deadlines are the only drift
+const SEARCH_TTL_MS = 5 * 60 * 1000; // ranked search plans (funding / relevance)
+const SUGGEST_TTL_MS = 60 * 1000; // per-keystroke suggestions
+
+async function dbCached<T>(key: string, ttlMs: number, compute: () => Promise<T>): Promise<T> {
+  const rows = await prisma.$queryRaw<{ valueJson: string }[]>`
+    SELECT valueJson FROM QueryPlanCache WHERE key = ${key} AND expiresAt > ${Date.now()} LIMIT 1
+  `;
+  if (rows.length > 0) {
+    return JSON.parse(rows[0].valueJson) as T;
+  }
+  const value = await compute();
+  const expiresAt = Date.now() + ttlMs;
+  await prisma.$executeRaw`
+    INSERT INTO QueryPlanCache (key, valueJson, expiresAt)
+    VALUES (${key}, ${JSON.stringify(value)}, ${expiresAt})
+    ON CONFLICT(key) DO UPDATE SET valueJson = excluded.valueJson, expiresAt = excluded.expiresAt
+  `;
+  // Occasional sweep of expired rows keeps the table tiny (a few hundred keys).
+  if (Math.random() < 0.02) {
+    await prisma.$executeRaw`DELETE FROM QueryPlanCache WHERE expiresAt < ${Date.now()}`;
+  }
+  return value;
+}
+
 interface ListPlan {
   ids: string[];
   total: number;
 }
 
+/**
+ * The sorted ID list + total for a filter set — the "fetch once, serve
+ * everyone" behaviour: the whole filtered set is read and sorted at most once
+ * per PLAN_TTL_MS per filter set (~8.7k row reads, no joins), then every
+ * request — any page number, any user, any crawler — is served from the cache
+ * and only fetches its own page of rows by primary key. Pagination is free:
+ * page numbers are not part of the key, so all pagination URLs for a filter
+ * set share one cached plan.
+ */
 function cachedListPlan(
   where: Prisma.ScholarshipWhereInput,
   orderBy: Prisma.ScholarshipOrderByWithRelationInput[]
 ): Promise<ListPlan> {
   const key = `${whereCacheKey(where)}-${orderBy.map((o) => JSON.stringify(o)).join("|")}`;
-  return unstable_cache(
+  return dbCached(
+    `list-plan-${createHash("sha1").update(key).digest("hex").slice(0, 24)}`,
+    PLAN_TTL_MS,
     async () => {
       const rows = await prisma.scholarship.findMany({
         where,
@@ -50,10 +83,26 @@ function cachedListPlan(
         orderBy,
       });
       return { ids: rows.map((r) => r.id), total: rows.length };
-    },
-    [`scholarship-list-${key}`],
-    { revalidate: 21600 }
-  )();
+    }
+  );
+}
+
+/** Fetch one page of rows by primary key, preserving the plan's sort order. */
+async function fetchPageByIds(ids: string[], page: number): Promise<Scholarship[]> {
+  const start = (page - 1) * SCHOLARSHIPS_PER_PAGE;
+  const slice = ids.slice(start, start + SCHOLARSHIPS_PER_PAGE);
+  if (slice.length === 0) return [];
+  const rows = await prisma.scholarship.findMany({
+    where: { id: { in: slice } },
+    include: { university: true, country: true },
+  });
+  const byId = new Map(rows.map((r) => [r.id, r]));
+  const out: (typeof rows)[number][] = [];
+  for (const id of slice) {
+    const r = byId.get(id);
+    if (r) out.push(r);
+  }
+  return out;
 }
 
 export type SortKey = "relevance" | "deadline" | "recent" | "funding" | "popular";
@@ -317,21 +366,10 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
           : [{ views: "desc" }, { createdAt: "desc" }];
 
     // The sorted ID list + total come from the cache (recomputed at most once
-    // per revalidate window per filter set); only the current page's 12 rows
-    // are fetched from Turso, by primary key (~36 row reads). Pagination is
-    // free: page numbers are not part of the cache key, so all pagination URLs
-    // for a filter set share one cached plan.
+    // per PLAN_TTL_MS per filter set); only the current page's 12 rows are
+    // fetched from Turso, by primary key (~36 row reads).
     const plan = await cachedListPlan(where, orderBy);
-    const start = (page - 1) * SCHOLARSHIPS_PER_PAGE;
-    const ids = plan.ids.slice(start, start + SCHOLARSHIPS_PER_PAGE);
-    const itemsPage = ids.length
-      ? (await prisma.scholarship.findMany({
-          where: { id: { in: ids } },
-          include: { university: true, country: true },
-        }))
-          .filter((s) => ids.includes(s.id))
-          .sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id))
-      : [];
+    const itemsPage = await fetchPageByIds(plan.ids, page);
 
     return {
       items: itemsPage,
@@ -342,91 +380,101 @@ export async function searchScholarships(filters: SearchFilters = {}): Promise<S
   }
 
   // --- in-memory ranking (relevance with a query / funding sort) ------------
-  const items = await prisma.scholarship.findMany({
-    where,
-    include: { university: true, country: true },
-  });
-  let sorted = items;
-  if (sort === "funding") {
-    const rank = (f: string) =>
-      f === "FULLY_FUNDED" ? 0 : f === "FULLY_FUNDED_STIPEND" ? 1 : f === "TUITION_WAIVER" ? 2 : 3;
-    sorted = [...items].sort((a, b) => rank(a.fundingType) - rank(b.fundingType));
-  } else if (q) {
-    // relevance: exact title hits first, then recency
-    sorted = [...items].sort((a, b) => {
-      const at = a.title.toLowerCase().includes(q) ? 0 : 1;
-      const bt = b.title.toLowerCase().includes(q) ? 0 : 1;
-      if (at !== bt) return at - bt;
-      return b.views - a.views;
-    });
-  }
+  // User-initiated and low-volume, but a paginated search result would re-read
+  // every matching row per page — so the ranked ID plan is cached too (5 min).
+  const plan = await dbCached(
+    `search-plan-${whereCacheKey(where)}-${sort === "funding" ? "funding" : `relevance-${q}`}`,
+    SEARCH_TTL_MS,
+    async () => {
+      const rows = await prisma.scholarship.findMany({
+        where,
+        select: { id: true, fundingType: true, title: true, views: true },
+      });
+      let sorted = rows;
+      if (sort === "funding") {
+        const rank = (f: string) =>
+          f === "FULLY_FUNDED" ? 0 : f === "FULLY_FUNDED_STIPEND" ? 1 : f === "TUITION_WAIVER" ? 2 : 3;
+        sorted = [...rows].sort((a, b) => rank(a.fundingType) - rank(b.fundingType));
+      } else if (q) {
+        // relevance: exact title hits first, then recency
+        sorted = [...rows].sort((a, b) => {
+          const at = a.title.toLowerCase().includes(q) ? 0 : 1;
+          const bt = b.title.toLowerCase().includes(q) ? 0 : 1;
+          if (at !== bt) return at - bt;
+          return b.views - a.views;
+        });
+      }
+      return { ids: sorted.map((r) => r.id), total: sorted.length };
+    }
+  );
+  const itemsPage = await fetchPageByIds(plan.ids, page);
 
-  const total = sorted.length;
-  const pageCount = Math.max(1, Math.ceil(total / SCHOLARSHIPS_PER_PAGE));
-  const start = (page - 1) * SCHOLARSHIPS_PER_PAGE;
-  const itemsPage = sorted.slice(start, start + SCHOLARSHIPS_PER_PAGE);
-
-  return { items: itemsPage, total, page, pageCount };
+  return {
+    items: itemsPage,
+    total: plan.total,
+    page,
+    pageCount: Math.max(1, Math.ceil(plan.total / SCHOLARSHIPS_PER_PAGE)),
+  };
 }
 
 // Lightweight suggestion lookup used by the search box. Every keystroke fires
 // a request here, and %term% LIKE scans read the full table (~25k rows × 4
-// tables) — so results are cached for 60s per query string.
-export function searchSuggestions(q: string, limit = 5) {
+// tables) — so results are cached for 60s per query string (DB-backed; see
+// dbCached above).
+export async function searchSuggestions(q: string, limit = 5) {
   const query = q.trim().toLowerCase();
   if (!query) {
-    return Promise.resolve({ scholarships: [], universities: [], countries: [], fields: [], articles: [] });
+    return { scholarships: [], universities: [], countries: [], fields: [], articles: [] };
   }
-  return unstable_cache(
+  return dbCached(
+    `suggest-${createHash("sha1").update(query).digest("hex").slice(0, 12)}-${limit}`,
+    SUGGEST_TTL_MS,
     async () => {
+      const [scholarships, universities, countries, articles] = await Promise.all([
+        prisma.scholarship.findMany({
+          where: {
+            status: "ACTIVE",
+            recordType: "SCHOLARSHIP", // never suggest JOB listings (EURAXESS positions)
+            OR: [
+              { title: { contains: query } },
+              { provider: { contains: query } },
+            ],
+          },
+          include: { country: true },
+          take: limit,
+          orderBy: { views: "desc" },
+        }),
+        prisma.university.findMany({
+          where: { name: { contains: query } },
+          include: { country: true },
+          take: limit,
+        }),
+        prisma.country.findMany({
+          where: { name: { contains: query } },
+          take: limit,
+        }),
+        prisma.article.findMany({
+          where: {
+            OR: [
+              { title: { contains: query } },
+              { category: { contains: query } },
+            ],
+          },
+          take: limit,
+        }),
+      ]);
 
-  const [scholarships, universities, countries, articles] = await Promise.all([
-    prisma.scholarship.findMany({
-      where: {
-        status: "ACTIVE",
-        recordType: "SCHOLARSHIP", // never suggest JOB listings (EURAXESS positions)
-        OR: [
-          { title: { contains: query } },
-          { provider: { contains: query } },
-        ],
-      },
-      include: { country: true },
-      take: limit,
-      orderBy: { views: "desc" },
-    }),
-    prisma.university.findMany({
-      where: { name: { contains: query } },
-      include: { country: true },
-      take: limit,
-    }),
-    prisma.country.findMany({
-      where: { name: { contains: query } },
-      take: limit,
-    }),
-    prisma.article.findMany({
-      where: {
-        OR: [
-          { title: { contains: query } },
-          { category: { contains: query } },
-        ],
-      },
-      take: limit,
-    }),
-  ]);
+      // Fields are static — filter client-side data (groups + leaves, so typing
+      // "health" surfaces the Medicine & Health category too)
+      const { FIELDS, FIELD_GROUPS } = await import("./constants");
+      const fields = [...FIELD_GROUPS, ...FIELDS]
+        .map((f) => ({ slug: f.slug, name: f.name }))
+        .filter((f) => f.name.toLowerCase().includes(query))
+        .slice(0, limit);
 
-  // Fields are static — filter client-side data (groups + leaves, so typing
-  // "health" surfaces the Medicine & Health category too)
-  const { FIELDS, FIELD_GROUPS } = await import("./constants");
-  const fields = [...FIELD_GROUPS, ...FIELDS]
-    .map((f) => ({ slug: f.slug, name: f.name }))
-    .filter((f) => f.name.toLowerCase().includes(query))
-    .slice(0, limit);
-
-  return { scholarships, universities, countries, fields, articles };
-    },
-    [`suggest-${createHash("sha1").update(query).digest("hex").slice(0, 12)}-${limit}`],
-    { revalidate: 60 }
-  )();
+      return { scholarships, universities, countries, fields, articles };
+    }
+  );
 }
 
 // Convenience for building URL query strings from filters (shareable filters).

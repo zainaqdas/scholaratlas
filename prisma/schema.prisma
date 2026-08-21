@@ -112,10 +112,23 @@ model Scholarship {
   reports               Report[]
   alerts                Alert[]
 
+  // NOTE: the 8 indexes below (recordType, providerType, verificationStatus,
+  // isFeatured, views, createdAt, status+recordType, status+deadline) were
+  // created directly on production Turso (the read-emergency fix) and are
+  // declared here so `prisma db push` never drops them. Keep in sync with
+  // sqlite_master if you change them.
   @@index([countryCode])
   @@index([fundingType])
   @@index([status])
   @@index([deadline])
+  @@index([recordType])
+  @@index([providerType])
+  @@index([verificationStatus])
+  @@index([isFeatured])
+  @@index([views])
+  @@index([createdAt])
+  @@index([status, recordType])
+  @@index([status, deadline])
 }
 
 model User {
@@ -258,3 +271,12 @@ model RateLimitEntry {
 
   @@index([action, ip, createdAt])
 }
+
+// NOTE: QueryPlanCache (the DB-backed plan cache used by src/lib/search.ts) is
+// intentionally NOT a Prisma model — it is created by raw SQL
+// (CREATE TABLE IF NOT EXISTS QueryPlanCache ...) and accessed via
+// $queryRaw/$executeRaw so production never needs `prisma db push` (which
+// would risk the manually-created indexes above). Schema:
+//   key        TEXT PRIMARY KEY
+//   valueJson  TEXT NOT NULL  -- JSON-serialized cached value
+//   expiresAt  INTEGER NOT NULL -- unix ms; rows past this are swept lazily
