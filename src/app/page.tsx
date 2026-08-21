@@ -1,19 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight,
-  BadgeCheck,
-  CheckCircle2,
-  Globe2,
-  Search,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, Globe2, ShieldCheck } from "lucide-react";
 import { CategoryIcon } from "@/components/category-icon";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FIELD_GROUPS, QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
+import { QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
 import { formatCount } from "@/lib/format";
 import { HOMEPAGE_TTL, cachedData } from "@/lib/data-cache";
 import { withOpenDeadline } from "@/lib/scholarship";
@@ -204,7 +196,7 @@ export default async function HomePage() {
             <Link
               key={cat.slug}
               href={cat.href}
-              className="lift group relative flex min-h-[11rem] flex-col justify-end overflow-hidden rounded-2xl border bg-card p-5 shadow-sm"
+              className="reveal-on-scroll lift group relative flex min-h-[11rem] flex-col justify-end overflow-hidden rounded-2xl border bg-card p-5 shadow-sm"
             >
               <Image
                 src={quickCategoryImage(cat.slug)}
@@ -244,7 +236,7 @@ export default async function HomePage() {
           {data.globalCount > 0 && (
             <Link
               href="/scholarships/global"
-              className="lift flex items-center gap-3 rounded-2xl border bg-card p-4"
+              className="reveal-on-scroll lift flex items-center gap-3 rounded-2xl border bg-card p-4"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-indigo/15 to-brand-cyan/10 text-brand-indigo ring-1 ring-inset ring-brand-indigo/20">
                 <Globe2 className="h-5 w-5" />
@@ -259,7 +251,7 @@ export default async function HomePage() {
             <Link
               key={code}
               href={`/countries/${code.toLowerCase()}`}
-              className="lift flex items-center gap-3 rounded-2xl border bg-card p-4"
+              className="reveal-on-scroll lift flex items-center gap-3 rounded-2xl border bg-card p-4"
             >
               <span className="text-2xl" aria-hidden="true">
                 {countryFlag(code)}
@@ -272,86 +264,6 @@ export default async function HomePage() {
           ))}
         </div>
       </SectionShell>
-
-      {/* ----------------------------------------------------- Explore by field */}
-      <section className="bg-card/60">
-        <SectionShell
-          id="fields"
-          title="Explore by Field of Study"
-          subtitle="Whatever you want to study, there's funding out there."
-          action={{ href: "/fields", label: "All fields" }}
-          inset={false}
-        >
-          <div className="flex flex-wrap gap-2.5">
-            {FIELD_GROUPS.map((f) => (
-              <Link
-                key={f.slug}
-                // The 8 broad categories each have a dedicated landing page under
-                // /scholarships/[slug] (full SEO: title, description, canonical,
-                // FAQs, latest scholarships) — link the chips straight there.
-                href={`/scholarships/${f.slug}`}
-                className="inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-sm font-medium transition-colors hover:border-brand-gold/50 hover:text-brand-gold"
-              >
-                <CategoryIcon slug={f.slug} className="h-4 w-4" />
-                {f.name}
-              </Link>
-            ))}
-          </div>
-        </SectionShell>
-      </section>
-
-      {/* -------------------------------------------------------- How it works */}
-      <section className="bg-card/60">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="font-display text-3xl font-extrabold tracking-tight">How It Works</h2>
-            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-              From &quot;what should I study?&quot; to &quot;where do I apply?&quot; — in three steps.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                n: "01",
-                icon: <Search className="h-6 w-6" />,
-                title: "Search",
-                text: "Tell us what you want to study and where.",
-              },
-              {
-                n: "02",
-                icon: <Sparkles className="h-6 w-6" />,
-                title: "Discover",
-                text: "Compare scholarships that match your goals.",
-              },
-              {
-                n: "03",
-                icon: <BadgeCheck className="h-6 w-6" />,
-                title: "Apply",
-                text: "Follow the official application instructions.",
-              },
-            ].map((step) => (
-              <div key={step.n} className="relative rounded-2xl border bg-card p-7">
-                <span className="absolute right-5 top-4 font-display text-4xl font-extrabold text-muted/60">
-                  {step.n}
-                </span>
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-indigo text-white">
-                  {step.icon}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-bold">{step.title}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{step.text}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Button asChild size="lg" className="gap-2">
-              <Link href="/scholarships">
-                Start Searching
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* ------------------------------------------------------------- Trust */}
       <SectionShell
@@ -378,8 +290,10 @@ export default async function HomePage() {
               title: "You can report errors",
               text: "Spot something wrong? Report it and our moderation team will review the listing.",
             },
-          ].map((item) => (
-            <div key={item.title} className="rounded-2xl border bg-card p-5">
+          ].map((item) => (            <div
+              key={item.title}
+              className="reveal-on-scroll rounded-2xl border bg-card p-5"
+            >
               <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
               <h3 className="mt-3 font-semibold">{item.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{item.text}</p>
@@ -398,7 +312,7 @@ export default async function HomePage() {
       {/* ---------------------------------------------------------------- CTA */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-blue/90 to-brand-indigo" />
-        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
+        <div className="reveal-on-scroll relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6">
           <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Education Shouldn&apos;t Be Limited by Borders
           </h2>
@@ -429,7 +343,7 @@ export default async function HomePage() {
             { value: `${universityCount}+`, label: "Universities" },
             { value: formatCount(data.activeDeadlines), label: "Active Deadlines" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
+            <div key={stat.label} className="reveal-on-scroll text-center">
               <p className="font-display text-3xl font-extrabold tracking-tight text-gradient sm:text-4xl">
                 {stat.value}
               </p>
@@ -451,17 +365,15 @@ function SectionShell({
   subtitle,
   action,
   children,
-  inset = true,
 }: {
   id: string;
   title: React.ReactNode;
   subtitle?: string;
   action?: { href: string; label: string };
   children: React.ReactNode;
-  inset?: boolean;
 }) {
   return (
-    <section id={id} className={inset ? "" : ""}>
+    <section id={id}>
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

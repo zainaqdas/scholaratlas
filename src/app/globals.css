@@ -255,6 +255,18 @@ h1, h2, h3, h4, .font-display {
   animation-delay: calc(var(--i, 0) * 70ms);
 }
 
+/* Scroll-driven reveals: cards fade + rise as they enter the viewport while
+   scrolling, so the page feels alive instead of static. Guarded by @supports
+   so browsers without animation-timeline (and no-JS crawlers) get the plain
+   static layout — nothing is ever permanently hidden. */
+@supports (animation-timeline: view()) {
+  .reveal-on-scroll {
+    animation: rise-in 0.5s linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+
 @keyframes shimmer {
   0% {
     background-position: -400px 0;
@@ -288,6 +300,10 @@ a, button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  /* Scroll-timeline animations ignore duration, so kill them explicitly. */
+  .reveal-on-scroll {
+    animation: none !important;
   }
 }
 
