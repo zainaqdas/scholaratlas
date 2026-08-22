@@ -67,7 +67,9 @@
     "fix:dead-official-urls": "tsx scripts/fix-dead-official-urls.ts",
     "crawl:university-scholarships": "python3 scripts/crawl-university-scholarships.py",
     "prepare:crawl-import": "python3 scripts/prepare-crawl-import.py",
-    "sync:crawl-to-turso": "tsx scripts/sync-crawl-to-turso.ts"
+    "sync:crawl-to-turso": "tsx scripts/sync-crawl-to-turso.ts",
+    "bulk-import:turso": "python3 scripts/bulk-import-to-turso.py",
+    "finalize:new-db": "tsx scripts/finalize-new-db.ts"
   },
   "engines": {
     "node": ">=22"
