@@ -11,6 +11,12 @@ import { prisma } from "../src/lib/prisma";
 const PATTERN =
   /contest|competition|compete|prize|call for project|startup|start-up|hackathon|giveaway/i;
 
+// --dry-run: report what WOULD change and exit WITHOUT writing. Never retag a
+// record without confirming the preview — the pattern is broad (it matches
+// landing pages like "Scholarships, prizes and grants") and a mistake here
+// silently removes real scholarships from the catalogue.
+const DRY_RUN = process.argv.includes("--dry-run");
+
 async function main() {
   const rows = await prisma.scholarship.findMany({
     select: { id: true, title: true, status: true, recordType: true },
@@ -23,6 +29,11 @@ async function main() {
 
   let n = 0;
   for (const r of toTag) {
+    if (DRY_RUN) {
+      if (n < 20) console.log(`  → ${r.title.slice(0, 70)}`);
+      n++;
+      continue;
+    }
     await prisma.scholarship.update({
       where: { id: r.id },
       data: { recordType: "CONTEST" },
@@ -30,7 +41,7 @@ async function main() {
     n++;
     if (n <= 5) console.log(`  → ${r.title.slice(0, 70)}`);
   }
-  console.log("done:", n, "records now CONTEST");
+  console.log(DRY_RUN ? `dry-run: ${n} records would become CONTEST (nothing written)` : `done: ${n} records now CONTEST`);
 }
 
 main()
