@@ -2,7 +2,12 @@ import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 import { COUNTRIES, FIELDS, FIELD_GROUPS, QUICK_CATEGORIES } from "@/lib/constants";
 import { getBaseUrl } from "@/lib/app-url";
-import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
+import { dbCached } from "@/lib/search";
+
+// 6h TTL in ms — same refresh window the list pages use. The sitemap rows only
+// change on the weekly re-crawl / admin edits, so this is plenty fresh while
+// keeping the heavy ~24k-row read out of every crawler hit.
+const SITEMAP_TTL_MS = 6 * 60 * 60 * 1000;
 
 // The base URL is resolved per-request (request host), which Next's static
 // analysis can't see through the try/catch in getBaseUrl() — without this the
@@ -10,13 +15,16 @@ import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
 // (and the build would depend on the DB being reachable).
 export const dynamic = "force-dynamic";
 
-// The sitemap's heavy work is reading ~11k rows (all universities + all ACTIVE
+// The sitemap's heavy work is reading ~24k rows (all universities + all ACTIVE
 // scholarships). Catalogue data only changes on the weekly re-crawl, so the
-// rows are cached across requests — the base URL stays per-request so the
-// sitemap always advertises the domain that serves it. lastModified values are
-// ISO strings (MetadataRoute.Sitemap accepts string | Date).
-const getSitemapData = cachedData(
-  ["sitemap-rows-v2"],
+// rows are cached in the persistent Turso cache (unstable_cache does NOT
+// persist across requests on Vercel — each crawler hit would re-read every
+// row). The base URL stays per-request so the sitemap always advertises the
+// domain that serves it. lastModified values are ISO strings (the value must
+// be JSON-serializable for the cache; MetadataRoute.Sitemap accepts string).
+const getSitemapData = dbCached(
+  "sitemap-rows-v2",
+  SITEMAP_TTL_MS,
   async () => {
     const [countryScholarships, countryUniversities, universities, scholarships] = await Promise.all([
       prisma.scholarship.groupBy({
@@ -58,7 +66,6 @@ const getSitemapData = cachedData(
       countryPaths,
     };
   },
-  CATALOGUE_TTL
 );
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -67,7 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = await getBaseUrl();
   const url = (path: string) => `${baseUrl}${path}`;
 
-  const data = await getSitemapData();
+  const data = await getSitemapData;
 
   // --- Static pages ---------------------------------------------------------
   const staticPages: MetadataRoute.Sitemap = [
