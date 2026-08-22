@@ -48,7 +48,7 @@ const PLAN_TTL_MS = 6 * 60 * 60 * 1000; // list pages: deadlines are the only dr
 const SEARCH_TTL_MS = 5 * 60 * 1000; // ranked search plans (funding / relevance)
 const SUGGEST_TTL_MS = 60 * 1000; // per-keystroke suggestions
 
-async function dbCached<T>(key: string, ttlMs: number, compute: () => Promise<T>): Promise<T> {
+export async function dbCached<T>(key: string, ttlMs: number, compute: () => Promise<T>): Promise<T> {
   const rows = await prisma.$queryRaw<{ valueJson: string }[]>`
     SELECT valueJson FROM QueryPlanCache WHERE key = ${key} AND expiresAt > ${Date.now()} LIMIT 1
   `;

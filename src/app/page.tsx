@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { QUICK_CATEGORIES, countryFlag, countryName } from "@/lib/constants";
 import { formatCount } from "@/lib/format";
-import { HOMEPAGE_TTL, cachedData } from "@/lib/data-cache";
 import { withOpenDeadline } from "@/lib/scholarship";
 import { quickCategoryImage } from "@/lib/images";
+import { dbCached } from "@/lib/search";
 
 const FLOAT_CARDS = [
   { code: "DE", text: "Germany", sub: "Fully Funded" },
@@ -18,9 +18,13 @@ const FLOAT_CARDS = [
   { code: "GB", text: "UK", sub: "Undergraduate" },
 ];
 
-const getHomeData = cachedData(
-  ["homepage-data-v7"],
-  async () => {
+// Homepage aggregates are stored in the persistent Turso cache (QueryPlanCache)
+// — Next's unstable_cache does NOT persist across ISR regenerations on Vercel,
+// so without this the country-stats query would re-read all ~23k ACTIVE rows on
+// every hourly regeneration (~17M reads/month). dbCached computes it once per
+// TTL and serves the JSON to every regeneration and visitor.
+const getHomeData = () =>
+  dbCached("homepage-data-v8", 6 * 60 * 60 * 1000, async () => {
     const [stats, universities, activeDeadlines, allCountryRows] = await Promise.all([
       prisma.scholarship.count({ where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }) }),
       prisma.university.count(),
@@ -70,9 +74,7 @@ const getHomeData = cachedData(
       countryCount,
       globalCount,
     };
-  },
-  HOMEPAGE_TTL
-);
+  });
 
 // ISR: the homepage HTML is cached for an hour on the CDN; its heavy aggregate
 // data is separately cached (homepage-data-v7). Visitors and crawlers hit the
