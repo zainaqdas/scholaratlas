@@ -53,10 +53,13 @@ export async function searchSuggestions(q: string, limit = 5): Promise<SuggestRe
     .slice(0, limit);
 
   // Fields are static — filter client-side data (groups + leaves, so typing
-  // "health" surfaces the Medicine & Health category too)
+  // "health" surfaces the Medicine & Health category too). Some slugs exist in
+  // BOTH lists (e.g. "engineering" is a group AND a leaf field) — dedupe by
+  // slug so the dropdown never renders duplicate rows / duplicate React keys.
   const fields = [...FIELD_GROUPS, ...FIELDS]
     .map((f) => ({ slug: f.slug, name: f.name }))
     .filter((f) => f.name.toLowerCase().includes(query))
+    .filter((f, i, arr) => arr.findIndex((x) => x.slug === f.slug) === i)
     .slice(0, limit);
 
   return { scholarships, universities, countries, fields, articles };
