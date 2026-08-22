@@ -62,3 +62,5 @@ next-env.d.ts
 # Local agent tooling (installed skills)
 .agents/
 skills-lock.json
+data/uni_crawl/pages/
+data/uni_crawl/
