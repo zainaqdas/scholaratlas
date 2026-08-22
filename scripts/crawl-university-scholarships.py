@@ -27,6 +27,7 @@ Usage:
   python3 scripts/crawl-university-scholarships.py --key uq     # one university
   python3 scripts/crawl-university-scholarships.py --country US # one country
   python3 scripts/crawl-university-scholarships.py --retry-failed
+  python3 scripts/crawl-university-scholarships.py --targets data/gap-targets.json
 """
 import hashlib
 import json
@@ -367,6 +368,9 @@ def main():
     only_country = args[args.index("--country") + 1] if "--country" in args else None
     min_scholarships = int(args[args.index("--min") + 1]) if "--min" in args else 0
     retry_failed = "--retry-failed" in args
+    if "--targets" in args:
+        global TARGETS
+        TARGETS = os.path.join(ROOT, args[args.index("--targets") + 1])
 
     targets = json.load(open(TARGETS))["rows"]
     done = load_done()
@@ -376,7 +380,7 @@ def main():
         targets = [t for t in targets if uni_key(t["name"], t["country"]) in failed_keys]
         print(f"Retrying {len(targets)} failed universities")
     elif min_scholarships:
-        targets = [t for t in targets if t["scholarships"] >= min_scholarships and uni_key(t["name"], t["country"]) not in done]
+        targets = [t for t in targets if int(t.get("scholarships") or 0) >= min_scholarships and uni_key(t["name"], t["country"]) not in done]
         print(f"Undone universities with >= {min_scholarships} scholarships: {len(targets)}")
     elif only_key:
         targets = [t for t in targets if only_key in uni_key(t["name"], t["country"]) or only_key in t["name"].lower()]
