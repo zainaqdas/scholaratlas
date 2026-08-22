@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import {
   Building2,
   CalendarDays,
@@ -20,7 +20,6 @@ import {
   Wallet,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { resolveScholarshipSlug } from "@/lib/slug-redirect";
 import { getStaticBaseUrl } from "@/lib/app-url";
 import { isSafeExternalUrl, safeHostname } from "@/lib/utils";
 import { fieldGroupBySlug } from "@/lib/constants";
@@ -146,16 +145,7 @@ export default async function ScholarshipDetailPage({ params }: PageProps) {
   }
 
   const s = await getScholarship(slug);
-  if (!s) {
-    // Pre-migration slugs (pure title-based, e.g. "knight-hennessy-scholarship")
-    // 404'd after the Turso migration regenerated every slug. Redirect to the
-    // current slug so old bookmarks and Google-indexed URLs keep working.
-    const target = await resolveScholarshipSlug(slug);
-    if (target) {
-      permanentRedirect(`/scholarships/${target}`);
-    }
-    notFound();
-  }
+  if (!s) notFound();
 
   // Never publish unverified submissions: community submissions sit in a
   // moderation queue (PENDING) until an admin approves or rejects them. Their
