@@ -71,9 +71,18 @@ async function main() {
     console.log(`backup-db: verified — scholarships=${sch}, universities=${uni}, countries=${row.countries}, articles=${row.articles}`);
   } catch (e: any) {
     fail(`verification query failed: ${e?.message ?? e}`);
-  } finally {
-    await client.close();
   }
+
+  // Force the WAL into the main db file BEFORE closing. libSQL's embedded
+  // replica keeps the latest sync frames in the -wal file; client.close()
+  // alone does NOT checkpoint them, so a file copied afterwards would silently
+  // miss the most recent writes (restore-from-file would lose data).
+  try {
+    await client.execute("PRAGMA wal_checkpoint(TRUNCATE)");
+  } catch (e: any) {
+    fail(`wal checkpoint failed: ${e?.message ?? e}`);
+  }
+  await client.close();
 
   // Move the temp replica into place (timestamped + latest). The libSQL
   // replica leaves -wal/-shm sidecars next to the file; remove them so the
