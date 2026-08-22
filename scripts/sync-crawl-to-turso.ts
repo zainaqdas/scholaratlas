@@ -99,7 +99,7 @@ async function main() {
   // Load existing ACTIVE titles from DB for dedup
   console.log("Loading existing records from DB for dedup...");
   const existing = await prisma.scholarship.findMany({
-    where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
+    where: { recordType: "SCHOLARSHIP" },
     select: { title: true, university: { select: { name: true } } },
   });
   console.log(`Found ${existing.length} existing ACTIVE records`);
@@ -129,7 +129,9 @@ async function main() {
     // Exact match check
     if (existingLookup.has(normTitle)) {
       const unis = existingLookup.get(normTitle)!;
-      if (unis.has(uniLower) || unis.size === 0) {
+      // Match if: same uni, or existing has no uni info (empty string only), or existing has no uni at all
+      const onlyEmpty = unis.size === 1 && unis.has("");
+      if (unis.has(uniLower) || onlyEmpty || unis.size === 0) {
         isDup = true;
       }
     }
@@ -137,8 +139,9 @@ async function main() {
     // Fuzzy match check against all existing
     if (!isDup) {
     for (const existingEntry of Array.from(existingLookup.entries())) {
+      const onlyEmpty = existingEntry[1].size === 1 && existingEntry[1].has("");
       if (
-        existingEntry[1].has(uniLower) &&
+        (existingEntry[1].has(uniLower) || onlyEmpty) &&
         titlesMatch(rec.title, existingEntry[0])
       ) {
         isDup = true;
@@ -168,20 +171,18 @@ async function main() {
         await prisma.scholarship.create({
           data: {
             title: rec.title,
-            slug: rec.title
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, "-")
-              .replace(/^-|-$/g, "")
-              .slice(0, 120),
+            slug: `${rec.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 90)}-${(rec.domain || "unknown").split(".")[0].slice(0, 20)}-${Math.random().toString(36).slice(2, 8)}`,
             status: "PENDING", // Needs admin review
             recordType: "SCHOLARSHIP",
+            provider: rec.university || "Unknown",
+            countryCode: rec.country || undefined,
             universityId: universityId || undefined,
             description: rec.context?.slice(0, 2000) || "",
             officialUrl: rec.sourceUrl || undefined,
             sourceUrl: rec.sourceUrl || undefined,
-            source: "university-direct-crawl",
             eligibleNationalities: "ALL",
-            studyLevel: mapLevel(rec.title, rec.context),
+            studyLevels: JSON.stringify([mapLevel(rec.title, rec.context)]),
+            fields: JSON.stringify(rec.fields),
             fundingType: mapFunding(rec.title, rec.context),
             providerType: mapProviderType(rec.title, rec.domain),
             isFeatured: false,
