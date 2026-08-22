@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { ExternalLink, MapPin } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { resolveUniversitySlug } from "@/lib/slug-redirect";
 import { countryFlag, countryName } from "@/lib/constants";
 import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
@@ -49,7 +50,16 @@ export default async function UniversityPage({ params }: PageProps) {
       scholarships: { where: { status: "ACTIVE", recordType: "SCHOLARSHIP" } },
     },
   });
-  if (!university) notFound();
+  if (!university) {
+    // Pre-migration slugs (e.g. "stanford-university") 404'd after the Turso
+    // migration regenerated every slug. Redirect to the current slug so old
+    // bookmarks and Google-indexed URLs keep working.
+    const target = await resolveUniversitySlug(slug);
+    if (target) {
+      permanentRedirect(`/universities/${target}`);
+    }
+    notFound();
+  }
 
   return (
     <SavedStateProvider ids={university.scholarships.map((s) => s.id)}>
