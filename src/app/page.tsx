@@ -24,7 +24,7 @@ const FLOAT_CARDS = [
 // every hourly regeneration (~17M reads/month). dbCached computes it once per
 // TTL and serves the JSON to every regeneration and visitor.
 const getHomeData = () =>
-  dbCached("homepage-data-v8", 6 * 60 * 60 * 1000, async () => {
+  dbCached("homepage-data-v9", 7 * 24 * 60 * 60 * 1000, async () => {
     const [stats, universities, activeDeadlines, allCountryRows] = await Promise.all([
       prisma.scholarship.count({ where: withOpenDeadline({ status: "ACTIVE", recordType: "SCHOLARSHIP" }) }),
       prisma.university.count(),

@@ -3,7 +3,11 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { FIELDS, FIELD_GROUPS } from "@/lib/constants";
 import { CategoryIcon, FieldIcon } from "@/components/category-icon";
-import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
+import { dbCached } from "@/lib/search";
+
+// 7-day TTL — field counts only change on the weekly re-crawl. Persisted in
+// the Turso cache so Vercel builds don't re-scan all ~24k rows each time.
+const FIELD_COUNTS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 export const metadata: Metadata = {
   title: "Explore Fields of Study",
@@ -15,9 +19,11 @@ export const metadata: Metadata = {
 // Heavy read: scans the `fields` column of every ACTIVE scholarship (~9,300
 // rows) per view. Field counts only change on the weekly re-crawl, so the whole
 // computation is cached across requests.
-const getFieldCounts = cachedData(
-  ["field-counts"],
-  async () => {
+const getFieldCounts = () =>
+  dbCached(
+    "field-counts-v2",
+    FIELD_COUNTS_TTL_MS,
+    async () => {
     const rows = await prisma.scholarship.findMany({
       where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
       select: { fields: true },
@@ -59,9 +65,8 @@ const getFieldCounts = cachedData(
       fieldCounts: fieldCounts.map((f) => ({ slug: f.slug, count: f.count })),
       groupCounts: groups.map((g) => ({ slug: g.slug, count: g.count })),
     };
-  },
-  CATALOGUE_TTL
-);
+    }
+  );
 
 export default async function FieldsPage() {
   const { fieldCounts, groupCounts } = await getFieldCounts();

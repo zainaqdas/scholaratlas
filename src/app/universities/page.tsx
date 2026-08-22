@@ -3,7 +3,11 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { UniversityLogo } from "@/components/scholarship/university-logo";
 import { countryFlag, countryName } from "@/lib/constants";
-import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
+import { dbCached } from "@/lib/search";
+
+// 7-day TTL — the university list only changes on the weekly re-crawl.
+// Persisted in the Turso cache so Vercel builds don't re-read the table.
+const UNIVERSITIES_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 export const metadata: Metadata = {
   title: "Explore Universities",
@@ -14,9 +18,11 @@ export const metadata: Metadata = {
 
 // Full read of the universities table (~1,670 rows) per view; only changes on
 // the weekly re-crawl, so it's cached. Projected to the fields the page uses.
-const getUniversities = cachedData(
-  ["universities-list"],
-  async () => {
+const getUniversities = () =>
+  dbCached(
+    "universities-list-v2",
+    UNIVERSITIES_TTL_MS,
+    async () => {
     const universities = await prisma.university.findMany({
       include: {
         country: { select: { name: true } },
@@ -35,9 +41,8 @@ const getUniversities = cachedData(
       countryName: u.country?.name ?? null,
       scholarshipCount: u._count.scholarships,
     }));
-  },
-  CATALOGUE_TTL
-);
+    }
+  );
 
 export default async function UniversitiesPage() {
   const universities = await getUniversities();

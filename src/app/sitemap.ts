@@ -4,10 +4,10 @@ import { COUNTRIES, FIELDS, FIELD_GROUPS, QUICK_CATEGORIES } from "@/lib/constan
 import { getBaseUrl } from "@/lib/app-url";
 import { dbCached } from "@/lib/search";
 
-// 6h TTL in ms — same refresh window the list pages use. The sitemap rows only
-// change on the weekly re-crawl / admin edits, so this is plenty fresh while
-// keeping the heavy ~24k-row read out of every crawler hit.
-const SITEMAP_TTL_MS = 6 * 60 * 60 * 1000;
+// 7d TTL in ms — the sitemap rows only change on the weekly re-crawl / admin
+// edits, so a weekly recompute keeps it fresh while keeping the heavy ~24k-row
+// read out of every crawler hit (crawlers hammer sitemaps constantly).
+const SITEMAP_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 // The base URL is resolved per-request (request host), which Next's static
 // analysis can't see through the try/catch in getBaseUrl() — without this the

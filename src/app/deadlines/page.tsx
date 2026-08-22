@@ -5,6 +5,11 @@ import { prisma } from "@/lib/prisma";
 import { countryFlag, countryName } from "@/lib/constants";
 import { LiveDeadlineBadge, LiveDeadlineLabel } from "@/components/scholarship/live-deadline-badge";
 
+// ISR 6h: the page's "now"-based buckets (this week / this month) must refresh
+// as deadlines pass, but the data only changes on the weekly re-crawl — so a
+// 6h re-render keeps the buckets honest without per-request DB reads.
+export const revalidate = 21600;
+
 export const metadata: Metadata = {
   title: "Scholarship Deadlines",
   description:

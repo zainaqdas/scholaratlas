@@ -7,7 +7,7 @@ import { ScholarshipCard } from "@/components/scholarship/scholarship-card";
 import { Pagination } from "@/components/pagination";
 import { EmptyState } from "@/components/empty-state";
 import { SavedStateProvider } from "@/components/saved-state";
-import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
+import { dbCached } from "@/lib/search";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
@@ -45,17 +45,20 @@ export default async function ContestsPage({ searchParams }: PageProps) {
     page,
   });
 
-  const counts = await cachedData(
-    ["contest-counts-v1"],
+  // Persisted in the Turso cache — unstable_cache does NOT survive across
+  // requests/ISR regenerations on Vercel, so without this every re-render
+  // re-ran the two counts. 7d TTL: contests only change on the weekly re-crawl.
+  const counts = await dbCached(
+    "contest-counts-v2",
+    7 * 24 * 60 * 60 * 1000,
     async () => {
       const [active, expired] = await Promise.all([
         prisma.scholarship.count({ where: { recordType: "CONTEST", status: "ACTIVE" } }),
         prisma.scholarship.count({ where: { recordType: "CONTEST", status: "EXPIRED" } }),
       ]);
       return { active, expired };
-    },
-    CATALOGUE_TTL
-  )();
+    }
+  );
 
   const statusChip = (value: string, label: string, count?: number) => {
     const active = status === value;

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { searchSuggestions } from "@/lib/search";
+import { searchSuggestions } from "@/lib/suggest";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

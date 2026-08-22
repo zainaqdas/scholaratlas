@@ -3,7 +3,12 @@ import Link from "next/link";
 import { Globe2 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { COUNTRIES } from "@/lib/constants";
-import { CATALOGUE_TTL, cachedData } from "@/lib/data-cache";
+import { dbCached } from "@/lib/search";
+
+// 7-day TTL — counts only change on the weekly re-crawl. Persisted in the Turso
+// cache (unstable_cache does NOT survive between Vercel builds, so every build
+// used to re-scan all ~24k rows here).
+const COUNTRY_COUNTS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 export const metadata: Metadata = {
   title: "Explore Scholarships by Country",
@@ -16,9 +21,11 @@ export const metadata: Metadata = {
 // scanned per view and tallied in JS, because a record can belong to several
 // countries via hostCountries (e.g. SEARCA → ID/MY/TH/PH). Counts only change
 // on the weekly re-crawl, so they're cached across requests.
-const getCountryCounts = cachedData(
-  ["country-counts-v4"],
-  async () => {
+const getCountryCounts = () =>
+  dbCached(
+    "country-counts-v5",
+    COUNTRY_COUNTS_TTL_MS,
+    async () => {
     const [scholarships, unis, globalCount, globalFF] = await Promise.all([
       prisma.scholarship.findMany({
         where: { status: "ACTIVE", recordType: "SCHOLARSHIP" },
@@ -55,9 +62,9 @@ const getCountryCounts = cachedData(
       }
     }
 
-    // Plain arrays only — unstable_cache JSON-serializes the return value, so
-    // Map objects would silently become {} and crash the page. Maps are rebuilt
-    // at the call site.
+    // Plain arrays only — the cache JSON-serializes the return value, so Map
+    // objects would silently become {} and crash the page. Maps are rebuilt at
+    // the call site.
     return {
       countRows: [...counts.entries()],
       ffRows: [...ffCounts.entries()],
@@ -65,9 +72,8 @@ const getCountryCounts = cachedData(
       globalCount,
       globalFF,
     };
-  },
-  CATALOGUE_TTL
-);
+    }
+  );
 
 export default async function CountriesPage() {
   const { countRows, ffRows, uniRows, globalCount, globalFF } = await getCountryCounts();

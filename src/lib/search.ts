@@ -44,9 +44,13 @@ function whereCacheKey(where: Prisma.ScholarshipWhereInput): string {
 // most once per TTL per key. The catalogue only changes when deadlines pass or
 // the weekly re-crawl lands, so these TTLs are invisible in practice.
 
-const PLAN_TTL_MS = 6 * 60 * 60 * 1000; // list pages: deadlines are the only drift
-const SEARCH_TTL_MS = 5 * 60 * 1000; // ranked search plans (funding / relevance)
-const SUGGEST_TTL_MS = 60 * 1000; // per-keystroke suggestions
+// The catalogue is static between weekly re-crawls — deadlines are the only
+// drift, and the daily hygiene cron flips expired records. Long TTLs mean a
+// cold compute (a full ~24k-row scan) happens at most once per week per filter
+// set instead of several times a day. Page fetches (12 rows by PK) still run
+// per request — that's ~36 row-reads, the floor for serving a page.
+const PLAN_TTL_MS = 7 * 24 * 60 * 60 * 1000; // list plans
+const SEARCH_TTL_MS = 24 * 60 * 60 * 1000; // ranked search plans (funding / relevance)
 
 export async function dbCached<T>(key: string, ttlMs: number, compute: () => Promise<T>): Promise<T> {
   const rows = await prisma.$queryRaw<{ valueJson: string }[]>`
@@ -443,8 +447,13 @@ export interface HighlightSections {
   closingSoon: Scholarship[];
 }
 
+// "Closing soon" is deadline-driven, so highlight sections refresh daily
+// (1 cold compute/day ≈ 23k reads) instead of the 7d catalogue TTL — keeps the
+// section honest without letting deadlines linger for a week.
+const HIGHLIGHT_TTL_MS = 24 * 60 * 60 * 1000;
+
 export function cachedHighlightSections(): Promise<HighlightSections> {
-  return dbCached("highlight-sections-v1", PLAN_TTL_MS, async () => {
+  return dbCached("highlight-sections-v2", HIGHLIGHT_TTL_MS, async () => {
     const open = { status: "ACTIVE", recordType: "SCHOLARSHIP" as const };
     const [featured, trending, closingSoon] = await Promise.all([
       prisma.scholarship.findMany({
@@ -502,65 +511,9 @@ export function cachedHighlightSections(): Promise<HighlightSections> {
   });
 }
 
-// Lightweight suggestion lookup used by the search box. Every keystroke fires
-// a request here, and %term% LIKE scans read the full table (~25k rows × 4
-// tables) — so results are cached for 60s per query string (DB-backed; see
-// dbCached above).
-export async function searchSuggestions(q: string, limit = 5) {
-  const query = q.trim().toLowerCase();
-  if (!query) {
-    return { scholarships: [], universities: [], countries: [], fields: [], articles: [] };
-  }
-  return dbCached(
-    `suggest-${createHash("sha1").update(query).digest("hex").slice(0, 12)}-${limit}`,
-    SUGGEST_TTL_MS,
-    async () => {
-      const [scholarships, universities, countries, articles] = await Promise.all([
-        prisma.scholarship.findMany({
-          where: {
-            status: "ACTIVE",
-            recordType: "SCHOLARSHIP", // never suggest JOB listings (EURAXESS positions)
-            OR: [
-              { title: { contains: query } },
-              { provider: { contains: query } },
-            ],
-          },
-          include: { country: true },
-          take: limit,
-          orderBy: { views: "desc" },
-        }),
-        prisma.university.findMany({
-          where: { name: { contains: query } },
-          include: { country: true },
-          take: limit,
-        }),
-        prisma.country.findMany({
-          where: { name: { contains: query } },
-          take: limit,
-        }),
-        prisma.article.findMany({
-          where: {
-            OR: [
-              { title: { contains: query } },
-              { category: { contains: query } },
-            ],
-          },
-          take: limit,
-        }),
-      ]);
-
-      // Fields are static — filter client-side data (groups + leaves, so typing
-      // "health" surfaces the Medicine & Health category too)
-      const { FIELDS, FIELD_GROUPS } = await import("./constants");
-      const fields = [...FIELD_GROUPS, ...FIELDS]
-        .map((f) => ({ slug: f.slug, name: f.name }))
-        .filter((f) => f.name.toLowerCase().includes(query))
-        .slice(0, limit);
-
-      return { scholarships, universities, countries, fields, articles };
-    }
-  );
-}
+// NOTE: searchSuggestions now lives in src/lib/suggest.ts, backed by the
+// build-time generated search index (src/lib/search-index.generated.json) so
+// keystroke autocomplete costs ZERO Turso reads. See scripts/build-search-index.ts.
 
 // Convenience for building URL query strings from filters (shareable filters).
 export function buildSearchUrl(filters: SearchFilters): string {
